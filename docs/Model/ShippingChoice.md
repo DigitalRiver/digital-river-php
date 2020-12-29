@@ -1,0 +1,13 @@
+# # ShippingChoice
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**currency** | **string** | Three-letter ISO currency code. | 
+**amount** | **double** |  | 
+**service_level** | **string** |  | 
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+
+
