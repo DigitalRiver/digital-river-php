@@ -25,7 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * Shipping Class Doc Comment
  *
  * @category Class
- * @description Customer shipping information.
+ * @description The ship to addresss of the customer.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -47,7 +47,12 @@ class Shipping implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'address' => '\DigitalRiver\ApiSdk\Model\Address'
+        'address' => '\DigitalRiver\ApiSdk\Model\Address',
+        'name' => 'string',
+        'phone' => 'string',
+        'email' => 'string',
+        'organization' => 'string',
+        'additional_address_info' => '\DigitalRiver\ApiSdk\Model\AdditionalAddressInfo'
     ];
 
     /**
@@ -56,7 +61,12 @@ class Shipping implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'address' => null
+        'address' => null,
+        'name' => null,
+        'phone' => null,
+        'email' => 'email',
+        'organization' => null,
+        'additional_address_info' => null
     ];
 
     /**
@@ -86,7 +96,12 @@ class Shipping implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'address' => 'address'
+        'address' => 'address',
+        'name' => 'name',
+        'phone' => 'phone',
+        'email' => 'email',
+        'organization' => 'organization',
+        'additional_address_info' => 'additionalAddressInfo'
     ];
 
     /**
@@ -95,7 +110,12 @@ class Shipping implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'address' => 'setAddress'
+        'address' => 'setAddress',
+        'name' => 'setName',
+        'phone' => 'setPhone',
+        'email' => 'setEmail',
+        'organization' => 'setOrganization',
+        'additional_address_info' => 'setAdditionalAddressInfo'
     ];
 
     /**
@@ -104,7 +124,12 @@ class Shipping implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'address' => 'getAddress'
+        'address' => 'getAddress',
+        'name' => 'getName',
+        'phone' => 'getPhone',
+        'email' => 'getEmail',
+        'organization' => 'getOrganization',
+        'additional_address_info' => 'getAdditionalAddressInfo'
     ];
 
     /**
@@ -168,6 +193,11 @@ class Shipping implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['organization'] = isset($data['organization']) ? $data['organization'] : null;
+        $this->container['additional_address_info'] = isset($data['additional_address_info']) ? $data['additional_address_info'] : null;
     }
 
     /**
@@ -179,9 +209,6 @@ class Shipping implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['address'] === null) {
-            $invalidProperties[] = "'address' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -200,7 +227,7 @@ class Shipping implements ModelInterface, ArrayAccess
     /**
      * Gets address
      *
-     * @return \DigitalRiver\ApiSdk\Model\Address
+     * @return \DigitalRiver\ApiSdk\Model\Address|null
      */
     public function getAddress()
     {
@@ -210,13 +237,133 @@ class Shipping implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param \DigitalRiver\ApiSdk\Model\Address $address address
+     * @param \DigitalRiver\ApiSdk\Model\Address|null $address address
      *
      * @return $this
      */
     public function setAddress($address)
     {
         $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name The customer's name.
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone
+     *
+     * @return string|null
+     */
+    public function getPhone()
+    {
+        return $this->container['phone'];
+    }
+
+    /**
+     * Sets phone
+     *
+     * @param string|null $phone The customer's phone number.
+     *
+     * @return $this
+     */
+    public function setPhone($phone)
+    {
+        $this->container['phone'] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string|null
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string|null $email The customer's email address.
+     *
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets organization
+     *
+     * @return string|null
+     */
+    public function getOrganization()
+    {
+        return $this->container['organization'];
+    }
+
+    /**
+     * Sets organization
+     *
+     * @param string|null $organization The customer's organization.
+     *
+     * @return $this
+     */
+    public function setOrganization($organization)
+    {
+        $this->container['organization'] = $organization;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_address_info
+     *
+     * @return \DigitalRiver\ApiSdk\Model\AdditionalAddressInfo|null
+     */
+    public function getAdditionalAddressInfo()
+    {
+        return $this->container['additional_address_info'];
+    }
+
+    /**
+     * Sets additional_address_info
+     *
+     * @param \DigitalRiver\ApiSdk\Model\AdditionalAddressInfo|null $additional_address_info additional_address_info
+     *
+     * @return $this
+     */
+    public function setAdditionalAddressInfo($additional_address_info)
+    {
+        $this->container['additional_address_info'] = $additional_address_info;
 
         return $this;
     }

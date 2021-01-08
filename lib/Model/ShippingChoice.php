@@ -25,6 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * ShippingChoice Class Doc Comment
  *
  * @category Class
+ * @description Represents the [shipping amount, description,  taxes, and service level](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/shipping-choice).
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -46,8 +47,9 @@ class ShippingChoice implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency' => 'string',
         'amount' => 'double',
+        'tax_amount' => 'double',
+        'description' => 'string',
         'service_level' => 'string'
     ];
 
@@ -57,8 +59,9 @@ class ShippingChoice implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency' => null,
         'amount' => 'double',
+        'tax_amount' => 'double',
+        'description' => null,
         'service_level' => null
     ];
 
@@ -89,8 +92,9 @@ class ShippingChoice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency' => 'currency',
         'amount' => 'amount',
+        'tax_amount' => 'taxAmount',
+        'description' => 'description',
         'service_level' => 'serviceLevel'
     ];
 
@@ -100,8 +104,9 @@ class ShippingChoice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency' => 'setCurrency',
         'amount' => 'setAmount',
+        'tax_amount' => 'setTaxAmount',
+        'description' => 'setDescription',
         'service_level' => 'setServiceLevel'
     ];
 
@@ -111,8 +116,9 @@ class ShippingChoice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency' => 'getCurrency',
         'amount' => 'getAmount',
+        'tax_amount' => 'getTaxAmount',
+        'description' => 'getDescription',
         'service_level' => 'getServiceLevel'
     ];
 
@@ -157,24 +163,8 @@ class ShippingChoice implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const SERVICE_LEVEL_SG = 'SG';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getServiceLevelAllowableValues()
-    {
-       $allowable = [
-            self::SERVICE_LEVEL_SG,
-        ];
-
-        $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
-        return $allowableAllCase;
-    }
     
 
     /**
@@ -192,8 +182,9 @@ class ShippingChoice implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['tax_amount'] = isset($data['tax_amount']) ? $data['tax_amount'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['service_level'] = isset($data['service_level']) ? $data['service_level'] : null;
     }
 
@@ -205,24 +196,6 @@ class ShippingChoice implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
-        if ($this->container['service_level'] === null) {
-            $invalidProperties[] = "'service_level' can't be null";
-        }
-        $allowedValues = $this->getServiceLevelAllowableValues();
-       
-        if (!is_null($this->container['service_level']) && !in_array(strtolower($this->container['service_level']), $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'service_level', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -240,33 +213,9 @@ class ShippingChoice implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency
-     *
-     * @return string
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string $currency Three-letter ISO currency code.
-     *
-     * @return $this
-     */
-    public function setCurrency($currency)
-    {
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
      * Gets amount
      *
-     * @return double
+     * @return double|null
      */
     public function getAmount()
     {
@@ -276,7 +225,7 @@ class ShippingChoice implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param double $amount amount
+     * @param double|null $amount The shipping amount.
      *
      * @return $this
      */
@@ -288,9 +237,57 @@ class ShippingChoice implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets tax_amount
+     *
+     * @return double|null
+     */
+    public function getTaxAmount()
+    {
+        return $this->container['tax_amount'];
+    }
+
+    /**
+     * Sets tax_amount
+     *
+     * @param double|null $tax_amount The shipping taxable amount.
+     *
+     * @return $this
+     */
+    public function setTaxAmount($tax_amount)
+    {
+        $this->container['tax_amount'] = $tax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description A description of the shipping choice.
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
      * Gets service_level
      *
-     * @return string
+     * @return string|null
      */
     public function getServiceLevel()
     {
@@ -300,21 +297,12 @@ class ShippingChoice implements ModelInterface, ArrayAccess
     /**
      * Sets service_level
      *
-     * @param string $service_level service_level
+     * @param string|null $service_level A [shipping code](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/shipping-choice#service-level-values) that represents the service level.
      *
      * @return $this
      */
     public function setServiceLevel($service_level)
     {
-        $allowedValues = $this->getServiceLevelAllowableValues();
-        if (!in_array(strtolower($service_level), $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'service_level', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['service_level'] = $service_level;
 
         return $this;

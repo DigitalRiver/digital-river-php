@@ -385,7 +385,7 @@ class Configuration
         $report  = 'PHP SDK (DigitalRiver\ApiSdk) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    The version of the OpenAPI document: 2020' . PHP_EOL;
+        $report .= '    The version of the OpenAPI document: 2021' . PHP_EOL;
         $report .= '    SDK Package Version: 1.0.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
@@ -462,28 +462,12 @@ class Configuration
                 "description" => "No description provided",
             ],
             [
-                "url" => "https://virtserver.swaggerhub.com/pwehr/FulfillmentCancellations/1.0.0",
-                "description" => "SwaggerHub API Auto Mocking",
-            ],
-            [
-                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/Shipments/1.0.0",
-                "description" => "SwaggerHub API Auto Mocking",
-            ],
-            [
                 "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
                 "description" => "No description provided",
             ],
             [
-                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/GlobalFulfillmentOrders/master",
-                "description" => "SwaggerHub API Auto Mocking",
-            ],
-            [
-                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/InventoryItems/master",
-                "description" => "SwaggerHub API Auto Mocking",
-            ],
-            [
-                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/InventoryLevels/master",
-                "description" => "SwaggerHub API Auto Mocking",
+                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
+                "description" => "No description provided",
             ],
             [
                 "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
@@ -502,28 +486,12 @@ class Configuration
                 "description" => "No description provided",
             ],
             [
-                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/Reservations/master",
-                "description" => "SwaggerHub API Auto Mocking",
-            ],
-            [
                 "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
                 "description" => "No description provided",
             ],
             [
                 "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
                 "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/Shipments/master",
-                "description" => "SwaggerHub API Auto Mocking",
-            ],
-            [
-                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/ShippingQuotes/master",
-                "description" => "SwaggerHub API Auto Mocking",
             ],
             [
                 "url" => "/",

@@ -127,7 +127,7 @@ class InvoicesApi
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \DigitalRiver\ApiSdk\Model\InlineResponse2003|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
+     * @return \DigitalRiver\ApiSdk\Model\InlineResponse200|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
     public function callList($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $total_amount = null, $customer_id = null, $application_id = null, $currency = null, $state = null, $sku_id = null, $price = null, $attempt_count = null)
     {
@@ -158,7 +158,7 @@ class InvoicesApi
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \DigitalRiver\ApiSdk\Model\InlineResponse2003|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalRiver\ApiSdk\Model\InlineResponse200|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
     public function callListWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $total_amount = null, $customer_id = null, $application_id = null, $currency = null, $state = null, $sku_id = null, $price = null, $attempt_count = null)
     {
@@ -195,14 +195,14 @@ class InvoicesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\DigitalRiver\ApiSdk\Model\InlineResponse2003' === '\SplFileObject') {
+                    if ('\DigitalRiver\ApiSdk\Model\InlineResponse200' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\InlineResponse2003', []),
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\InlineResponse200', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -340,7 +340,7 @@ class InvoicesApi
                     ];
             }
 
-            $returnType = '\DigitalRiver\ApiSdk\Model\InlineResponse2003';
+            $returnType = '\DigitalRiver\ApiSdk\Model\InlineResponse200';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -359,7 +359,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\InlineResponse2003',
+                        '\DigitalRiver\ApiSdk\Model\InlineResponse200',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -517,7 +517,7 @@ class InvoicesApi
      */
     public function callListAsyncWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $total_amount = null, $customer_id = null, $application_id = null, $currency = null, $state = null, $sku_id = null, $price = null, $attempt_count = null)
     {
-        $returnType = '\DigitalRiver\ApiSdk\Model\InlineResponse2003';
+        $returnType = '\DigitalRiver\ApiSdk\Model\InlineResponse200';
         $request = $this->callListRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $total_amount, $customer_id, $application_id, $currency, $state, $sku_id, $price, $attempt_count);
 
         return $this->client

@@ -35,7 +35,7 @@ $apiInstance = new DigitalRiver\ApiSdk\Api\CountrySpecificationsApi(
 );
 $country = 'country_example'; // string | Represents the expected billing or ship to country of the customer.
 
-$selling_entity = 'selling_entity_example'; // string | Represents the [selling entity](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/checkouts/selling-entities) assigned to the order.
+$selling_entity = 'selling_entity_example'; // string | Represents the [selling entity](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/selling-entities) assigned to the order.
 
 
 try {
@@ -53,7 +53,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **country** | **string**| Represents the expected billing or ship to country of the customer. |
- **selling_entity** | **string**| Represents the [selling entity](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/checkouts/selling-entities) assigned to the order. |
+ **selling_entity** | **string**| Represents the [selling entity](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/selling-entities) assigned to the order. |
 
 ### Return type
 

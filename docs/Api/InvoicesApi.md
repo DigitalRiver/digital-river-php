@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## callList
 
-> \DigitalRiver\ApiSdk\Model\InlineResponse2003 callList($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $total_amount, $customer_id, $application_id, $currency, $state, $sku_id, $price, $attempt_count)
+> \DigitalRiver\ApiSdk\Model\InlineResponse200 callList($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $total_amount, $customer_id, $application_id, $currency, $state, $sku_id, $price, $attempt_count)
 
 Returns a list of invoices
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\DigitalRiver\ApiSdk\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\DigitalRiver\ApiSdk\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 

@@ -272,7 +272,7 @@ class CountrySpecification implements ModelInterface, ArrayAccess
     /**
      * Sets selling_entity
      *
-     * @param string|null $selling_entity A Digital River [selling entity](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/checkouts/selling-entities).
+     * @param string|null $selling_entity A Digital River [selling entity](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/selling-entities).
      *
      * @return $this
      */
