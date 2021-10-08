@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **item_id** | **string** | The identifier of the item. | [optional] [readonly] 
-**sku_id** | **string** | The identifier of the sku. | [optional] [readonly] 
+**sku_id** | **string** | The identifier of the SKU. | [optional] [readonly] 
 **amount** | **double** |  | [optional] [readonly] 
 **quantity** | **int** |  | [optional] [readonly] 
 **quantity_accepted** | **int** |  | [optional] [readonly] 

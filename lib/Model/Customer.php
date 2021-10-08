@@ -52,10 +52,10 @@ class Customer implements ModelInterface, ArrayAccess
         'shipping' => '\DigitalRiver\ApiSdk\Model\Shipping',
         'default_source_id' => 'string',
         'sources' => '\DigitalRiver\ApiSdk\Model\Source[]',
-        'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\TaxIdentifier[]',
+        'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\CustomerTaxIdentifier[]',
         'tax_certificates' => '\DigitalRiver\ApiSdk\Model\TaxCertificate[]',
         'request_to_be_forgotten' => 'bool',
-        'type' => '\DigitalRiver\ApiSdk\Model\CustomerType',
+        'type' => '\DigitalRiver\ApiSdk\Model\CustomerType1',
         'metadata' => 'map[string,AnyType]',
         'locale' => 'string',
         'enabled' => 'bool',
@@ -386,7 +386,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets default_source_id
      *
-     * @param string|null $default_source_id The identifier of the [default payment source](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/payment-sources/using-the-source-identifier#switching-the-default-payment-source) attached to this customer.
+     * @param string|null $default_source_id The identifier of the default payment source attached to this customer.
      *
      * @return $this
      */
@@ -410,7 +410,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets sources
      *
-     * @param \DigitalRiver\ApiSdk\Model\Source[]|null $sources An array of [Source objects attached to this Customer](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/payment-sources/retrieving-sources#obtain-a-customers-sources).
+     * @param \DigitalRiver\ApiSdk\Model\Source[]|null $sources An array of Source objects attached to this Customer.
      *
      * @return $this
      */
@@ -424,7 +424,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets tax_identifiers
      *
-     * @return \DigitalRiver\ApiSdk\Model\TaxIdentifier[]|null
+     * @return \DigitalRiver\ApiSdk\Model\CustomerTaxIdentifier[]|null
      */
     public function getTaxIdentifiers()
     {
@@ -434,7 +434,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets tax_identifiers
      *
-     * @param \DigitalRiver\ApiSdk\Model\TaxIdentifier[]|null $tax_identifiers A list of [tax identifiers](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/customers/setting-tax-related-attributes#tax-identifiers) for this customer.
+     * @param \DigitalRiver\ApiSdk\Model\CustomerTaxIdentifier[]|null $tax_identifiers A list of [tax identifiers](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/customers/setting-tax-related-attributes#tax-identifiers) for this customer.
      *
      * @return $this
      */
@@ -458,7 +458,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets tax_certificates
      *
-     * @param \DigitalRiver\ApiSdk\Model\TaxCertificate[]|null $tax_certificates A list of [tax certificates](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/customers/setting-tax-related-attributes#tax-certificates) for this customer.
+     * @param \DigitalRiver\ApiSdk\Model\TaxCertificate[]|null $tax_certificates A list of tax certificates for this customer.
      *
      * @return $this
      */
@@ -482,7 +482,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets request_to_be_forgotten
      *
-     * @param bool|null $request_to_be_forgotten If true, indicates this customer has [requested to be forgotten](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/customers/recording-a-request-to-be-forgotten).
+     * @param bool|null $request_to_be_forgotten If true, indicates this customer has requested to be forgotten.
      *
      * @return $this
      */
@@ -496,7 +496,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets type
      *
-     * @return \DigitalRiver\ApiSdk\Model\CustomerType|null
+     * @return \DigitalRiver\ApiSdk\Model\CustomerType1|null
      */
     public function getType()
     {
@@ -506,7 +506,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param \DigitalRiver\ApiSdk\Model\CustomerType|null $type type
+     * @param \DigitalRiver\ApiSdk\Model\CustomerType1|null $type type
      *
      * @return $this
      */
@@ -554,7 +554,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets locale
      *
-     * @param string|null $locale A [locale designator](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/checkouts/creating-checkouts/designating-a-locale) that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code.
+     * @param string|null $locale A locale designator that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code.
      *
      * @return $this
      */

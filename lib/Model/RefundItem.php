@@ -180,7 +180,6 @@ class RefundItem implements ModelInterface, ArrayAccess
     const TYPE_SHIPPING = 'shipping';
     const TYPE_FEES = 'fees';
     const TYPE_DUTY = 'duty';
-    const TYPE_TAX = 'tax';
     
 
     
@@ -195,7 +194,6 @@ class RefundItem implements ModelInterface, ArrayAccess
             self::TYPE_SHIPPING,
             self::TYPE_FEES,
             self::TYPE_DUTY,
-            self::TYPE_TAX,
         ];
 
         $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
@@ -273,7 +271,7 @@ class RefundItem implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type The type of the item.
+     * @param string|null $type The type of refund.
      *
      * @return $this
      */
@@ -306,7 +304,7 @@ class RefundItem implements ModelInterface, ArrayAccess
     /**
      * Sets item_id
      *
-     * @param string|null $item_id item_id
+     * @param string|null $item_id The identifier of the item.
      *
      * @return $this
      */
@@ -330,7 +328,7 @@ class RefundItem implements ModelInterface, ArrayAccess
     /**
      * Sets sku_id
      *
-     * @param string|null $sku_id The identifier of the specific product variation, taking into account any combination of attributes, currency and cost. For example,a product may be a t-shirt whereas a specific product variation represents the size large and color red version of that shirt.
+     * @param string|null $sku_id The identifier of the SKU.
      *
      * @return $this
      */
@@ -354,7 +352,7 @@ class RefundItem implements ModelInterface, ArrayAccess
     /**
      * Sets quantity
      *
-     * @param int|null $quantity quantity
+     * @param int|null $quantity The number of returned items.
      *
      * @return $this
      */
@@ -378,7 +376,7 @@ class RefundItem implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param double|null $amount amount
+     * @param double|null $amount The requested refund amount.
      *
      * @return $this
      */
@@ -402,7 +400,7 @@ class RefundItem implements ModelInterface, ArrayAccess
     /**
      * Sets percent
      *
-     * @param double|null $percent percent
+     * @param double|null $percent The requested refund percent.
      *
      * @return $this
      */
@@ -426,7 +424,7 @@ class RefundItem implements ModelInterface, ArrayAccess
     /**
      * Sets refunded_amount
      *
-     * @param double|null $refunded_amount refunded_amount
+     * @param double|null $refunded_amount The total amount refunded.
      *
      * @return $this
      */

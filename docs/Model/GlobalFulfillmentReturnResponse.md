@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | Unique identifier for the return | [optional] [readonly] 
-**created_time** | [**\DateTime**](\DateTime.md) | Time at which the return was created | [optional] [readonly] 
-**fulfillment_order_id** | **string** | Unique identifier for the fulfillment order | [optional] [readonly] 
-**upstream_id** | **string** | Upstream identifier of the return | [optional] [readonly] 
+**id** | **string** | The unique identifier for the fulfillment return. | [optional] [readonly] 
+**created_time** | [**\DateTime**](\DateTime.md) | The time when the fulfillment return was created. | [optional] [readonly] 
+**fulfillment_order_id** | **string** | The unique identifier of the fulfillment order associated with the fulfillment return. | [optional] [readonly] 
+**upstream_id** | **string** | The unique identifier of the upstream order. | [optional] [readonly] 
 **items** | [**\DigitalRiver\ApiSdk\Model\GlobalFulfillmentReturnItemResponse[]**](GlobalFulfillmentReturnItemResponse.md) |  | [optional] 
-**reason** | **string** | String indicating the reason for the return. | [optional] 
-**state** | **string** | Enumeration indicating the state of the return. | [optional] 
-**type** | **string** | Enumeration indicating the type of return. | [optional] 
+**reason** | **string** | The reason for the return. | [optional] 
+**state** | **string** | An enumeration indicating the state of the fulfillment return. | [optional] 
+**type** | **string** | An enumeration indicating the type of the fulfillment return. | [optional] 
 **location** | [**\DigitalRiver\ApiSdk\Model\Location**](Location.md) |  | [optional] 
 **livemode** | **bool** | Has the value true if the object exists in live mode or the value false if the object exists in test mode. | [optional] 
 

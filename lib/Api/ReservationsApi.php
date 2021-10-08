@@ -105,7 +105,7 @@ class ReservationsApi
     }
 
     /**
-     * Operation create
+     * Operation createReservations
      *
      * Create a reservation
      *
@@ -115,14 +115,14 @@ class ReservationsApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\Reservation|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function create($reservation_request = null)
+    public function createReservations($reservation_request = null)
     {
-        list($response) = $this->createWithHttpInfo($reservation_request);
+        list($response) = $this->createReservationsWithHttpInfo($reservation_request);
         return $response;
     }
 
     /**
-     * Operation createWithHttpInfo
+     * Operation createReservationsWithHttpInfo
      *
      * Create a reservation
      *
@@ -132,9 +132,9 @@ class ReservationsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\Reservation|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createWithHttpInfo($reservation_request = null)
+    public function createReservationsWithHttpInfo($reservation_request = null)
     {
-        $request = $this->createRequest($reservation_request);
+        $request = $this->createReservationsRequest($reservation_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -450,7 +450,7 @@ class ReservationsApi
     }
 
     /**
-     * Operation createAsync
+     * Operation createReservationsAsync
      *
      * Create a reservation
      *
@@ -459,9 +459,9 @@ class ReservationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAsync($reservation_request = null)
+    public function createReservationsAsync($reservation_request = null)
     {
-        return $this->createAsyncWithHttpInfo($reservation_request)
+        return $this->createReservationsAsyncWithHttpInfo($reservation_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -470,7 +470,7 @@ class ReservationsApi
     }
 
     /**
-     * Operation createAsyncWithHttpInfo
+     * Operation createReservationsAsyncWithHttpInfo
      *
      * Create a reservation
      *
@@ -479,10 +479,10 @@ class ReservationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAsyncWithHttpInfo($reservation_request = null)
+    public function createReservationsAsyncWithHttpInfo($reservation_request = null)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\Reservation';
-        $request = $this->createRequest($reservation_request);
+        $request = $this->createReservationsRequest($reservation_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -519,14 +519,14 @@ class ReservationsApi
     }
 
     /**
-     * Create request for operation 'create'
+     * Create request for operation 'createReservations'
      *
      * @param  \DigitalRiver\ApiSdk\Model\ReservationRequest $reservation_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createRequest($reservation_request = null)
+    protected function createReservationsRequest($reservation_request = null)
     {
 
         $resourcePath = '/reservations';
@@ -612,7 +612,7 @@ class ReservationsApi
     }
 
     /**
-     * Operation delete
+     * Operation deleteReservations
      *
      * Cancels a reservation by ID.
      *
@@ -622,13 +622,13 @@ class ReservationsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function delete($id)
+    public function deleteReservations($id)
     {
-        $this->deleteWithHttpInfo($id);
+        $this->deleteReservationsWithHttpInfo($id);
     }
 
     /**
-     * Operation deleteWithHttpInfo
+     * Operation deleteReservationsWithHttpInfo
      *
      * Cancels a reservation by ID.
      *
@@ -638,9 +638,9 @@ class ReservationsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteWithHttpInfo($id)
+    public function deleteReservationsWithHttpInfo($id)
     {
-        $request = $this->deleteRequest($id);
+        $request = $this->deleteReservationsRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -784,7 +784,7 @@ class ReservationsApi
     }
 
     /**
-     * Operation deleteAsync
+     * Operation deleteReservationsAsync
      *
      * Cancels a reservation by ID.
      *
@@ -793,9 +793,9 @@ class ReservationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAsync($id)
+    public function deleteReservationsAsync($id)
     {
-        return $this->deleteAsyncWithHttpInfo($id)
+        return $this->deleteReservationsAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -804,7 +804,7 @@ class ReservationsApi
     }
 
     /**
-     * Operation deleteAsyncWithHttpInfo
+     * Operation deleteReservationsAsyncWithHttpInfo
      *
      * Cancels a reservation by ID.
      *
@@ -813,10 +813,10 @@ class ReservationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAsyncWithHttpInfo($id)
+    public function deleteReservationsAsyncWithHttpInfo($id)
     {
         $returnType = '';
-        $request = $this->deleteRequest($id);
+        $request = $this->deleteReservationsRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -842,19 +842,19 @@ class ReservationsApi
     }
 
     /**
-     * Create request for operation 'delete'
+     * Create request for operation 'deleteReservations'
      *
      * @param  string $id Reservation identifier (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteRequest($id)
+    protected function deleteReservationsRequest($id)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling delete'
+                'Missing the required parameter $id when calling deleteReservations'
             );
         }
 

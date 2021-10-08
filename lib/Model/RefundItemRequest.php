@@ -237,8 +237,8 @@ class RefundItemRequest implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['sku_id'] === null) {
-            $invalidProperties[] = "'sku_id' can't be null";
+        if ($this->container['item_id'] === null) {
+            $invalidProperties[] = "'item_id' can't be null";
         }
         if (!is_null($this->container['amount']) && ($this->container['amount'] < 0.0)) {
             $invalidProperties[] = "invalid value for 'amount', must be bigger than or equal to 0.0.";
@@ -280,7 +280,7 @@ class RefundItemRequest implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type The type of the item.
+     * @param string|null $type The type of the refund.
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class RefundItemRequest implements ModelInterface, ArrayAccess
     /**
      * Gets item_id
      *
-     * @return string|null
+     * @return string
      */
     public function getItemId()
     {
@@ -313,7 +313,7 @@ class RefundItemRequest implements ModelInterface, ArrayAccess
     /**
      * Sets item_id
      *
-     * @param string|null $item_id item_id
+     * @param string $item_id The identifier of the item.
      *
      * @return $this
      */
@@ -327,7 +327,7 @@ class RefundItemRequest implements ModelInterface, ArrayAccess
     /**
      * Gets sku_id
      *
-     * @return string
+     * @return string|null
      */
     public function getSkuId()
     {
@@ -337,7 +337,7 @@ class RefundItemRequest implements ModelInterface, ArrayAccess
     /**
      * Sets sku_id
      *
-     * @param string $sku_id The identifier of the specific product variation, taking into account any combination of attributes, currency and cost. For example,a product may be a t-shirt whereas a specific product variation represents the size large and color red version of that shirt.
+     * @param string|null $sku_id The identifier of the SKU.
      *
      * @return $this
      */
@@ -361,7 +361,7 @@ class RefundItemRequest implements ModelInterface, ArrayAccess
     /**
      * Sets quantity
      *
-     * @param int|null $quantity quantity
+     * @param int|null $quantity The number of items to refund.
      *
      * @return $this
      */
@@ -385,7 +385,7 @@ class RefundItemRequest implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param double|null $amount One of amount, percent is required.
+     * @param double|null $amount The amount to refund. You are required to provide this value or <code>items[].percent</code>.
      *
      * @return $this
      */
@@ -414,7 +414,7 @@ class RefundItemRequest implements ModelInterface, ArrayAccess
     /**
      * Sets percent
      *
-     * @param double|null $percent One of amount, percent is required.
+     * @param double|null $percent The percent to refund. You are required to provide this value or <code>items[].amount</code>.
      *
      * @return $this
      */

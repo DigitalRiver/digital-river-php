@@ -318,7 +318,7 @@ class GlobalFulfillmentReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier for the return
+     * @param string|null $id The unique identifier for the fulfillment return.
      *
      * @return $this
      */
@@ -342,7 +342,7 @@ class GlobalFulfillmentReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets created_time
      *
-     * @param \DateTime|null $created_time Time at which the return was created
+     * @param \DateTime|null $created_time The time when the fulfillment return was created.
      *
      * @return $this
      */
@@ -366,7 +366,7 @@ class GlobalFulfillmentReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets fulfillment_order_id
      *
-     * @param string|null $fulfillment_order_id Unique identifier for the fulfillment order
+     * @param string|null $fulfillment_order_id The unique identifier of the fulfillment order associated with the fulfillment return.
      *
      * @return $this
      */
@@ -390,7 +390,7 @@ class GlobalFulfillmentReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets upstream_id
      *
-     * @param string|null $upstream_id Upstream identifier of the return
+     * @param string|null $upstream_id The unique identifier of the upstream order.
      *
      * @return $this
      */
@@ -438,7 +438,7 @@ class GlobalFulfillmentReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets reason
      *
-     * @param string|null $reason String indicating the reason for the return.
+     * @param string|null $reason The reason for the return.
      *
      * @return $this
      */
@@ -462,7 +462,7 @@ class GlobalFulfillmentReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string|null $state Enumeration indicating the state of the return.
+     * @param string|null $state An enumeration indicating the state of the fulfillment return.
      *
      * @return $this
      */
@@ -495,7 +495,7 @@ class GlobalFulfillmentReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Enumeration indicating the type of return.
+     * @param string|null $type An enumeration indicating the type of the fulfillment return.
      *
      * @return $this
      */

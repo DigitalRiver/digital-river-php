@@ -188,7 +188,6 @@ class RefundRequest implements ModelInterface, ArrayAccess
     }
 
     const TYPE_SHIPPING = 'shipping';
-    const TYPE_FEES = 'fees';
     const TYPE_DUTY = 'duty';
     const TYPE_TAX = 'tax';
     const TYPE_IMPORTER_TAX = 'importer_tax';
@@ -204,7 +203,6 @@ class RefundRequest implements ModelInterface, ArrayAccess
     {
        $allowable = [
             self::TYPE_SHIPPING,
-            self::TYPE_FEES,
             self::TYPE_DUTY,
             self::TYPE_TAX,
             self::TYPE_IMPORTER_TAX,
@@ -374,7 +372,7 @@ class RefundRequest implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param double|null $amount One of amount, percent or items is required.
+     * @param double|null $amount The amount to refund. You are required to provide this value, <code>percent</code>, or <code>items</code>.
      *
      * @return $this
      */
@@ -398,7 +396,7 @@ class RefundRequest implements ModelInterface, ArrayAccess
     /**
      * Sets percent
      *
-     * @param double|null $percent One of amount, percent or items is required.
+     * @param double|null $percent The percent to refund. You are required to provide this value, <code>amount</code>, or <code>items</code>.
      *
      * @return $this
      */
@@ -430,7 +428,7 @@ class RefundRequest implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type The type of the item.
+     * @param string|null $type The type of the refund.
      *
      * @return $this
      */
@@ -463,7 +461,7 @@ class RefundRequest implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \DigitalRiver\ApiSdk\Model\RefundItemRequest[]|null $items One of amount, percent or items is required.
+     * @param \DigitalRiver\ApiSdk\Model\RefundItemRequest[]|null $items The items to refund.
      *
      * @return $this
      */
@@ -487,7 +485,7 @@ class RefundRequest implements ModelInterface, ArrayAccess
     /**
      * Sets reason
      *
-     * @param string|null $reason String indicating the reason for the refund.
+     * @param string|null $reason The reason for the refund.
      *
      * @return $this
      */

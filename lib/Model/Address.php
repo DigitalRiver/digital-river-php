@@ -25,7 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * Address Class Doc Comment
  *
  * @category Class
- * @description Represents [basic address](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/providing-address-information#basic-address-information) information.
+ * @description Represents basic address information.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -336,7 +336,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string|null $state The [state](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/providing-address-information#us-states-and-territories), county, province, or region.
+     * @param string|null $state The state, county, province, or region.
      *
      * @return $this
      */
@@ -360,7 +360,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets country
      *
-     * @param string $country A two-letter [Alpha-2 country code](https://www.iban.com/country-codes) as described in the [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) international standard.
+     * @param string $country A [two-letter Alpha-2 country code](https://www.iban.com/country-codes) as described in the [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) international standard.
      *
      * @return $this
      */

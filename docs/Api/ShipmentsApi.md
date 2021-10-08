@@ -1,17 +1,17 @@
 # DigitalRiver\ApiSdk\ShipmentsApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**callList**](ShipmentsApi.md#callList) | **GET** /shipments | Returns a list of shipments
-[**retrieve**](ShipmentsApi.md#retrieve) | **GET** /shipments/{id} | Gets a shipment by ID.
+[**listShipments**](ShipmentsApi.md#listShipments) | **GET** /shipments | Returns a list of shipments
+[**retrieveShipments**](ShipmentsApi.md#retrieveShipments) | **GET** /shipments/{id} | Gets a shipment by ID.
 
 
 
-## callList
+## listShipments
 
-> \DigitalRiver\ApiSdk\Model\InlineResponse2004 callList($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids)
+> \DigitalRiver\ApiSdk\Model\InlineResponse2004 listShipments($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids)
 
 Returns a list of shipments
 
@@ -43,10 +43,10 @@ $ids = array('ids_example'); // string[] | Only return objects with these IDs.
 // Refer string[]::$setters in digital-river-php/lib/Model/string.php to set the properties.
 
 try {
-    $result = $apiInstance->callList($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids);
+    $result = $apiInstance->listShipments($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ShipmentsApi->callList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ShipmentsApi->listShipments: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -81,9 +81,9 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## retrieve
+## retrieveShipments
 
-> \DigitalRiver\ApiSdk\Model\Shipment retrieve($id)
+> \DigitalRiver\ApiSdk\Model\Shipment retrieveShipments($id)
 
 Gets a shipment by ID.
 
@@ -105,10 +105,10 @@ $id = 'id_example'; // string | Shipment identifier.
 
 
 try {
-    $result = $apiInstance->retrieve($id);
+    $result = $apiInstance->retrieveShipments($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ShipmentsApi->retrieve: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ShipmentsApi->retrieveShipments: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

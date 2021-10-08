@@ -1,10 +1,11 @@
 # DigitalRiver\ApiSdk\CustomersApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createCustomerSource**](CustomersApi.md#createCustomerSource) | **POST** /customers/{id}/sources/{sourceId} | Attaches a source to a customer
+[**createCustomerTaxIdentifier**](CustomersApi.md#createCustomerTaxIdentifier) | **POST** /customers/{id}/tax-identifiers/{taxId} | Attaches a tax identifier to a customer
 [**createCustomers**](CustomersApi.md#createCustomers) | **POST** /customers | Creates a new customer
 [**deleteCustomerSource**](CustomersApi.md#deleteCustomerSource) | **DELETE** /customers/{id}/sources/{sourceId} | Detaches a source from a customer
 [**deleteCustomers**](CustomersApi.md#deleteCustomers) | **DELETE** /customers/{id} | Deletes a customer by ID
@@ -64,6 +65,71 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\DigitalRiver\ApiSdk\Model\Source**](../Model/Source.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## createCustomerTaxIdentifier
+
+> \DigitalRiver\ApiSdk\Model\TaxIdentifier createCustomerTaxIdentifier($id, $tax_id)
+
+Attaches a tax identifier to a customer
+
+Attaches a tax identifier to a customer
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = DigitalRiver\ApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new DigitalRiver\ApiSdk\Api\CustomersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Customer ID
+
+$tax_id = 'tax_id_example'; // string | Tax ID
+// Refer string::$setters in digital-river-php/lib/Model/.php to set the properties.
+
+try {
+    $result = $apiInstance->createCustomerTaxIdentifier($id, $tax_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomersApi->createCustomerTaxIdentifier: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Customer ID |
+ **tax_id** | [**string**](../Model/.md)| Tax ID |
+
+### Return type
+
+[**\DigitalRiver\ApiSdk\Model\TaxIdentifier**](../Model/TaxIdentifier.md)
 
 ### Authorization
 

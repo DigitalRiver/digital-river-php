@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **string** | The identifier of the item. | [optional] 
 **sku_id** | **string** | The identifier of the stock keeping unit (SKU). | [optional] 
 **subscription_info** | [**\DigitalRiver\ApiSdk\Model\SubscriptionInfo**](SubscriptionInfo.md) |  | [optional] 
+**fees** | [**\DigitalRiver\ApiSdk\Model\Fees**](Fees.md) |  | [optional] 
 **quantity** | **int** | The number of items. | [optional] 
 **amount** | **double** |  | [optional] 
 **duties** | [**\DigitalRiver\ApiSdk\Model\Duties**](Duties.md) |  | [optional] 

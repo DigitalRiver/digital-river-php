@@ -25,7 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * Battery Class Doc Comment
  *
  * @category Class
- * @description A [battery fee](https://docs.digitalriver.com/digital-river-api/regulatory-fees/managing-regulatory-fees#battery) designed to make entities that produce and sell batteries responsible for collecting recycling fees.
+ * @description A battery fee designed to make entities that produce and sell batteries responsible for collecting recycling fees.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

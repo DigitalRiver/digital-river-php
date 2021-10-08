@@ -58,9 +58,19 @@ class Source implements ModelInterface, ArrayAccess
         'google_pay' => '\DigitalRiver\ApiSdk\Model\GooglePay',
         'pay_pal' => '\DigitalRiver\ApiSdk\Model\PayPal',
         'pay_pal_billing' => '\DigitalRiver\ApiSdk\Model\PayPal',
+        'pay_pal_credit' => '\DigitalRiver\ApiSdk\Model\PayPal',
         'direct_debit' => '\DigitalRiver\ApiSdk\Model\DirectDebit',
         'wire_transfer' => '\DigitalRiver\ApiSdk\Model\WireTransfer',
         'pay_co' => '\DigitalRiver\ApiSdk\Model\PaycoResponse',
+        'alipay' => 'object',
+        'apple_pay' => 'object',
+        'b_pay' => '\DigitalRiver\ApiSdk\Model\BPay',
+        'online_banking' => '\DigitalRiver\ApiSdk\Model\InternetBankPayment',
+        'cod_japan' => 'object',
+        'klarna_credit' => '\DigitalRiver\ApiSdk\Model\Klarna',
+        'klarna_credit_recurring' => '\DigitalRiver\ApiSdk\Model\KlarnaRecurring',
+        'konbini' => '\DigitalRiver\ApiSdk\Model\Konbini',
+        'bank_transfer' => 'object',
         'flow' => 'string',
         'state' => 'string',
         'metadata' => 'map[string,AnyType]',
@@ -87,9 +97,19 @@ class Source implements ModelInterface, ArrayAccess
         'google_pay' => null,
         'pay_pal' => null,
         'pay_pal_billing' => null,
+        'pay_pal_credit' => null,
         'direct_debit' => null,
         'wire_transfer' => null,
         'pay_co' => null,
+        'alipay' => null,
+        'apple_pay' => null,
+        'b_pay' => null,
+        'online_banking' => null,
+        'cod_japan' => null,
+        'klarna_credit' => null,
+        'klarna_credit_recurring' => null,
+        'konbini' => null,
+        'bank_transfer' => null,
         'flow' => null,
         'state' => null,
         'metadata' => null,
@@ -137,9 +157,19 @@ class Source implements ModelInterface, ArrayAccess
         'google_pay' => 'googlePay',
         'pay_pal' => 'payPal',
         'pay_pal_billing' => 'payPalBilling',
+        'pay_pal_credit' => 'payPalCredit',
         'direct_debit' => 'directDebit',
         'wire_transfer' => 'wireTransfer',
         'pay_co' => 'payCo',
+        'alipay' => 'alipay',
+        'apple_pay' => 'applePay',
+        'b_pay' => 'bPay',
+        'online_banking' => 'onlineBanking',
+        'cod_japan' => 'codJapan',
+        'klarna_credit' => 'klarnaCredit',
+        'klarna_credit_recurring' => 'klarnaCreditRecurring',
+        'konbini' => 'konbini',
+        'bank_transfer' => 'bankTransfer',
         'flow' => 'flow',
         'state' => 'state',
         'metadata' => 'metadata',
@@ -166,9 +196,19 @@ class Source implements ModelInterface, ArrayAccess
         'google_pay' => 'setGooglePay',
         'pay_pal' => 'setPayPal',
         'pay_pal_billing' => 'setPayPalBilling',
+        'pay_pal_credit' => 'setPayPalCredit',
         'direct_debit' => 'setDirectDebit',
         'wire_transfer' => 'setWireTransfer',
         'pay_co' => 'setPayCo',
+        'alipay' => 'setAlipay',
+        'apple_pay' => 'setApplePay',
+        'b_pay' => 'setBPay',
+        'online_banking' => 'setOnlineBanking',
+        'cod_japan' => 'setCodJapan',
+        'klarna_credit' => 'setKlarnaCredit',
+        'klarna_credit_recurring' => 'setKlarnaCreditRecurring',
+        'konbini' => 'setKonbini',
+        'bank_transfer' => 'setBankTransfer',
         'flow' => 'setFlow',
         'state' => 'setState',
         'metadata' => 'setMetadata',
@@ -195,9 +235,19 @@ class Source implements ModelInterface, ArrayAccess
         'google_pay' => 'getGooglePay',
         'pay_pal' => 'getPayPal',
         'pay_pal_billing' => 'getPayPalBilling',
+        'pay_pal_credit' => 'getPayPalCredit',
         'direct_debit' => 'getDirectDebit',
         'wire_transfer' => 'getWireTransfer',
         'pay_co' => 'getPayCo',
+        'alipay' => 'getAlipay',
+        'apple_pay' => 'getApplePay',
+        'b_pay' => 'getBPay',
+        'online_banking' => 'getOnlineBanking',
+        'cod_japan' => 'getCodJapan',
+        'klarna_credit' => 'getKlarnaCredit',
+        'klarna_credit_recurring' => 'getKlarnaCreditRecurring',
+        'konbini' => 'getKonbini',
+        'bank_transfer' => 'getBankTransfer',
         'flow' => 'getFlow',
         'state' => 'getState',
         'metadata' => 'getMetadata',
@@ -252,8 +302,18 @@ class Source implements ModelInterface, ArrayAccess
     const TYPE_GOOGLE_PAY = 'googlePay';
     const TYPE_APPLE_PAY = 'applePay';
     const TYPE_PAY_PAL = 'payPal';
+    const TYPE_PAY_PAL_BILLING = 'payPalBilling';
+    const TYPE_PAY_PAL_CREDIT = 'payPalCredit';
     const TYPE_WIRE_TRANSFER = 'wireTransfer';
     const TYPE_CUSTOMER_CREDIT = 'customerCredit';
+    const TYPE_ALIPAY = 'alipay';
+    const TYPE_B_PAY = 'bPay';
+    const TYPE_ONLINE_BANKING = 'onlineBanking';
+    const TYPE_COD_JAPAN = 'codJapan';
+    const TYPE_KLARNA_CREDIT = 'klarnaCredit';
+    const TYPE_KLARNA_CREDIT_RECURRING = 'klarnaCreditRecurring';
+    const TYPE_KONBINI = 'konbini';
+    const TYPE_BANK_TRANSFER = 'bankTransfer';
     const FLOW_STANDARD = 'standard';
     const FLOW_REDIRECT = 'redirect';
     const FLOW_RECEIVER = 'receiver';
@@ -280,8 +340,18 @@ class Source implements ModelInterface, ArrayAccess
             self::TYPE_GOOGLE_PAY,
             self::TYPE_APPLE_PAY,
             self::TYPE_PAY_PAL,
+            self::TYPE_PAY_PAL_BILLING,
+            self::TYPE_PAY_PAL_CREDIT,
             self::TYPE_WIRE_TRANSFER,
             self::TYPE_CUSTOMER_CREDIT,
+            self::TYPE_ALIPAY,
+            self::TYPE_B_PAY,
+            self::TYPE_ONLINE_BANKING,
+            self::TYPE_COD_JAPAN,
+            self::TYPE_KLARNA_CREDIT,
+            self::TYPE_KLARNA_CREDIT_RECURRING,
+            self::TYPE_KONBINI,
+            self::TYPE_BANK_TRANSFER,
         ];
 
         $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
@@ -354,9 +424,19 @@ class Source implements ModelInterface, ArrayAccess
         $this->container['google_pay'] = isset($data['google_pay']) ? $data['google_pay'] : null;
         $this->container['pay_pal'] = isset($data['pay_pal']) ? $data['pay_pal'] : null;
         $this->container['pay_pal_billing'] = isset($data['pay_pal_billing']) ? $data['pay_pal_billing'] : null;
+        $this->container['pay_pal_credit'] = isset($data['pay_pal_credit']) ? $data['pay_pal_credit'] : null;
         $this->container['direct_debit'] = isset($data['direct_debit']) ? $data['direct_debit'] : null;
         $this->container['wire_transfer'] = isset($data['wire_transfer']) ? $data['wire_transfer'] : null;
         $this->container['pay_co'] = isset($data['pay_co']) ? $data['pay_co'] : null;
+        $this->container['alipay'] = isset($data['alipay']) ? $data['alipay'] : null;
+        $this->container['apple_pay'] = isset($data['apple_pay']) ? $data['apple_pay'] : null;
+        $this->container['b_pay'] = isset($data['b_pay']) ? $data['b_pay'] : null;
+        $this->container['online_banking'] = isset($data['online_banking']) ? $data['online_banking'] : null;
+        $this->container['cod_japan'] = isset($data['cod_japan']) ? $data['cod_japan'] : null;
+        $this->container['klarna_credit'] = isset($data['klarna_credit']) ? $data['klarna_credit'] : null;
+        $this->container['klarna_credit_recurring'] = isset($data['klarna_credit_recurring']) ? $data['klarna_credit_recurring'] : null;
+        $this->container['konbini'] = isset($data['konbini']) ? $data['konbini'] : null;
+        $this->container['bank_transfer'] = isset($data['bank_transfer']) ? $data['bank_transfer'] : null;
         $this->container['flow'] = isset($data['flow']) ? $data['flow'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
@@ -714,6 +794,30 @@ class Source implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets pay_pal_credit
+     *
+     * @return \DigitalRiver\ApiSdk\Model\PayPal|null
+     */
+    public function getPayPalCredit()
+    {
+        return $this->container['pay_pal_credit'];
+    }
+
+    /**
+     * Sets pay_pal_credit
+     *
+     * @param \DigitalRiver\ApiSdk\Model\PayPal|null $pay_pal_credit pay_pal_credit
+     *
+     * @return $this
+     */
+    public function setPayPalCredit($pay_pal_credit)
+    {
+        $this->container['pay_pal_credit'] = $pay_pal_credit;
+
+        return $this;
+    }
+
+    /**
      * Gets direct_debit
      *
      * @return \DigitalRiver\ApiSdk\Model\DirectDebit|null
@@ -781,6 +885,222 @@ class Source implements ModelInterface, ArrayAccess
     public function setPayCo($pay_co)
     {
         $this->container['pay_co'] = $pay_co;
+
+        return $this;
+    }
+
+    /**
+     * Gets alipay
+     *
+     * @return object|null
+     */
+    public function getAlipay()
+    {
+        return $this->container['alipay'];
+    }
+
+    /**
+     * Sets alipay
+     *
+     * @param object|null $alipay alipay
+     *
+     * @return $this
+     */
+    public function setAlipay($alipay)
+    {
+        $this->container['alipay'] = $alipay;
+
+        return $this;
+    }
+
+    /**
+     * Gets apple_pay
+     *
+     * @return object|null
+     */
+    public function getApplePay()
+    {
+        return $this->container['apple_pay'];
+    }
+
+    /**
+     * Sets apple_pay
+     *
+     * @param object|null $apple_pay apple_pay
+     *
+     * @return $this
+     */
+    public function setApplePay($apple_pay)
+    {
+        $this->container['apple_pay'] = $apple_pay;
+
+        return $this;
+    }
+
+    /**
+     * Gets b_pay
+     *
+     * @return \DigitalRiver\ApiSdk\Model\BPay|null
+     */
+    public function getBPay()
+    {
+        return $this->container['b_pay'];
+    }
+
+    /**
+     * Sets b_pay
+     *
+     * @param \DigitalRiver\ApiSdk\Model\BPay|null $b_pay b_pay
+     *
+     * @return $this
+     */
+    public function setBPay($b_pay)
+    {
+        $this->container['b_pay'] = $b_pay;
+
+        return $this;
+    }
+
+    /**
+     * Gets online_banking
+     *
+     * @return \DigitalRiver\ApiSdk\Model\InternetBankPayment|null
+     */
+    public function getOnlineBanking()
+    {
+        return $this->container['online_banking'];
+    }
+
+    /**
+     * Sets online_banking
+     *
+     * @param \DigitalRiver\ApiSdk\Model\InternetBankPayment|null $online_banking online_banking
+     *
+     * @return $this
+     */
+    public function setOnlineBanking($online_banking)
+    {
+        $this->container['online_banking'] = $online_banking;
+
+        return $this;
+    }
+
+    /**
+     * Gets cod_japan
+     *
+     * @return object|null
+     */
+    public function getCodJapan()
+    {
+        return $this->container['cod_japan'];
+    }
+
+    /**
+     * Sets cod_japan
+     *
+     * @param object|null $cod_japan cod_japan
+     *
+     * @return $this
+     */
+    public function setCodJapan($cod_japan)
+    {
+        $this->container['cod_japan'] = $cod_japan;
+
+        return $this;
+    }
+
+    /**
+     * Gets klarna_credit
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Klarna|null
+     */
+    public function getKlarnaCredit()
+    {
+        return $this->container['klarna_credit'];
+    }
+
+    /**
+     * Sets klarna_credit
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Klarna|null $klarna_credit klarna_credit
+     *
+     * @return $this
+     */
+    public function setKlarnaCredit($klarna_credit)
+    {
+        $this->container['klarna_credit'] = $klarna_credit;
+
+        return $this;
+    }
+
+    /**
+     * Gets klarna_credit_recurring
+     *
+     * @return \DigitalRiver\ApiSdk\Model\KlarnaRecurring|null
+     */
+    public function getKlarnaCreditRecurring()
+    {
+        return $this->container['klarna_credit_recurring'];
+    }
+
+    /**
+     * Sets klarna_credit_recurring
+     *
+     * @param \DigitalRiver\ApiSdk\Model\KlarnaRecurring|null $klarna_credit_recurring klarna_credit_recurring
+     *
+     * @return $this
+     */
+    public function setKlarnaCreditRecurring($klarna_credit_recurring)
+    {
+        $this->container['klarna_credit_recurring'] = $klarna_credit_recurring;
+
+        return $this;
+    }
+
+    /**
+     * Gets konbini
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Konbini|null
+     */
+    public function getKonbini()
+    {
+        return $this->container['konbini'];
+    }
+
+    /**
+     * Sets konbini
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Konbini|null $konbini konbini
+     *
+     * @return $this
+     */
+    public function setKonbini($konbini)
+    {
+        $this->container['konbini'] = $konbini;
+
+        return $this;
+    }
+
+    /**
+     * Gets bank_transfer
+     *
+     * @return object|null
+     */
+    public function getBankTransfer()
+    {
+        return $this->container['bank_transfer'];
+    }
+
+    /**
+     * Sets bank_transfer
+     *
+     * @param object|null $bank_transfer bank_transfer
+     *
+     * @return $this
+     */
+    public function setBankTransfer($bank_transfer)
+    {
+        $this->container['bank_transfer'] = $bank_transfer;
 
         return $this;
     }

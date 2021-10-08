@@ -47,6 +47,7 @@ class FulfillmentRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'order_id' => 'string',
+        'shipment_id' => 'string',
         'items' => '\DigitalRiver\ApiSdk\Model\FulfillmentRequestItem[]',
         'metadata' => 'map[string,AnyType]',
         'tracking_company' => 'string',
@@ -61,6 +62,7 @@ class FulfillmentRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'order_id' => null,
+        'shipment_id' => null,
         'items' => null,
         'metadata' => null,
         'tracking_company' => null,
@@ -96,6 +98,7 @@ class FulfillmentRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'order_id' => 'orderId',
+        'shipment_id' => 'shipmentId',
         'items' => 'items',
         'metadata' => 'metadata',
         'tracking_company' => 'trackingCompany',
@@ -110,6 +113,7 @@ class FulfillmentRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'order_id' => 'setOrderId',
+        'shipment_id' => 'setShipmentId',
         'items' => 'setItems',
         'metadata' => 'setMetadata',
         'tracking_company' => 'setTrackingCompany',
@@ -124,6 +128,7 @@ class FulfillmentRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'order_id' => 'getOrderId',
+        'shipment_id' => 'getShipmentId',
         'items' => 'getItems',
         'metadata' => 'getMetadata',
         'tracking_company' => 'getTrackingCompany',
@@ -192,6 +197,7 @@ class FulfillmentRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['shipment_id'] = isset($data['shipment_id']) ? $data['shipment_id'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['tracking_company'] = isset($data['tracking_company']) ? $data['tracking_company'] : null;
@@ -249,6 +255,30 @@ class FulfillmentRequest implements ModelInterface, ArrayAccess
     public function setOrderId($order_id)
     {
         $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipment_id
+     *
+     * @return string|null
+     */
+    public function getShipmentId()
+    {
+        return $this->container['shipment_id'];
+    }
+
+    /**
+     * Sets shipment_id
+     *
+     * @param string|null $shipment_id The unique identifier associated to the shipment
+     *
+     * @return $this
+     */
+    public function setShipmentId($shipment_id)
+    {
+        $this->container['shipment_id'] = $shipment_id;
 
         return $this;
     }

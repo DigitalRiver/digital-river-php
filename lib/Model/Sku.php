@@ -50,7 +50,12 @@ class Sku implements ModelInterface, ArrayAccess
         'id' => 'string',
         'eccn' => 'string',
         'hs_code' => 'string',
+        'sku_group_id' => 'string',
         'part_number' => 'string',
+        'manufacturer_id' => 'string',
+        'managed_fulfillment' => 'string',
+        'physical' => 'bool',
+        'allow_oversell' => 'bool',
         'tax_code' => 'string',
         'name' => 'string',
         'description' => 'string',
@@ -74,7 +79,12 @@ class Sku implements ModelInterface, ArrayAccess
         'id' => null,
         'eccn' => null,
         'hs_code' => null,
+        'sku_group_id' => null,
         'part_number' => null,
+        'manufacturer_id' => null,
+        'managed_fulfillment' => null,
+        'physical' => null,
+        'allow_oversell' => null,
         'tax_code' => null,
         'name' => null,
         'description' => null,
@@ -119,7 +129,12 @@ class Sku implements ModelInterface, ArrayAccess
         'id' => 'id',
         'eccn' => 'eccn',
         'hs_code' => 'hsCode',
+        'sku_group_id' => 'skuGroupId',
         'part_number' => 'partNumber',
+        'manufacturer_id' => 'manufacturerId',
+        'managed_fulfillment' => 'managedFulfillment',
+        'physical' => 'physical',
+        'allow_oversell' => 'allowOversell',
         'tax_code' => 'taxCode',
         'name' => 'name',
         'description' => 'description',
@@ -143,7 +158,12 @@ class Sku implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'eccn' => 'setEccn',
         'hs_code' => 'setHsCode',
+        'sku_group_id' => 'setSkuGroupId',
         'part_number' => 'setPartNumber',
+        'manufacturer_id' => 'setManufacturerId',
+        'managed_fulfillment' => 'setManagedFulfillment',
+        'physical' => 'setPhysical',
+        'allow_oversell' => 'setAllowOversell',
         'tax_code' => 'setTaxCode',
         'name' => 'setName',
         'description' => 'setDescription',
@@ -167,7 +187,12 @@ class Sku implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'eccn' => 'getEccn',
         'hs_code' => 'getHsCode',
+        'sku_group_id' => 'getSkuGroupId',
         'part_number' => 'getPartNumber',
+        'manufacturer_id' => 'getManufacturerId',
+        'managed_fulfillment' => 'getManagedFulfillment',
+        'physical' => 'getPhysical',
+        'allow_oversell' => 'getAllowOversell',
         'tax_code' => 'getTaxCode',
         'name' => 'getName',
         'description' => 'getDescription',
@@ -222,12 +247,28 @@ class Sku implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const MANAGED_FULFILLMENT_DR_GLOBAL_FULFILLMENT = 'DRGlobalFulfillment';
     const WEIGHT_UNIT_OZ = 'oz';
     const WEIGHT_UNIT_LB = 'lb';
     const WEIGHT_UNIT_G = 'g';
     const WEIGHT_UNIT_KG = 'kg';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getManagedFulfillmentAllowableValues()
+    {
+       $allowable = [
+            self::MANAGED_FULFILLMENT_DR_GLOBAL_FULFILLMENT,
+        ];
+
+        $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
+        return $allowableAllCase;
+    }
     
     /**
      * Gets allowable values of the enum
@@ -267,7 +308,12 @@ class Sku implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['eccn'] = isset($data['eccn']) ? $data['eccn'] : null;
         $this->container['hs_code'] = isset($data['hs_code']) ? $data['hs_code'] : null;
+        $this->container['sku_group_id'] = isset($data['sku_group_id']) ? $data['sku_group_id'] : null;
         $this->container['part_number'] = isset($data['part_number']) ? $data['part_number'] : null;
+        $this->container['manufacturer_id'] = isset($data['manufacturer_id']) ? $data['manufacturer_id'] : null;
+        $this->container['managed_fulfillment'] = isset($data['managed_fulfillment']) ? $data['managed_fulfillment'] : null;
+        $this->container['physical'] = isset($data['physical']) ? $data['physical'] : null;
+        $this->container['allow_oversell'] = isset($data['allow_oversell']) ? $data['allow_oversell'] : null;
         $this->container['tax_code'] = isset($data['tax_code']) ? $data['tax_code'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -289,6 +335,15 @@ class Sku implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getManagedFulfillmentAllowableValues();
+       
+        if (!is_null($this->container['managed_fulfillment']) && !in_array(strtolower($this->container['managed_fulfillment']), $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'managed_fulfillment', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getWeightUnitAllowableValues();
        
@@ -411,6 +466,30 @@ class Sku implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets sku_group_id
+     *
+     * @return string|null
+     */
+    public function getSkuGroupId()
+    {
+        return $this->container['sku_group_id'];
+    }
+
+    /**
+     * Sets sku_group_id
+     *
+     * @param string|null $sku_group_id The unique identifier of the Sku Group.
+     *
+     * @return $this
+     */
+    public function setSkuGroupId($sku_group_id)
+    {
+        $this->container['sku_group_id'] = $sku_group_id;
+
+        return $this;
+    }
+
+    /**
      * Gets part_number
      *
      * @return string|null
@@ -430,6 +509,111 @@ class Sku implements ModelInterface, ArrayAccess
     public function setPartNumber($part_number)
     {
         $this->container['part_number'] = $part_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets manufacturer_id
+     *
+     * @return string|null
+     */
+    public function getManufacturerId()
+    {
+        return $this->container['manufacturer_id'];
+    }
+
+    /**
+     * Sets manufacturer_id
+     *
+     * @param string|null $manufacturer_id The unique identifier
+     *
+     * @return $this
+     */
+    public function setManufacturerId($manufacturer_id)
+    {
+        $this->container['manufacturer_id'] = $manufacturer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets managed_fulfillment
+     *
+     * @return string|null
+     */
+    public function getManagedFulfillment()
+    {
+        return $this->container['managed_fulfillment'];
+    }
+
+    /**
+     * Sets managed_fulfillment
+     *
+     * @param string|null $managed_fulfillment Signifies the product is physically fulfilled by Digital River.
+     *
+     * @return $this
+     */
+    public function setManagedFulfillment($managed_fulfillment)
+    {
+        $allowedValues = $this->getManagedFulfillmentAllowableValues();
+        if (!is_null($managed_fulfillment) && !in_array(strtolower($managed_fulfillment), $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'managed_fulfillment', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['managed_fulfillment'] = $managed_fulfillment;
+
+        return $this;
+    }
+
+    /**
+     * Gets physical
+     *
+     * @return bool|null
+     */
+    public function getPhysical()
+    {
+        return $this->container['physical'];
+    }
+
+    /**
+     * Sets physical
+     *
+     * @param bool|null $physical Identifies whether or not a product is  physical, so that the appropriate data requirements are enforced.
+     *
+     * @return $this
+     */
+    public function setPhysical($physical)
+    {
+        $this->container['physical'] = $physical;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_oversell
+     *
+     * @return bool|null
+     */
+    public function getAllowOversell()
+    {
+        return $this->container['allow_oversell'];
+    }
+
+    /**
+     * Sets allow_oversell
+     *
+     * @param bool|null $allow_oversell Determines whether customers are allowed to back order a product.
+     *
+     * @return $this
+     */
+    public function setAllowOversell($allow_oversell)
+    {
+        $this->container['allow_oversell'] = $allow_oversell;
 
         return $this;
     }

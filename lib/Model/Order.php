@@ -55,11 +55,11 @@ class Order implements ModelInterface, ArrayAccess
         'locale' => 'string',
         'browser_ip' => 'string',
         'application_id' => 'string',
-        'credit_amount' => 'float',
-        'sources' => '\DigitalRiver\ApiSdk\Model\Source[]',
+        'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\TaxIdentifier[]',
         'ship_from' => '\DigitalRiver\ApiSdk\Model\ShipFrom',
         'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
         'bill_to' => '\DigitalRiver\ApiSdk\Model\Billing',
+        'organization' => '\DigitalRiver\ApiSdk\Model\Organization',
         'subtotal' => 'double',
         'total_tax' => 'double',
         'total_importer_tax' => 'double',
@@ -74,18 +74,17 @@ class Order implements ModelInterface, ArrayAccess
         'refunded_amount' => 'double',
         'cancelled_amount' => 'double',
         'captured_amount' => 'double',
-        'items' => '\DigitalRiver\ApiSdk\Model\SkuItem[]',
+        'items' => '\DigitalRiver\ApiSdk\Model\OrderItem[]',
         'invoice_pd_fs' => '\DigitalRiver\ApiSdk\Model\File[]',
         'credit_memo_pd_fs' => '\DigitalRiver\ApiSdk\Model\File[]',
         'request_to_be_forgotten' => 'bool',
         'shipping_choice' => '\DigitalRiver\ApiSdk\Model\ShippingChoice',
         'state' => 'string',
-        'state_transitions' => '\DigitalRiver\ApiSdk\Model\StateTransitions',
+        'state_transitions' => '\DigitalRiver\ApiSdk\Model\OrderStateTransitions',
         'fraud_state' => 'string',
         'fraud_state_transitions' => '\DigitalRiver\ApiSdk\Model\FraudStateTransitions',
         'cancel_reason' => 'string',
-        'charges' => '\DigitalRiver\ApiSdk\Model\Charge[]',
-        'payment_session_id' => 'string',
+        'payment' => '\DigitalRiver\ApiSdk\Model\Payments',
         'live_mode' => 'bool',
         'metadata' => 'map[string,AnyType]',
         'selling_entity' => '\DigitalRiver\ApiSdk\Model\SellingEntity',
@@ -110,11 +109,11 @@ class Order implements ModelInterface, ArrayAccess
         'locale' => null,
         'browser_ip' => null,
         'application_id' => null,
-        'credit_amount' => null,
-        'sources' => null,
+        'tax_identifiers' => null,
         'ship_from' => null,
         'ship_to' => null,
         'bill_to' => null,
+        'organization' => null,
         'subtotal' => 'double',
         'total_tax' => 'double',
         'total_importer_tax' => 'double',
@@ -139,8 +138,7 @@ class Order implements ModelInterface, ArrayAccess
         'fraud_state' => null,
         'fraud_state_transitions' => null,
         'cancel_reason' => null,
-        'charges' => null,
-        'payment_session_id' => null,
+        'payment' => null,
         'live_mode' => null,
         'metadata' => null,
         'selling_entity' => null,
@@ -186,11 +184,11 @@ class Order implements ModelInterface, ArrayAccess
         'locale' => 'locale',
         'browser_ip' => 'browserIp',
         'application_id' => 'applicationId',
-        'credit_amount' => 'creditAmount',
-        'sources' => 'sources',
+        'tax_identifiers' => 'taxIdentifiers',
         'ship_from' => 'shipFrom',
         'ship_to' => 'shipTo',
         'bill_to' => 'billTo',
+        'organization' => 'organization',
         'subtotal' => 'subtotal',
         'total_tax' => 'totalTax',
         'total_importer_tax' => 'totalImporterTax',
@@ -215,8 +213,7 @@ class Order implements ModelInterface, ArrayAccess
         'fraud_state' => 'fraudState',
         'fraud_state_transitions' => 'fraudStateTransitions',
         'cancel_reason' => 'cancelReason',
-        'charges' => 'charges',
-        'payment_session_id' => 'paymentSessionId',
+        'payment' => 'payment',
         'live_mode' => 'liveMode',
         'metadata' => 'metadata',
         'selling_entity' => 'sellingEntity',
@@ -241,11 +238,11 @@ class Order implements ModelInterface, ArrayAccess
         'locale' => 'setLocale',
         'browser_ip' => 'setBrowserIp',
         'application_id' => 'setApplicationId',
-        'credit_amount' => 'setCreditAmount',
-        'sources' => 'setSources',
+        'tax_identifiers' => 'setTaxIdentifiers',
         'ship_from' => 'setShipFrom',
         'ship_to' => 'setShipTo',
         'bill_to' => 'setBillTo',
+        'organization' => 'setOrganization',
         'subtotal' => 'setSubtotal',
         'total_tax' => 'setTotalTax',
         'total_importer_tax' => 'setTotalImporterTax',
@@ -270,8 +267,7 @@ class Order implements ModelInterface, ArrayAccess
         'fraud_state' => 'setFraudState',
         'fraud_state_transitions' => 'setFraudStateTransitions',
         'cancel_reason' => 'setCancelReason',
-        'charges' => 'setCharges',
-        'payment_session_id' => 'setPaymentSessionId',
+        'payment' => 'setPayment',
         'live_mode' => 'setLiveMode',
         'metadata' => 'setMetadata',
         'selling_entity' => 'setSellingEntity',
@@ -296,11 +292,11 @@ class Order implements ModelInterface, ArrayAccess
         'locale' => 'getLocale',
         'browser_ip' => 'getBrowserIp',
         'application_id' => 'getApplicationId',
-        'credit_amount' => 'getCreditAmount',
-        'sources' => 'getSources',
+        'tax_identifiers' => 'getTaxIdentifiers',
         'ship_from' => 'getShipFrom',
         'ship_to' => 'getShipTo',
         'bill_to' => 'getBillTo',
+        'organization' => 'getOrganization',
         'subtotal' => 'getSubtotal',
         'total_tax' => 'getTotalTax',
         'total_importer_tax' => 'getTotalImporterTax',
@@ -325,8 +321,7 @@ class Order implements ModelInterface, ArrayAccess
         'fraud_state' => 'getFraudState',
         'fraud_state_transitions' => 'getFraudStateTransitions',
         'cancel_reason' => 'getCancelReason',
-        'charges' => 'getCharges',
-        'payment_session_id' => 'getPaymentSessionId',
+        'payment' => 'getPayment',
         'live_mode' => 'getLiveMode',
         'metadata' => 'getMetadata',
         'selling_entity' => 'getSellingEntity',
@@ -386,7 +381,7 @@ class Order implements ModelInterface, ArrayAccess
     const STATE_COMPLETE = 'complete';
     const STATE_RETURNED = 'returned';
     const FRAUD_STATE_BLOCKED = 'blocked';
-    const FRAUD_STATE_IN_REVIEW = 'in_review';
+    const FRAUD_STATE_REVIEW_OPENED = 'review_opened';
     const FRAUD_STATE_PASSED = 'passed';
     
 
@@ -422,7 +417,7 @@ class Order implements ModelInterface, ArrayAccess
     {
        $allowable = [
             self::FRAUD_STATE_BLOCKED,
-            self::FRAUD_STATE_IN_REVIEW,
+            self::FRAUD_STATE_REVIEW_OPENED,
             self::FRAUD_STATE_PASSED,
         ];
 
@@ -455,11 +450,11 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['browser_ip'] = isset($data['browser_ip']) ? $data['browser_ip'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
-        $this->container['credit_amount'] = isset($data['credit_amount']) ? $data['credit_amount'] : null;
-        $this->container['sources'] = isset($data['sources']) ? $data['sources'] : null;
+        $this->container['tax_identifiers'] = isset($data['tax_identifiers']) ? $data['tax_identifiers'] : null;
         $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
         $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
         $this->container['bill_to'] = isset($data['bill_to']) ? $data['bill_to'] : null;
+        $this->container['organization'] = isset($data['organization']) ? $data['organization'] : null;
         $this->container['subtotal'] = isset($data['subtotal']) ? $data['subtotal'] : null;
         $this->container['total_tax'] = isset($data['total_tax']) ? $data['total_tax'] : null;
         $this->container['total_importer_tax'] = isset($data['total_importer_tax']) ? $data['total_importer_tax'] : null;
@@ -484,8 +479,7 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['fraud_state'] = isset($data['fraud_state']) ? $data['fraud_state'] : null;
         $this->container['fraud_state_transitions'] = isset($data['fraud_state_transitions']) ? $data['fraud_state_transitions'] : null;
         $this->container['cancel_reason'] = isset($data['cancel_reason']) ? $data['cancel_reason'] : null;
-        $this->container['charges'] = isset($data['charges']) ? $data['charges'] : null;
-        $this->container['payment_session_id'] = isset($data['payment_session_id']) ? $data['payment_session_id'] : null;
+        $this->container['payment'] = isset($data['payment']) ? $data['payment'] : null;
         $this->container['live_mode'] = isset($data['live_mode']) ? $data['live_mode'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['selling_entity'] = isset($data['selling_entity']) ? $data['selling_entity'] : null;
@@ -578,7 +572,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets checkout_id
      *
-     * @param string|null $checkout_id The unique identifier of the checkout submitted to create the order
+     * @param string|null $checkout_id The unique identifier of the checkout submitted to create the order.
      *
      * @return $this
      */
@@ -758,49 +752,25 @@ class Order implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets credit_amount
+     * Gets tax_identifiers
      *
-     * @return float|null
+     * @return \DigitalRiver\ApiSdk\Model\TaxIdentifier[]|null
      */
-    public function getCreditAmount()
+    public function getTaxIdentifiers()
     {
-        return $this->container['credit_amount'];
+        return $this->container['tax_identifiers'];
     }
 
     /**
-     * Sets credit_amount
+     * Sets tax_identifiers
      *
-     * @param float|null $credit_amount Represents the total amount of credit you are extending to the customer.
+     * @param \DigitalRiver\ApiSdk\Model\TaxIdentifier[]|null $tax_identifiers A list of the tax identifiers applied to this order.
      *
      * @return $this
      */
-    public function setCreditAmount($credit_amount)
+    public function setTaxIdentifiers($tax_identifiers)
     {
-        $this->container['credit_amount'] = $credit_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets sources
-     *
-     * @return \DigitalRiver\ApiSdk\Model\Source[]|null
-     */
-    public function getSources()
-    {
-        return $this->container['sources'];
-    }
-
-    /**
-     * Sets sources
-     *
-     * @param \DigitalRiver\ApiSdk\Model\Source[]|null $sources sources
-     *
-     * @return $this
-     */
-    public function setSources($sources)
-    {
-        $this->container['sources'] = $sources;
+        $this->container['tax_identifiers'] = $tax_identifiers;
 
         return $this;
     }
@@ -873,6 +843,30 @@ class Order implements ModelInterface, ArrayAccess
     public function setBillTo($bill_to)
     {
         $this->container['bill_to'] = $bill_to;
+
+        return $this;
+    }
+
+    /**
+     * Gets organization
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Organization|null
+     */
+    public function getOrganization()
+    {
+        return $this->container['organization'];
+    }
+
+    /**
+     * Sets organization
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Organization|null $organization organization
+     *
+     * @return $this
+     */
+    public function setOrganization($organization)
+    {
+        $this->container['organization'] = $organization;
 
         return $this;
     }
@@ -1216,7 +1210,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \DigitalRiver\ApiSdk\Model\SkuItem[]|null
+     * @return \DigitalRiver\ApiSdk\Model\OrderItem[]|null
      */
     public function getItems()
     {
@@ -1226,7 +1220,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \DigitalRiver\ApiSdk\Model\SkuItem[]|null $items items
+     * @param \DigitalRiver\ApiSdk\Model\OrderItem[]|null $items items
      *
      * @return $this
      */
@@ -1369,7 +1363,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets state_transitions
      *
-     * @return \DigitalRiver\ApiSdk\Model\StateTransitions|null
+     * @return \DigitalRiver\ApiSdk\Model\OrderStateTransitions|null
      */
     public function getStateTransitions()
     {
@@ -1379,7 +1373,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets state_transitions
      *
-     * @param \DigitalRiver\ApiSdk\Model\StateTransitions|null $state_transitions state_transitions
+     * @param \DigitalRiver\ApiSdk\Model\OrderStateTransitions|null $state_transitions state_transitions
      *
      * @return $this
      */
@@ -1476,49 +1470,25 @@ class Order implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets charges
+     * Gets payment
      *
-     * @return \DigitalRiver\ApiSdk\Model\Charge[]|null
+     * @return \DigitalRiver\ApiSdk\Model\Payments|null
      */
-    public function getCharges()
+    public function getPayment()
     {
-        return $this->container['charges'];
+        return $this->container['payment'];
     }
 
     /**
-     * Sets charges
+     * Sets payment
      *
-     * @param \DigitalRiver\ApiSdk\Model\Charge[]|null $charges The charge[s] used to pay the order.
+     * @param \DigitalRiver\ApiSdk\Model\Payments|null $payment payment
      *
      * @return $this
      */
-    public function setCharges($charges)
+    public function setPayment($payment)
     {
-        $this->container['charges'] = $charges;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_session_id
-     *
-     * @return string|null
-     */
-    public function getPaymentSessionId()
-    {
-        return $this->container['payment_session_id'];
-    }
-
-    /**
-     * Sets payment_session_id
-     *
-     * @param string|null $payment_session_id Tracks the process of collecting a payment.
-     *
-     * @return $this
-     */
-    public function setPaymentSessionId($payment_session_id)
-    {
-        $this->container['payment_session_id'] = $payment_session_id;
+        $this->container['payment'] = $payment;
 
         return $this;
     }
@@ -1656,7 +1626,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets upstream_id
      *
-     * @param string|null $upstream_id The client order identifier if it is different from the Digital River order identifier.
+     * @param string|null $upstream_id The upstream identifier.
      *
      * @return $this
      */

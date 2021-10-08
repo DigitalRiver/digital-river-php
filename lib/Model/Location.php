@@ -25,6 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * Location Class Doc Comment
  *
  * @category Class
+ * @description The address where the customer should return the products.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -46,7 +47,7 @@ class Location implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'address' => '\DigitalRiver\ApiSdk\Model\Address',
+        'address' => '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentAddress',
         'name' => 'string',
         'phone' => 'string',
         'email' => 'string'
@@ -217,7 +218,7 @@ class Location implements ModelInterface, ArrayAccess
     /**
      * Gets address
      *
-     * @return \DigitalRiver\ApiSdk\Model\Address
+     * @return \DigitalRiver\ApiSdk\Model\GlobalFulfillmentAddress
      */
     public function getAddress()
     {
@@ -227,7 +228,7 @@ class Location implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param \DigitalRiver\ApiSdk\Model\Address $address address
+     * @param \DigitalRiver\ApiSdk\Model\GlobalFulfillmentAddress $address address
      *
      * @return $this
      */

@@ -53,7 +53,7 @@ class CreateReturnResponse implements ModelInterface, ArrayAccess
         'items' => '\DigitalRiver\ApiSdk\Model\ReturnItem[]',
         'reason' => 'string',
         'state' => 'string',
-        'location' => '\DigitalRiver\ApiSdk\Model\Location',
+        'location' => '\DigitalRiver\ApiSdk\Model\ReturnLocation',
         'livemode' => 'bool',
         'metadata' => 'map[string,AnyType]',
         'refund_ids' => 'string[]'
@@ -293,7 +293,7 @@ class CreateReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier for the return
+     * @param string|null $id The unique identifier of the return.
      *
      * @return $this
      */
@@ -317,7 +317,7 @@ class CreateReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets created_time
      *
-     * @param \DateTime|null $created_time Time at which the return was created
+     * @param \DateTime|null $created_time Time at which the return was created.
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class CreateReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param string|null $order_id Unique identifier for the order
+     * @param string|null $order_id The unique identifier of the order.
      *
      * @return $this
      */
@@ -413,7 +413,7 @@ class CreateReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets reason
      *
-     * @param string|null $reason String indicating the reason for the return.
+     * @param string|null $reason The reason for the return.
      *
      * @return $this
      */
@@ -460,7 +460,7 @@ class CreateReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Gets location
      *
-     * @return \DigitalRiver\ApiSdk\Model\Location|null
+     * @return \DigitalRiver\ApiSdk\Model\ReturnLocation|null
      */
     public function getLocation()
     {
@@ -470,7 +470,7 @@ class CreateReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets location
      *
-     * @param \DigitalRiver\ApiSdk\Model\Location|null $location location
+     * @param \DigitalRiver\ApiSdk\Model\ReturnLocation|null $location location
      *
      * @return $this
      */

@@ -56,8 +56,8 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
         'phone' => 'string',
         'reservation_id' => 'string',
         'upstream_id' => 'string',
-        'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping2',
-        'shipping_choice' => '\DigitalRiver\ApiSdk\Model\ShippingChoice',
+        'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
+        'shipping_choice' => '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentShippingChoice',
         'items' => '\DigitalRiver\ApiSdk\Model\LineItem[]',
         'state' => 'string',
         'live_mode' => 'bool'
@@ -319,7 +319,7 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param float|null $id id
+     * @param float|null $id The unique identifier of the fulfillment order.
      *
      * @return $this
      */
@@ -343,7 +343,7 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
     /**
      * Sets created_time
      *
-     * @param \DateTime|null $created_time Time at which the order was created
+     * @param \DateTime|null $created_time The time when the fulfillment order was created.
      *
      * @return $this
      */
@@ -367,7 +367,7 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Three-letter ISO currency code.
+     * @param string|null $currency A three-letter ISO currency code.
      *
      * @return $this
      */
@@ -391,7 +391,7 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
     /**
      * Sets locale
      *
-     * @param string|null $locale Locale designator combining two-letter ISO 639-1 language code with ISO 3166-1 alpha-2 country code.
+     * @param string|null $locale A locale designator that combines a two-letter ISO 639-1 language code with a ISO 3166-1 alpha-2 country code.
      *
      * @return $this
      */
@@ -415,7 +415,7 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
     /**
      * Sets upstream_order_time
      *
-     * @param \DateTime|null $upstream_order_time Time at which the upstream order was created
+     * @param \DateTime|null $upstream_order_time The time at which the upstream order was created.
      *
      * @return $this
      */
@@ -439,7 +439,7 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name The customer name.
+     * @param string|null $name The customer's name.
      *
      * @return $this
      */
@@ -463,7 +463,7 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string|null $email The customer email address.
+     * @param string|null $email The customer's email address.
      *
      * @return $this
      */
@@ -487,7 +487,7 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
     /**
      * Sets phone
      *
-     * @param string|null $phone The customer phone number.
+     * @param string|null $phone The customer's phone number.
      *
      * @return $this
      */
@@ -535,7 +535,7 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
     /**
      * Sets upstream_id
      *
-     * @param string|null $upstream_id The user order identifier.
+     * @param string|null $upstream_id The upstream order identifier.
      *
      * @return $this
      */
@@ -549,7 +549,7 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
     /**
      * Gets ship_to
      *
-     * @return \DigitalRiver\ApiSdk\Model\Shipping2|null
+     * @return \DigitalRiver\ApiSdk\Model\Shipping|null
      */
     public function getShipTo()
     {
@@ -559,7 +559,7 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
     /**
      * Sets ship_to
      *
-     * @param \DigitalRiver\ApiSdk\Model\Shipping2|null $ship_to ship_to
+     * @param \DigitalRiver\ApiSdk\Model\Shipping|null $ship_to ship_to
      *
      * @return $this
      */
@@ -573,7 +573,7 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
     /**
      * Gets shipping_choice
      *
-     * @return \DigitalRiver\ApiSdk\Model\ShippingChoice|null
+     * @return \DigitalRiver\ApiSdk\Model\GlobalFulfillmentShippingChoice|null
      */
     public function getShippingChoice()
     {
@@ -583,7 +583,7 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_choice
      *
-     * @param \DigitalRiver\ApiSdk\Model\ShippingChoice|null $shipping_choice shipping_choice
+     * @param \DigitalRiver\ApiSdk\Model\GlobalFulfillmentShippingChoice|null $shipping_choice shipping_choice
      *
      * @return $this
      */
@@ -631,7 +631,7 @@ class GlobalFulfillmentOrder implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string|null $state Current state.
+     * @param string|null $state The current state of the fulfillment order.
      *
      * @return $this
      */

@@ -48,6 +48,7 @@ class FulfillmentResponseItem implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'item_id' => 'string',
         'sku_id' => 'string',
+        'shipment_item_id' => 'string',
         'quantity' => 'int',
         'cancel_quantity' => 'int'
     ];
@@ -60,6 +61,7 @@ class FulfillmentResponseItem implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'item_id' => null,
         'sku_id' => null,
+        'shipment_item_id' => null,
         'quantity' => null,
         'cancel_quantity' => null
     ];
@@ -93,6 +95,7 @@ class FulfillmentResponseItem implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'item_id' => 'itemId',
         'sku_id' => 'skuId',
+        'shipment_item_id' => 'shipmentItemId',
         'quantity' => 'quantity',
         'cancel_quantity' => 'cancelQuantity'
     ];
@@ -105,6 +108,7 @@ class FulfillmentResponseItem implements ModelInterface, ArrayAccess
     protected static $setters = [
         'item_id' => 'setItemId',
         'sku_id' => 'setSkuId',
+        'shipment_item_id' => 'setShipmentItemId',
         'quantity' => 'setQuantity',
         'cancel_quantity' => 'setCancelQuantity'
     ];
@@ -117,6 +121,7 @@ class FulfillmentResponseItem implements ModelInterface, ArrayAccess
     protected static $getters = [
         'item_id' => 'getItemId',
         'sku_id' => 'getSkuId',
+        'shipment_item_id' => 'getShipmentItemId',
         'quantity' => 'getQuantity',
         'cancel_quantity' => 'getCancelQuantity'
     ];
@@ -183,6 +188,7 @@ class FulfillmentResponseItem implements ModelInterface, ArrayAccess
     {
         $this->container['item_id'] = isset($data['item_id']) ? $data['item_id'] : null;
         $this->container['sku_id'] = isset($data['sku_id']) ? $data['sku_id'] : null;
+        $this->container['shipment_item_id'] = isset($data['shipment_item_id']) ? $data['shipment_item_id'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['cancel_quantity'] = isset($data['cancel_quantity']) ? $data['cancel_quantity'] : null;
     }
@@ -224,7 +230,7 @@ class FulfillmentResponseItem implements ModelInterface, ArrayAccess
     /**
      * Sets item_id
      *
-     * @param string|null $item_id The unique identifier of the [line item](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/orders/creating-and-updating-an-order#line-items).
+     * @param string|null $item_id The unique identifier of the line item.
      *
      * @return $this
      */
@@ -248,13 +254,37 @@ class FulfillmentResponseItem implements ModelInterface, ArrayAccess
     /**
      * Sets sku_id
      *
-     * @param string|null $sku_id The unique identifier of the aku.
+     * @param string|null $sku_id The unique identifier of the sku.
      *
      * @return $this
      */
     public function setSkuId($sku_id)
     {
         $this->container['sku_id'] = $sku_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipment_item_id
+     *
+     * @return string|null
+     */
+    public function getShipmentItemId()
+    {
+        return $this->container['shipment_item_id'];
+    }
+
+    /**
+     * Sets shipment_item_id
+     *
+     * @param string|null $shipment_item_id The unique identifier associated to the shipment item
+     *
+     * @return $this
+     */
+    public function setShipmentItemId($shipment_item_id)
+    {
+        $this->container['shipment_item_id'] = $shipment_item_id;
 
         return $this;
     }

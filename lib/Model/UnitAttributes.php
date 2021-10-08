@@ -25,6 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * UnitAttributes Class Doc Comment
  *
  * @category Class
+ * @description Values to describe a smartphone or cellphone.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

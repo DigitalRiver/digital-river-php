@@ -323,7 +323,7 @@ class FeeUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type The [type](https://docs.digitalriver.com/digital-river-api/regulatory-fees/managing-regulatory-fees#type) of fee.
+     * @param string|null $type The type of fee.
      *
      * @return $this
      */
@@ -356,7 +356,7 @@ class FeeUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets sku_id
      *
-     * @param string|null $sku_id The unique identifer of the [stock keeping unit](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-and-updating-skus) associated with the fee.
+     * @param string|null $sku_id The unique identifer of the stock keeping unit associated with the fee.
      *
      * @return $this
      */
@@ -380,7 +380,7 @@ class FeeUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets category
      *
-     * @param string|null $category The [category](https://docs.digitalriver.com/digital-river-api/regulatory-fees/managing-regulatory-fees#category) of the fee as defined by regulatory law.
+     * @param string|null $category The category of the fee as defined by regulatory law.
      *
      * @return $this
      */
@@ -404,7 +404,7 @@ class FeeUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string|null $value The [value](https://docs.digitalriver.com/digital-river-api/regulatory-fees/managing-regulatory-fees#value) of the product.
+     * @param string|null $value The value of the product.
      *
      * @return $this
      */
@@ -476,7 +476,7 @@ class FeeUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets compliance_agency
      *
-     * @param string|null $compliance_agency The [unique identifier of the recycling agency](https://docs.digitalriver.com/digital-river-api/regulatory-fees/managing-regulatory-fees#compliance-agency) associated with the product's jurisdiction.
+     * @param string|null $compliance_agency The unique identifier of the recycling agency associated with the product's jurisdiction.
      *
      * @return $this
      */
@@ -500,7 +500,7 @@ class FeeUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets fee_exemption
      *
-     * @param string|null $fee_exemption Indicates whether business to business sales are [exempt from paying the fee](https://docs.digitalriver.com/digital-river-api/regulatory-fees/managing-regulatory-fees#fee-exemption).
+     * @param string|null $fee_exemption Indicates whether business to business sales are exempt from paying the fee.
      *
      * @return $this
      */
@@ -524,7 +524,7 @@ class FeeUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets brand_name
      *
-     * @param string|null $brand_name The product's [brand name](https://docs.digitalriver.com/digital-river-api/regulatory-fees/managing-regulatory-fees#brand-name).
+     * @param string|null $brand_name The product's brand name.
      *
      * @return $this
      */
@@ -572,7 +572,7 @@ class FeeUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets weight_and_units
      *
-     * @param string|null $weight_and_units The [weight of the unit, minus packaging or batteries, and the unit of measurement applied to the weight](https://docs.digitalriver.com/digital-river-api/regulatory-fees/managing-regulatory-fees#weight-and-units).
+     * @param string|null $weight_and_units The weight of the unit, minus packaging or batteries, and the unit of measurement applied to the weight.
      *
      * @return $this
      */
@@ -620,7 +620,7 @@ class FeeUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets country
      *
-     * @param string|null $country A two-letter ISO 3166 [country code](https://docs.digitalriver.com/digital-river-api/regulatory-fees/managing-regulatory-fees#country-and-subdivisions).
+     * @param string|null $country A two-letter ISO 3166 country code.
      *
      * @return $this
      */
@@ -644,7 +644,7 @@ class FeeUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets subdivisions
      *
-     * @param string[]|null $subdivisions An array of ISO 3166-2 [subdivision codes](https://docs.digitalriver.com/digital-river-api/regulatory-fees/managing-regulatory-fees#country-and-subdivisions).
+     * @param string[]|null $subdivisions An array of ISO 3166-2 subdivision codes.
      *
      * @return $this
      */

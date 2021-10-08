@@ -25,7 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * AdditionalAddressInfo Class Doc Comment
  *
  * @category Class
- * @description Captures [any information that&#39;s not included](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/providing-address-information#additional-address-information) in the [basic address](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/providing-address-information#basic-address-information).
+ * @description Captures any information that&#39;s not included in the basic address.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -219,7 +219,7 @@ class AdditionalAddressInfo implements ModelInterface, ArrayAccess
     /**
      * Sets neighborhood
      *
-     * @param string|null $neighborhood The [neighborhood](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/providing-address-information#brazilian-neighborhoods) of the address.
+     * @param string|null $neighborhood The neighborhood of the address.
      *
      * @return $this
      */
@@ -243,7 +243,7 @@ class AdditionalAddressInfo implements ModelInterface, ArrayAccess
     /**
      * Sets division
      *
-     * @param string|null $division A [division within an organization](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/providing-address-information#japanese-phonetics-and-divisions).
+     * @param string|null $division A division within an organization.
      *
      * @return $this
      */
@@ -267,7 +267,7 @@ class AdditionalAddressInfo implements ModelInterface, ArrayAccess
     /**
      * Sets phonetic_name
      *
-     * @param string|null $phonetic_name The [phonetic spelling of a name](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/providing-address-information#japanese-phonetics-and-divisions).
+     * @param string|null $phonetic_name The phonetic spelling of a name.
      *
      * @return $this
      */

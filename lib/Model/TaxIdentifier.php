@@ -46,8 +46,16 @@ class TaxIdentifier implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'created_time' => '\DateTime',
+        'customer_id' => 'string',
         'type' => 'string',
-        'value' => 'string'
+        'value' => 'string',
+        'state' => 'string',
+        'state_transitions' => '\DigitalRiver\ApiSdk\Model\TaxIdentifierStateTransitions',
+        'verified_name' => 'string',
+        'verified_address' => 'string',
+        'updated_time' => '\DateTime'
     ];
 
     /**
@@ -56,8 +64,16 @@ class TaxIdentifier implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'id' => null,
+        'created_time' => 'date-time',
+        'customer_id' => null,
         'type' => null,
-        'value' => null
+        'value' => null,
+        'state' => null,
+        'state_transitions' => null,
+        'verified_name' => null,
+        'verified_address' => null,
+        'updated_time' => 'date-time'
     ];
 
     /**
@@ -87,8 +103,16 @@ class TaxIdentifier implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'created_time' => 'createdTime',
+        'customer_id' => 'customerId',
         'type' => 'type',
-        'value' => 'value'
+        'value' => 'value',
+        'state' => 'state',
+        'state_transitions' => 'stateTransitions',
+        'verified_name' => 'verifiedName',
+        'verified_address' => 'verifiedAddress',
+        'updated_time' => 'updatedTime'
     ];
 
     /**
@@ -97,8 +121,16 @@ class TaxIdentifier implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'created_time' => 'setCreatedTime',
+        'customer_id' => 'setCustomerId',
         'type' => 'setType',
-        'value' => 'setValue'
+        'value' => 'setValue',
+        'state' => 'setState',
+        'state_transitions' => 'setStateTransitions',
+        'verified_name' => 'setVerifiedName',
+        'verified_address' => 'setVerifiedAddress',
+        'updated_time' => 'setUpdatedTime'
     ];
 
     /**
@@ -107,8 +139,16 @@ class TaxIdentifier implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'created_time' => 'getCreatedTime',
+        'customer_id' => 'getCustomerId',
         'type' => 'getType',
-        'value' => 'getValue'
+        'value' => 'getValue',
+        'state' => 'getState',
+        'state_transitions' => 'getStateTransitions',
+        'verified_name' => 'getVerifiedName',
+        'verified_address' => 'getVerifiedAddress',
+        'updated_time' => 'getUpdatedTime'
     ];
 
     /**
@@ -152,8 +192,28 @@ class TaxIdentifier implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const STATE_PENDING = 'pending';
+    const STATE_NOT_VALID = 'not_valid';
+    const STATE_VERIFIED = 'verified';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStateAllowableValues()
+    {
+       $allowable = [
+            self::STATE_PENDING,
+            self::STATE_NOT_VALID,
+            self::STATE_VERIFIED,
+        ];
+
+        $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
+        return $allowableAllCase;
+    }
     
 
     /**
@@ -171,8 +231,16 @@ class TaxIdentifier implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['created_time'] = isset($data['created_time']) ? $data['created_time'] : null;
+        $this->container['customer_id'] = isset($data['customer_id']) ? $data['customer_id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['state_transitions'] = isset($data['state_transitions']) ? $data['state_transitions'] : null;
+        $this->container['verified_name'] = isset($data['verified_name']) ? $data['verified_name'] : null;
+        $this->container['verified_address'] = isset($data['verified_address']) ? $data['verified_address'] : null;
+        $this->container['updated_time'] = isset($data['updated_time']) ? $data['updated_time'] : null;
     }
 
     /**
@@ -183,6 +251,15 @@ class TaxIdentifier implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getStateAllowableValues();
+       
+        if (!is_null($this->container['state']) && !in_array(strtolower($this->container['state']), $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'state', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -200,6 +277,78 @@ class TaxIdentifier implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id The identifier of the tax identifier.
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_time
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedTime()
+    {
+        return $this->container['created_time'];
+    }
+
+    /**
+     * Sets created_time
+     *
+     * @param \DateTime|null $created_time The time when the tax identifier was created.
+     *
+     * @return $this
+     */
+    public function setCreatedTime($created_time)
+    {
+        $this->container['created_time'] = $created_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_id
+     *
+     * @return string|null
+     */
+    public function getCustomerId()
+    {
+        return $this->container['customer_id'];
+    }
+
+    /**
+     * Sets customer_id
+     *
+     * @param string|null $customer_id The identifier of an existing customer.
+     *
+     * @return $this
+     */
+    public function setCustomerId($customer_id)
+    {
+        $this->container['customer_id'] = $customer_id;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string|null
@@ -212,7 +361,7 @@ class TaxIdentifier implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Typically consists of a lowercase, two-letter country code.
+     * @param string|null $type Type of tax identifier.
      *
      * @return $this
      */
@@ -236,13 +385,142 @@ class TaxIdentifier implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string|null $value A tax identifier value that is dependent on the format used in each country.
+     * @param string|null $value The tax identifier.
      *
      * @return $this
      */
     public function setValue($value)
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state The verification state.
+     *
+     * @return $this
+     */
+    public function setState($state)
+    {
+        $allowedValues = $this->getStateAllowableValues();
+        if (!is_null($state) && !in_array(strtolower($state), $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'state', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_transitions
+     *
+     * @return \DigitalRiver\ApiSdk\Model\TaxIdentifierStateTransitions|null
+     */
+    public function getStateTransitions()
+    {
+        return $this->container['state_transitions'];
+    }
+
+    /**
+     * Sets state_transitions
+     *
+     * @param \DigitalRiver\ApiSdk\Model\TaxIdentifierStateTransitions|null $state_transitions state_transitions
+     *
+     * @return $this
+     */
+    public function setStateTransitions($state_transitions)
+    {
+        $this->container['state_transitions'] = $state_transitions;
+
+        return $this;
+    }
+
+    /**
+     * Gets verified_name
+     *
+     * @return string|null
+     */
+    public function getVerifiedName()
+    {
+        return $this->container['verified_name'];
+    }
+
+    /**
+     * Sets verified_name
+     *
+     * @param string|null $verified_name The registered name of the customer with this tax identifier.
+     *
+     * @return $this
+     */
+    public function setVerifiedName($verified_name)
+    {
+        $this->container['verified_name'] = $verified_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets verified_address
+     *
+     * @return string|null
+     */
+    public function getVerifiedAddress()
+    {
+        return $this->container['verified_address'];
+    }
+
+    /**
+     * Sets verified_address
+     *
+     * @param string|null $verified_address The registered address of the customer with this tax identifier.
+     *
+     * @return $this
+     */
+    public function setVerifiedAddress($verified_address)
+    {
+        $this->container['verified_address'] = $verified_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_time
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedTime()
+    {
+        return $this->container['updated_time'];
+    }
+
+    /**
+     * Sets updated_time
+     *
+     * @param \DateTime|null $updated_time The time when the tax identifier was updated.
+     *
+     * @return $this
+     */
+    public function setUpdatedTime($updated_time)
+    {
+        $this->container['updated_time'] = $updated_time;
 
         return $this;
     }

@@ -54,8 +54,8 @@ class GlobalFulfillmentOrderRequest implements ModelInterface, ArrayAccess
         'phone' => 'string',
         'reservation_id' => 'string',
         'upstream_id' => 'string',
-        'ship_to' => 'object',
-        'shipping_choice' => '\DigitalRiver\ApiSdk\Model\ShippingChoice',
+        'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
+        'shipping_choice' => '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentShippingChoice',
         'items' => '\DigitalRiver\ApiSdk\Model\LineItemRequest[]'
     ];
 
@@ -281,7 +281,7 @@ class GlobalFulfillmentOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Three-letter ISO currency code.
+     * @param string $currency A three-letter ISO currency code.
      *
      * @return $this
      */
@@ -305,7 +305,7 @@ class GlobalFulfillmentOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets locale
      *
-     * @param string|null $locale Locale designator combining two-letter ISO 639-1 language code with ISO 3166-1 alpha-2 country code.
+     * @param string|null $locale A locale designator that combines a two-letter ISO 639-1 language code with a ISO 3166-1 alpha-2 country code.
      *
      * @return $this
      */
@@ -329,7 +329,7 @@ class GlobalFulfillmentOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets upstream_order_time
      *
-     * @param \DateTime $upstream_order_time Time at which the upstream order was created
+     * @param \DateTime $upstream_order_time The date and time at which the upstream order was created. The specified value should be in ISO-8601 UTC format.
      *
      * @return $this
      */
@@ -353,7 +353,7 @@ class GlobalFulfillmentOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name The customer name.
+     * @param string|null $name The customer's name.
      *
      * @return $this
      */
@@ -377,7 +377,7 @@ class GlobalFulfillmentOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string|null $email The customer email address.
+     * @param string|null $email The customer's email address.
      *
      * @return $this
      */
@@ -401,7 +401,7 @@ class GlobalFulfillmentOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets phone
      *
-     * @param string|null $phone The customer phone number.
+     * @param string|null $phone The customer's phone number.
      *
      * @return $this
      */
@@ -449,7 +449,7 @@ class GlobalFulfillmentOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets upstream_id
      *
-     * @param string|null $upstream_id The user order identifier.
+     * @param string|null $upstream_id The upstream order identifier.
      *
      * @return $this
      */
@@ -463,7 +463,7 @@ class GlobalFulfillmentOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Gets ship_to
      *
-     * @return object
+     * @return \DigitalRiver\ApiSdk\Model\Shipping
      */
     public function getShipTo()
     {
@@ -473,7 +473,7 @@ class GlobalFulfillmentOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets ship_to
      *
-     * @param object $ship_to ship_to
+     * @param \DigitalRiver\ApiSdk\Model\Shipping $ship_to ship_to
      *
      * @return $this
      */
@@ -487,7 +487,7 @@ class GlobalFulfillmentOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Gets shipping_choice
      *
-     * @return \DigitalRiver\ApiSdk\Model\ShippingChoice
+     * @return \DigitalRiver\ApiSdk\Model\GlobalFulfillmentShippingChoice
      */
     public function getShippingChoice()
     {
@@ -497,7 +497,7 @@ class GlobalFulfillmentOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_choice
      *
-     * @param \DigitalRiver\ApiSdk\Model\ShippingChoice $shipping_choice shipping_choice
+     * @param \DigitalRiver\ApiSdk\Model\GlobalFulfillmentShippingChoice $shipping_choice shipping_choice
      *
      * @return $this
      */

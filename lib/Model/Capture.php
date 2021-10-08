@@ -25,7 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * Capture Class Doc Comment
  *
  * @category Class
- * @description Represents the [capture](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/payment-charges#captures) of all or part of the charge.
+ * @description Represents the capture of all or part of the charge.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

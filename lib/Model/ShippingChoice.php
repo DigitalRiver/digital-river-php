@@ -25,7 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * ShippingChoice Class Doc Comment
  *
  * @category Class
- * @description Represents the [shipping amount, description,  taxes, and service level](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/shipping-choice).
+ * @description Represents the shipping amount, description,  taxes, and service level.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -297,7 +297,7 @@ class ShippingChoice implements ModelInterface, ArrayAccess
     /**
      * Sets service_level
      *
-     * @param string|null $service_level A [shipping code](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/shipping-choice#service-level-values) that represents the service level.
+     * @param string|null $service_level A shipping code that represents the service level.
      *
      * @return $this
      */

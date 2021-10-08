@@ -46,7 +46,7 @@ class UpdateReturnRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'location' => '\DigitalRiver\ApiSdk\Model\Location',
+        'location' => '\DigitalRiver\ApiSdk\Model\ReturnLocation',
         'state' => 'string',
         'items' => '\DigitalRiver\ApiSdk\Model\UpdateReturnItem[]',
         'metadata' => 'map[string,AnyType]'
@@ -239,7 +239,7 @@ class UpdateReturnRequest implements ModelInterface, ArrayAccess
     /**
      * Gets location
      *
-     * @return \DigitalRiver\ApiSdk\Model\Location|null
+     * @return \DigitalRiver\ApiSdk\Model\ReturnLocation|null
      */
     public function getLocation()
     {
@@ -249,7 +249,7 @@ class UpdateReturnRequest implements ModelInterface, ArrayAccess
     /**
      * Sets location
      *
-     * @param \DigitalRiver\ApiSdk\Model\Location|null $location location
+     * @param \DigitalRiver\ApiSdk\Model\ReturnLocation|null $location location
      *
      * @return $this
      */

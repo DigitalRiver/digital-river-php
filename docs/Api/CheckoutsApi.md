@@ -1,15 +1,82 @@
 # DigitalRiver\ApiSdk\CheckoutsApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**attachSourceToCheckout**](CheckoutsApi.md#attachSourceToCheckout) | **POST** /checkouts/{id}/sources/{sourceId} | Attach source to checkout.
 [**createCheckouts**](CheckoutsApi.md#createCheckouts) | **POST** /checkouts | Creates a new checkout
 [**deleteCheckouts**](CheckoutsApi.md#deleteCheckouts) | **DELETE** /checkouts/{id} | Deletes a checkout by ID.
+[**detachSourceToCheckout**](CheckoutsApi.md#detachSourceToCheckout) | **DELETE** /checkouts/{id}/sources/{sourceId} | Deletes a checkout association to source.
 [**listCheckouts**](CheckoutsApi.md#listCheckouts) | **GET** /checkouts | Returns a list of checkouts
 [**retrieveCheckouts**](CheckoutsApi.md#retrieveCheckouts) | **GET** /checkouts/{id} | Gets a checkout by ID.
 [**updateCheckouts**](CheckoutsApi.md#updateCheckouts) | **POST** /checkouts/{id} | Updates an existing checkout
 
+
+
+## attachSourceToCheckout
+
+> \DigitalRiver\ApiSdk\Model\Source attachSourceToCheckout($id, $source_id)
+
+Attach source to checkout.
+
+Attach source to checkout. Supply the unique identifier of the checkout.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = DigitalRiver\ApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new DigitalRiver\ApiSdk\Api\CheckoutsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Checkout ID
+
+$source_id = 'source_id_example'; // string | Source ID
+
+
+try {
+    $result = $apiInstance->attachSourceToCheckout($id, $source_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CheckoutsApi->attachSourceToCheckout: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Checkout ID |
+ **source_id** | **string**| Source ID |
+
+### Return type
+
+[**\DigitalRiver\ApiSdk\Model\Source**](../Model/Source.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
 
 ## createCheckouts
@@ -116,6 +183,70 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Checkout ID |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## detachSourceToCheckout
+
+> detachSourceToCheckout($id, $source_id)
+
+Deletes a checkout association to source.
+
+Detach source from checkout.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = DigitalRiver\ApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new DigitalRiver\ApiSdk\Api\CheckoutsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Checkout ID
+
+$source_id = 'source_id_example'; // string | Source ID
+
+
+try {
+    $apiInstance->detachSourceToCheckout($id, $source_id);
+} catch (Exception $e) {
+    echo 'Exception when calling CheckoutsApi->detachSourceToCheckout: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Checkout ID |
+ **source_id** | **string**| Source ID |
 
 ### Return type
 

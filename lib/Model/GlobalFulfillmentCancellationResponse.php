@@ -277,7 +277,7 @@ class GlobalFulfillmentCancellationResponse implements ModelInterface, ArrayAcce
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier for the cancellation
+     * @param string|null $id The unique identifier of the fulfillment cancellation
      *
      * @return $this
      */
@@ -301,7 +301,7 @@ class GlobalFulfillmentCancellationResponse implements ModelInterface, ArrayAcce
     /**
      * Sets created_time
      *
-     * @param \DateTime|null $created_time Time at which the cancellation was created
+     * @param \DateTime|null $created_time The time at which the fulfillment cancellation was created.
      *
      * @return $this
      */
@@ -325,7 +325,7 @@ class GlobalFulfillmentCancellationResponse implements ModelInterface, ArrayAcce
     /**
      * Sets fulfillment_order_id
      *
-     * @param string|null $fulfillment_order_id Unique identifier for the fulfillment order
+     * @param string|null $fulfillment_order_id The unique identifier of the fulfillment order associated with the fulfillment cancellation.
      *
      * @return $this
      */
@@ -349,7 +349,7 @@ class GlobalFulfillmentCancellationResponse implements ModelInterface, ArrayAcce
     /**
      * Sets upstream_id
      *
-     * @param string|null $upstream_id Upstream identifier of the cancellation
+     * @param string|null $upstream_id The unique identifier of the upstream order.
      *
      * @return $this
      */
@@ -397,7 +397,7 @@ class GlobalFulfillmentCancellationResponse implements ModelInterface, ArrayAcce
     /**
      * Sets reason
      *
-     * @param string|null $reason String indicating the reason for the cancellation.
+     * @param string|null $reason The reason for the cancellation.
      *
      * @return $this
      */
@@ -421,7 +421,7 @@ class GlobalFulfillmentCancellationResponse implements ModelInterface, ArrayAcce
     /**
      * Sets state
      *
-     * @param string|null $state Enumeration indicating the state of the cancellation.
+     * @param string|null $state An enumeration indicating the state of the fulfillment cancellation.
      *
      * @return $this
      */

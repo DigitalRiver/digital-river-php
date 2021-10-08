@@ -52,7 +52,7 @@ class SkuItem implements ModelInterface, ArrayAccess
         'fees' => '\DigitalRiver\ApiSdk\Model\Fees',
         'quantity' => 'int',
         'amount' => 'double',
-        'available_to_refund_amount' => 'double',
+        'tariff_code' => 'string',
         'tax' => '\DigitalRiver\ApiSdk\Model\Tax',
         'importer_tax' => '\DigitalRiver\ApiSdk\Model\ImporterTax',
         'duties' => '\DigitalRiver\ApiSdk\Model\Duties',
@@ -73,7 +73,7 @@ class SkuItem implements ModelInterface, ArrayAccess
         'fees' => null,
         'quantity' => null,
         'amount' => 'double',
-        'available_to_refund_amount' => 'double',
+        'tariff_code' => null,
         'tax' => null,
         'importer_tax' => null,
         'duties' => null,
@@ -115,7 +115,7 @@ class SkuItem implements ModelInterface, ArrayAccess
         'fees' => 'fees',
         'quantity' => 'quantity',
         'amount' => 'amount',
-        'available_to_refund_amount' => 'availableToRefundAmount',
+        'tariff_code' => 'tariffCode',
         'tax' => 'tax',
         'importer_tax' => 'importerTax',
         'duties' => 'duties',
@@ -136,7 +136,7 @@ class SkuItem implements ModelInterface, ArrayAccess
         'fees' => 'setFees',
         'quantity' => 'setQuantity',
         'amount' => 'setAmount',
-        'available_to_refund_amount' => 'setAvailableToRefundAmount',
+        'tariff_code' => 'setTariffCode',
         'tax' => 'setTax',
         'importer_tax' => 'setImporterTax',
         'duties' => 'setDuties',
@@ -157,7 +157,7 @@ class SkuItem implements ModelInterface, ArrayAccess
         'fees' => 'getFees',
         'quantity' => 'getQuantity',
         'amount' => 'getAmount',
-        'available_to_refund_amount' => 'getAvailableToRefundAmount',
+        'tariff_code' => 'getTariffCode',
         'tax' => 'getTax',
         'importer_tax' => 'getImporterTax',
         'duties' => 'getDuties',
@@ -232,7 +232,7 @@ class SkuItem implements ModelInterface, ArrayAccess
         $this->container['fees'] = isset($data['fees']) ? $data['fees'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['available_to_refund_amount'] = isset($data['available_to_refund_amount']) ? $data['available_to_refund_amount'] : null;
+        $this->container['tariff_code'] = isset($data['tariff_code']) ? $data['tariff_code'] : null;
         $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
         $this->container['importer_tax'] = isset($data['importer_tax']) ? $data['importer_tax'] : null;
         $this->container['duties'] = isset($data['duties']) ? $data['duties'] : null;
@@ -302,7 +302,7 @@ class SkuItem implements ModelInterface, ArrayAccess
     /**
      * Sets sku_id
      *
-     * @param string|null $sku_id The identifier of the [stock keeping unit (SKU)](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus).
+     * @param string|null $sku_id The identifier of the stock keeping unit (SKU).
      *
      * @return $this
      */
@@ -410,25 +410,25 @@ class SkuItem implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets available_to_refund_amount
+     * Gets tariff_code
      *
-     * @return double|null
+     * @return string|null
      */
-    public function getAvailableToRefundAmount()
+    public function getTariffCode()
     {
-        return $this->container['available_to_refund_amount'];
+        return $this->container['tariff_code'];
     }
 
     /**
-     * Sets available_to_refund_amount
+     * Sets tariff_code
      *
-     * @param double|null $available_to_refund_amount The [available to refund](https://docs.digitalriver.com/digital-river-api/returns-and-refunds-1/refunds/issuing-refunds#checking-the-available-refund-amount) amount.
+     * @param string|null $tariff_code “Harmonized Tariff Schedule” that adds 4 more country-specific digits to the end of the HS Code and is determined by individual countries of import.
      *
      * @return $this
      */
-    public function setAvailableToRefundAmount($available_to_refund_amount)
+    public function setTariffCode($tariff_code)
     {
-        $this->container['available_to_refund_amount'] = $available_to_refund_amount;
+        $this->container['tariff_code'] = $tariff_code;
 
         return $this;
     }

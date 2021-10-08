@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fulfillment_order_id** | **string** | The unique identifier of the Fulfillment Order associated with the Cancellation. | 
-**upstream_id** | **string** | Unique identifier of the cancellation. | [optional] 
+**fulfillment_order_id** | **string** | The unique identifier of the fulfillment order associated with the fulfillment cancellation. | 
+**upstream_id** | **string** | The unique identifier of the upstream order. | [optional] 
 **reason** | **string** | The reason for the cancellation. | [optional] 
 **items** | [**\DigitalRiver\ApiSdk\Model\GlobalFulfillmentCancellationItemRequest[]**](GlobalFulfillmentCancellationItemRequest.md) |  | 
 

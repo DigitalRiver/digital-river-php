@@ -25,7 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * WEEE Class Doc Comment
  *
  * @category Class
- * @description Fees that represent [waste electrical and electronic equipment](https://docs.digitalriver.com/digital-river-api/regulatory-fees/managing-regulatory-fees#weee).
+ * @description Fees that represent waste electrical and electronic equipment.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

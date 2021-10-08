@@ -46,7 +46,6 @@ class TaxIdentifierRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'customer_id' => 'string',
         'type' => 'string',
         'value' => 'string'
     ];
@@ -57,7 +56,6 @@ class TaxIdentifierRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'customer_id' => null,
         'type' => null,
         'value' => null
     ];
@@ -89,7 +87,6 @@ class TaxIdentifierRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'customer_id' => 'customerId',
         'type' => 'type',
         'value' => 'value'
     ];
@@ -100,7 +97,6 @@ class TaxIdentifierRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'customer_id' => 'setCustomerId',
         'type' => 'setType',
         'value' => 'setValue'
     ];
@@ -111,7 +107,6 @@ class TaxIdentifierRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'customer_id' => 'getCustomerId',
         'type' => 'getType',
         'value' => 'getValue'
     ];
@@ -176,7 +171,6 @@ class TaxIdentifierRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['customer_id'] = isset($data['customer_id']) ? $data['customer_id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
@@ -210,30 +204,6 @@ class TaxIdentifierRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets customer_id
-     *
-     * @return string|null
-     */
-    public function getCustomerId()
-    {
-        return $this->container['customer_id'];
-    }
-
-    /**
-     * Sets customer_id
-     *
-     * @param string|null $customer_id The identifier of an existing customer.
-     *
-     * @return $this
-     */
-    public function setCustomerId($customer_id)
-    {
-        $this->container['customer_id'] = $customer_id;
-
-        return $this;
-    }
 
     /**
      * Gets type

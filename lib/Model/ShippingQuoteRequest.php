@@ -227,7 +227,7 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency Three-letter ISO currency code.
+     * @param string $currency A three-letter ISO currency code.
      *
      * @return $this
      */

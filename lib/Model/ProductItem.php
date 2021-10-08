@@ -374,7 +374,7 @@ class ProductItem implements ModelInterface, ArrayAccess
     /**
      * Sets shipping
      *
-     * @param double|null $shipping Shipping amount.
+     * @param double|null $shipping The shipping amount.
      *
      * @return $this
      */
@@ -398,7 +398,7 @@ class ProductItem implements ModelInterface, ArrayAccess
     /**
      * Sets handling
      *
-     * @param double|null $handling Handling amount.
+     * @param double|null $handling The handling amount.
      *
      * @return $this
      */
@@ -422,7 +422,7 @@ class ProductItem implements ModelInterface, ArrayAccess
     /**
      * Sets fees
      *
-     * @param double|null $fees Fee amount.
+     * @param double|null $fees The fee amount.
      *
      * @return $this
      */
@@ -446,7 +446,7 @@ class ProductItem implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param double|null $total Total shipping and handling amount.
+     * @param double|null $total The total shipping and handling amount.
      *
      * @return $this
      */

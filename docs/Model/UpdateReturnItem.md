@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **item_id** | **string** | The identifier of the item. | [optional] 
-**sku_id** | **string** | The identifier of the sku. | [optional] 
+**sku_id** | **string** | The identifier of the SKU. | [optional] 
 **quantity** | **int** |  | 
 **state** | **string** | An enumeration indicating the state of the return item. | 
 

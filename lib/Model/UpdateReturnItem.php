@@ -279,7 +279,7 @@ class UpdateReturnItem implements ModelInterface, ArrayAccess
     /**
      * Sets sku_id
      *
-     * @param string|null $sku_id The identifier of the sku.
+     * @param string|null $sku_id The identifier of the SKU.
      *
      * @return $this
      */

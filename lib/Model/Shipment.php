@@ -266,7 +266,7 @@ class Shipment implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier of a shipment.
+     * @param string|null $id The unique identifier of a shipment.
      *
      * @return $this
      */
@@ -314,7 +314,7 @@ class Shipment implements ModelInterface, ArrayAccess
     /**
      * Sets fulfillment_order_id
      *
-     * @param string|null $fulfillment_order_id The identifier of Fulfillment Order.
+     * @param string|null $fulfillment_order_id The identifier of the fulfillment order.
      *
      * @return $this
      */
@@ -338,7 +338,7 @@ class Shipment implements ModelInterface, ArrayAccess
     /**
      * Sets fulfillment_order_upstream_id
      *
-     * @param string|null $fulfillment_order_upstream_id The upstream identifier of Fulfillment Order.
+     * @param string|null $fulfillment_order_upstream_id The upstream identifier of the fulfillment order.
      *
      * @return $this
      */
@@ -362,7 +362,7 @@ class Shipment implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_choice_id
      *
-     * @param string|null $shipping_choice_id Shipping method used for shipment.
+     * @param string|null $shipping_choice_id The shipping method.
      *
      * @return $this
      */
@@ -386,7 +386,7 @@ class Shipment implements ModelInterface, ArrayAccess
     /**
      * Sets tracking_company_id
      *
-     * @param string|null $tracking_company_id tracking_company_id
+     * @param string|null $tracking_company_id The unique identifier of the tracking or carrier company.
      *
      * @return $this
      */
@@ -434,7 +434,7 @@ class Shipment implements ModelInterface, ArrayAccess
     /**
      * Sets tracking_number
      *
-     * @param string|null $tracking_number The tracking number provided by the shipping company.
+     * @param string|null $tracking_number The tracking number provided by the carrier company.
      *
      * @return $this
      */
@@ -458,7 +458,7 @@ class Shipment implements ModelInterface, ArrayAccess
     /**
      * Sets tracking_url
      *
-     * @param string|null $tracking_url The URL of the tracking page for the fulfillment.
+     * @param string|null $tracking_url The URL of the fulfillment tracking page.
      *
      * @return $this
      */

@@ -23,7 +23,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * ChargeType Class Doc Comment
  *
  * @category Class
- * @description Represents the [charge type](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/initiating-a-charge).
+ * @description Represents the charge type.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

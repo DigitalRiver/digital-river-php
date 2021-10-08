@@ -230,7 +230,7 @@ class GlobalFulfillmentCancellationRequest implements ModelInterface, ArrayAcces
     /**
      * Sets fulfillment_order_id
      *
-     * @param string $fulfillment_order_id The unique identifier of the Fulfillment Order associated with the Cancellation.
+     * @param string $fulfillment_order_id The unique identifier of the fulfillment order associated with the fulfillment cancellation.
      *
      * @return $this
      */
@@ -254,7 +254,7 @@ class GlobalFulfillmentCancellationRequest implements ModelInterface, ArrayAcces
     /**
      * Sets upstream_id
      *
-     * @param string|null $upstream_id Unique identifier of the cancellation.
+     * @param string|null $upstream_id The unique identifier of the upstream order.
      *
      * @return $this
      */

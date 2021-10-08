@@ -50,17 +50,15 @@ class Checkout implements ModelInterface, ArrayAccess
         'created_time' => '\DateTime',
         'updated_time' => '\DateTime',
         'customer_id' => 'string',
-        'source_id' => 'string',
-        'sources' => '\DigitalRiver\ApiSdk\Model\Source[]',
         'currency' => 'string',
         'email' => 'string',
         'locale' => 'string',
         'browser_ip' => 'string',
         'application_id' => 'string',
-        'credit_amount' => 'float',
         'ship_from' => '\DigitalRiver\ApiSdk\Model\ShipFrom',
         'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
         'bill_to' => '\DigitalRiver\ApiSdk\Model\Billing',
+        'organization' => '\DigitalRiver\ApiSdk\Model\Organization',
         'subtotal' => 'double',
         'total_tax' => 'double',
         'total_importer_tax' => 'double',
@@ -71,13 +69,13 @@ class Checkout implements ModelInterface, ArrayAccess
         'total_shipping' => 'double',
         'total_amount' => 'double',
         'discount' => '\DigitalRiver\ApiSdk\Model\Discount',
-        'charge_type' => '\DigitalRiver\ApiSdk\Model\ChargeType',
+        'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\TaxIdentifier[]',
         'purchase_location' => '\DigitalRiver\ApiSdk\Model\PurchaseLocation',
         'customer_type' => '\DigitalRiver\ApiSdk\Model\CustomerType',
         'selling_entity' => '\DigitalRiver\ApiSdk\Model\SellingEntity',
         'items' => '\DigitalRiver\ApiSdk\Model\SkuItem[]',
         'shipping_choice' => '\DigitalRiver\ApiSdk\Model\ShippingChoice',
-        'payment_session_id' => 'string',
+        'payment' => '\DigitalRiver\ApiSdk\Model\Payments',
         'live_mode' => 'bool',
         'metadata' => 'map[string,AnyType]',
         'upstream_id' => 'string'
@@ -93,17 +91,15 @@ class Checkout implements ModelInterface, ArrayAccess
         'created_time' => 'date-time',
         'updated_time' => 'date-time',
         'customer_id' => null,
-        'source_id' => null,
-        'sources' => null,
         'currency' => null,
         'email' => 'email',
         'locale' => null,
         'browser_ip' => null,
         'application_id' => null,
-        'credit_amount' => null,
         'ship_from' => null,
         'ship_to' => null,
         'bill_to' => null,
+        'organization' => null,
         'subtotal' => 'double',
         'total_tax' => 'double',
         'total_importer_tax' => 'double',
@@ -114,13 +110,13 @@ class Checkout implements ModelInterface, ArrayAccess
         'total_shipping' => 'double',
         'total_amount' => 'double',
         'discount' => null,
-        'charge_type' => null,
+        'tax_identifiers' => null,
         'purchase_location' => null,
         'customer_type' => null,
         'selling_entity' => null,
         'items' => null,
         'shipping_choice' => null,
-        'payment_session_id' => null,
+        'payment' => null,
         'live_mode' => null,
         'metadata' => null,
         'upstream_id' => null
@@ -157,17 +153,15 @@ class Checkout implements ModelInterface, ArrayAccess
         'created_time' => 'createdTime',
         'updated_time' => 'updatedTime',
         'customer_id' => 'customerId',
-        'source_id' => 'sourceId',
-        'sources' => 'sources',
         'currency' => 'currency',
         'email' => 'email',
         'locale' => 'locale',
         'browser_ip' => 'browserIp',
         'application_id' => 'applicationId',
-        'credit_amount' => 'creditAmount',
         'ship_from' => 'shipFrom',
         'ship_to' => 'shipTo',
         'bill_to' => 'billTo',
+        'organization' => 'organization',
         'subtotal' => 'subtotal',
         'total_tax' => 'totalTax',
         'total_importer_tax' => 'totalImporterTax',
@@ -178,13 +172,13 @@ class Checkout implements ModelInterface, ArrayAccess
         'total_shipping' => 'totalShipping',
         'total_amount' => 'totalAmount',
         'discount' => 'discount',
-        'charge_type' => 'chargeType',
+        'tax_identifiers' => 'taxIdentifiers',
         'purchase_location' => 'purchaseLocation',
         'customer_type' => 'customerType',
         'selling_entity' => 'sellingEntity',
         'items' => 'items',
         'shipping_choice' => 'shippingChoice',
-        'payment_session_id' => 'paymentSessionId',
+        'payment' => 'payment',
         'live_mode' => 'liveMode',
         'metadata' => 'metadata',
         'upstream_id' => 'upstreamId'
@@ -200,17 +194,15 @@ class Checkout implements ModelInterface, ArrayAccess
         'created_time' => 'setCreatedTime',
         'updated_time' => 'setUpdatedTime',
         'customer_id' => 'setCustomerId',
-        'source_id' => 'setSourceId',
-        'sources' => 'setSources',
         'currency' => 'setCurrency',
         'email' => 'setEmail',
         'locale' => 'setLocale',
         'browser_ip' => 'setBrowserIp',
         'application_id' => 'setApplicationId',
-        'credit_amount' => 'setCreditAmount',
         'ship_from' => 'setShipFrom',
         'ship_to' => 'setShipTo',
         'bill_to' => 'setBillTo',
+        'organization' => 'setOrganization',
         'subtotal' => 'setSubtotal',
         'total_tax' => 'setTotalTax',
         'total_importer_tax' => 'setTotalImporterTax',
@@ -221,13 +213,13 @@ class Checkout implements ModelInterface, ArrayAccess
         'total_shipping' => 'setTotalShipping',
         'total_amount' => 'setTotalAmount',
         'discount' => 'setDiscount',
-        'charge_type' => 'setChargeType',
+        'tax_identifiers' => 'setTaxIdentifiers',
         'purchase_location' => 'setPurchaseLocation',
         'customer_type' => 'setCustomerType',
         'selling_entity' => 'setSellingEntity',
         'items' => 'setItems',
         'shipping_choice' => 'setShippingChoice',
-        'payment_session_id' => 'setPaymentSessionId',
+        'payment' => 'setPayment',
         'live_mode' => 'setLiveMode',
         'metadata' => 'setMetadata',
         'upstream_id' => 'setUpstreamId'
@@ -243,17 +235,15 @@ class Checkout implements ModelInterface, ArrayAccess
         'created_time' => 'getCreatedTime',
         'updated_time' => 'getUpdatedTime',
         'customer_id' => 'getCustomerId',
-        'source_id' => 'getSourceId',
-        'sources' => 'getSources',
         'currency' => 'getCurrency',
         'email' => 'getEmail',
         'locale' => 'getLocale',
         'browser_ip' => 'getBrowserIp',
         'application_id' => 'getApplicationId',
-        'credit_amount' => 'getCreditAmount',
         'ship_from' => 'getShipFrom',
         'ship_to' => 'getShipTo',
         'bill_to' => 'getBillTo',
+        'organization' => 'getOrganization',
         'subtotal' => 'getSubtotal',
         'total_tax' => 'getTotalTax',
         'total_importer_tax' => 'getTotalImporterTax',
@@ -264,13 +254,13 @@ class Checkout implements ModelInterface, ArrayAccess
         'total_shipping' => 'getTotalShipping',
         'total_amount' => 'getTotalAmount',
         'discount' => 'getDiscount',
-        'charge_type' => 'getChargeType',
+        'tax_identifiers' => 'getTaxIdentifiers',
         'purchase_location' => 'getPurchaseLocation',
         'customer_type' => 'getCustomerType',
         'selling_entity' => 'getSellingEntity',
         'items' => 'getItems',
         'shipping_choice' => 'getShippingChoice',
-        'payment_session_id' => 'getPaymentSessionId',
+        'payment' => 'getPayment',
         'live_mode' => 'getLiveMode',
         'metadata' => 'getMetadata',
         'upstream_id' => 'getUpstreamId'
@@ -340,17 +330,15 @@ class Checkout implements ModelInterface, ArrayAccess
         $this->container['created_time'] = isset($data['created_time']) ? $data['created_time'] : null;
         $this->container['updated_time'] = isset($data['updated_time']) ? $data['updated_time'] : null;
         $this->container['customer_id'] = isset($data['customer_id']) ? $data['customer_id'] : null;
-        $this->container['source_id'] = isset($data['source_id']) ? $data['source_id'] : null;
-        $this->container['sources'] = isset($data['sources']) ? $data['sources'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['browser_ip'] = isset($data['browser_ip']) ? $data['browser_ip'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
-        $this->container['credit_amount'] = isset($data['credit_amount']) ? $data['credit_amount'] : null;
         $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
         $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
         $this->container['bill_to'] = isset($data['bill_to']) ? $data['bill_to'] : null;
+        $this->container['organization'] = isset($data['organization']) ? $data['organization'] : null;
         $this->container['subtotal'] = isset($data['subtotal']) ? $data['subtotal'] : null;
         $this->container['total_tax'] = isset($data['total_tax']) ? $data['total_tax'] : null;
         $this->container['total_importer_tax'] = isset($data['total_importer_tax']) ? $data['total_importer_tax'] : null;
@@ -361,13 +349,13 @@ class Checkout implements ModelInterface, ArrayAccess
         $this->container['total_shipping'] = isset($data['total_shipping']) ? $data['total_shipping'] : null;
         $this->container['total_amount'] = isset($data['total_amount']) ? $data['total_amount'] : null;
         $this->container['discount'] = isset($data['discount']) ? $data['discount'] : null;
-        $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
+        $this->container['tax_identifiers'] = isset($data['tax_identifiers']) ? $data['tax_identifiers'] : null;
         $this->container['purchase_location'] = isset($data['purchase_location']) ? $data['purchase_location'] : null;
         $this->container['customer_type'] = isset($data['customer_type']) ? $data['customer_type'] : null;
         $this->container['selling_entity'] = isset($data['selling_entity']) ? $data['selling_entity'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['shipping_choice'] = isset($data['shipping_choice']) ? $data['shipping_choice'] : null;
-        $this->container['payment_session_id'] = isset($data['payment_session_id']) ? $data['payment_session_id'] : null;
+        $this->container['payment'] = isset($data['payment']) ? $data['payment'] : null;
         $this->container['live_mode'] = isset($data['live_mode']) ? $data['live_mode'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['upstream_id'] = isset($data['upstream_id']) ? $data['upstream_id'] : null;
@@ -494,54 +482,6 @@ class Checkout implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets source_id
-     *
-     * @return string|null
-     */
-    public function getSourceId()
-    {
-        return $this->container['source_id'];
-    }
-
-    /**
-     * Sets source_id
-     *
-     * @param string|null $source_id The unique identifier of a Source.
-     *
-     * @return $this
-     */
-    public function setSourceId($source_id)
-    {
-        $this->container['source_id'] = $source_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets sources
-     *
-     * @return \DigitalRiver\ApiSdk\Model\Source[]|null
-     */
-    public function getSources()
-    {
-        return $this->container['sources'];
-    }
-
-    /**
-     * Sets sources
-     *
-     * @param \DigitalRiver\ApiSdk\Model\Source[]|null $sources sources
-     *
-     * @return $this
-     */
-    public function setSources($sources)
-    {
-        $this->container['sources'] = $sources;
-
-        return $this;
-    }
-
-    /**
      * Gets currency
      *
      * @return string|null
@@ -662,30 +602,6 @@ class Checkout implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets credit_amount
-     *
-     * @return float|null
-     */
-    public function getCreditAmount()
-    {
-        return $this->container['credit_amount'];
-    }
-
-    /**
-     * Sets credit_amount
-     *
-     * @param float|null $credit_amount Represents the total amount of credit you are extending to the customer.
-     *
-     * @return $this
-     */
-    public function setCreditAmount($credit_amount)
-    {
-        $this->container['credit_amount'] = $credit_amount;
-
-        return $this;
-    }
-
-    /**
      * Gets ship_from
      *
      * @return \DigitalRiver\ApiSdk\Model\ShipFrom|null
@@ -753,6 +669,30 @@ class Checkout implements ModelInterface, ArrayAccess
     public function setBillTo($bill_to)
     {
         $this->container['bill_to'] = $bill_to;
+
+        return $this;
+    }
+
+    /**
+     * Gets organization
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Organization|null
+     */
+    public function getOrganization()
+    {
+        return $this->container['organization'];
+    }
+
+    /**
+     * Sets organization
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Organization|null $organization organization
+     *
+     * @return $this
+     */
+    public function setOrganization($organization)
+    {
+        $this->container['organization'] = $organization;
 
         return $this;
     }
@@ -998,25 +938,25 @@ class Checkout implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets charge_type
+     * Gets tax_identifiers
      *
-     * @return \DigitalRiver\ApiSdk\Model\ChargeType|null
+     * @return \DigitalRiver\ApiSdk\Model\TaxIdentifier[]|null
      */
-    public function getChargeType()
+    public function getTaxIdentifiers()
     {
-        return $this->container['charge_type'];
+        return $this->container['tax_identifiers'];
     }
 
     /**
-     * Sets charge_type
+     * Sets tax_identifiers
      *
-     * @param \DigitalRiver\ApiSdk\Model\ChargeType|null $charge_type charge_type
+     * @param \DigitalRiver\ApiSdk\Model\TaxIdentifier[]|null $tax_identifiers tax_identifiers
      *
      * @return $this
      */
-    public function setChargeType($charge_type)
+    public function setTaxIdentifiers($tax_identifiers)
     {
-        $this->container['charge_type'] = $charge_type;
+        $this->container['tax_identifiers'] = $tax_identifiers;
 
         return $this;
     }
@@ -1142,25 +1082,25 @@ class Checkout implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets payment_session_id
+     * Gets payment
      *
-     * @return string|null
+     * @return \DigitalRiver\ApiSdk\Model\Payments|null
      */
-    public function getPaymentSessionId()
+    public function getPayment()
     {
-        return $this->container['payment_session_id'];
+        return $this->container['payment'];
     }
 
     /**
-     * Sets payment_session_id
+     * Sets payment
      *
-     * @param string|null $payment_session_id Tracks the process of collecting a payment.
+     * @param \DigitalRiver\ApiSdk\Model\Payments|null $payment payment
      *
      * @return $this
      */
-    public function setPaymentSessionId($payment_session_id)
+    public function setPayment($payment)
     {
-        $this->container['payment_session_id'] = $payment_session_id;
+        $this->container['payment'] = $payment;
 
         return $this;
     }
@@ -1226,7 +1166,7 @@ class Checkout implements ModelInterface, ArrayAccess
     /**
      * Sets upstream_id
      *
-     * @param string|null $upstream_id The client checkout identifier if it is different from the Digital River checkout identifier.
+     * @param string|null $upstream_id The upstream identifier.
      *
      * @return $this
      */

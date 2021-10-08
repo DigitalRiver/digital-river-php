@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | [**\DigitalRiver\ApiSdk\Model\Address**](Address.md) |  | 
+**address** | [**\DigitalRiver\ApiSdk\Model\GlobalFulfillmentAddress**](GlobalFulfillmentAddress.md) |  | 
 **name** | **string** |  | [optional] 
 **phone** | **string** |  | [optional] 
 **email** | **string** |  | [optional] 

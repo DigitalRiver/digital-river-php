@@ -60,7 +60,8 @@ class PayoutAmounts implements ModelInterface, ArrayAccess
         'shipping_discount' => 'double',
         'regulatory_fee_discount' => 'double',
         'remit_shipping' => 'double',
-        'payout_amount' => 'double'
+        'payout_amount' => 'double',
+        'store_credit' => 'double'
     ];
 
     /**
@@ -83,7 +84,8 @@ class PayoutAmounts implements ModelInterface, ArrayAccess
         'shipping_discount' => 'double',
         'regulatory_fee_discount' => 'double',
         'remit_shipping' => 'double',
-        'payout_amount' => 'double'
+        'payout_amount' => 'double',
+        'store_credit' => 'double'
     ];
 
     /**
@@ -127,7 +129,8 @@ class PayoutAmounts implements ModelInterface, ArrayAccess
         'shipping_discount' => 'shippingDiscount',
         'regulatory_fee_discount' => 'regulatoryFeeDiscount',
         'remit_shipping' => 'remitShipping',
-        'payout_amount' => 'payoutAmount'
+        'payout_amount' => 'payoutAmount',
+        'store_credit' => 'storeCredit'
     ];
 
     /**
@@ -150,7 +153,8 @@ class PayoutAmounts implements ModelInterface, ArrayAccess
         'shipping_discount' => 'setShippingDiscount',
         'regulatory_fee_discount' => 'setRegulatoryFeeDiscount',
         'remit_shipping' => 'setRemitShipping',
-        'payout_amount' => 'setPayoutAmount'
+        'payout_amount' => 'setPayoutAmount',
+        'store_credit' => 'setStoreCredit'
     ];
 
     /**
@@ -173,7 +177,8 @@ class PayoutAmounts implements ModelInterface, ArrayAccess
         'shipping_discount' => 'getShippingDiscount',
         'regulatory_fee_discount' => 'getRegulatoryFeeDiscount',
         'remit_shipping' => 'getRemitShipping',
-        'payout_amount' => 'getPayoutAmount'
+        'payout_amount' => 'getPayoutAmount',
+        'store_credit' => 'getStoreCredit'
     ];
 
     /**
@@ -251,6 +256,7 @@ class PayoutAmounts implements ModelInterface, ArrayAccess
         $this->container['regulatory_fee_discount'] = isset($data['regulatory_fee_discount']) ? $data['regulatory_fee_discount'] : null;
         $this->container['remit_shipping'] = isset($data['remit_shipping']) ? $data['remit_shipping'] : null;
         $this->container['payout_amount'] = isset($data['payout_amount']) ? $data['payout_amount'] : null;
+        $this->container['store_credit'] = isset($data['store_credit']) ? $data['store_credit'] : null;
     }
 
     /**
@@ -633,6 +639,30 @@ class PayoutAmounts implements ModelInterface, ArrayAccess
     public function setPayoutAmount($payout_amount)
     {
         $this->container['payout_amount'] = $payout_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_credit
+     *
+     * @return double|null
+     */
+    public function getStoreCredit()
+    {
+        return $this->container['store_credit'];
+    }
+
+    /**
+     * Sets store_credit
+     *
+     * @param double|null $store_credit Store credit.
+     *
+     * @return $this
+     */
+    public function setStoreCredit($store_credit)
+    {
+        $this->container['store_credit'] = $store_credit;
 
         return $this;
     }

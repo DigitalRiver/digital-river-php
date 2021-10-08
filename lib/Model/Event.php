@@ -211,9 +211,6 @@ class Event implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['digital_river_version'] === null) {
-            $invalidProperties[] = "'digital_river_version' can't be null";
-        }
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
@@ -289,7 +286,7 @@ class Event implements ModelInterface, ArrayAccess
     /**
      * Gets digital_river_version
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDigitalRiverVersion()
     {
@@ -299,7 +296,7 @@ class Event implements ModelInterface, ArrayAccess
     /**
      * Sets digital_river_version
      *
-     * @param \DateTime $digital_river_version digital_river_version
+     * @param \DateTime|null $digital_river_version digital_river_version
      *
      * @return $this
      */
@@ -371,7 +368,7 @@ class Event implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type The [type of event](https://docs.digitalriver.com/digital-river-api/events-and-webhooks-1/events-1/event-types).
+     * @param string $type The type of event.
      *
      * @return $this
      */

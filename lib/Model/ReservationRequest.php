@@ -47,9 +47,9 @@ class ReservationRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'items' => '\DigitalRiver\ApiSdk\Model\InventoryItem[]',
-        'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
-        'shipping_choice' => '\DigitalRiver\ApiSdk\Model\ShippingChoice',
+        'items' => '\DigitalRiver\ApiSdk\Model\ReservationInventoryItem[]',
+        'ship_to' => '\DigitalRiver\ApiSdk\Model\ReservationShipping',
+        'shipping_choice' => '\DigitalRiver\ApiSdk\Model\ReservationShippingChoice',
         'expires_in_seconds' => 'int'
     ];
 
@@ -242,7 +242,7 @@ class ReservationRequest implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id A unique identifier for the reservation. Usually an order identifier.
+     * @param string|null $id The unique identifier of the reservation.
      *
      * @return $this
      */
@@ -256,7 +256,7 @@ class ReservationRequest implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \DigitalRiver\ApiSdk\Model\InventoryItem[]
+     * @return \DigitalRiver\ApiSdk\Model\ReservationInventoryItem[]
      */
     public function getItems()
     {
@@ -266,7 +266,7 @@ class ReservationRequest implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \DigitalRiver\ApiSdk\Model\InventoryItem[] $items items
+     * @param \DigitalRiver\ApiSdk\Model\ReservationInventoryItem[] $items items
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class ReservationRequest implements ModelInterface, ArrayAccess
     /**
      * Gets ship_to
      *
-     * @return \DigitalRiver\ApiSdk\Model\Shipping
+     * @return \DigitalRiver\ApiSdk\Model\ReservationShipping
      */
     public function getShipTo()
     {
@@ -290,7 +290,7 @@ class ReservationRequest implements ModelInterface, ArrayAccess
     /**
      * Sets ship_to
      *
-     * @param \DigitalRiver\ApiSdk\Model\Shipping $ship_to ship_to
+     * @param \DigitalRiver\ApiSdk\Model\ReservationShipping $ship_to ship_to
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class ReservationRequest implements ModelInterface, ArrayAccess
     /**
      * Gets shipping_choice
      *
-     * @return \DigitalRiver\ApiSdk\Model\ShippingChoice
+     * @return \DigitalRiver\ApiSdk\Model\ReservationShippingChoice
      */
     public function getShippingChoice()
     {
@@ -314,7 +314,7 @@ class ReservationRequest implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_choice
      *
-     * @param \DigitalRiver\ApiSdk\Model\ShippingChoice $shipping_choice shipping_choice
+     * @param \DigitalRiver\ApiSdk\Model\ReservationShippingChoice $shipping_choice shipping_choice
      *
      * @return $this
      */

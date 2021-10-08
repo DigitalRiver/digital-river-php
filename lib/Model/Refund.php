@@ -25,6 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * Refund Class Doc Comment
  *
  * @category Class
+ * @description Represents the refund of all or part of the charge.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -48,21 +49,11 @@ class Refund implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'created_time' => '\DateTime',
-        'order_id' => 'string',
-        'invoice_id' => 'string',
-        'currency' => 'string',
-        'type' => 'string',
+        'updated_time' => '\DateTime',
         'amount' => 'double',
-        'refunded_amount' => 'double',
-        'payments' => '\DigitalRiver\ApiSdk\Model\PaymentsInformation[]',
-        'items' => '\DigitalRiver\ApiSdk\Model\RefundItem[]',
-        'reason' => 'string',
-        'failure_reason' => 'string',
         'state' => 'string',
-        'token_information' => '\DigitalRiver\ApiSdk\Model\TokenInformation',
-        'expires_time' => '\DateTime',
-        'live_mode' => 'bool',
-        'metadata' => 'map[string,AnyType]'
+        'failure_code' => 'string',
+        'failure_message' => 'string'
     ];
 
     /**
@@ -73,21 +64,11 @@ class Refund implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created_time' => 'date-time',
-        'order_id' => null,
-        'invoice_id' => null,
-        'currency' => null,
-        'type' => null,
+        'updated_time' => 'date-time',
         'amount' => 'double',
-        'refunded_amount' => 'double',
-        'payments' => null,
-        'items' => null,
-        'reason' => null,
-        'failure_reason' => null,
         'state' => null,
-        'token_information' => null,
-        'expires_time' => 'date-time',
-        'live_mode' => null,
-        'metadata' => null
+        'failure_code' => null,
+        'failure_message' => null
     ];
 
     /**
@@ -119,21 +100,11 @@ class Refund implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created_time' => 'createdTime',
-        'order_id' => 'orderId',
-        'invoice_id' => 'invoiceId',
-        'currency' => 'currency',
-        'type' => 'type',
+        'updated_time' => 'updatedTime',
         'amount' => 'amount',
-        'refunded_amount' => 'refundedAmount',
-        'payments' => 'payments',
-        'items' => 'items',
-        'reason' => 'reason',
-        'failure_reason' => 'failureReason',
         'state' => 'state',
-        'token_information' => 'tokenInformation',
-        'expires_time' => 'expiresTime',
-        'live_mode' => 'liveMode',
-        'metadata' => 'metadata'
+        'failure_code' => 'failureCode',
+        'failure_message' => 'failureMessage'
     ];
 
     /**
@@ -144,21 +115,11 @@ class Refund implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created_time' => 'setCreatedTime',
-        'order_id' => 'setOrderId',
-        'invoice_id' => 'setInvoiceId',
-        'currency' => 'setCurrency',
-        'type' => 'setType',
+        'updated_time' => 'setUpdatedTime',
         'amount' => 'setAmount',
-        'refunded_amount' => 'setRefundedAmount',
-        'payments' => 'setPayments',
-        'items' => 'setItems',
-        'reason' => 'setReason',
-        'failure_reason' => 'setFailureReason',
         'state' => 'setState',
-        'token_information' => 'setTokenInformation',
-        'expires_time' => 'setExpiresTime',
-        'live_mode' => 'setLiveMode',
-        'metadata' => 'setMetadata'
+        'failure_code' => 'setFailureCode',
+        'failure_message' => 'setFailureMessage'
     ];
 
     /**
@@ -169,21 +130,11 @@ class Refund implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created_time' => 'getCreatedTime',
-        'order_id' => 'getOrderId',
-        'invoice_id' => 'getInvoiceId',
-        'currency' => 'getCurrency',
-        'type' => 'getType',
+        'updated_time' => 'getUpdatedTime',
         'amount' => 'getAmount',
-        'refunded_amount' => 'getRefundedAmount',
-        'payments' => 'getPayments',
-        'items' => 'getItems',
-        'reason' => 'getReason',
-        'failure_reason' => 'getFailureReason',
         'state' => 'getState',
-        'token_information' => 'getTokenInformation',
-        'expires_time' => 'getExpiresTime',
-        'live_mode' => 'getLiveMode',
-        'metadata' => 'getMetadata'
+        'failure_code' => 'getFailureCode',
+        'failure_message' => 'getFailureMessage'
     ];
 
     /**
@@ -227,37 +178,11 @@ class Refund implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const TYPE_SHIPPING = 'shipping';
-    const TYPE_TAX = 'tax';
-    const TYPE_FEES = 'fees';
-    const TYPE_DUTY = 'duty';
-    const TYPE_IMPORTER_TAX = 'importer_tax';
-    const STATE_PENDING_INFORMATION = 'pending_information';
     const STATE_PENDING = 'pending';
-    const STATE_SUCCEEDED = 'succeeded';
+    const STATE_COMPLETE = 'complete';
     const STATE_FAILED = 'failed';
-    const STATE_EXPIRED = 'expired';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-       $allowable = [
-            self::TYPE_SHIPPING,
-            self::TYPE_TAX,
-            self::TYPE_FEES,
-            self::TYPE_DUTY,
-            self::TYPE_IMPORTER_TAX,
-        ];
-
-        $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
-        return $allowableAllCase;
-    }
     
     /**
      * Gets allowable values of the enum
@@ -267,11 +192,9 @@ class Refund implements ModelInterface, ArrayAccess
     public function getStateAllowableValues()
     {
        $allowable = [
-            self::STATE_PENDING_INFORMATION,
             self::STATE_PENDING,
-            self::STATE_SUCCEEDED,
+            self::STATE_COMPLETE,
             self::STATE_FAILED,
-            self::STATE_EXPIRED,
         ];
 
         $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
@@ -296,21 +219,11 @@ class Refund implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created_time'] = isset($data['created_time']) ? $data['created_time'] : null;
-        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
-        $this->container['invoice_id'] = isset($data['invoice_id']) ? $data['invoice_id'] : null;
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['updated_time'] = isset($data['updated_time']) ? $data['updated_time'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['refunded_amount'] = isset($data['refunded_amount']) ? $data['refunded_amount'] : null;
-        $this->container['payments'] = isset($data['payments']) ? $data['payments'] : null;
-        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
-        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
-        $this->container['failure_reason'] = isset($data['failure_reason']) ? $data['failure_reason'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-        $this->container['token_information'] = isset($data['token_information']) ? $data['token_information'] : null;
-        $this->container['expires_time'] = isset($data['expires_time']) ? $data['expires_time'] : null;
-        $this->container['live_mode'] = isset($data['live_mode']) ? $data['live_mode'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['failure_code'] = isset($data['failure_code']) ? $data['failure_code'] : null;
+        $this->container['failure_message'] = isset($data['failure_message']) ? $data['failure_message'] : null;
     }
 
     /**
@@ -321,19 +234,6 @@ class Refund implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-       
-        if (!is_null($this->container['type']) && !in_array(strtolower($this->container['type']), $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if (!is_null($this->container['reason']) && (mb_strlen($this->container['reason']) > 64)) {
-            $invalidProperties[] = "invalid value for 'reason', the character length must be smaller than or equal to 64.";
-        }
 
         $allowedValues = $this->getStateAllowableValues();
        
@@ -372,7 +272,7 @@ class Refund implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id The unique identifier of the refund
+     * @param string|null $id The unique identifier of the refund.
      *
      * @return $this
      */
@@ -396,7 +296,7 @@ class Refund implements ModelInterface, ArrayAccess
     /**
      * Sets created_time
      *
-     * @param \DateTime|null $created_time Time at which the return was created
+     * @param \DateTime|null $created_time The time when the refund was created.
      *
      * @return $this
      */
@@ -408,106 +308,25 @@ class Refund implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets order_id
+     * Gets updated_time
      *
-     * @return string|null
+     * @return \DateTime|null
      */
-    public function getOrderId()
+    public function getUpdatedTime()
     {
-        return $this->container['order_id'];
+        return $this->container['updated_time'];
     }
 
     /**
-     * Sets order_id
+     * Sets updated_time
      *
-     * @param string|null $order_id The unique identifier of the order
+     * @param \DateTime|null $updated_time The time when the refund was updated.
      *
      * @return $this
      */
-    public function setOrderId($order_id)
+    public function setUpdatedTime($updated_time)
     {
-        $this->container['order_id'] = $order_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets invoice_id
-     *
-     * @return string|null
-     */
-    public function getInvoiceId()
-    {
-        return $this->container['invoice_id'];
-    }
-
-    /**
-     * Sets invoice_id
-     *
-     * @param string|null $invoice_id The unique identifier of the invoice
-     *
-     * @return $this
-     */
-    public function setInvoiceId($invoice_id)
-    {
-        $this->container['invoice_id'] = $invoice_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     *
-     * @return string|null
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string|null $currency Three-letter ISO currency code.
-     *
-     * @return $this
-     */
-    public function setCurrency($currency)
-    {
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type The type of the item.
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array(strtolower($type), $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
+        $this->container['updated_time'] = $updated_time;
 
         return $this;
     }
@@ -525,137 +344,13 @@ class Refund implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param double|null $amount Represents the requested refund amount.
+     * @param double|null $amount An amount representing how much was refunded.
      *
      * @return $this
      */
     public function setAmount($amount)
     {
         $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets refunded_amount
-     *
-     * @return double|null
-     */
-    public function getRefundedAmount()
-    {
-        return $this->container['refunded_amount'];
-    }
-
-    /**
-     * Sets refunded_amount
-     *
-     * @param double|null $refunded_amount Represents the total amount refunded.
-     *
-     * @return $this
-     */
-    public function setRefundedAmount($refunded_amount)
-    {
-        $this->container['refunded_amount'] = $refunded_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets payments
-     *
-     * @return \DigitalRiver\ApiSdk\Model\PaymentsInformation[]|null
-     */
-    public function getPayments()
-    {
-        return $this->container['payments'];
-    }
-
-    /**
-     * Sets payments
-     *
-     * @param \DigitalRiver\ApiSdk\Model\PaymentsInformation[]|null $payments payments
-     *
-     * @return $this
-     */
-    public function setPayments($payments)
-    {
-        $this->container['payments'] = $payments;
-
-        return $this;
-    }
-
-    /**
-     * Gets items
-     *
-     * @return \DigitalRiver\ApiSdk\Model\RefundItem[]|null
-     */
-    public function getItems()
-    {
-        return $this->container['items'];
-    }
-
-    /**
-     * Sets items
-     *
-     * @param \DigitalRiver\ApiSdk\Model\RefundItem[]|null $items items
-     *
-     * @return $this
-     */
-    public function setItems($items)
-    {
-        $this->container['items'] = $items;
-
-        return $this;
-    }
-
-    /**
-     * Gets reason
-     *
-     * @return string|null
-     */
-    public function getReason()
-    {
-        return $this->container['reason'];
-    }
-
-    /**
-     * Sets reason
-     *
-     * @param string|null $reason String indicating the reason for the refund.
-     *
-     * @return $this
-     */
-    public function setReason($reason)
-    {
-        if (!is_null($reason) && (mb_strlen($reason) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $reason when calling Refund., must be smaller than or equal to 64.');
-        }
-
-        $this->container['reason'] = $reason;
-
-        return $this;
-    }
-
-    /**
-     * Gets failure_reason
-     *
-     * @return string|null
-     */
-    public function getFailureReason()
-    {
-        return $this->container['failure_reason'];
-    }
-
-    /**
-     * Sets failure_reason
-     *
-     * @param string|null $failure_reason Enumeration indicating the reason for the refund failure, if known.
-     *
-     * @return $this
-     */
-    public function setFailureReason($failure_reason)
-    {
-        $this->container['failure_reason'] = $failure_reason;
 
         return $this;
     }
@@ -673,7 +368,7 @@ class Refund implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string|null $state Enumeration indicating the state of the refund.
+     * @param string|null $state The state of the refund.
      *
      * @return $this
      */
@@ -694,97 +389,49 @@ class Refund implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets token_information
+     * Gets failure_code
      *
-     * @return \DigitalRiver\ApiSdk\Model\TokenInformation|null
+     * @return string|null
      */
-    public function getTokenInformation()
+    public function getFailureCode()
     {
-        return $this->container['token_information'];
+        return $this->container['failure_code'];
     }
 
     /**
-     * Sets token_information
+     * Sets failure_code
      *
-     * @param \DigitalRiver\ApiSdk\Model\TokenInformation|null $token_information token_information
+     * @param string|null $failure_code An error code that identifies the reason for the refund failure.
      *
      * @return $this
      */
-    public function setTokenInformation($token_information)
+    public function setFailureCode($failure_code)
     {
-        $this->container['token_information'] = $token_information;
+        $this->container['failure_code'] = $failure_code;
 
         return $this;
     }
 
     /**
-     * Gets expires_time
+     * Gets failure_message
      *
-     * @return \DateTime|null
+     * @return string|null
      */
-    public function getExpiresTime()
+    public function getFailureMessage()
     {
-        return $this->container['expires_time'];
+        return $this->container['failure_message'];
     }
 
     /**
-     * Sets expires_time
+     * Sets failure_message
      *
-     * @param \DateTime|null $expires_time Time at which the information token expires.
+     * @param string|null $failure_message An error message that describes the reason for the refund failure.
      *
      * @return $this
      */
-    public function setExpiresTime($expires_time)
+    public function setFailureMessage($failure_message)
     {
-        $this->container['expires_time'] = $expires_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets live_mode
-     *
-     * @return bool|null
-     */
-    public function getLiveMode()
-    {
-        return $this->container['live_mode'];
-    }
-
-    /**
-     * Sets live_mode
-     *
-     * @param bool|null $live_mode Has the value true if the object exists in live mode or the value false if the object exists in test mode.
-     *
-     * @return $this
-     */
-    public function setLiveMode($live_mode)
-    {
-        $this->container['live_mode'] = $live_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return map[string,AnyType]|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param map[string,AnyType]|null $metadata Key-value pairs used to store additional data. Value can be string, boolean or integer types.
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
+        $this->container['failure_message'] = $failure_message;
 
         return $this;
     }

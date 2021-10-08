@@ -113,7 +113,7 @@ class RefundsApi
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \DigitalRiver\ApiSdk\Model\Refund|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
+     * @return \DigitalRiver\ApiSdk\Model\OrderRefund|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
     public function createRefunds($refund_request = null)
     {
@@ -130,7 +130,7 @@ class RefundsApi
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \DigitalRiver\ApiSdk\Model\Refund|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalRiver\ApiSdk\Model\OrderRefund|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
     public function createRefundsWithHttpInfo($refund_request = null)
     {
@@ -167,14 +167,14 @@ class RefundsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\DigitalRiver\ApiSdk\Model\Refund' === '\SplFileObject') {
+                    if ('\DigitalRiver\ApiSdk\Model\OrderRefund' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Refund', []),
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\OrderRefund', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -324,7 +324,7 @@ class RefundsApi
                     ];
             }
 
-            $returnType = '\DigitalRiver\ApiSdk\Model\Refund';
+            $returnType = '\DigitalRiver\ApiSdk\Model\OrderRefund';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -343,7 +343,7 @@ class RefundsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Refund',
+                        '\DigitalRiver\ApiSdk\Model\OrderRefund',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -481,7 +481,7 @@ class RefundsApi
      */
     public function createRefundsAsyncWithHttpInfo($refund_request = null)
     {
-        $returnType = '\DigitalRiver\ApiSdk\Model\Refund';
+        $returnType = '\DigitalRiver\ApiSdk\Model\OrderRefund';
         $request = $this->createRefundsRequest($refund_request);
 
         return $this->client
@@ -1326,7 +1326,7 @@ class RefundsApi
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \DigitalRiver\ApiSdk\Model\Refund|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
+     * @return \DigitalRiver\ApiSdk\Model\OrderRefund|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
     public function retrieveRefunds($id)
     {
@@ -1343,7 +1343,7 @@ class RefundsApi
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \DigitalRiver\ApiSdk\Model\Refund|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalRiver\ApiSdk\Model\OrderRefund|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
     public function retrieveRefundsWithHttpInfo($id)
     {
@@ -1380,14 +1380,14 @@ class RefundsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\DigitalRiver\ApiSdk\Model\Refund' === '\SplFileObject') {
+                    if ('\DigitalRiver\ApiSdk\Model\OrderRefund' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Refund', []),
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\OrderRefund', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1537,7 +1537,7 @@ class RefundsApi
                     ];
             }
 
-            $returnType = '\DigitalRiver\ApiSdk\Model\Refund';
+            $returnType = '\DigitalRiver\ApiSdk\Model\OrderRefund';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1556,7 +1556,7 @@ class RefundsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Refund',
+                        '\DigitalRiver\ApiSdk\Model\OrderRefund',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1694,7 +1694,7 @@ class RefundsApi
      */
     public function retrieveRefundsAsyncWithHttpInfo($id)
     {
-        $returnType = '\DigitalRiver\ApiSdk\Model\Refund';
+        $returnType = '\DigitalRiver\ApiSdk\Model\OrderRefund';
         $request = $this->retrieveRefundsRequest($id);
 
         return $this->client
@@ -1849,7 +1849,7 @@ class RefundsApi
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \DigitalRiver\ApiSdk\Model\Refund|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
+     * @return \DigitalRiver\ApiSdk\Model\OrderRefund|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
     public function updateRefunds($id, $update_refund_request = null)
     {
@@ -1867,7 +1867,7 @@ class RefundsApi
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \DigitalRiver\ApiSdk\Model\Refund|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalRiver\ApiSdk\Model\OrderRefund|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateRefundsWithHttpInfo($id, $update_refund_request = null)
     {
@@ -1904,14 +1904,14 @@ class RefundsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\DigitalRiver\ApiSdk\Model\Refund' === '\SplFileObject') {
+                    if ('\DigitalRiver\ApiSdk\Model\OrderRefund' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Refund', []),
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\OrderRefund', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2073,7 +2073,7 @@ class RefundsApi
                     ];
             }
 
-            $returnType = '\DigitalRiver\ApiSdk\Model\Refund';
+            $returnType = '\DigitalRiver\ApiSdk\Model\OrderRefund';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2092,7 +2092,7 @@ class RefundsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Refund',
+                        '\DigitalRiver\ApiSdk\Model\OrderRefund',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2240,7 +2240,7 @@ class RefundsApi
      */
     public function updateRefundsAsyncWithHttpInfo($id, $update_refund_request = null)
     {
-        $returnType = '\DigitalRiver\ApiSdk\Model\Refund';
+        $returnType = '\DigitalRiver\ApiSdk\Model\OrderRefund';
         $request = $this->updateRefundsRequest($id, $update_refund_request);
 
         return $this->client

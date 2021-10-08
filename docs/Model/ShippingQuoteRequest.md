@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**currency** | **string** | Three-letter ISO currency code. | 
+**currency** | **string** | A three-letter ISO currency code. | 
 **ship_to** | [**\DigitalRiver\ApiSdk\Model\ShippingQuoteAddress**](ShippingQuoteAddress.md) |  | 
 **items** | [**\DigitalRiver\ApiSdk\Model\ProductItemRequest[]**](ProductItemRequest.md) |  | 
 

@@ -1,22 +1,22 @@
 # DigitalRiver\ApiSdk\FulfillmentCancellationsApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createGFCancellations**](FulfillmentCancellationsApi.md#createGFCancellations) | **POST** /fulfillment-cancellations | Creates a cancellation
-[**listGFCancellations**](FulfillmentCancellationsApi.md#listGFCancellations) | **GET** /fulfillment-cancellations | Returns a list of cancellations
-[**retrieveGFCancellations**](FulfillmentCancellationsApi.md#retrieveGFCancellations) | **GET** /fulfillment-cancellations/{id} | Gets a cancellation by ID
+[**createFulfillmentCancellations**](FulfillmentCancellationsApi.md#createFulfillmentCancellations) | **POST** /fulfillment-cancellations | Creates a cancellation
+[**listFulfillmentCancellations**](FulfillmentCancellationsApi.md#listFulfillmentCancellations) | **GET** /fulfillment-cancellations | Returns a list of fulfillment cancellations
+[**retrieveFulfillmentCancellations**](FulfillmentCancellationsApi.md#retrieveFulfillmentCancellations) | **GET** /fulfillment-cancellations/{id} | Gets a fulfillment cancellation by its unique identifier.
 
 
 
-## createGFCancellations
+## createFulfillmentCancellations
 
-> \DigitalRiver\ApiSdk\Model\GlobalFulfillmentCancellationResponse createGFCancellations($global_fulfillment_cancellation_request)
+> \DigitalRiver\ApiSdk\Model\GlobalFulfillmentCancellationResponse createFulfillmentCancellations($global_fulfillment_cancellation_request)
 
 Creates a cancellation
 
-Cancels all or part of a previously created order.
+Cancels all or part of a previously created fulfillment order.
 
 ### Example
 
@@ -34,10 +34,10 @@ $global_fulfillment_cancellation_request = new \DigitalRiver\ApiSdk\Model\Global
 // Refer \DigitalRiver\ApiSdk\Model\GlobalFulfillmentCancellationRequest::$setters in digital-river-php/lib/Model/GlobalFulfillmentCancellationRequest.php to set the properties.
 
 try {
-    $result = $apiInstance->createGFCancellations($global_fulfillment_cancellation_request);
+    $result = $apiInstance->createFulfillmentCancellations($global_fulfillment_cancellation_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FulfillmentCancellationsApi->createGFCancellations: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FulfillmentCancellationsApi->createFulfillmentCancellations: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -67,13 +67,13 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## listGFCancellations
+## listFulfillmentCancellations
 
-> \DigitalRiver\ApiSdk\Model\ListGlobalFulfillmentCancellationsResponse listGFCancellations($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id)
+> \DigitalRiver\ApiSdk\Model\ListGlobalFulfillmentCancellationsResponse listFulfillmentCancellations($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id)
 
-Returns a list of cancellations
+Returns a list of fulfillment cancellations
 
-Get all cancellations.
+Get all fulfillment cancellations.
 
 ### Example
 
@@ -107,10 +107,10 @@ $inventory_item_id = 'inventory_item_id_example'; // string | The inventory item
 
 
 try {
-    $result = $apiInstance->listGFCancellations($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
+    $result = $apiInstance->listFulfillmentCancellations($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FulfillmentCancellationsApi->listGFCancellations: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FulfillmentCancellationsApi->listFulfillmentCancellations: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -148,13 +148,13 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## retrieveGFCancellations
+## retrieveFulfillmentCancellations
 
-> \DigitalRiver\ApiSdk\Model\GlobalFulfillmentCancellationResponse retrieveGFCancellations($id)
+> \DigitalRiver\ApiSdk\Model\GlobalFulfillmentCancellationResponse retrieveFulfillmentCancellations($id)
 
-Gets a cancellation by ID
+Gets a fulfillment cancellation by its unique identifier.
 
-Retrieves the details of a cancellation. Supply the unique identifier of the cancellation.
+Retrieves the details of a fulfillment cancellation. Supply the unique identifier of the cancellation.
 
 ### Example
 
@@ -172,10 +172,10 @@ $id = 'id_example'; // string | Cancellation ID
 
 
 try {
-    $result = $apiInstance->retrieveGFCancellations($id);
+    $result = $apiInstance->retrieveFulfillmentCancellations($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FulfillmentCancellationsApi->retrieveGFCancellations: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FulfillmentCancellationsApi->retrieveFulfillmentCancellations: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

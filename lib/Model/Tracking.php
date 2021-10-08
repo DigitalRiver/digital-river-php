@@ -212,7 +212,7 @@ class Tracking implements ModelInterface, ArrayAccess
     /**
      * Sets tracking_number
      *
-     * @param string|null $tracking_number Unique identifier of a shipment.
+     * @param string|null $tracking_number The tracking identifier provided by the carrier.
      *
      * @return $this
      */
@@ -236,7 +236,7 @@ class Tracking implements ModelInterface, ArrayAccess
     /**
      * Sets tracking_url
      *
-     * @param string|null $tracking_url Time when the shipment was created.
+     * @param string|null $tracking_url The URL of the tracking page provided by the carrier.
      *
      * @return $this
      */

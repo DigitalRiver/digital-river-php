@@ -49,6 +49,7 @@ class Fulfillment implements ModelInterface, ArrayAccess
         'id' => 'string',
         'created_time' => '\DateTime',
         'order_id' => 'string',
+        'shipment_id' => 'string',
         'items' => '\DigitalRiver\ApiSdk\Model\FulfillmentResponseItem[]',
         'live_mode' => 'bool',
         'metadata' => 'map[string,AnyType]',
@@ -66,6 +67,7 @@ class Fulfillment implements ModelInterface, ArrayAccess
         'id' => null,
         'created_time' => 'date-time',
         'order_id' => null,
+        'shipment_id' => null,
         'items' => null,
         'live_mode' => null,
         'metadata' => null,
@@ -104,6 +106,7 @@ class Fulfillment implements ModelInterface, ArrayAccess
         'id' => 'id',
         'created_time' => 'createdTime',
         'order_id' => 'orderId',
+        'shipment_id' => 'shipmentId',
         'items' => 'items',
         'live_mode' => 'liveMode',
         'metadata' => 'metadata',
@@ -121,6 +124,7 @@ class Fulfillment implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'created_time' => 'setCreatedTime',
         'order_id' => 'setOrderId',
+        'shipment_id' => 'setShipmentId',
         'items' => 'setItems',
         'live_mode' => 'setLiveMode',
         'metadata' => 'setMetadata',
@@ -138,6 +142,7 @@ class Fulfillment implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'created_time' => 'getCreatedTime',
         'order_id' => 'getOrderId',
+        'shipment_id' => 'getShipmentId',
         'items' => 'getItems',
         'live_mode' => 'getLiveMode',
         'metadata' => 'getMetadata',
@@ -209,6 +214,7 @@ class Fulfillment implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created_time'] = isset($data['created_time']) ? $data['created_time'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['shipment_id'] = isset($data['shipment_id']) ? $data['shipment_id'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['live_mode'] = isset($data['live_mode']) ? $data['live_mode'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
@@ -309,6 +315,30 @@ class Fulfillment implements ModelInterface, ArrayAccess
     public function setOrderId($order_id)
     {
         $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipment_id
+     *
+     * @return string|null
+     */
+    public function getShipmentId()
+    {
+        return $this->container['shipment_id'];
+    }
+
+    /**
+     * Sets shipment_id
+     *
+     * @param string|null $shipment_id The unique identifier associated to the shipment
+     *
+     * @return $this
+     */
+    public function setShipmentId($shipment_id)
+    {
+        $this->container['shipment_id'] = $shipment_id;
 
         return $this;
     }

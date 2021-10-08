@@ -1,22 +1,266 @@
 # DigitalRiver\ApiSdk\InvoicesApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**callList**](InvoicesApi.md#callList) | **GET** /invoices | Returns a list of invoices
-[**create**](InvoicesApi.md#create) | **POST** /invoices | Creates a new invoice
-[**delete**](InvoicesApi.md#delete) | **DELETE** /invoices/{id} | Deletes an invoice.
-[**open**](InvoicesApi.md#open) | **POST** /invoices/{id}/open | Opens an existing invoice
-[**retrieve**](InvoicesApi.md#retrieve) | **GET** /invoices/{id} | Gets an invoice by identifier
-[**update**](InvoicesApi.md#update) | **POST** /invoices/{id} | Updates an existing invoice
-[**void**](InvoicesApi.md#void) | **POST** /invoices/{id}/void | Voids an existing invoice
+[**attachSourceToInvoice**](InvoicesApi.md#attachSourceToInvoice) | **POST** /invoices/{id}/sources/{sourceId} | Attach source to invoice.
+[**createInvoices**](InvoicesApi.md#createInvoices) | **POST** /invoices | Creates a new invoice
+[**deleteInvoices**](InvoicesApi.md#deleteInvoices) | **DELETE** /invoices/{id} | Deletes an invoice.
+[**detachSourceToInvoice**](InvoicesApi.md#detachSourceToInvoice) | **DELETE** /invoices/{id}/sources/{sourceId} | Deletes a invoice association to source.
+[**listInvoices**](InvoicesApi.md#listInvoices) | **GET** /invoices | Returns a list of invoices
+[**openInvoices**](InvoicesApi.md#openInvoices) | **POST** /invoices/{id}/open | Opens an existing invoice
+[**retrieveInvoices**](InvoicesApi.md#retrieveInvoices) | **GET** /invoices/{id} | Gets an invoice by identifier
+[**updateInvoices**](InvoicesApi.md#updateInvoices) | **POST** /invoices/{id} | Updates an existing invoice
+[**voidInvoices**](InvoicesApi.md#voidInvoices) | **POST** /invoices/{id}/void | Voids an existing invoice
 
 
 
-## callList
+## attachSourceToInvoice
 
-> \DigitalRiver\ApiSdk\Model\InlineResponse200 callList($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $total_amount, $customer_id, $application_id, $currency, $state, $sku_id, $price, $attempt_count)
+> \DigitalRiver\ApiSdk\Model\Source attachSourceToInvoice($id, $source_id)
+
+Attach source to invoice.
+
+Attach source to invoice. Supply the unique identifier of the invoice.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new DigitalRiver\ApiSdk\Api\InvoicesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$id = 'id_example'; // string | Invoice ID
+
+$source_id = 'source_id_example'; // string | Source ID
+
+
+try {
+    $result = $apiInstance->attachSourceToInvoice($id, $source_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoicesApi->attachSourceToInvoice: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Invoice ID |
+ **source_id** | **string**| Source ID |
+
+### Return type
+
+[**\DigitalRiver\ApiSdk\Model\Source**](../Model/Source.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## createInvoices
+
+> \DigitalRiver\ApiSdk\Model\Invoice createInvoices($invoice_request)
+
+Creates a new invoice
+
+This request [creates a new invoice](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/invoices#creating-an-invoice) object.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = DigitalRiver\ApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new DigitalRiver\ApiSdk\Api\InvoicesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$invoice_request = new \DigitalRiver\ApiSdk\Model\InvoiceRequest(); // \DigitalRiver\ApiSdk\Model\InvoiceRequest | 
+// Refer \DigitalRiver\ApiSdk\Model\InvoiceRequest::$setters in digital-river-php/lib/Model/InvoiceRequest.php to set the properties.
+
+try {
+    $result = $apiInstance->createInvoices($invoice_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoicesApi->createInvoices: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **invoice_request** | [**\DigitalRiver\ApiSdk\Model\InvoiceRequest**](../Model/InvoiceRequest.md)|  | [optional]
+
+### Return type
+
+[**\DigitalRiver\ApiSdk\Model\Invoice**](../Model/Invoice.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## deleteInvoices
+
+> deleteInvoices($id)
+
+Deletes an invoice.
+
+This requrest [deletes an invoice](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/invoices#deleting-an-invoice).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = DigitalRiver\ApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new DigitalRiver\ApiSdk\Api\InvoicesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | The unique identifier of the Invoice.
+
+
+try {
+    $apiInstance->deleteInvoices($id);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoicesApi->deleteInvoices: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The unique identifier of the Invoice. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## detachSourceToInvoice
+
+> detachSourceToInvoice($id, $source_id)
+
+Deletes a invoice association to source.
+
+Detach source from invoice.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new DigitalRiver\ApiSdk\Api\InvoicesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$id = 'id_example'; // string | Invoice ID
+
+$source_id = 'source_id_example'; // string | Source ID
+
+
+try {
+    $apiInstance->detachSourceToInvoice($id, $source_id);
+} catch (Exception $e) {
+    echo 'Exception when calling InvoicesApi->detachSourceToInvoice: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Invoice ID |
+ **source_id** | **string**| Source ID |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listInvoices
+
+> \DigitalRiver\ApiSdk\Model\InlineResponse2003 listInvoices($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $total_amount, $customer_id, $application_id, $currency, $state, $sku_id, $price, $attempt_count)
 
 Returns a list of invoices
 
@@ -71,10 +315,10 @@ $attempt_count = 2; // map[string,string] | A filter on the list based on the in
 // Refer map[string,string]::$setters in digital-river-php/lib/Model/string.php to set the properties.
 
 try {
-    $result = $apiInstance->callList($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $total_amount, $customer_id, $application_id, $currency, $state, $sku_id, $price, $attempt_count);
+    $result = $apiInstance->listInvoices($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $total_amount, $customer_id, $application_id, $currency, $state, $sku_id, $price, $attempt_count);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InvoicesApi->callList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InvoicesApi->listInvoices: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -102,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\DigitalRiver\ApiSdk\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\DigitalRiver\ApiSdk\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 
@@ -118,132 +362,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## create
+## openInvoices
 
-> \DigitalRiver\ApiSdk\Model\Invoice create($invoice_request)
-
-Creates a new invoice
-
-This request [creates a new invoice](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/invoices#creating-an-invoice) object.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: bearerAuth
-$config = DigitalRiver\ApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new DigitalRiver\ApiSdk\Api\InvoicesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$invoice_request = new \DigitalRiver\ApiSdk\Model\InvoiceRequest(); // \DigitalRiver\ApiSdk\Model\InvoiceRequest | 
-// Refer \DigitalRiver\ApiSdk\Model\InvoiceRequest::$setters in digital-river-php/lib/Model/InvoiceRequest.php to set the properties.
-
-try {
-    $result = $apiInstance->create($invoice_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling InvoicesApi->create: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invoice_request** | [**\DigitalRiver\ApiSdk\Model\InvoiceRequest**](../Model/InvoiceRequest.md)|  | [optional]
-
-### Return type
-
-[**\DigitalRiver\ApiSdk\Model\Invoice**](../Model/Invoice.md)
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
-## delete
-
-> delete($id)
-
-Deletes an invoice.
-
-This requrest [deletes an invoice](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/invoices#deleting-an-invoice).
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: bearerAuth
-$config = DigitalRiver\ApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new DigitalRiver\ApiSdk\Api\InvoicesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 'id_example'; // string | The unique identifier of the Invoice.
-
-
-try {
-    $apiInstance->delete($id);
-} catch (Exception $e) {
-    echo 'Exception when calling InvoicesApi->delete: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The unique identifier of the Invoice. |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
-## open
-
-> \DigitalRiver\ApiSdk\Model\Invoice open($id)
+> \DigitalRiver\ApiSdk\Model\Invoice openInvoices($id)
 
 Opens an existing invoice
 
@@ -270,10 +391,10 @@ $id = 'id_example'; // string | The unique identifier of the Invoice.
 
 
 try {
-    $result = $apiInstance->open($id);
+    $result = $apiInstance->openInvoices($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InvoicesApi->open: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InvoicesApi->openInvoices: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -303,9 +424,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## retrieve
+## retrieveInvoices
 
-> \DigitalRiver\ApiSdk\Model\Invoice retrieve($id)
+> \DigitalRiver\ApiSdk\Model\Invoice retrieveInvoices($id)
 
 Gets an invoice by identifier
 
@@ -332,10 +453,10 @@ $id = 'id_example'; // string | The unique identifier of the Invoice.
 
 
 try {
-    $result = $apiInstance->retrieve($id);
+    $result = $apiInstance->retrieveInvoices($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InvoicesApi->retrieve: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InvoicesApi->retrieveInvoices: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -365,9 +486,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## update
+## updateInvoices
 
-> \DigitalRiver\ApiSdk\Model\Invoice update($id, $update_invoice_request)
+> \DigitalRiver\ApiSdk\Model\Invoice updateInvoices($id, $update_invoice_request)
 
 Updates an existing invoice
 
@@ -396,10 +517,10 @@ $update_invoice_request = new \DigitalRiver\ApiSdk\Model\UpdateInvoiceRequest();
 // Refer \DigitalRiver\ApiSdk\Model\UpdateInvoiceRequest::$setters in digital-river-php/lib/Model/UpdateInvoiceRequest.php to set the properties.
 
 try {
-    $result = $apiInstance->update($id, $update_invoice_request);
+    $result = $apiInstance->updateInvoices($id, $update_invoice_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InvoicesApi->update: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InvoicesApi->updateInvoices: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -430,9 +551,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## void
+## voidInvoices
 
-> \DigitalRiver\ApiSdk\Model\Invoice void($id)
+> \DigitalRiver\ApiSdk\Model\Invoice voidInvoices($id)
 
 Voids an existing invoice
 
@@ -459,10 +580,10 @@ $id = 'id_example'; // string | The unique identifier of the invoice.
 
 
 try {
-    $result = $apiInstance->void($id);
+    $result = $apiInstance->voidInvoices($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InvoicesApi->void: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InvoicesApi->voidInvoices: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

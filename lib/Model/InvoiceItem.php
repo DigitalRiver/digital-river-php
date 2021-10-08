@@ -49,6 +49,7 @@ class InvoiceItem implements ModelInterface, ArrayAccess
         'id' => 'string',
         'sku_id' => 'string',
         'subscription_info' => '\DigitalRiver\ApiSdk\Model\SubscriptionInfo',
+        'fees' => '\DigitalRiver\ApiSdk\Model\Fees',
         'quantity' => 'int',
         'amount' => 'double',
         'duties' => '\DigitalRiver\ApiSdk\Model\Duties',
@@ -67,6 +68,7 @@ class InvoiceItem implements ModelInterface, ArrayAccess
         'id' => null,
         'sku_id' => null,
         'subscription_info' => null,
+        'fees' => null,
         'quantity' => null,
         'amount' => 'double',
         'duties' => null,
@@ -106,6 +108,7 @@ class InvoiceItem implements ModelInterface, ArrayAccess
         'id' => 'id',
         'sku_id' => 'skuId',
         'subscription_info' => 'subscriptionInfo',
+        'fees' => 'fees',
         'quantity' => 'quantity',
         'amount' => 'amount',
         'duties' => 'duties',
@@ -124,6 +127,7 @@ class InvoiceItem implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'sku_id' => 'setSkuId',
         'subscription_info' => 'setSubscriptionInfo',
+        'fees' => 'setFees',
         'quantity' => 'setQuantity',
         'amount' => 'setAmount',
         'duties' => 'setDuties',
@@ -142,6 +146,7 @@ class InvoiceItem implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'sku_id' => 'getSkuId',
         'subscription_info' => 'getSubscriptionInfo',
+        'fees' => 'getFees',
         'quantity' => 'getQuantity',
         'amount' => 'getAmount',
         'duties' => 'getDuties',
@@ -214,6 +219,7 @@ class InvoiceItem implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['sku_id'] = isset($data['sku_id']) ? $data['sku_id'] : null;
         $this->container['subscription_info'] = isset($data['subscription_info']) ? $data['subscription_info'] : null;
+        $this->container['fees'] = isset($data['fees']) ? $data['fees'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['duties'] = isset($data['duties']) ? $data['duties'] : null;
@@ -315,6 +321,30 @@ class InvoiceItem implements ModelInterface, ArrayAccess
     public function setSubscriptionInfo($subscription_info)
     {
         $this->container['subscription_info'] = $subscription_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets fees
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Fees|null
+     */
+    public function getFees()
+    {
+        return $this->container['fees'];
+    }
+
+    /**
+     * Sets fees
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Fees|null $fees fees
+     *
+     * @return $this
+     */
+    public function setFees($fees)
+    {
+        $this->container['fees'] = $fees;
 
         return $this;
     }

@@ -47,7 +47,7 @@ class ListRefundsResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'has_more' => 'bool',
-        'data' => '\DigitalRiver\ApiSdk\Model\Refund[]'
+        'data' => '\DigitalRiver\ApiSdk\Model\OrderRefund[]'
     ];
 
     /**
@@ -226,7 +226,7 @@ class ListRefundsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \DigitalRiver\ApiSdk\Model\Refund[]|null
+     * @return \DigitalRiver\ApiSdk\Model\OrderRefund[]|null
      */
     public function getData()
     {
@@ -236,7 +236,7 @@ class ListRefundsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \DigitalRiver\ApiSdk\Model\Refund[]|null $data data
+     * @param \DigitalRiver\ApiSdk\Model\OrderRefund[]|null $data data
      *
      * @return $this
      */

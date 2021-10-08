@@ -105,7 +105,7 @@ class ShipmentsApi
     }
 
     /**
-     * Operation callList
+     * Operation listShipments
      *
      * Returns a list of shipments
      *
@@ -120,14 +120,14 @@ class ShipmentsApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\InlineResponse2004|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function callList($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null)
+    public function listShipments($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null)
     {
-        list($response) = $this->callListWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids);
+        list($response) = $this->listShipmentsWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids);
         return $response;
     }
 
     /**
-     * Operation callListWithHttpInfo
+     * Operation listShipmentsWithHttpInfo
      *
      * Returns a list of shipments
      *
@@ -142,9 +142,9 @@ class ShipmentsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\InlineResponse2004|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function callListWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null)
+    public function listShipmentsWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null)
     {
-        $request = $this->callListRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids);
+        $request = $this->listShipmentsRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids);
 
         try {
             $options = $this->createHttpClientOption();
@@ -440,7 +440,7 @@ class ShipmentsApi
     }
 
     /**
-     * Operation callListAsync
+     * Operation listShipmentsAsync
      *
      * Returns a list of shipments
      *
@@ -454,9 +454,9 @@ class ShipmentsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function callListAsync($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null)
+    public function listShipmentsAsync($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null)
     {
-        return $this->callListAsyncWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids)
+        return $this->listShipmentsAsyncWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -465,7 +465,7 @@ class ShipmentsApi
     }
 
     /**
-     * Operation callListAsyncWithHttpInfo
+     * Operation listShipmentsAsyncWithHttpInfo
      *
      * Returns a list of shipments
      *
@@ -479,10 +479,10 @@ class ShipmentsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function callListAsyncWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null)
+    public function listShipmentsAsyncWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\InlineResponse2004';
-        $request = $this->callListRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids);
+        $request = $this->listShipmentsRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -519,7 +519,7 @@ class ShipmentsApi
     }
 
     /**
-     * Create request for operation 'callList'
+     * Create request for operation 'listShipments'
      *
      * @param  map[string,\DateTime] $created_time A filter on the list based on the **createdTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the createdTime field equals to this timestamp   - **gt**&amp;mdash;return values where the createdTime field is after this timestamp   - **gte**&amp;mdash;return values where the createdTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the createdTime field is before this timestamp   - **lte**&amp;mdash;return values where the createdTime field is before or equal to this timestamp (optional)
      * @param  map[string,\DateTime] $updated_time A filter on the list based on the **updatedTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the updatedTime field equals this timestamp   - **gt**&amp;mdash;return values where the updatedTime field is after this timestamp   - **gte**&amp;mdash;return values where the updatedTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the updatedTime field is before this timestamp   - **lte**&amp;mdash;return values where the updatedTime field is before or equal to this timestamp (optional)
@@ -531,13 +531,13 @@ class ShipmentsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function callListRequest($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null)
+    protected function listShipmentsRequest($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null)
     {
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling ShipmentsApi.callList, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ShipmentsApi.listShipments, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling ShipmentsApi.callList, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ShipmentsApi.listShipments, must be bigger than or equal to 1.');
         }
 
 
@@ -687,7 +687,7 @@ class ShipmentsApi
     }
 
     /**
-     * Operation retrieve
+     * Operation retrieveShipments
      *
      * Gets a shipment by ID.
      *
@@ -697,14 +697,14 @@ class ShipmentsApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\Shipment|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function retrieve($id)
+    public function retrieveShipments($id)
     {
-        list($response) = $this->retrieveWithHttpInfo($id);
+        list($response) = $this->retrieveShipmentsWithHttpInfo($id);
         return $response;
     }
 
     /**
-     * Operation retrieveWithHttpInfo
+     * Operation retrieveShipmentsWithHttpInfo
      *
      * Gets a shipment by ID.
      *
@@ -714,9 +714,9 @@ class ShipmentsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\Shipment|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retrieveWithHttpInfo($id)
+    public function retrieveShipmentsWithHttpInfo($id)
     {
-        $request = $this->retrieveRequest($id);
+        $request = $this->retrieveShipmentsRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1032,7 +1032,7 @@ class ShipmentsApi
     }
 
     /**
-     * Operation retrieveAsync
+     * Operation retrieveShipmentsAsync
      *
      * Gets a shipment by ID.
      *
@@ -1041,9 +1041,9 @@ class ShipmentsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveAsync($id)
+    public function retrieveShipmentsAsync($id)
     {
-        return $this->retrieveAsyncWithHttpInfo($id)
+        return $this->retrieveShipmentsAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1052,7 +1052,7 @@ class ShipmentsApi
     }
 
     /**
-     * Operation retrieveAsyncWithHttpInfo
+     * Operation retrieveShipmentsAsyncWithHttpInfo
      *
      * Gets a shipment by ID.
      *
@@ -1061,10 +1061,10 @@ class ShipmentsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveAsyncWithHttpInfo($id)
+    public function retrieveShipmentsAsyncWithHttpInfo($id)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\Shipment';
-        $request = $this->retrieveRequest($id);
+        $request = $this->retrieveShipmentsRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1101,19 +1101,19 @@ class ShipmentsApi
     }
 
     /**
-     * Create request for operation 'retrieve'
+     * Create request for operation 'retrieveShipments'
      *
      * @param  string $id Shipment identifier. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function retrieveRequest($id)
+    protected function retrieveShipmentsRequest($id)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling retrieve'
+                'Missing the required parameter $id when calling retrieveShipments'
             );
         }
 

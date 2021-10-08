@@ -110,7 +110,7 @@ class FilesApi
      * Creates a file.
      *
      * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). (required)
-     * @param  string $purpose The [purpose of the uploaded file](https://docs.digitalriver.com/digital-river-api/files-and-file-links-1/files/understanding-the-files-purpose). (required)
+     * @param  string $purpose The purpose of the uploaded file. (required)
      * @param  string $file_name A filename for the file, suitable for saving to a filesystem. (optional)
      * @param  string $title A user friendly title for the document. (optional)
      * @param  \DateTime $link_expires_time Time at which the link expires. (optional)
@@ -131,7 +131,7 @@ class FilesApi
      * Creates a file.
      *
      * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). (required)
-     * @param  string $purpose The [purpose of the uploaded file](https://docs.digitalriver.com/digital-river-api/files-and-file-links-1/files/understanding-the-files-purpose). (required)
+     * @param  string $purpose The purpose of the uploaded file. (required)
      * @param  string $file_name A filename for the file, suitable for saving to a filesystem. (optional)
      * @param  string $title A user friendly title for the document. (optional)
      * @param  \DateTime $link_expires_time Time at which the link expires. (optional)
@@ -463,7 +463,7 @@ class FilesApi
      * Creates a file.
      *
      * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). (required)
-     * @param  string $purpose The [purpose of the uploaded file](https://docs.digitalriver.com/digital-river-api/files-and-file-links-1/files/understanding-the-files-purpose). (required)
+     * @param  string $purpose The purpose of the uploaded file. (required)
      * @param  string $file_name A filename for the file, suitable for saving to a filesystem. (optional)
      * @param  string $title A user friendly title for the document. (optional)
      * @param  \DateTime $link_expires_time Time at which the link expires. (optional)
@@ -487,7 +487,7 @@ class FilesApi
      * Creates a file.
      *
      * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). (required)
-     * @param  string $purpose The [purpose of the uploaded file](https://docs.digitalriver.com/digital-river-api/files-and-file-links-1/files/understanding-the-files-purpose). (required)
+     * @param  string $purpose The purpose of the uploaded file. (required)
      * @param  string $file_name A filename for the file, suitable for saving to a filesystem. (optional)
      * @param  string $title A user friendly title for the document. (optional)
      * @param  \DateTime $link_expires_time Time at which the link expires. (optional)
@@ -538,7 +538,7 @@ class FilesApi
      * Create request for operation 'createFiles'
      *
      * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). (required)
-     * @param  string $purpose The [purpose of the uploaded file](https://docs.digitalriver.com/digital-river-api/files-and-file-links-1/files/understanding-the-files-purpose). (required)
+     * @param  string $purpose The purpose of the uploaded file. (required)
      * @param  string $file_name A filename for the file, suitable for saving to a filesystem. (optional)
      * @param  string $title A user friendly title for the document. (optional)
      * @param  \DateTime $link_expires_time Time at which the link expires. (optional)

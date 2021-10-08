@@ -317,7 +317,7 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency Three-letter ISO currency code.
+     * @param string|null $currency A three-letter ISO currency code.
      *
      * @return $this
      */
@@ -365,7 +365,7 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     /**
      * Sets shipping
      *
-     * @param double|null $shipping Shipping amount.
+     * @param double|null $shipping The shipping amount.
      *
      * @return $this
      */
@@ -389,7 +389,7 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     /**
      * Sets handling
      *
-     * @param double|null $handling Handling amount.
+     * @param double|null $handling The handling amount.
      *
      * @return $this
      */
@@ -413,7 +413,7 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     /**
      * Sets fees
      *
-     * @param double|null $fees Fee amount.
+     * @param double|null $fees The fee amount.
      *
      * @return $this
      */
@@ -437,7 +437,7 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param double|null $total Total shipping and handling amount.
+     * @param double|null $total The total shipping and handling amount.
      *
      * @return $this
      */
@@ -461,7 +461,7 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     /**
      * Sets signature_required_type
      *
-     * @param string|null $signature_required_type signature_required_type
+     * @param string|null $signature_required_type Indicates whether a signature is needed upon delivery, and, if it is, what type of signature is required.
      *
      * @return $this
      */
@@ -494,7 +494,7 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     /**
      * Sets estimated_minimum_delivery_time
      *
-     * @param float|null $estimated_minimum_delivery_time Minimum estimated time until delivery (in minutes).
+     * @param float|null $estimated_minimum_delivery_time The minimum estimated time until delivery (in minutes).
      *
      * @return $this
      */
@@ -518,7 +518,7 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     /**
      * Sets estimated_maximum_delivery_time
      *
-     * @param float|null $estimated_maximum_delivery_time Maximum estimated time until delivery (in minutes).
+     * @param float|null $estimated_maximum_delivery_time The maximum estimated time until delivery (in minutes).
      *
      * @return $this
      */

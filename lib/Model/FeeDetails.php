@@ -47,6 +47,7 @@ class FeeDetails implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'type' => 'string',
+        'amount' => 'double',
         'per_unit_amount' => 'double',
         'id' => 'string'
     ];
@@ -58,6 +59,7 @@ class FeeDetails implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'type' => null,
+        'amount' => 'double',
         'per_unit_amount' => 'double',
         'id' => null
     ];
@@ -90,6 +92,7 @@ class FeeDetails implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'type' => 'type',
+        'amount' => 'amount',
         'per_unit_amount' => 'perUnitAmount',
         'id' => 'id'
     ];
@@ -101,6 +104,7 @@ class FeeDetails implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'type' => 'setType',
+        'amount' => 'setAmount',
         'per_unit_amount' => 'setPerUnitAmount',
         'id' => 'setId'
     ];
@@ -112,6 +116,7 @@ class FeeDetails implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'type' => 'getType',
+        'amount' => 'getAmount',
         'per_unit_amount' => 'getPerUnitAmount',
         'id' => 'getId'
     ];
@@ -201,6 +206,7 @@ class FeeDetails implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['per_unit_amount'] = isset($data['per_unit_amount']) ? $data['per_unit_amount'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
@@ -272,6 +278,30 @@ class FeeDetails implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets amount
+     *
+     * @return double|null
+     */
+    public function getAmount()
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     *
+     * @param double|null $amount The <code>details[].perUnitAmount</code> multiplied by the <code>quantity</code> of the line item.
+     *
+     * @return $this
+     */
+    public function setAmount($amount)
+    {
+        $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
      * Gets per_unit_amount
      *
      * @return double|null
@@ -284,7 +314,7 @@ class FeeDetails implements ModelInterface, ArrayAccess
     /**
      * Sets per_unit_amount
      *
-     * @param double|null $per_unit_amount Fee amount per unit
+     * @param double|null $per_unit_amount The fee amount per unit.
      *
      * @return $this
      */
@@ -308,7 +338,7 @@ class FeeDetails implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier for the fee.
+     * @param string|null $id The Fee's unique identifier.
      *
      * @return $this
      */

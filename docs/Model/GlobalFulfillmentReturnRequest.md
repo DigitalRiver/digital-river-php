@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fulfillment_order_id** | **string** | The unique identifier of the Fulfillment Order associated with the Return. | 
-**upstream_id** | **string** | Unique identifier of the return. | [optional] 
+**fulfillment_order_id** | **string** | The unique identifier of the fulfillment order associated with the fulfillment return. | 
+**upstream_id** | **string** | The unique identifier of the upstream order. | [optional] 
 **reason** | **string** | The reason for the return. | [optional] 
 **items** | [**\DigitalRiver\ApiSdk\Model\GlobalFulfillmentReturnItemRequest[]**](GlobalFulfillmentReturnItemRequest.md) |  | 
 

@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **regulatory_fee_discount** | **double** | Regulatory fee discount amount. | [optional] 
 **remit_shipping** | **double** | Shipping remittance amount. | [optional] 
 **payout_amount** | **double** | Payout amount. | [optional] 
+**store_credit** | **double** | Store credit. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

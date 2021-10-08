@@ -25,7 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * Discount Class Doc Comment
  *
  * @category Class
- * @description The [applied discount](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/applying-a-discount).
+ * @description The applied discount.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

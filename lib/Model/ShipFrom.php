@@ -25,7 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * ShipFrom Class Doc Comment
  *
  * @category Class
- * @description The [address from which a physical product is shipped](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/providing-address-information#ship-from-address).
+ * @description The address from which a physical product is shipped.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
