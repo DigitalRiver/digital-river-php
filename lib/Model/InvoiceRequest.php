@@ -56,11 +56,13 @@ class InvoiceRequest implements ModelInterface, ArrayAccess
         'locale' => 'string',
         'customer_type' => '\DigitalRiver\ApiSdk\Model\CustomerType',
         'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
+        'bill_to' => '\DigitalRiver\ApiSdk\Model\Billing',
         'discount' => '\DigitalRiver\ApiSdk\Model\Discount',
         'collection_period_days' => 'int',
         'billing_optimization' => 'bool',
         'items' => '\DigitalRiver\ApiSdk\Model\InvoiceItemRequest[]',
         'tax_inclusive' => 'bool',
+        'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]',
         'metadata' => 'map[string,AnyType]',
         'upstream_id' => 'string',
         'application_id' => 'string'
@@ -82,11 +84,13 @@ class InvoiceRequest implements ModelInterface, ArrayAccess
         'locale' => null,
         'customer_type' => null,
         'ship_to' => null,
+        'bill_to' => null,
         'discount' => null,
         'collection_period_days' => null,
         'billing_optimization' => null,
         'items' => null,
         'tax_inclusive' => null,
+        'tax_identifiers' => null,
         'metadata' => null,
         'upstream_id' => null,
         'application_id' => null
@@ -129,11 +133,13 @@ class InvoiceRequest implements ModelInterface, ArrayAccess
         'locale' => 'locale',
         'customer_type' => 'customerType',
         'ship_to' => 'shipTo',
+        'bill_to' => 'billTo',
         'discount' => 'discount',
         'collection_period_days' => 'collectionPeriodDays',
         'billing_optimization' => 'billingOptimization',
         'items' => 'items',
         'tax_inclusive' => 'taxInclusive',
+        'tax_identifiers' => 'taxIdentifiers',
         'metadata' => 'metadata',
         'upstream_id' => 'upstreamId',
         'application_id' => 'applicationId'
@@ -155,11 +161,13 @@ class InvoiceRequest implements ModelInterface, ArrayAccess
         'locale' => 'setLocale',
         'customer_type' => 'setCustomerType',
         'ship_to' => 'setShipTo',
+        'bill_to' => 'setBillTo',
         'discount' => 'setDiscount',
         'collection_period_days' => 'setCollectionPeriodDays',
         'billing_optimization' => 'setBillingOptimization',
         'items' => 'setItems',
         'tax_inclusive' => 'setTaxInclusive',
+        'tax_identifiers' => 'setTaxIdentifiers',
         'metadata' => 'setMetadata',
         'upstream_id' => 'setUpstreamId',
         'application_id' => 'setApplicationId'
@@ -181,11 +189,13 @@ class InvoiceRequest implements ModelInterface, ArrayAccess
         'locale' => 'getLocale',
         'customer_type' => 'getCustomerType',
         'ship_to' => 'getShipTo',
+        'bill_to' => 'getBillTo',
         'discount' => 'getDiscount',
         'collection_period_days' => 'getCollectionPeriodDays',
         'billing_optimization' => 'getBillingOptimization',
         'items' => 'getItems',
         'tax_inclusive' => 'getTaxInclusive',
+        'tax_identifiers' => 'getTaxIdentifiers',
         'metadata' => 'getMetadata',
         'upstream_id' => 'getUpstreamId',
         'application_id' => 'getApplicationId'
@@ -279,11 +289,13 @@ class InvoiceRequest implements ModelInterface, ArrayAccess
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['customer_type'] = isset($data['customer_type']) ? $data['customer_type'] : null;
         $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
+        $this->container['bill_to'] = isset($data['bill_to']) ? $data['bill_to'] : null;
         $this->container['discount'] = isset($data['discount']) ? $data['discount'] : null;
         $this->container['collection_period_days'] = isset($data['collection_period_days']) ? $data['collection_period_days'] : null;
         $this->container['billing_optimization'] = isset($data['billing_optimization']) ? $data['billing_optimization'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['tax_inclusive'] = isset($data['tax_inclusive']) ? $data['tax_inclusive'] : null;
+        $this->container['tax_identifiers'] = isset($data['tax_identifiers']) ? $data['tax_identifiers'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['upstream_id'] = isset($data['upstream_id']) ? $data['upstream_id'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
@@ -521,7 +533,7 @@ class InvoiceRequest implements ModelInterface, ArrayAccess
     /**
      * Sets locale
      *
-     * @param string|null $locale A [designator](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/designating-a-locale) that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code.
+     * @param string|null $locale A designator that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code.
      *
      * @return $this
      */
@@ -576,6 +588,30 @@ class InvoiceRequest implements ModelInterface, ArrayAccess
     public function setShipTo($ship_to)
     {
         $this->container['ship_to'] = $ship_to;
+
+        return $this;
+    }
+
+    /**
+     * Gets bill_to
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Billing|null
+     */
+    public function getBillTo()
+    {
+        return $this->container['bill_to'];
+    }
+
+    /**
+     * Sets bill_to
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Billing|null $bill_to bill_to
+     *
+     * @return $this
+     */
+    public function setBillTo($bill_to)
+    {
+        $this->container['bill_to'] = $bill_to;
 
         return $this;
     }
@@ -701,6 +737,30 @@ class InvoiceRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets tax_identifiers
+     *
+     * @return \DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]|null
+     */
+    public function getTaxIdentifiers()
+    {
+        return $this->container['tax_identifiers'];
+    }
+
+    /**
+     * Sets tax_identifiers
+     *
+     * @param \DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]|null $tax_identifiers tax_identifiers
+     *
+     * @return $this
+     */
+    public function setTaxIdentifiers($tax_identifiers)
+    {
+        $this->container['tax_identifiers'] = $tax_identifiers;
+
+        return $this;
+    }
+
+    /**
      * Gets metadata
      *
      * @return map[string,AnyType]|null
@@ -737,7 +797,7 @@ class InvoiceRequest implements ModelInterface, ArrayAccess
     /**
      * Sets upstream_id
      *
-     * @param string|null $upstream_id The invoice identifier if it is different from the Digital River invoice identifier.
+     * @param string|null $upstream_id The upstream identifier.
      *
      * @return $this
      */

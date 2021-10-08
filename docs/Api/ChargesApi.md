@@ -1,6 +1,6 @@
 # DigitalRiver\ApiSdk\ChargesApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Gets a charge by ID
 
-Retrieves the details of a [Charge](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/payment-charges) by supplying its unique identifier.
+Retrieves the details of a Charge by supplying its unique identifier.
 
 ### Example
 

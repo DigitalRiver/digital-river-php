@@ -51,13 +51,13 @@ class Invoice implements ModelInterface, ArrayAccess
         'updated_time' => '\DateTime',
         'customer_id' => 'string',
         'email' => 'string',
-        'source_id' => 'string',
         'currency' => 'string',
         'description' => 'string',
         'locale' => 'string',
         'discount' => '\DigitalRiver\ApiSdk\Model\Discount',
         'customer_type' => '\DigitalRiver\ApiSdk\Model\CustomerType',
         'selling_entity' => '\DigitalRiver\ApiSdk\Model\SellingEntity',
+        'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\TaxIdentifier[]',
         'subtotal' => 'double',
         'total_tax' => 'double',
         'total_fees' => 'double',
@@ -70,12 +70,12 @@ class Invoice implements ModelInterface, ArrayAccess
         'collection_period_days' => 'int',
         'items' => '\DigitalRiver\ApiSdk\Model\InvoiceItem[]',
         'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
+        'bill_to' => '\DigitalRiver\ApiSdk\Model\Billing',
         'state' => 'string',
         'state_transitions' => '\DigitalRiver\ApiSdk\Model\StateTransitions',
+        'payment' => '\DigitalRiver\ApiSdk\Model\Payments',
         'attempt_count' => 'int',
-        'charges' => '\DigitalRiver\ApiSdk\Model\Charge[]',
         'metadata' => 'map[string,AnyType]',
-        'payment_session_id' => 'string',
         'charge_type' => '\DigitalRiver\ApiSdk\Model\ChargeType',
         'application_id' => 'string',
         'live_mode' => 'bool',
@@ -94,13 +94,13 @@ class Invoice implements ModelInterface, ArrayAccess
         'updated_time' => 'date-time',
         'customer_id' => null,
         'email' => 'email',
-        'source_id' => null,
         'currency' => null,
         'description' => null,
         'locale' => null,
         'discount' => null,
         'customer_type' => null,
         'selling_entity' => null,
+        'tax_identifiers' => null,
         'subtotal' => 'double',
         'total_tax' => 'double',
         'total_fees' => 'double',
@@ -113,12 +113,12 @@ class Invoice implements ModelInterface, ArrayAccess
         'collection_period_days' => null,
         'items' => null,
         'ship_to' => null,
+        'bill_to' => null,
         'state' => null,
         'state_transitions' => null,
+        'payment' => null,
         'attempt_count' => null,
-        'charges' => null,
         'metadata' => null,
-        'payment_session_id' => null,
         'charge_type' => null,
         'application_id' => null,
         'live_mode' => null,
@@ -158,13 +158,13 @@ class Invoice implements ModelInterface, ArrayAccess
         'updated_time' => 'updatedTime',
         'customer_id' => 'customerId',
         'email' => 'email',
-        'source_id' => 'sourceId',
         'currency' => 'currency',
         'description' => 'description',
         'locale' => 'locale',
         'discount' => 'discount',
         'customer_type' => 'customerType',
         'selling_entity' => 'sellingEntity',
+        'tax_identifiers' => 'taxIdentifiers',
         'subtotal' => 'subtotal',
         'total_tax' => 'totalTax',
         'total_fees' => 'totalFees',
@@ -177,12 +177,12 @@ class Invoice implements ModelInterface, ArrayAccess
         'collection_period_days' => 'collectionPeriodDays',
         'items' => 'items',
         'ship_to' => 'shipTo',
+        'bill_to' => 'billTo',
         'state' => 'state',
         'state_transitions' => 'stateTransitions',
+        'payment' => 'payment',
         'attempt_count' => 'attemptCount',
-        'charges' => 'charges',
         'metadata' => 'metadata',
-        'payment_session_id' => 'paymentSessionId',
         'charge_type' => 'chargeType',
         'application_id' => 'applicationId',
         'live_mode' => 'liveMode',
@@ -201,13 +201,13 @@ class Invoice implements ModelInterface, ArrayAccess
         'updated_time' => 'setUpdatedTime',
         'customer_id' => 'setCustomerId',
         'email' => 'setEmail',
-        'source_id' => 'setSourceId',
         'currency' => 'setCurrency',
         'description' => 'setDescription',
         'locale' => 'setLocale',
         'discount' => 'setDiscount',
         'customer_type' => 'setCustomerType',
         'selling_entity' => 'setSellingEntity',
+        'tax_identifiers' => 'setTaxIdentifiers',
         'subtotal' => 'setSubtotal',
         'total_tax' => 'setTotalTax',
         'total_fees' => 'setTotalFees',
@@ -220,12 +220,12 @@ class Invoice implements ModelInterface, ArrayAccess
         'collection_period_days' => 'setCollectionPeriodDays',
         'items' => 'setItems',
         'ship_to' => 'setShipTo',
+        'bill_to' => 'setBillTo',
         'state' => 'setState',
         'state_transitions' => 'setStateTransitions',
+        'payment' => 'setPayment',
         'attempt_count' => 'setAttemptCount',
-        'charges' => 'setCharges',
         'metadata' => 'setMetadata',
-        'payment_session_id' => 'setPaymentSessionId',
         'charge_type' => 'setChargeType',
         'application_id' => 'setApplicationId',
         'live_mode' => 'setLiveMode',
@@ -244,13 +244,13 @@ class Invoice implements ModelInterface, ArrayAccess
         'updated_time' => 'getUpdatedTime',
         'customer_id' => 'getCustomerId',
         'email' => 'getEmail',
-        'source_id' => 'getSourceId',
         'currency' => 'getCurrency',
         'description' => 'getDescription',
         'locale' => 'getLocale',
         'discount' => 'getDiscount',
         'customer_type' => 'getCustomerType',
         'selling_entity' => 'getSellingEntity',
+        'tax_identifiers' => 'getTaxIdentifiers',
         'subtotal' => 'getSubtotal',
         'total_tax' => 'getTotalTax',
         'total_fees' => 'getTotalFees',
@@ -263,12 +263,12 @@ class Invoice implements ModelInterface, ArrayAccess
         'collection_period_days' => 'getCollectionPeriodDays',
         'items' => 'getItems',
         'ship_to' => 'getShipTo',
+        'bill_to' => 'getBillTo',
         'state' => 'getState',
         'state_transitions' => 'getStateTransitions',
+        'payment' => 'getPayment',
         'attempt_count' => 'getAttemptCount',
-        'charges' => 'getCharges',
         'metadata' => 'getMetadata',
-        'payment_session_id' => 'getPaymentSessionId',
         'charge_type' => 'getChargeType',
         'application_id' => 'getApplicationId',
         'live_mode' => 'getLiveMode',
@@ -365,13 +365,13 @@ class Invoice implements ModelInterface, ArrayAccess
         $this->container['updated_time'] = isset($data['updated_time']) ? $data['updated_time'] : null;
         $this->container['customer_id'] = isset($data['customer_id']) ? $data['customer_id'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['source_id'] = isset($data['source_id']) ? $data['source_id'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['discount'] = isset($data['discount']) ? $data['discount'] : null;
         $this->container['customer_type'] = isset($data['customer_type']) ? $data['customer_type'] : null;
         $this->container['selling_entity'] = isset($data['selling_entity']) ? $data['selling_entity'] : null;
+        $this->container['tax_identifiers'] = isset($data['tax_identifiers']) ? $data['tax_identifiers'] : null;
         $this->container['subtotal'] = isset($data['subtotal']) ? $data['subtotal'] : null;
         $this->container['total_tax'] = isset($data['total_tax']) ? $data['total_tax'] : null;
         $this->container['total_fees'] = isset($data['total_fees']) ? $data['total_fees'] : null;
@@ -384,12 +384,12 @@ class Invoice implements ModelInterface, ArrayAccess
         $this->container['collection_period_days'] = isset($data['collection_period_days']) ? $data['collection_period_days'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
+        $this->container['bill_to'] = isset($data['bill_to']) ? $data['bill_to'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['state_transitions'] = isset($data['state_transitions']) ? $data['state_transitions'] : null;
+        $this->container['payment'] = isset($data['payment']) ? $data['payment'] : null;
         $this->container['attempt_count'] = isset($data['attempt_count']) ? $data['attempt_count'] : null;
-        $this->container['charges'] = isset($data['charges']) ? $data['charges'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['payment_session_id'] = isset($data['payment_session_id']) ? $data['payment_session_id'] : null;
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
         $this->container['live_mode'] = isset($data['live_mode']) ? $data['live_mode'] : null;
@@ -551,30 +551,6 @@ class Invoice implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets source_id
-     *
-     * @return string|null
-     */
-    public function getSourceId()
-    {
-        return $this->container['source_id'];
-    }
-
-    /**
-     * Sets source_id
-     *
-     * @param string|null $source_id The unique identifier of a Source.
-     *
-     * @return $this
-     */
-    public function setSourceId($source_id)
-    {
-        $this->container['source_id'] = $source_id;
-
-        return $this;
-    }
-
-    /**
      * Gets currency
      *
      * @return string|null
@@ -635,7 +611,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets locale
      *
-     * @param string|null $locale A [designator](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/designating-a-locale) that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code.
+     * @param string|null $locale A designator that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code.
      *
      * @return $this
      */
@@ -714,6 +690,30 @@ class Invoice implements ModelInterface, ArrayAccess
     public function setSellingEntity($selling_entity)
     {
         $this->container['selling_entity'] = $selling_entity;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_identifiers
+     *
+     * @return \DigitalRiver\ApiSdk\Model\TaxIdentifier[]|null
+     */
+    public function getTaxIdentifiers()
+    {
+        return $this->container['tax_identifiers'];
+    }
+
+    /**
+     * Sets tax_identifiers
+     *
+     * @param \DigitalRiver\ApiSdk\Model\TaxIdentifier[]|null $tax_identifiers tax_identifiers
+     *
+     * @return $this
+     */
+    public function setTaxIdentifiers($tax_identifiers)
+    {
+        $this->container['tax_identifiers'] = $tax_identifiers;
 
         return $this;
     }
@@ -1007,6 +1007,30 @@ class Invoice implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets bill_to
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Billing|null
+     */
+    public function getBillTo()
+    {
+        return $this->container['bill_to'];
+    }
+
+    /**
+     * Sets bill_to
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Billing|null $bill_to bill_to
+     *
+     * @return $this
+     */
+    public function setBillTo($bill_to)
+    {
+        $this->container['bill_to'] = $bill_to;
+
+        return $this;
+    }
+
+    /**
      * Gets state
      *
      * @return string|null
@@ -1064,6 +1088,30 @@ class Invoice implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets payment
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Payments|null
+     */
+    public function getPayment()
+    {
+        return $this->container['payment'];
+    }
+
+    /**
+     * Sets payment
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Payments|null $payment payment
+     *
+     * @return $this
+     */
+    public function setPayment($payment)
+    {
+        $this->container['payment'] = $payment;
+
+        return $this;
+    }
+
+    /**
      * Gets attempt_count
      *
      * @return int|null
@@ -1088,30 +1136,6 @@ class Invoice implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets charges
-     *
-     * @return \DigitalRiver\ApiSdk\Model\Charge[]|null
-     */
-    public function getCharges()
-    {
-        return $this->container['charges'];
-    }
-
-    /**
-     * Sets charges
-     *
-     * @param \DigitalRiver\ApiSdk\Model\Charge[]|null $charges The charge used to pay the invoice.
-     *
-     * @return $this
-     */
-    public function setCharges($charges)
-    {
-        $this->container['charges'] = $charges;
-
-        return $this;
-    }
-
-    /**
      * Gets metadata
      *
      * @return map[string,AnyType]|null
@@ -1131,30 +1155,6 @@ class Invoice implements ModelInterface, ArrayAccess
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_session_id
-     *
-     * @return string|null
-     */
-    public function getPaymentSessionId()
-    {
-        return $this->container['payment_session_id'];
-    }
-
-    /**
-     * Sets payment_session_id
-     *
-     * @param string|null $payment_session_id The payment session identifier used to track the process of collecting a payment.
-     *
-     * @return $this
-     */
-    public function setPaymentSessionId($payment_session_id)
-    {
-        $this->container['payment_session_id'] = $payment_session_id;
 
         return $this;
     }
@@ -1268,7 +1268,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets upstream_id
      *
-     * @param string|null $upstream_id The user invoice identifier if it is different from the Digital River checkout identifier.
+     * @param string|null $upstream_id The upstream identifier.
      *
      * @return $this
      */

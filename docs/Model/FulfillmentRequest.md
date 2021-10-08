@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **order_id** | **string** | The identifier of the Order associated with this Fulfillment. | 
+**shipment_id** | **string** | The unique identifier associated to the shipment | [optional] 
 **items** | [**\DigitalRiver\ApiSdk\Model\FulfillmentRequestItem[]**](FulfillmentRequestItem.md) | An array of items to fulfill and/or cancel. | 
 **metadata** | [**map[string,AnyType]**](AnyType.md) | Key-value pairs used to store additional data. Value can be string, boolean or integer types. | [optional] 
 **tracking_company** | **string** | The name of the tracking company. | [optional] 

@@ -110,7 +110,7 @@ class CountrySpecificationsApi
      * Returns an array containing a country specification
      *
      * @param  string $country Represents the expected billing or ship to country of the customer. (required)
-     * @param  string $selling_entity Represents the [selling entity](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/selling-entities) assigned to the order. (required)
+     * @param  string $selling_entity Represents the selling entity assigned to the order. (required)
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -128,7 +128,7 @@ class CountrySpecificationsApi
      * Returns an array containing a country specification
      *
      * @param  string $country Represents the expected billing or ship to country of the customer. (required)
-     * @param  string $selling_entity Represents the [selling entity](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/selling-entities) assigned to the order. (required)
+     * @param  string $selling_entity Represents the selling entity assigned to the order. (required)
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -437,7 +437,7 @@ class CountrySpecificationsApi
      * Returns an array containing a country specification
      *
      * @param  string $country Represents the expected billing or ship to country of the customer. (required)
-     * @param  string $selling_entity Represents the [selling entity](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/selling-entities) assigned to the order. (required)
+     * @param  string $selling_entity Represents the selling entity assigned to the order. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -458,7 +458,7 @@ class CountrySpecificationsApi
      * Returns an array containing a country specification
      *
      * @param  string $country Represents the expected billing or ship to country of the customer. (required)
-     * @param  string $selling_entity Represents the [selling entity](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/selling-entities) assigned to the order. (required)
+     * @param  string $selling_entity Represents the selling entity assigned to the order. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -506,7 +506,7 @@ class CountrySpecificationsApi
      * Create request for operation 'listCountrySpecifications'
      *
      * @param  string $country Represents the expected billing or ship to country of the customer. (required)
-     * @param  string $selling_entity Represents the [selling entity](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/selling-entities) assigned to the order. (required)
+     * @param  string $selling_entity Represents the selling entity assigned to the order. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

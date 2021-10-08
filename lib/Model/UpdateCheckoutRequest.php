@@ -53,9 +53,10 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'locale' => 'string',
         'browser_ip' => 'string',
         'application_id' => 'string',
-        'credit_amount' => 'float',
+        'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]',
         'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
         'bill_to' => '\DigitalRiver\ApiSdk\Model\Billing',
+        'organization' => '\DigitalRiver\ApiSdk\Model\Organization',
         'shipping_discount' => '\DigitalRiver\ApiSdk\Model\Discount',
         'charge_type' => '\DigitalRiver\ApiSdk\Model\ChargeType',
         'customer_type' => '\DigitalRiver\ApiSdk\Model\CustomerType',
@@ -79,9 +80,10 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'locale' => null,
         'browser_ip' => null,
         'application_id' => null,
-        'credit_amount' => null,
+        'tax_identifiers' => null,
         'ship_to' => null,
         'bill_to' => null,
+        'organization' => null,
         'shipping_discount' => null,
         'charge_type' => null,
         'customer_type' => null,
@@ -126,9 +128,10 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'locale' => 'locale',
         'browser_ip' => 'browserIp',
         'application_id' => 'applicationId',
-        'credit_amount' => 'creditAmount',
+        'tax_identifiers' => 'taxIdentifiers',
         'ship_to' => 'shipTo',
         'bill_to' => 'billTo',
+        'organization' => 'organization',
         'shipping_discount' => 'shippingDiscount',
         'charge_type' => 'chargeType',
         'customer_type' => 'customerType',
@@ -152,9 +155,10 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'locale' => 'setLocale',
         'browser_ip' => 'setBrowserIp',
         'application_id' => 'setApplicationId',
-        'credit_amount' => 'setCreditAmount',
+        'tax_identifiers' => 'setTaxIdentifiers',
         'ship_to' => 'setShipTo',
         'bill_to' => 'setBillTo',
+        'organization' => 'setOrganization',
         'shipping_discount' => 'setShippingDiscount',
         'charge_type' => 'setChargeType',
         'customer_type' => 'setCustomerType',
@@ -178,9 +182,10 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'locale' => 'getLocale',
         'browser_ip' => 'getBrowserIp',
         'application_id' => 'getApplicationId',
-        'credit_amount' => 'getCreditAmount',
+        'tax_identifiers' => 'getTaxIdentifiers',
         'ship_to' => 'getShipTo',
         'bill_to' => 'getBillTo',
+        'organization' => 'getOrganization',
         'shipping_discount' => 'getShippingDiscount',
         'charge_type' => 'getChargeType',
         'customer_type' => 'getCustomerType',
@@ -258,9 +263,10 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['browser_ip'] = isset($data['browser_ip']) ? $data['browser_ip'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
-        $this->container['credit_amount'] = isset($data['credit_amount']) ? $data['credit_amount'] : null;
+        $this->container['tax_identifiers'] = isset($data['tax_identifiers']) ? $data['tax_identifiers'] : null;
         $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
         $this->container['bill_to'] = isset($data['bill_to']) ? $data['bill_to'] : null;
+        $this->container['organization'] = isset($data['organization']) ? $data['organization'] : null;
         $this->container['shipping_discount'] = isset($data['shipping_discount']) ? $data['shipping_discount'] : null;
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['customer_type'] = isset($data['customer_type']) ? $data['customer_type'] : null;
@@ -464,25 +470,25 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets credit_amount
+     * Gets tax_identifiers
      *
-     * @return float|null
+     * @return \DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]|null
      */
-    public function getCreditAmount()
+    public function getTaxIdentifiers()
     {
-        return $this->container['credit_amount'];
+        return $this->container['tax_identifiers'];
     }
 
     /**
-     * Sets credit_amount
+     * Sets tax_identifiers
      *
-     * @param float|null $credit_amount Represents the total amount of credit you are extending to the customer.
+     * @param \DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]|null $tax_identifiers tax_identifiers
      *
      * @return $this
      */
-    public function setCreditAmount($credit_amount)
+    public function setTaxIdentifiers($tax_identifiers)
     {
-        $this->container['credit_amount'] = $credit_amount;
+        $this->container['tax_identifiers'] = $tax_identifiers;
 
         return $this;
     }
@@ -531,6 +537,30 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
     public function setBillTo($bill_to)
     {
         $this->container['bill_to'] = $bill_to;
+
+        return $this;
+    }
+
+    /**
+     * Gets organization
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Organization|null
+     */
+    public function getOrganization()
+    {
+        return $this->container['organization'];
+    }
+
+    /**
+     * Sets organization
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Organization|null $organization organization
+     *
+     * @return $this
+     */
+    public function setOrganization($organization)
+    {
+        $this->container['organization'] = $organization;
 
         return $this;
     }
@@ -692,7 +722,7 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
     /**
      * Sets upstream_id
      *
-     * @param string|null $upstream_id The user checkout ID if it is different from the Digital River checkout ID.
+     * @param string|null $upstream_id The upstream identifier.
      *
      * @return $this
      */

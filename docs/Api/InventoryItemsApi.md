@@ -1,20 +1,133 @@
 # DigitalRiver\ApiSdk\InventoryItemsApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**callList**](InventoryItemsApi.md#callList) | **GET** /inventory-items | Returns a list of inventory items.
-[**create**](InventoryItemsApi.md#create) | **POST** /inventory-items | Creates an inventory item.
-[**delete**](InventoryItemsApi.md#delete) | **DELETE** /inventory-items/{id} | Deletes an inventory item by ID.
-[**retrieve**](InventoryItemsApi.md#retrieve) | **GET** /inventory-items/{id} | Gets an inventory item by ID.
-[**update**](InventoryItemsApi.md#update) | **POST** /inventory-items/{id} | Updates an inventory item.
+[**createInventoryItems**](InventoryItemsApi.md#createInventoryItems) | **POST** /inventory-items | Creates an inventory item.
+[**deleteInventoryItems**](InventoryItemsApi.md#deleteInventoryItems) | **DELETE** /inventory-items/{id} | Deletes an inventory item by ID.
+[**listInventoryItems**](InventoryItemsApi.md#listInventoryItems) | **GET** /inventory-items | Returns a list of inventory items.
+[**retrieveInventoryItems**](InventoryItemsApi.md#retrieveInventoryItems) | **GET** /inventory-items/{id} | Gets an inventory item by ID.
+[**updateInventoryItems**](InventoryItemsApi.md#updateInventoryItems) | **POST** /inventory-items/{id} | Updates an inventory item.
 
 
 
-## callList
+## createInventoryItems
 
-> \DigitalRiver\ApiSdk\Model\InlineResponse2001 callList($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $part_number, $manufacturer_id)
+> \DigitalRiver\ApiSdk\Model\InventoryItem createInventoryItems($inventory_item_request)
+
+Creates an inventory item.
+
+Creates an inventory item.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new DigitalRiver\ApiSdk\Api\InventoryItemsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$inventory_item_request = new \DigitalRiver\ApiSdk\Model\InventoryItemRequest(); // \DigitalRiver\ApiSdk\Model\InventoryItemRequest | 
+// Refer \DigitalRiver\ApiSdk\Model\InventoryItemRequest::$setters in digital-river-php/lib/Model/InventoryItemRequest.php to set the properties.
+
+try {
+    $result = $apiInstance->createInventoryItems($inventory_item_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InventoryItemsApi->createInventoryItems: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inventory_item_request** | [**\DigitalRiver\ApiSdk\Model\InventoryItemRequest**](../Model/InventoryItemRequest.md)|  | [optional]
+
+### Return type
+
+[**\DigitalRiver\ApiSdk\Model\InventoryItem**](../Model/InventoryItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## deleteInventoryItems
+
+> deleteInventoryItems($id)
+
+Deletes an inventory item by ID.
+
+Permanently deletes an inventory item. Supply the unique identifier of the inventory item.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new DigitalRiver\ApiSdk\Api\InventoryItemsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$id = 'id_example'; // string | Inventory item identifier
+
+
+try {
+    $apiInstance->deleteInventoryItems($id);
+} catch (Exception $e) {
+    echo 'Exception when calling InventoryItemsApi->deleteInventoryItems: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Inventory item identifier |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listInventoryItems
+
+> \DigitalRiver\ApiSdk\Model\InlineResponse2001 listInventoryItems($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $part_number, $manufacturer_id)
 
 Returns a list of inventory items.
 
@@ -50,10 +163,10 @@ $manufacturer_id = 'manufacturer_id_example'; // string | The manufacturer ident
 
 
 try {
-    $result = $apiInstance->callList($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $part_number, $manufacturer_id);
+    $result = $apiInstance->listInventoryItems($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $part_number, $manufacturer_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InventoryItemsApi->callList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InventoryItemsApi->listInventoryItems: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -90,122 +203,9 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## create
+## retrieveInventoryItems
 
-> \DigitalRiver\ApiSdk\Model\InventoryItem create($inventory_item_request)
-
-Creates an inventory item.
-
-Creates an inventory item.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-$apiInstance = new DigitalRiver\ApiSdk\Api\InventoryItemsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$inventory_item_request = new \DigitalRiver\ApiSdk\Model\InventoryItemRequest(); // \DigitalRiver\ApiSdk\Model\InventoryItemRequest | 
-// Refer \DigitalRiver\ApiSdk\Model\InventoryItemRequest::$setters in digital-river-php/lib/Model/InventoryItemRequest.php to set the properties.
-
-try {
-    $result = $apiInstance->create($inventory_item_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling InventoryItemsApi->create: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **inventory_item_request** | [**\DigitalRiver\ApiSdk\Model\InventoryItemRequest**](../Model/InventoryItemRequest.md)|  | [optional]
-
-### Return type
-
-[**\DigitalRiver\ApiSdk\Model\InventoryItem**](../Model/InventoryItem.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
-## delete
-
-> delete($id)
-
-Deletes an inventory item by ID.
-
-Permanently deletes an inventory item. Supply the unique identifier of the inventory item.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-$apiInstance = new DigitalRiver\ApiSdk\Api\InventoryItemsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$id = 'id_example'; // string | Inventory item identifier
-
-
-try {
-    $apiInstance->delete($id);
-} catch (Exception $e) {
-    echo 'Exception when calling InventoryItemsApi->delete: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Inventory item identifier |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
-## retrieve
-
-> \DigitalRiver\ApiSdk\Model\InventoryItem retrieve($id)
+> \DigitalRiver\ApiSdk\Model\InventoryItem retrieveInventoryItems($id)
 
 Gets an inventory item by ID.
 
@@ -227,10 +227,10 @@ $id = 'id_example'; // string | Inventory item identifier.
 
 
 try {
-    $result = $apiInstance->retrieve($id);
+    $result = $apiInstance->retrieveInventoryItems($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InventoryItemsApi->retrieve: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InventoryItemsApi->retrieveInventoryItems: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -260,9 +260,9 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## update
+## updateInventoryItems
 
-> \DigitalRiver\ApiSdk\Model\InventoryItem update($id, $inventory_item_update_request)
+> \DigitalRiver\ApiSdk\Model\InventoryItem updateInventoryItems($id, $inventory_item_update_request)
 
 Updates an inventory item.
 
@@ -286,10 +286,10 @@ $inventory_item_update_request = new \DigitalRiver\ApiSdk\Model\InventoryItemUpd
 // Refer \DigitalRiver\ApiSdk\Model\InventoryItemUpdateRequest::$setters in digital-river-php/lib/Model/InventoryItemUpdateRequest.php to set the properties.
 
 try {
-    $result = $apiInstance->update($id, $inventory_item_update_request);
+    $result = $apiInstance->updateInventoryItems($id, $inventory_item_update_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InventoryItemsApi->update: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InventoryItemsApi->updateInventoryItems: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

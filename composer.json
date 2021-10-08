@@ -1,5 +1,5 @@
 {
-    "name": "digitalriver/api-sdk",
+    "name": "digitalriver/digital-river-php",
     "version": "1.0.0",
     "description": "Client library for Digital River APIs",
     "keywords": [

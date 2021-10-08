@@ -1,22 +1,22 @@
 # DigitalRiver\ApiSdk\FulfillmentReturnsApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createGFReturns**](FulfillmentReturnsApi.md#createGFReturns) | **POST** /fulfillment-returns | Creates a return
-[**listGFRefunds**](FulfillmentReturnsApi.md#listGFRefunds) | **GET** /fulfillment-returns | Returns a list of returns
-[**retrieveGFReturns**](FulfillmentReturnsApi.md#retrieveGFReturns) | **GET** /fulfillment-returns/{id} | Gets a return by ID
+[**createFulfillmentReturns**](FulfillmentReturnsApi.md#createFulfillmentReturns) | **POST** /fulfillment-returns | Creates a return
+[**listFulfillmentReturns**](FulfillmentReturnsApi.md#listFulfillmentReturns) | **GET** /fulfillment-returns | Returns a list of fulfillment returns
+[**retrieveFulfillmentReturns**](FulfillmentReturnsApi.md#retrieveFulfillmentReturns) | **GET** /fulfillment-returns/{id} | Gets a fulfillment return by its unique identifier
 
 
 
-## createGFReturns
+## createFulfillmentReturns
 
-> \DigitalRiver\ApiSdk\Model\GlobalFulfillmentReturnResponse createGFReturns($global_fulfillment_return_request)
+> \DigitalRiver\ApiSdk\Model\GlobalFulfillmentReturnResponse createFulfillmentReturns($global_fulfillment_return_request)
 
 Creates a return
 
-Returns all or part of a previously created order.
+Returns all or part of a previously created fulfillment order.
 
 ### Example
 
@@ -34,10 +34,10 @@ $global_fulfillment_return_request = new \DigitalRiver\ApiSdk\Model\GlobalFulfil
 // Refer \DigitalRiver\ApiSdk\Model\GlobalFulfillmentReturnRequest::$setters in digital-river-php/lib/Model/GlobalFulfillmentReturnRequest.php to set the properties.
 
 try {
-    $result = $apiInstance->createGFReturns($global_fulfillment_return_request);
+    $result = $apiInstance->createFulfillmentReturns($global_fulfillment_return_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FulfillmentReturnsApi->createGFReturns: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FulfillmentReturnsApi->createFulfillmentReturns: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -67,11 +67,11 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## listGFRefunds
+## listFulfillmentReturns
 
-> \DigitalRiver\ApiSdk\Model\ListGlobalFulfillmentReturnsResponse listGFRefunds($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id)
+> \DigitalRiver\ApiSdk\Model\ListGlobalFulfillmentReturnsResponse listFulfillmentReturns($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id)
 
-Returns a list of returns
+Returns a list of fulfillment returns
 
 Get all returns.
 
@@ -107,10 +107,10 @@ $inventory_item_id = 'inventory_item_id_example'; // string | The inventory item
 
 
 try {
-    $result = $apiInstance->listGFRefunds($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
+    $result = $apiInstance->listFulfillmentReturns($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FulfillmentReturnsApi->listGFRefunds: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FulfillmentReturnsApi->listFulfillmentReturns: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -148,13 +148,13 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## retrieveGFReturns
+## retrieveFulfillmentReturns
 
-> \DigitalRiver\ApiSdk\Model\GlobalFulfillmentReturnResponse retrieveGFReturns($id)
+> \DigitalRiver\ApiSdk\Model\GlobalFulfillmentReturnResponse retrieveFulfillmentReturns($id)
 
-Gets a return by ID
+Gets a fulfillment return by its unique identifier
 
-Retrieves the details of a return. Supply the unique identifier of the return.
+Retrieves a fulfillment return. Supply the unique identifier of the return.
 
 ### Example
 
@@ -172,10 +172,10 @@ $id = 'id_example'; // string | Return ID
 
 
 try {
-    $result = $apiInstance->retrieveGFReturns($id);
+    $result = $apiInstance->retrieveFulfillmentReturns($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FulfillmentReturnsApi->retrieveGFReturns: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FulfillmentReturnsApi->retrieveFulfillmentReturns: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

@@ -218,7 +218,7 @@ class GlobalFulfillmentCancellationItemRequest implements ModelInterface, ArrayA
     /**
      * Sets fulfillment_order_item_id
      *
-     * @param string $fulfillment_order_item_id The identifier of the item.
+     * @param string $fulfillment_order_item_id The identifier of the fulfillment order item.
      *
      * @return $this
      */

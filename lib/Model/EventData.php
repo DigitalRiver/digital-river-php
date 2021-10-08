@@ -212,7 +212,7 @@ class EventData implements ModelInterface, ArrayAccess
     /**
      * Sets object
      *
-     * @param object|null $object Contains the same values as the corresponding object. For example, a <code>charge.created</code> event contains a <code>data.object</code> that is identical to the Charge object that triggered the event.
+     * @param object|null $object In most cases, contains the same values as the corresponding object. For example, a <code>charge.created</code> event contains a <code>data.object</code> that is identical to the Charge object that triggered the event.
      *
      * @return $this
      */

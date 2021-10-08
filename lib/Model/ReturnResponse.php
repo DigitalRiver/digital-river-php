@@ -55,7 +55,7 @@ class ReturnResponse implements ModelInterface, ArrayAccess
         'reason' => 'string',
         'failure_reason' => 'string',
         'state' => 'string',
-        'location' => '\DigitalRiver\ApiSdk\Model\Location',
+        'location' => '\DigitalRiver\ApiSdk\Model\ReturnLocation',
         'live_mode' => 'bool',
         'metadata' => 'map[string,AnyType]',
         'refund_ids' => 'string[]'
@@ -377,7 +377,7 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param string|null $order_id The unique identifier for the order
+     * @param string|null $order_id The unique identifier of the order.
      *
      * @return $this
      */
@@ -520,7 +520,7 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Gets location
      *
-     * @return \DigitalRiver\ApiSdk\Model\Location|null
+     * @return \DigitalRiver\ApiSdk\Model\ReturnLocation|null
      */
     public function getLocation()
     {
@@ -530,7 +530,7 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets location
      *
-     * @param \DigitalRiver\ApiSdk\Model\Location|null $location location
+     * @param \DigitalRiver\ApiSdk\Model\ReturnLocation|null $location location
      *
      * @return $this
      */

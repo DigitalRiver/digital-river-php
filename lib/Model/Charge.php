@@ -438,7 +438,7 @@ class Charge implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param double|null $amount An [amount representing how much is to be to charged](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/payment-charges#how-a-charge-is-created).
+     * @param double|null $amount An amount representing how much is to be to charged.
      *
      * @return $this
      */
@@ -462,7 +462,7 @@ class Charge implements ModelInterface, ArrayAccess
     /**
      * Sets state
      *
-     * @param string|null $state The [state of the charge](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/payment-charges#the-charge-lifecycle).
+     * @param string|null $state The state of the charge.
      *
      * @return $this
      */
@@ -519,7 +519,7 @@ class Charge implements ModelInterface, ArrayAccess
     /**
      * Sets source_id
      *
-     * @param string|null $source_id The identifier of the [source](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/payment-sources) used to create this charge.
+     * @param string|null $source_id The identifier of the source.
      *
      * @return $this
      */
@@ -735,7 +735,7 @@ class Charge implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type The [type of charge](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/initiating-a-charge).
+     * @param string|null $type The type of charge.
      *
      * @return $this
      */

@@ -46,9 +46,16 @@ class InventoryItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'inventory_item_id' => 'string',
-        'quantity' => 'int',
-        'allow_oversell' => 'bool'
+        'id' => 'string',
+        'created_time' => '\DateTime',
+        'manufacturer_id' => 'string',
+        'eccn' => 'string',
+        'hs_code' => 'string',
+        'part_number' => 'string',
+        'country_of_origin' => 'string',
+        'allow_oversell' => 'bool',
+        'live_mode' => 'bool',
+        'updated_time' => '\DateTime'
     ];
 
     /**
@@ -57,9 +64,16 @@ class InventoryItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'inventory_item_id' => null,
-        'quantity' => null,
-        'allow_oversell' => null
+        'id' => null,
+        'created_time' => 'date-time',
+        'manufacturer_id' => null,
+        'eccn' => null,
+        'hs_code' => null,
+        'part_number' => null,
+        'country_of_origin' => null,
+        'allow_oversell' => null,
+        'live_mode' => null,
+        'updated_time' => 'date-time'
     ];
 
     /**
@@ -89,9 +103,16 @@ class InventoryItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'inventory_item_id' => 'inventoryItemId',
-        'quantity' => 'quantity',
-        'allow_oversell' => 'allowOversell'
+        'id' => 'id',
+        'created_time' => 'createdTime',
+        'manufacturer_id' => 'manufacturerId',
+        'eccn' => 'eccn',
+        'hs_code' => 'hsCode',
+        'part_number' => 'partNumber',
+        'country_of_origin' => 'countryOfOrigin',
+        'allow_oversell' => 'allowOversell',
+        'live_mode' => 'liveMode',
+        'updated_time' => 'updatedTime'
     ];
 
     /**
@@ -100,9 +121,16 @@ class InventoryItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'inventory_item_id' => 'setInventoryItemId',
-        'quantity' => 'setQuantity',
-        'allow_oversell' => 'setAllowOversell'
+        'id' => 'setId',
+        'created_time' => 'setCreatedTime',
+        'manufacturer_id' => 'setManufacturerId',
+        'eccn' => 'setEccn',
+        'hs_code' => 'setHsCode',
+        'part_number' => 'setPartNumber',
+        'country_of_origin' => 'setCountryOfOrigin',
+        'allow_oversell' => 'setAllowOversell',
+        'live_mode' => 'setLiveMode',
+        'updated_time' => 'setUpdatedTime'
     ];
 
     /**
@@ -111,9 +139,16 @@ class InventoryItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'inventory_item_id' => 'getInventoryItemId',
-        'quantity' => 'getQuantity',
-        'allow_oversell' => 'getAllowOversell'
+        'id' => 'getId',
+        'created_time' => 'getCreatedTime',
+        'manufacturer_id' => 'getManufacturerId',
+        'eccn' => 'getEccn',
+        'hs_code' => 'getHsCode',
+        'part_number' => 'getPartNumber',
+        'country_of_origin' => 'getCountryOfOrigin',
+        'allow_oversell' => 'getAllowOversell',
+        'live_mode' => 'getLiveMode',
+        'updated_time' => 'getUpdatedTime'
     ];
 
     /**
@@ -176,9 +211,16 @@ class InventoryItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['inventory_item_id'] = isset($data['inventory_item_id']) ? $data['inventory_item_id'] : null;
-        $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['created_time'] = isset($data['created_time']) ? $data['created_time'] : null;
+        $this->container['manufacturer_id'] = isset($data['manufacturer_id']) ? $data['manufacturer_id'] : null;
+        $this->container['eccn'] = isset($data['eccn']) ? $data['eccn'] : null;
+        $this->container['hs_code'] = isset($data['hs_code']) ? $data['hs_code'] : null;
+        $this->container['part_number'] = isset($data['part_number']) ? $data['part_number'] : null;
+        $this->container['country_of_origin'] = isset($data['country_of_origin']) ? $data['country_of_origin'] : null;
         $this->container['allow_oversell'] = isset($data['allow_oversell']) ? $data['allow_oversell'] : null;
+        $this->container['live_mode'] = isset($data['live_mode']) ? $data['live_mode'] : null;
+        $this->container['updated_time'] = isset($data['updated_time']) ? $data['updated_time'] : null;
     }
 
     /**
@@ -190,12 +232,6 @@ class InventoryItem implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['inventory_item_id'] === null) {
-            $invalidProperties[] = "'inventory_item_id' can't be null";
-        }
-        if ($this->container['quantity'] === null) {
-            $invalidProperties[] = "'quantity' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -212,49 +248,169 @@ class InventoryItem implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets inventory_item_id
+     * Gets id
      *
-     * @return string
+     * @return string|null
      */
-    public function getInventoryItemId()
+    public function getId()
     {
-        return $this->container['inventory_item_id'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets inventory_item_id
+     * Sets id
      *
-     * @param string $inventory_item_id The identifier of the inventory item.
+     * @param string|null $id Unique identifier of an inventory item.
      *
      * @return $this
      */
-    public function setInventoryItemId($inventory_item_id)
+    public function setId($id)
     {
-        $this->container['inventory_item_id'] = $inventory_item_id;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets quantity
+     * Gets created_time
      *
-     * @return int
+     * @return \DateTime|null
      */
-    public function getQuantity()
+    public function getCreatedTime()
     {
-        return $this->container['quantity'];
+        return $this->container['created_time'];
     }
 
     /**
-     * Sets quantity
+     * Sets created_time
      *
-     * @param int $quantity quantity
+     * @param \DateTime|null $created_time Time when the inventory item was created.
      *
      * @return $this
      */
-    public function setQuantity($quantity)
+    public function setCreatedTime($created_time)
     {
-        $this->container['quantity'] = $quantity;
+        $this->container['created_time'] = $created_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets manufacturer_id
+     *
+     * @return string|null
+     */
+    public function getManufacturerId()
+    {
+        return $this->container['manufacturer_id'];
+    }
+
+    /**
+     * Sets manufacturer_id
+     *
+     * @param string|null $manufacturer_id Unique Digital River manufacturer identifier.
+     *
+     * @return $this
+     */
+    public function setManufacturerId($manufacturer_id)
+    {
+        $this->container['manufacturer_id'] = $manufacturer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets eccn
+     *
+     * @return string|null
+     */
+    public function getEccn()
+    {
+        return $this->container['eccn'];
+    }
+
+    /**
+     * Sets eccn
+     *
+     * @param string|null $eccn Export control classification number.
+     *
+     * @return $this
+     */
+    public function setEccn($eccn)
+    {
+        $this->container['eccn'] = $eccn;
+
+        return $this;
+    }
+
+    /**
+     * Gets hs_code
+     *
+     * @return string|null
+     */
+    public function getHsCode()
+    {
+        return $this->container['hs_code'];
+    }
+
+    /**
+     * Sets hs_code
+     *
+     * @param string|null $hs_code International & US HS Code & Harmonized Tariff Code.
+     *
+     * @return $this
+     */
+    public function setHsCode($hs_code)
+    {
+        $this->container['hs_code'] = $hs_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets part_number
+     *
+     * @return string|null
+     */
+    public function getPartNumber()
+    {
+        return $this->container['part_number'];
+    }
+
+    /**
+     * Sets part_number
+     *
+     * @param string|null $part_number Manufacturer part number.
+     *
+     * @return $this
+     */
+    public function setPartNumber($part_number)
+    {
+        $this->container['part_number'] = $part_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets country_of_origin
+     *
+     * @return string|null
+     */
+    public function getCountryOfOrigin()
+    {
+        return $this->container['country_of_origin'];
+    }
+
+    /**
+     * Sets country_of_origin
+     *
+     * @param string|null $country_of_origin An ISO 3166-1 alpha-2 country code.
+     *
+     * @return $this
+     */
+    public function setCountryOfOrigin($country_of_origin)
+    {
+        $this->container['country_of_origin'] = $country_of_origin;
 
         return $this;
     }
@@ -279,6 +435,54 @@ class InventoryItem implements ModelInterface, ArrayAccess
     public function setAllowOversell($allow_oversell)
     {
         $this->container['allow_oversell'] = $allow_oversell;
+
+        return $this;
+    }
+
+    /**
+     * Gets live_mode
+     *
+     * @return bool|null
+     */
+    public function getLiveMode()
+    {
+        return $this->container['live_mode'];
+    }
+
+    /**
+     * Sets live_mode
+     *
+     * @param bool|null $live_mode Has the value true if the object exists in live mode or the value false if the object exists in test mode.
+     *
+     * @return $this
+     */
+    public function setLiveMode($live_mode)
+    {
+        $this->container['live_mode'] = $live_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_time
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedTime()
+    {
+        return $this->container['updated_time'];
+    }
+
+    /**
+     * Sets updated_time
+     *
+     * @param \DateTime|null $updated_time Time when the inventory item was last updated.
+     *
+     * @return $this
+     */
+    public function setUpdatedTime($updated_time)
+    {
+        $this->container['updated_time'] = $updated_time;
 
         return $this;
     }

@@ -1,16 +1,16 @@
 # DigitalRiver\ApiSdk\InventoryLevelsApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**callList**](InventoryLevelsApi.md#callList) | **GET** /inventory-levels | Returns a list of inventory levels.
+[**listInventoryLevels**](InventoryLevelsApi.md#listInventoryLevels) | **GET** /inventory-levels | Returns a list of inventory levels.
 
 
 
-## callList
+## listInventoryLevels
 
-> \DigitalRiver\ApiSdk\Model\InlineResponse2002 callList($inventory_item_ids, $updated_time, $ship_to_country, $available)
+> \DigitalRiver\ApiSdk\Model\InlineResponse2002 listInventoryLevels($inventory_item_ids, $updated_time, $ship_to_country, $available)
 
 Returns a list of inventory levels.
 
@@ -38,10 +38,10 @@ $available = True; // bool | Only return available (i.e. greater than zero) inve
 
 
 try {
-    $result = $apiInstance->callList($inventory_item_ids, $updated_time, $ship_to_country, $available);
+    $result = $apiInstance->listInventoryLevels($inventory_item_ids, $updated_time, $ship_to_country, $available);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InventoryLevelsApi->callList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InventoryLevelsApi->listInventoryLevels: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

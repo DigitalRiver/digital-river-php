@@ -1,21 +1,21 @@
 # DigitalRiver\ApiSdk\ReservationsApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](ReservationsApi.md#create) | **POST** /reservations | Create a reservation
-[**delete**](ReservationsApi.md#delete) | **DELETE** /reservations/{id} | Cancels a reservation by ID.
+[**createReservations**](ReservationsApi.md#createReservations) | **POST** /reservations | Create a reservation
+[**deleteReservations**](ReservationsApi.md#deleteReservations) | **DELETE** /reservations/{id} | Cancels a reservation by ID.
 
 
 
-## create
+## createReservations
 
-> \DigitalRiver\ApiSdk\Model\Reservation create($reservation_request)
+> \DigitalRiver\ApiSdk\Model\Reservation createReservations($reservation_request)
 
 Create a reservation
 
-A reservation represents the reservation of inventory for all or part of an order.
+Create a reservation to hold inventory items in a fulfillment order.
 
 ### Example
 
@@ -33,10 +33,10 @@ $reservation_request = new \DigitalRiver\ApiSdk\Model\ReservationRequest(); // \
 // Refer \DigitalRiver\ApiSdk\Model\ReservationRequest::$setters in digital-river-php/lib/Model/ReservationRequest.php to set the properties.
 
 try {
-    $result = $apiInstance->create($reservation_request);
+    $result = $apiInstance->createReservations($reservation_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ReservationsApi->create: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReservationsApi->createReservations: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -66,13 +66,13 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## delete
+## deleteReservations
 
-> delete($id)
+> deleteReservations($id)
 
 Cancels a reservation by ID.
 
-Cancels the reservation. Supply the unique identifier of the reservation.
+Cancels a reservation. Supply the unique identifier of the reservation.
 
 ### Example
 
@@ -90,9 +90,9 @@ $id = 'id_example'; // string | Reservation identifier
 
 
 try {
-    $apiInstance->delete($id);
+    $apiInstance->deleteReservations($id);
 } catch (Exception $e) {
-    echo 'Exception when calling ReservationsApi->delete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReservationsApi->deleteReservations: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

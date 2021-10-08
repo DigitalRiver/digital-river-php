@@ -48,7 +48,7 @@ class FraudStateTransitions implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'blocked' => '\DateTime',
-        'in_review' => '\DateTime',
+        'review_opened' => '\DateTime',
         'passed' => '\DateTime'
     ];
 
@@ -59,7 +59,7 @@ class FraudStateTransitions implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'blocked' => 'date-time',
-        'in_review' => 'date-time',
+        'review_opened' => 'date-time',
         'passed' => 'date-time'
     ];
 
@@ -91,7 +91,7 @@ class FraudStateTransitions implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'blocked' => 'blocked',
-        'in_review' => 'in_review',
+        'review_opened' => 'review_opened',
         'passed' => 'passed'
     ];
 
@@ -102,7 +102,7 @@ class FraudStateTransitions implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'blocked' => 'setBlocked',
-        'in_review' => 'setInReview',
+        'review_opened' => 'setReviewOpened',
         'passed' => 'setPassed'
     ];
 
@@ -113,7 +113,7 @@ class FraudStateTransitions implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'blocked' => 'getBlocked',
-        'in_review' => 'getInReview',
+        'review_opened' => 'getReviewOpened',
         'passed' => 'getPassed'
     ];
 
@@ -178,7 +178,7 @@ class FraudStateTransitions implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['blocked'] = isset($data['blocked']) ? $data['blocked'] : null;
-        $this->container['in_review'] = isset($data['in_review']) ? $data['in_review'] : null;
+        $this->container['review_opened'] = isset($data['review_opened']) ? $data['review_opened'] : null;
         $this->container['passed'] = isset($data['passed']) ? $data['passed'] : null;
     }
 
@@ -231,25 +231,25 @@ class FraudStateTransitions implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets in_review
+     * Gets review_opened
      *
      * @return \DateTime|null
      */
-    public function getInReview()
+    public function getReviewOpened()
     {
-        return $this->container['in_review'];
+        return $this->container['review_opened'];
     }
 
     /**
-     * Sets in_review
+     * Sets review_opened
      *
-     * @param \DateTime|null $in_review in_review
+     * @param \DateTime|null $review_opened review_opened
      *
      * @return $this
      */
-    public function setInReview($in_review)
+    public function setReviewOpened($review_opened)
     {
-        $this->container['in_review'] = $in_review;
+        $this->container['review_opened'] = $review_opened;
 
         return $this;
     }

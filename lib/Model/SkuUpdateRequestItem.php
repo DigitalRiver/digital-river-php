@@ -227,7 +227,7 @@ class SkuUpdateRequestItem implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id The [identifier of the line item](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/checkouts/creating-checkouts#create-checkout-response).
+     * @param string $id The identifier of the line item.
      *
      * @return $this
      */

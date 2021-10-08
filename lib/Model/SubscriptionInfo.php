@@ -25,7 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * SubscriptionInfo Class Doc Comment
  *
  * @category Class
- * @description The [subscription information](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/describing-the-items/subscription-information) of the item.
+ * @description The subscription information of the item.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -50,6 +50,7 @@ class SubscriptionInfo implements ModelInterface, ArrayAccess
         'free_trial' => 'bool',
         'auto_renewal' => 'bool',
         'terms' => 'string',
+        'plan_id' => 'string',
         'subscription_id' => 'string',
         'billing_agreement_id' => 'string',
         'start_time' => '\DateTime',
@@ -65,6 +66,7 @@ class SubscriptionInfo implements ModelInterface, ArrayAccess
         'free_trial' => null,
         'auto_renewal' => null,
         'terms' => null,
+        'plan_id' => null,
         'subscription_id' => null,
         'billing_agreement_id' => null,
         'start_time' => 'date-time',
@@ -101,6 +103,7 @@ class SubscriptionInfo implements ModelInterface, ArrayAccess
         'free_trial' => 'freeTrial',
         'auto_renewal' => 'autoRenewal',
         'terms' => 'terms',
+        'plan_id' => 'planId',
         'subscription_id' => 'subscriptionId',
         'billing_agreement_id' => 'billingAgreementId',
         'start_time' => 'startTime',
@@ -116,6 +119,7 @@ class SubscriptionInfo implements ModelInterface, ArrayAccess
         'free_trial' => 'setFreeTrial',
         'auto_renewal' => 'setAutoRenewal',
         'terms' => 'setTerms',
+        'plan_id' => 'setPlanId',
         'subscription_id' => 'setSubscriptionId',
         'billing_agreement_id' => 'setBillingAgreementId',
         'start_time' => 'setStartTime',
@@ -131,6 +135,7 @@ class SubscriptionInfo implements ModelInterface, ArrayAccess
         'free_trial' => 'getFreeTrial',
         'auto_renewal' => 'getAutoRenewal',
         'terms' => 'getTerms',
+        'plan_id' => 'getPlanId',
         'subscription_id' => 'getSubscriptionId',
         'billing_agreement_id' => 'getBillingAgreementId',
         'start_time' => 'getStartTime',
@@ -200,6 +205,7 @@ class SubscriptionInfo implements ModelInterface, ArrayAccess
         $this->container['free_trial'] = isset($data['free_trial']) ? $data['free_trial'] : null;
         $this->container['auto_renewal'] = isset($data['auto_renewal']) ? $data['auto_renewal'] : null;
         $this->container['terms'] = isset($data['terms']) ? $data['terms'] : null;
+        $this->container['plan_id'] = isset($data['plan_id']) ? $data['plan_id'] : null;
         $this->container['subscription_id'] = isset($data['subscription_id']) ? $data['subscription_id'] : null;
         $this->container['billing_agreement_id'] = isset($data['billing_agreement_id']) ? $data['billing_agreement_id'] : null;
         $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
@@ -243,7 +249,7 @@ class SubscriptionInfo implements ModelInterface, ArrayAccess
     /**
      * Sets free_trial
      *
-     * @param bool|null $free_trial If <code>true</code>, indicates that this is a [free trial](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/describing-the-items/subscription-information#free-trial).
+     * @param bool|null $free_trial If <code>true</code>, indicates that this is a free trial.
      *
      * @return $this
      */
@@ -267,7 +273,7 @@ class SubscriptionInfo implements ModelInterface, ArrayAccess
     /**
      * Sets auto_renewal
      *
-     * @param bool|null $auto_renewal If <code>true</code>, indicates that [renewals for this subscription are automatic](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/describing-the-items/subscription-information#auto-renewal) rather than manual.
+     * @param bool|null $auto_renewal If <code>true</code>, indicates that renewals for this subscription are automatic rather than manual.
      *
      * @return $this
      */
@@ -291,13 +297,37 @@ class SubscriptionInfo implements ModelInterface, ArrayAccess
     /**
      * Sets terms
      *
-     * @param string|null $terms For auto renewal subscriptions, the [terms](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/describing-the-items/subscription-information#terms) displayed to the customer at acquisition.
+     * @param string|null $terms For auto renewal subscriptions, the terms displayed to the customer at acquisition.
      *
      * @return $this
      */
     public function setTerms($terms)
     {
         $this->container['terms'] = $terms;
+
+        return $this;
+    }
+
+    /**
+     * Gets plan_id
+     *
+     * @return string|null
+     */
+    public function getPlanId()
+    {
+        return $this->container['plan_id'];
+    }
+
+    /**
+     * Sets plan_id
+     *
+     * @param string|null $plan_id The unique identifier of the plan
+     *
+     * @return $this
+     */
+    public function setPlanId($plan_id)
+    {
+        $this->container['plan_id'] = $plan_id;
 
         return $this;
     }
@@ -315,7 +345,7 @@ class SubscriptionInfo implements ModelInterface, ArrayAccess
     /**
      * Sets subscription_id
      *
-     * @param string|null $subscription_id The [subscription identifier](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/describing-the-items/subscription-information#subscription-identifier).
+     * @param string|null $subscription_id The subscription identifier.
      *
      * @return $this
      */
@@ -363,7 +393,7 @@ class SubscriptionInfo implements ModelInterface, ArrayAccess
     /**
      * Sets start_time
      *
-     * @param \DateTime|null $start_time The [start date and time](https://docs.digitalriver.com/digital-river-api/v/v2020-01-07/checkouts-and-orders/checkouts/creating-checkouts/describing-the-items/subscription-information#start-and-end-time) of the subscription.
+     * @param \DateTime|null $start_time The start date and time of the subscription.
      *
      * @return $this
      */
@@ -387,7 +417,7 @@ class SubscriptionInfo implements ModelInterface, ArrayAccess
     /**
      * Sets end_time
      *
-     * @param \DateTime|null $end_time The [<code>startTime</code> plus the subscription duration](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/describing-the-items/subscription-information).
+     * @param \DateTime|null $end_time The <code>startTime</code> plus the subscription duration.
      *
      * @return $this
      */

@@ -105,7 +105,514 @@ class FulfillmentOrdersApi
     }
 
     /**
-     * Operation callList
+     * Operation createFulfillmentOrders
+     *
+     * Creates a new Fulfillment order
+     *
+     * @param  \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest $global_fulfillment_order_request global_fulfillment_order_request (optional)
+     *
+     * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
+     */
+    public function createFulfillmentOrders($global_fulfillment_order_request = null)
+    {
+        list($response) = $this->createFulfillmentOrdersWithHttpInfo($global_fulfillment_order_request);
+        return $response;
+    }
+
+    /**
+     * Operation createFulfillmentOrdersWithHttpInfo
+     *
+     * Creates a new Fulfillment order
+     *
+     * @param  \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest $global_fulfillment_order_request (optional)
+     *
+     * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createFulfillmentOrdersWithHttpInfo($global_fulfillment_order_request = null)
+    {
+        $request = $this->createFulfillmentOrdersRequest($global_fulfillment_order_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 201:
+                    if ('\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 405:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 406:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 408:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 502:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 503:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 504:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 405:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 406:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 408:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 504:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createFulfillmentOrdersAsync
+     *
+     * Creates a new Fulfillment order
+     *
+     * @param  \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest $global_fulfillment_order_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createFulfillmentOrdersAsync($global_fulfillment_order_request = null)
+    {
+        return $this->createFulfillmentOrdersAsyncWithHttpInfo($global_fulfillment_order_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createFulfillmentOrdersAsyncWithHttpInfo
+     *
+     * Creates a new Fulfillment order
+     *
+     * @param  \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest $global_fulfillment_order_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createFulfillmentOrdersAsyncWithHttpInfo($global_fulfillment_order_request = null)
+    {
+        $returnType = '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder';
+        $request = $this->createFulfillmentOrdersRequest($global_fulfillment_order_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createFulfillmentOrders'
+     *
+     * @param  \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest $global_fulfillment_order_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createFulfillmentOrdersRequest($global_fulfillment_order_request = null)
+    {
+
+        $resourcePath = '/fulfillment-orders';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($global_fulfillment_order_request)) {
+            $_tempBody = $global_fulfillment_order_request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        //$query = \GuzzleHttp\Psr7\build_query($queryParams);
+        //this is changed for supporting deepobject in url in the form /skus?createdTime[lt]=2020-09-22T12:09:44Z
+        $query = http_build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listFulfillmentOrders
      *
      * Returns a list of Fulfillment orders.
      *
@@ -121,14 +628,14 @@ class FulfillmentOrdersApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\InlineResponse200|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function callList($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null)
+    public function listFulfillmentOrders($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null)
     {
-        list($response) = $this->callListWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids);
+        list($response) = $this->listFulfillmentOrdersWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids);
         return $response;
     }
 
     /**
-     * Operation callListWithHttpInfo
+     * Operation listFulfillmentOrdersWithHttpInfo
      *
      * Returns a list of Fulfillment orders.
      *
@@ -144,9 +651,9 @@ class FulfillmentOrdersApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\InlineResponse200|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function callListWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null)
+    public function listFulfillmentOrdersWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null)
     {
-        $request = $this->callListRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids);
+        $request = $this->listFulfillmentOrdersRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids);
 
         try {
             $options = $this->createHttpClientOption();
@@ -462,7 +969,7 @@ class FulfillmentOrdersApi
     }
 
     /**
-     * Operation callListAsync
+     * Operation listFulfillmentOrdersAsync
      *
      * Returns a list of Fulfillment orders.
      *
@@ -477,9 +984,9 @@ class FulfillmentOrdersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function callListAsync($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null)
+    public function listFulfillmentOrdersAsync($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null)
     {
-        return $this->callListAsyncWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids)
+        return $this->listFulfillmentOrdersAsyncWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -488,7 +995,7 @@ class FulfillmentOrdersApi
     }
 
     /**
-     * Operation callListAsyncWithHttpInfo
+     * Operation listFulfillmentOrdersAsyncWithHttpInfo
      *
      * Returns a list of Fulfillment orders.
      *
@@ -503,10 +1010,10 @@ class FulfillmentOrdersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function callListAsyncWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null)
+    public function listFulfillmentOrdersAsyncWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\InlineResponse200';
-        $request = $this->callListRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids);
+        $request = $this->listFulfillmentOrdersRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -543,7 +1050,7 @@ class FulfillmentOrdersApi
     }
 
     /**
-     * Create request for operation 'callList'
+     * Create request for operation 'listFulfillmentOrders'
      *
      * @param  map[string,\DateTime] $created_time A filter on the list based on the **createdTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the createdTime field equals to this timestamp   - **gt**&amp;mdash;return values where the createdTime field is after this timestamp   - **gte**&amp;mdash;return values where the createdTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the createdTime field is before this timestamp   - **lte**&amp;mdash;return values where the createdTime field is before or equal to this timestamp (optional)
      * @param  map[string,\DateTime] $updated_time A filter on the list based on the **updatedTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the updatedTime field equals this timestamp   - **gt**&amp;mdash;return values where the updatedTime field is after this timestamp   - **gte**&amp;mdash;return values where the updatedTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the updatedTime field is before this timestamp   - **lte**&amp;mdash;return values where the updatedTime field is before or equal to this timestamp (optional)
@@ -556,13 +1063,13 @@ class FulfillmentOrdersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function callListRequest($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null)
+    protected function listFulfillmentOrdersRequest($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null)
     {
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FulfillmentOrdersApi.callList, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling FulfillmentOrdersApi.listFulfillmentOrders, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FulfillmentOrdersApi.callList, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling FulfillmentOrdersApi.listFulfillmentOrders, must be bigger than or equal to 1.');
         }
 
 
@@ -723,514 +1230,7 @@ class FulfillmentOrdersApi
     }
 
     /**
-     * Operation create
-     *
-     * Creates a new Fulfillment order
-     *
-     * @param  \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest $global_fulfillment_order_request global_fulfillment_order_request (optional)
-     *
-     * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
-     */
-    public function create($global_fulfillment_order_request = null)
-    {
-        list($response) = $this->createWithHttpInfo($global_fulfillment_order_request);
-        return $response;
-    }
-
-    /**
-     * Operation createWithHttpInfo
-     *
-     * Creates a new Fulfillment order
-     *
-     * @param  \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest $global_fulfillment_order_request (optional)
-     *
-     * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function createWithHttpInfo($global_fulfillment_order_request = null)
-    {
-        $request = $this->createRequest($global_fulfillment_order_request);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 201:
-                    if ('\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 405:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 406:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 408:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 409:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 429:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 502:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 503:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 504:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 405:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 406:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 408:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 409:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 502:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 504:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation createAsync
-     *
-     * Creates a new Fulfillment order
-     *
-     * @param  \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest $global_fulfillment_order_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createAsync($global_fulfillment_order_request = null)
-    {
-        return $this->createAsyncWithHttpInfo($global_fulfillment_order_request)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation createAsyncWithHttpInfo
-     *
-     * Creates a new Fulfillment order
-     *
-     * @param  \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest $global_fulfillment_order_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createAsyncWithHttpInfo($global_fulfillment_order_request = null)
-    {
-        $returnType = '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder';
-        $request = $this->createRequest($global_fulfillment_order_request);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'create'
-     *
-     * @param  \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest $global_fulfillment_order_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function createRequest($global_fulfillment_order_request = null)
-    {
-
-        $resourcePath = '/fulfillment-orders';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-        // body params
-        $_tempBody = null;
-        if (isset($global_fulfillment_order_request)) {
-            $_tempBody = $global_fulfillment_order_request;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        //$query = \GuzzleHttp\Psr7\build_query($queryParams);
-        //this is changed for supporting deepobject in url in the form /skus?createdTime[lt]=2020-09-22T12:09:44Z
-        $query = http_build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation retrieve
+     * Operation retrieveFulfillmentOrders
      *
      * Gets a Fulfillment order by ID.
      *
@@ -1240,14 +1240,14 @@ class FulfillmentOrdersApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function retrieve($id)
+    public function retrieveFulfillmentOrders($id)
     {
-        list($response) = $this->retrieveWithHttpInfo($id);
+        list($response) = $this->retrieveFulfillmentOrdersWithHttpInfo($id);
         return $response;
     }
 
     /**
-     * Operation retrieveWithHttpInfo
+     * Operation retrieveFulfillmentOrdersWithHttpInfo
      *
      * Gets a Fulfillment order by ID.
      *
@@ -1257,9 +1257,9 @@ class FulfillmentOrdersApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retrieveWithHttpInfo($id)
+    public function retrieveFulfillmentOrdersWithHttpInfo($id)
     {
-        $request = $this->retrieveRequest($id);
+        $request = $this->retrieveFulfillmentOrdersRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1575,7 +1575,7 @@ class FulfillmentOrdersApi
     }
 
     /**
-     * Operation retrieveAsync
+     * Operation retrieveFulfillmentOrdersAsync
      *
      * Gets a Fulfillment order by ID.
      *
@@ -1584,9 +1584,9 @@ class FulfillmentOrdersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveAsync($id)
+    public function retrieveFulfillmentOrdersAsync($id)
     {
-        return $this->retrieveAsyncWithHttpInfo($id)
+        return $this->retrieveFulfillmentOrdersAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1595,7 +1595,7 @@ class FulfillmentOrdersApi
     }
 
     /**
-     * Operation retrieveAsyncWithHttpInfo
+     * Operation retrieveFulfillmentOrdersAsyncWithHttpInfo
      *
      * Gets a Fulfillment order by ID.
      *
@@ -1604,10 +1604,10 @@ class FulfillmentOrdersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveAsyncWithHttpInfo($id)
+    public function retrieveFulfillmentOrdersAsyncWithHttpInfo($id)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder';
-        $request = $this->retrieveRequest($id);
+        $request = $this->retrieveFulfillmentOrdersRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1644,19 +1644,19 @@ class FulfillmentOrdersApi
     }
 
     /**
-     * Create request for operation 'retrieve'
+     * Create request for operation 'retrieveFulfillmentOrders'
      *
      * @param  string $id Fulfillment order identifier. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function retrieveRequest($id)
+    protected function retrieveFulfillmentOrdersRequest($id)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling retrieve'
+                'Missing the required parameter $id when calling retrieveFulfillmentOrders'
             );
         }
 

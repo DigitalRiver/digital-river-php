@@ -251,7 +251,7 @@ class SkuRequestItem implements ModelInterface, ArrayAccess
     /**
      * Sets sku_id
      *
-     * @param string $sku_id The identifier of the [stock keeping unit (SKU)](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus).
+     * @param string $sku_id The identifier of the stock keeping unit (SKU).
      *
      * @return $this
      */
@@ -299,7 +299,7 @@ class SkuRequestItem implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param double|null $price The [price of an item](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/describing-the-items/price-of-an-item#defining-a-price).
+     * @param double|null $price The price of an item.
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class SkuRequestItem implements ModelInterface, ArrayAccess
     /**
      * Sets aggregate_price
      *
-     * @param double|null $aggregate_price The [total price of multiple items](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/describing-the-items/price-of-an-item#defining-an-aggregate-price).
+     * @param double|null $aggregate_price The total price of multiple items.
      *
      * @return $this
      */

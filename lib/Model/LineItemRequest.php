@@ -54,7 +54,7 @@ class LineItemRequest implements ModelInterface, ArrayAccess
         'quantity' => 'int',
         'gift_message' => 'string',
         'gift_wrap' => 'bool',
-        'tax' => '\DigitalRiver\ApiSdk\Model\Tax'
+        'tax' => '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentTax'
     ];
 
     /**
@@ -404,7 +404,7 @@ class LineItemRequest implements ModelInterface, ArrayAccess
     /**
      * Sets gift_message
      *
-     * @param string|null $gift_message Gift message that goes on the package of the product.
+     * @param string|null $gift_message The gift message on the package of the product.
      *
      * @return $this
      */
@@ -442,7 +442,7 @@ class LineItemRequest implements ModelInterface, ArrayAccess
     /**
      * Gets tax
      *
-     * @return \DigitalRiver\ApiSdk\Model\Tax|null
+     * @return \DigitalRiver\ApiSdk\Model\GlobalFulfillmentTax|null
      */
     public function getTax()
     {
@@ -452,7 +452,7 @@ class LineItemRequest implements ModelInterface, ArrayAccess
     /**
      * Sets tax
      *
-     * @param \DigitalRiver\ApiSdk\Model\Tax|null $tax tax
+     * @param \DigitalRiver\ApiSdk\Model\GlobalFulfillmentTax|null $tax tax
      *
      * @return $this
      */

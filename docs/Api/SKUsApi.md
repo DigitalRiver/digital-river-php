@@ -1,6 +1,6 @@
 # DigitalRiver\ApiSdk\SKUsApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Creates a SKU
 
-Submit this request to [create a SKU](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-and-updating-skus).
+Submit this request to create a SKU.
 
 ### Example
 
@@ -138,7 +138,7 @@ void (empty response body)
 
 ## listSkus
 
-> \DigitalRiver\ApiSdk\Model\ListSkusResponse listSkus($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $eccn, $part_number, $hs_code, $tax_code)
+> \DigitalRiver\ApiSdk\Model\ListSkusResponse listSkus($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $eccn, $part_number, $hs_code, $tax_code, $sku_group_id)
 
 Returns a list of SKUs
 
@@ -173,17 +173,19 @@ $limit = 56; // int | A limit on the number of objects returned. Limit can range
 
 $ids = array('ids_example'); // string[] | Only return objects with these IDs.
 // Refer string[]::$setters in digital-river-php/lib/Model/string.php to set the properties.
-$eccn = 'eccn_example'; // string | The [Export Control Classification Number (ECCN)](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus/setting-the-eccn) associated with the SKUs you want to retrieve.
+$eccn = 'eccn_example'; // string | The Export Control Classification Number (ECCN) associated with the SKUs you want to retrieve.
 
-$part_number = 'part_number_example'; // string | The [partNumber](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus#how-to-specify-a-physical-or-digital-product) associated with the SKUs you want to retrieve.
+$part_number = 'part_number_example'; // string | The partNumber associated with the SKUs you want to retrieve.
 
-$hs_code = 'hs_code_example'; // string | The [hsCode](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus) associated with the SKUs you want to retrieve.
+$hs_code = 'hs_code_example'; // string | The hsCode associated with the SKUs you want to retrieve.
 
-$tax_code = 'tax_code_example'; // string | The [taxCode](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus/setting-the-tax-code) associated with the SKUs you want to retrieve.
+$tax_code = 'tax_code_example'; // string | The taxCode associated with the SKUs you want to retrieve.
+
+$sku_group_id = 'sku_group_id_example'; // string | An unique identifier for the sku-group, can be client provided or DR system generated.
 
 
 try {
-    $result = $apiInstance->listSkus($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $eccn, $part_number, $hs_code, $tax_code);
+    $result = $apiInstance->listSkus($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $eccn, $part_number, $hs_code, $tax_code, $sku_group_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SKUsApi->listSkus: ', $e->getMessage(), PHP_EOL;
@@ -202,10 +204,11 @@ Name | Type | Description  | Notes
  **starting_after** | **string**| A cursor for use in pagination. The startingAfter parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with xyz, your subsequent calls can include startingAfter&#x3D;xyz in order to fetch the next page of the list. | [optional]
  **limit** | **int**| A limit on the number of objects returned. Limit can range between 1 and 100, and the default is 10. | [optional]
  **ids** | [**string[]**](../Model/string.md)| Only return objects with these IDs. | [optional]
- **eccn** | **string**| The [Export Control Classification Number (ECCN)](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus/setting-the-eccn) associated with the SKUs you want to retrieve. | [optional]
- **part_number** | **string**| The [partNumber](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus#how-to-specify-a-physical-or-digital-product) associated with the SKUs you want to retrieve. | [optional]
- **hs_code** | **string**| The [hsCode](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus) associated with the SKUs you want to retrieve. | [optional]
- **tax_code** | **string**| The [taxCode](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus/setting-the-tax-code) associated with the SKUs you want to retrieve. | [optional]
+ **eccn** | **string**| The Export Control Classification Number (ECCN) associated with the SKUs you want to retrieve. | [optional]
+ **part_number** | **string**| The partNumber associated with the SKUs you want to retrieve. | [optional]
+ **hs_code** | **string**| The hsCode associated with the SKUs you want to retrieve. | [optional]
+ **tax_code** | **string**| The taxCode associated with the SKUs you want to retrieve. | [optional]
+ **sku_group_id** | **string**| An unique identifier for the sku-group, can be client provided or DR system generated. | [optional]
 
 ### Return type
 
@@ -358,7 +361,7 @@ Name | Type | Description  | Notes
 
 Upserts a SKU
 
-Submit this request to [upsert](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/upserting-skus) the specified SKU.
+Submit this request to upsert the specified SKU.
 
 ### Example
 

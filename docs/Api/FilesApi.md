@@ -1,6 +1,6 @@
 # DigitalRiver\ApiSdk\FilesApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -38,7 +38,7 @@ $apiInstance = new DigitalRiver\ApiSdk\Api\FilesApi(
 );
 $file = "/path/to/file.txt"; // \SplFileObject | A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol).
 
-$purpose = 'purpose_example'; // string | The [purpose of the uploaded file](https://docs.digitalriver.com/digital-river-api/files-and-file-links-1/files/understanding-the-files-purpose).
+$purpose = 'purpose_example'; // string | The purpose of the uploaded file.
 
 $file_name = 'file_name_example'; // string | A filename for the file, suitable for saving to a filesystem.
 
@@ -62,7 +62,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | **\SplFileObject****\SplFileObject**| A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). |
- **purpose** | **string**| The [purpose of the uploaded file](https://docs.digitalriver.com/digital-river-api/files-and-file-links-1/files/understanding-the-files-purpose). |
+ **purpose** | **string**| The purpose of the uploaded file. |
  **file_name** | **string**| A filename for the file, suitable for saving to a filesystem. | [optional]
  **title** | **string**| A user friendly title for the document. | [optional]
  **link_expires_time** | **\DateTime**| Time at which the link expires. | [optional]

@@ -1,6 +1,6 @@
 # DigitalRiver\ApiSdk\FeesApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Creates a fee
 
-This method [adds a new fee](https://docs.digitalriver.com/digital-river-api/regulatory-fees/creating-a-regulator-fee) to an existing [SKU](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus).
+This method adds a new fee to an existing SKU.
 
 ### Example
 

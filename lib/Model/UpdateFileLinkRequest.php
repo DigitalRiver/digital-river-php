@@ -46,8 +46,7 @@ class UpdateFileLinkRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'expires_time' => '\DateTime',
-        'metadata' => 'map[string,AnyType]'
+        'expires_time' => '\DateTime'
     ];
 
     /**
@@ -56,8 +55,7 @@ class UpdateFileLinkRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'expires_time' => 'date-time',
-        'metadata' => null
+        'expires_time' => 'date-time'
     ];
 
     /**
@@ -87,8 +85,7 @@ class UpdateFileLinkRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'expires_time' => 'expiresTime',
-        'metadata' => 'metadata'
+        'expires_time' => 'expiresTime'
     ];
 
     /**
@@ -97,8 +94,7 @@ class UpdateFileLinkRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'expires_time' => 'setExpiresTime',
-        'metadata' => 'setMetadata'
+        'expires_time' => 'setExpiresTime'
     ];
 
     /**
@@ -107,8 +103,7 @@ class UpdateFileLinkRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'expires_time' => 'getExpiresTime',
-        'metadata' => 'getMetadata'
+        'expires_time' => 'getExpiresTime'
     ];
 
     /**
@@ -172,7 +167,6 @@ class UpdateFileLinkRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['expires_time'] = isset($data['expires_time']) ? $data['expires_time'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
     }
 
     /**
@@ -222,30 +216,6 @@ class UpdateFileLinkRequest implements ModelInterface, ArrayAccess
     public function setExpiresTime($expires_time)
     {
         $this->container['expires_time'] = $expires_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return map[string,AnyType]|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param map[string,AnyType]|null $metadata Key-value pairs used to store additional data. Value can be string, boolean or integer types.
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
 
         return $this;
     }

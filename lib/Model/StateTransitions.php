@@ -25,7 +25,6 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * StateTransitions Class Doc Comment
  *
  * @category Class
- * @description Timestamps that indicate when the state transition occurred.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -47,14 +46,10 @@ class StateTransitions implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'accepted' => '\DateTime',
-        'pending_payment' => '\DateTime',
-        'in_review' => '\DateTime',
-        'complete' => '\DateTime',
+        'activated' => '\DateTime',
+        'failed' => '\DateTime',
         'cancelled' => '\DateTime',
-        'fulfilled' => '\DateTime',
-        'blocked' => '\DateTime',
-        'returned' => '\DateTime'
+        'ended' => '\DateTime'
     ];
 
     /**
@@ -63,14 +58,10 @@ class StateTransitions implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'accepted' => 'date-time',
-        'pending_payment' => 'date-time',
-        'in_review' => 'date-time',
-        'complete' => 'date-time',
+        'activated' => 'date-time',
+        'failed' => 'date-time',
         'cancelled' => 'date-time',
-        'fulfilled' => 'date-time',
-        'blocked' => 'date-time',
-        'returned' => 'date-time'
+        'ended' => 'date-time'
     ];
 
     /**
@@ -100,14 +91,10 @@ class StateTransitions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accepted' => 'accepted',
-        'pending_payment' => 'pending_payment',
-        'in_review' => 'in_review',
-        'complete' => 'complete',
+        'activated' => 'activated',
+        'failed' => 'failed',
         'cancelled' => 'cancelled',
-        'fulfilled' => 'fulfilled',
-        'blocked' => 'blocked',
-        'returned' => 'returned'
+        'ended' => 'ended'
     ];
 
     /**
@@ -116,14 +103,10 @@ class StateTransitions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accepted' => 'setAccepted',
-        'pending_payment' => 'setPendingPayment',
-        'in_review' => 'setInReview',
-        'complete' => 'setComplete',
+        'activated' => 'setActivated',
+        'failed' => 'setFailed',
         'cancelled' => 'setCancelled',
-        'fulfilled' => 'setFulfilled',
-        'blocked' => 'setBlocked',
-        'returned' => 'setReturned'
+        'ended' => 'setEnded'
     ];
 
     /**
@@ -132,14 +115,10 @@ class StateTransitions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accepted' => 'getAccepted',
-        'pending_payment' => 'getPendingPayment',
-        'in_review' => 'getInReview',
-        'complete' => 'getComplete',
+        'activated' => 'getActivated',
+        'failed' => 'getFailed',
         'cancelled' => 'getCancelled',
-        'fulfilled' => 'getFulfilled',
-        'blocked' => 'getBlocked',
-        'returned' => 'getReturned'
+        'ended' => 'getEnded'
     ];
 
     /**
@@ -202,14 +181,10 @@ class StateTransitions implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accepted'] = isset($data['accepted']) ? $data['accepted'] : null;
-        $this->container['pending_payment'] = isset($data['pending_payment']) ? $data['pending_payment'] : null;
-        $this->container['in_review'] = isset($data['in_review']) ? $data['in_review'] : null;
-        $this->container['complete'] = isset($data['complete']) ? $data['complete'] : null;
+        $this->container['activated'] = isset($data['activated']) ? $data['activated'] : null;
+        $this->container['failed'] = isset($data['failed']) ? $data['failed'] : null;
         $this->container['cancelled'] = isset($data['cancelled']) ? $data['cancelled'] : null;
-        $this->container['fulfilled'] = isset($data['fulfilled']) ? $data['fulfilled'] : null;
-        $this->container['blocked'] = isset($data['blocked']) ? $data['blocked'] : null;
-        $this->container['returned'] = isset($data['returned']) ? $data['returned'] : null;
+        $this->container['ended'] = isset($data['ended']) ? $data['ended'] : null;
     }
 
     /**
@@ -237,97 +212,49 @@ class StateTransitions implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accepted
+     * Gets activated
      *
      * @return \DateTime|null
      */
-    public function getAccepted()
+    public function getActivated()
     {
-        return $this->container['accepted'];
+        return $this->container['activated'];
     }
 
     /**
-     * Sets accepted
+     * Sets activated
      *
-     * @param \DateTime|null $accepted accepted
+     * @param \DateTime|null $activated activated
      *
      * @return $this
      */
-    public function setAccepted($accepted)
+    public function setActivated($activated)
     {
-        $this->container['accepted'] = $accepted;
+        $this->container['activated'] = $activated;
 
         return $this;
     }
 
     /**
-     * Gets pending_payment
+     * Gets failed
      *
      * @return \DateTime|null
      */
-    public function getPendingPayment()
+    public function getFailed()
     {
-        return $this->container['pending_payment'];
+        return $this->container['failed'];
     }
 
     /**
-     * Sets pending_payment
+     * Sets failed
      *
-     * @param \DateTime|null $pending_payment pending_payment
+     * @param \DateTime|null $failed failed
      *
      * @return $this
      */
-    public function setPendingPayment($pending_payment)
+    public function setFailed($failed)
     {
-        $this->container['pending_payment'] = $pending_payment;
-
-        return $this;
-    }
-
-    /**
-     * Gets in_review
-     *
-     * @return \DateTime|null
-     */
-    public function getInReview()
-    {
-        return $this->container['in_review'];
-    }
-
-    /**
-     * Sets in_review
-     *
-     * @param \DateTime|null $in_review in_review
-     *
-     * @return $this
-     */
-    public function setInReview($in_review)
-    {
-        $this->container['in_review'] = $in_review;
-
-        return $this;
-    }
-
-    /**
-     * Gets complete
-     *
-     * @return \DateTime|null
-     */
-    public function getComplete()
-    {
-        return $this->container['complete'];
-    }
-
-    /**
-     * Sets complete
-     *
-     * @param \DateTime|null $complete complete
-     *
-     * @return $this
-     */
-    public function setComplete($complete)
-    {
-        $this->container['complete'] = $complete;
+        $this->container['failed'] = $failed;
 
         return $this;
     }
@@ -357,73 +284,25 @@ class StateTransitions implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets fulfilled
+     * Gets ended
      *
      * @return \DateTime|null
      */
-    public function getFulfilled()
+    public function getEnded()
     {
-        return $this->container['fulfilled'];
+        return $this->container['ended'];
     }
 
     /**
-     * Sets fulfilled
+     * Sets ended
      *
-     * @param \DateTime|null $fulfilled fulfilled
+     * @param \DateTime|null $ended ended
      *
      * @return $this
      */
-    public function setFulfilled($fulfilled)
+    public function setEnded($ended)
     {
-        $this->container['fulfilled'] = $fulfilled;
-
-        return $this;
-    }
-
-    /**
-     * Gets blocked
-     *
-     * @return \DateTime|null
-     */
-    public function getBlocked()
-    {
-        return $this->container['blocked'];
-    }
-
-    /**
-     * Sets blocked
-     *
-     * @param \DateTime|null $blocked blocked
-     *
-     * @return $this
-     */
-    public function setBlocked($blocked)
-    {
-        $this->container['blocked'] = $blocked;
-
-        return $this;
-    }
-
-    /**
-     * Gets returned
-     *
-     * @return \DateTime|null
-     */
-    public function getReturned()
-    {
-        return $this->container['returned'];
-    }
-
-    /**
-     * Sets returned
-     *
-     * @param \DateTime|null $returned returned
-     *
-     * @return $this
-     */
-    public function setReturned($returned)
-    {
-        $this->container['returned'] = $returned;
+        $this->container['ended'] = $ended;
 
         return $this;
     }

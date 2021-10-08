@@ -1,18 +1,75 @@
 # DigitalRiver\ApiSdk\FulfillmentOrdersApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**callList**](FulfillmentOrdersApi.md#callList) | **GET** /fulfillment-orders | Returns a list of Fulfillment orders.
-[**create**](FulfillmentOrdersApi.md#create) | **POST** /fulfillment-orders | Creates a new Fulfillment order
-[**retrieve**](FulfillmentOrdersApi.md#retrieve) | **GET** /fulfillment-orders/{id} | Gets a Fulfillment order by ID.
+[**createFulfillmentOrders**](FulfillmentOrdersApi.md#createFulfillmentOrders) | **POST** /fulfillment-orders | Creates a new Fulfillment order
+[**listFulfillmentOrders**](FulfillmentOrdersApi.md#listFulfillmentOrders) | **GET** /fulfillment-orders | Returns a list of Fulfillment orders.
+[**retrieveFulfillmentOrders**](FulfillmentOrdersApi.md#retrieveFulfillmentOrders) | **GET** /fulfillment-orders/{id} | Gets a Fulfillment order by ID.
 
 
 
-## callList
+## createFulfillmentOrders
 
-> \DigitalRiver\ApiSdk\Model\InlineResponse200 callList($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids)
+> \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder createFulfillmentOrders($global_fulfillment_order_request)
+
+Creates a new Fulfillment order
+
+Creates a new Fulfillment order.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new DigitalRiver\ApiSdk\Api\FulfillmentOrdersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$global_fulfillment_order_request = new \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest(); // \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest | 
+// Refer \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest::$setters in digital-river-php/lib/Model/GlobalFulfillmentOrderRequest.php to set the properties.
+
+try {
+    $result = $apiInstance->createFulfillmentOrders($global_fulfillment_order_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FulfillmentOrdersApi->createFulfillmentOrders: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **global_fulfillment_order_request** | [**\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest**](../Model/GlobalFulfillmentOrderRequest.md)|  | [optional]
+
+### Return type
+
+[**\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder**](../Model/GlobalFulfillmentOrder.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## listFulfillmentOrders
+
+> \DigitalRiver\ApiSdk\Model\InlineResponse200 listFulfillmentOrders($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids)
 
 Returns a list of Fulfillment orders.
 
@@ -46,10 +103,10 @@ $upstream_ids = array('upstream_ids_example'); // string[] | Only return objects
 // Refer string[]::$setters in digital-river-php/lib/Model/string.php to set the properties.
 
 try {
-    $result = $apiInstance->callList($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids);
+    $result = $apiInstance->listFulfillmentOrders($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FulfillmentOrdersApi->callList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FulfillmentOrdersApi->listFulfillmentOrders: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -85,66 +142,9 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## create
+## retrieveFulfillmentOrders
 
-> \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder create($global_fulfillment_order_request)
-
-Creates a new Fulfillment order
-
-Creates a new Fulfillment order.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-$apiInstance = new DigitalRiver\ApiSdk\Api\FulfillmentOrdersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$global_fulfillment_order_request = new \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest(); // \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest | 
-// Refer \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest::$setters in digital-river-php/lib/Model/GlobalFulfillmentOrderRequest.php to set the properties.
-
-try {
-    $result = $apiInstance->create($global_fulfillment_order_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling FulfillmentOrdersApi->create: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **global_fulfillment_order_request** | [**\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrderRequest**](../Model/GlobalFulfillmentOrderRequest.md)|  | [optional]
-
-### Return type
-
-[**\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder**](../Model/GlobalFulfillmentOrder.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
-## retrieve
-
-> \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder retrieve($id)
+> \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder retrieveFulfillmentOrders($id)
 
 Gets a Fulfillment order by ID.
 
@@ -166,10 +166,10 @@ $id = 'id_example'; // string | Fulfillment order identifier.
 
 
 try {
-    $result = $apiInstance->retrieve($id);
+    $result = $apiInstance->retrieveFulfillmentOrders($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FulfillmentOrdersApi->retrieve: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FulfillmentOrdersApi->retrieveFulfillmentOrders: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

@@ -105,7 +105,848 @@ class InventoryItemsApi
     }
 
     /**
-     * Operation callList
+     * Operation createInventoryItems
+     *
+     * Creates an inventory item.
+     *
+     * @param  \DigitalRiver\ApiSdk\Model\InventoryItemRequest $inventory_item_request inventory_item_request (optional)
+     *
+     * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \DigitalRiver\ApiSdk\Model\InventoryItem|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
+     */
+    public function createInventoryItems($inventory_item_request = null)
+    {
+        list($response) = $this->createInventoryItemsWithHttpInfo($inventory_item_request);
+        return $response;
+    }
+
+    /**
+     * Operation createInventoryItemsWithHttpInfo
+     *
+     * Creates an inventory item.
+     *
+     * @param  \DigitalRiver\ApiSdk\Model\InventoryItemRequest $inventory_item_request (optional)
+     *
+     * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \DigitalRiver\ApiSdk\Model\InventoryItem|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createInventoryItemsWithHttpInfo($inventory_item_request = null)
+    {
+        $request = $this->createInventoryItemsRequest($inventory_item_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 201:
+                    if ('\DigitalRiver\ApiSdk\Model\InventoryItem' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\InventoryItem', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 405:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 406:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 408:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 502:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 503:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 504:
+                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\DigitalRiver\ApiSdk\Model\InventoryItem';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\InventoryItem',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 405:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 406:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 408:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 504:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createInventoryItemsAsync
+     *
+     * Creates an inventory item.
+     *
+     * @param  \DigitalRiver\ApiSdk\Model\InventoryItemRequest $inventory_item_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createInventoryItemsAsync($inventory_item_request = null)
+    {
+        return $this->createInventoryItemsAsyncWithHttpInfo($inventory_item_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createInventoryItemsAsyncWithHttpInfo
+     *
+     * Creates an inventory item.
+     *
+     * @param  \DigitalRiver\ApiSdk\Model\InventoryItemRequest $inventory_item_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createInventoryItemsAsyncWithHttpInfo($inventory_item_request = null)
+    {
+        $returnType = '\DigitalRiver\ApiSdk\Model\InventoryItem';
+        $request = $this->createInventoryItemsRequest($inventory_item_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createInventoryItems'
+     *
+     * @param  \DigitalRiver\ApiSdk\Model\InventoryItemRequest $inventory_item_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createInventoryItemsRequest($inventory_item_request = null)
+    {
+
+        $resourcePath = '/inventory-items';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($inventory_item_request)) {
+            $_tempBody = $inventory_item_request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        //$query = \GuzzleHttp\Psr7\build_query($queryParams);
+        //this is changed for supporting deepobject in url in the form /skus?createdTime[lt]=2020-09-22T12:09:44Z
+        $query = http_build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteInventoryItems
+     *
+     * Deletes an inventory item by ID.
+     *
+     * @param  string $id Inventory item identifier (required)
+     *
+     * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteInventoryItems($id)
+    {
+        $this->deleteInventoryItemsWithHttpInfo($id);
+    }
+
+    /**
+     * Operation deleteInventoryItemsWithHttpInfo
+     *
+     * Deletes an inventory item by ID.
+     *
+     * @param  string $id Inventory item identifier (required)
+     *
+     * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteInventoryItemsWithHttpInfo($id)
+    {
+        $request = $this->deleteInventoryItemsRequest($id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 405:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 406:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 408:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 504:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalRiver\ApiSdk\Model\Errors',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteInventoryItemsAsync
+     *
+     * Deletes an inventory item by ID.
+     *
+     * @param  string $id Inventory item identifier (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteInventoryItemsAsync($id)
+    {
+        return $this->deleteInventoryItemsAsyncWithHttpInfo($id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteInventoryItemsAsyncWithHttpInfo
+     *
+     * Deletes an inventory item by ID.
+     *
+     * @param  string $id Inventory item identifier (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteInventoryItemsAsyncWithHttpInfo($id)
+    {
+        $returnType = '';
+        $request = $this->deleteInventoryItemsRequest($id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteInventoryItems'
+     *
+     * @param  string $id Inventory item identifier (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteInventoryItemsRequest($id)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteInventoryItems'
+            );
+        }
+
+        $resourcePath = '/inventory-items/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        //$query = \GuzzleHttp\Psr7\build_query($queryParams);
+        //this is changed for supporting deepobject in url in the form /skus?createdTime[lt]=2020-09-22T12:09:44Z
+        $query = http_build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listInventoryItems
      *
      * Returns a list of inventory items.
      *
@@ -122,14 +963,14 @@ class InventoryItemsApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\InlineResponse2001|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function callList($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $part_number = null, $manufacturer_id = null)
+    public function listInventoryItems($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $part_number = null, $manufacturer_id = null)
     {
-        list($response) = $this->callListWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $part_number, $manufacturer_id);
+        list($response) = $this->listInventoryItemsWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $part_number, $manufacturer_id);
         return $response;
     }
 
     /**
-     * Operation callListWithHttpInfo
+     * Operation listInventoryItemsWithHttpInfo
      *
      * Returns a list of inventory items.
      *
@@ -146,9 +987,9 @@ class InventoryItemsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\InlineResponse2001|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function callListWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $part_number = null, $manufacturer_id = null)
+    public function listInventoryItemsWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $part_number = null, $manufacturer_id = null)
     {
-        $request = $this->callListRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $part_number, $manufacturer_id);
+        $request = $this->listInventoryItemsRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $part_number, $manufacturer_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -444,7 +1285,7 @@ class InventoryItemsApi
     }
 
     /**
-     * Operation callListAsync
+     * Operation listInventoryItemsAsync
      *
      * Returns a list of inventory items.
      *
@@ -460,9 +1301,9 @@ class InventoryItemsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function callListAsync($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $part_number = null, $manufacturer_id = null)
+    public function listInventoryItemsAsync($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $part_number = null, $manufacturer_id = null)
     {
-        return $this->callListAsyncWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $part_number, $manufacturer_id)
+        return $this->listInventoryItemsAsyncWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $part_number, $manufacturer_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -471,7 +1312,7 @@ class InventoryItemsApi
     }
 
     /**
-     * Operation callListAsyncWithHttpInfo
+     * Operation listInventoryItemsAsyncWithHttpInfo
      *
      * Returns a list of inventory items.
      *
@@ -487,10 +1328,10 @@ class InventoryItemsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function callListAsyncWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $part_number = null, $manufacturer_id = null)
+    public function listInventoryItemsAsyncWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $part_number = null, $manufacturer_id = null)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\InlineResponse2001';
-        $request = $this->callListRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $part_number, $manufacturer_id);
+        $request = $this->listInventoryItemsRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $part_number, $manufacturer_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -527,7 +1368,7 @@ class InventoryItemsApi
     }
 
     /**
-     * Create request for operation 'callList'
+     * Create request for operation 'listInventoryItems'
      *
      * @param  map[string,\DateTime] $created_time A filter on the list based on the **createdTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the createdTime field equals to this timestamp   - **gt**&amp;mdash;return values where the createdTime field is after this timestamp   - **gte**&amp;mdash;return values where the createdTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the createdTime field is before this timestamp   - **lte**&amp;mdash;return values where the createdTime field is before or equal to this timestamp (optional)
      * @param  map[string,\DateTime] $updated_time A filter on the list based on the **updatedTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the updatedTime field equals this timestamp   - **gt**&amp;mdash;return values where the updatedTime field is after this timestamp   - **gte**&amp;mdash;return values where the updatedTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the updatedTime field is before this timestamp   - **lte**&amp;mdash;return values where the updatedTime field is before or equal to this timestamp (optional)
@@ -541,13 +1382,13 @@ class InventoryItemsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function callListRequest($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $part_number = null, $manufacturer_id = null)
+    protected function listInventoryItemsRequest($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $part_number = null, $manufacturer_id = null)
     {
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling InventoryItemsApi.callList, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling InventoryItemsApi.listInventoryItems, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling InventoryItemsApi.callList, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling InventoryItemsApi.listInventoryItems, must be bigger than or equal to 1.');
         }
 
 
@@ -719,848 +1560,7 @@ class InventoryItemsApi
     }
 
     /**
-     * Operation create
-     *
-     * Creates an inventory item.
-     *
-     * @param  \DigitalRiver\ApiSdk\Model\InventoryItemRequest $inventory_item_request inventory_item_request (optional)
-     *
-     * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \DigitalRiver\ApiSdk\Model\InventoryItem|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
-     */
-    public function create($inventory_item_request = null)
-    {
-        list($response) = $this->createWithHttpInfo($inventory_item_request);
-        return $response;
-    }
-
-    /**
-     * Operation createWithHttpInfo
-     *
-     * Creates an inventory item.
-     *
-     * @param  \DigitalRiver\ApiSdk\Model\InventoryItemRequest $inventory_item_request (optional)
-     *
-     * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \DigitalRiver\ApiSdk\Model\InventoryItem|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function createWithHttpInfo($inventory_item_request = null)
-    {
-        $request = $this->createRequest($inventory_item_request);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 201:
-                    if ('\DigitalRiver\ApiSdk\Model\InventoryItem' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\InventoryItem', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 405:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 406:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 408:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 409:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 429:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 502:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 503:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 504:
-                    if ('\DigitalRiver\ApiSdk\Model\Errors' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Errors', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\DigitalRiver\ApiSdk\Model\InventoryItem';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\InventoryItem',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 405:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 406:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 408:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 409:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 502:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 504:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation createAsync
-     *
-     * Creates an inventory item.
-     *
-     * @param  \DigitalRiver\ApiSdk\Model\InventoryItemRequest $inventory_item_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createAsync($inventory_item_request = null)
-    {
-        return $this->createAsyncWithHttpInfo($inventory_item_request)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation createAsyncWithHttpInfo
-     *
-     * Creates an inventory item.
-     *
-     * @param  \DigitalRiver\ApiSdk\Model\InventoryItemRequest $inventory_item_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createAsyncWithHttpInfo($inventory_item_request = null)
-    {
-        $returnType = '\DigitalRiver\ApiSdk\Model\InventoryItem';
-        $request = $this->createRequest($inventory_item_request);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'create'
-     *
-     * @param  \DigitalRiver\ApiSdk\Model\InventoryItemRequest $inventory_item_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function createRequest($inventory_item_request = null)
-    {
-
-        $resourcePath = '/inventory-items';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-        // body params
-        $_tempBody = null;
-        if (isset($inventory_item_request)) {
-            $_tempBody = $inventory_item_request;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        //$query = \GuzzleHttp\Psr7\build_query($queryParams);
-        //this is changed for supporting deepobject in url in the form /skus?createdTime[lt]=2020-09-22T12:09:44Z
-        $query = http_build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation delete
-     *
-     * Deletes an inventory item by ID.
-     *
-     * @param  string $id Inventory item identifier (required)
-     *
-     * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function delete($id)
-    {
-        $this->deleteWithHttpInfo($id);
-    }
-
-    /**
-     * Operation deleteWithHttpInfo
-     *
-     * Deletes an inventory item by ID.
-     *
-     * @param  string $id Inventory item identifier (required)
-     *
-     * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function deleteWithHttpInfo($id)
-    {
-        $request = $this->deleteRequest($id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 405:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 406:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 408:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 409:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 502:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 504:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Errors',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deleteAsync
-     *
-     * Deletes an inventory item by ID.
-     *
-     * @param  string $id Inventory item identifier (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteAsync($id)
-    {
-        return $this->deleteAsyncWithHttpInfo($id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation deleteAsyncWithHttpInfo
-     *
-     * Deletes an inventory item by ID.
-     *
-     * @param  string $id Inventory item identifier (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteAsyncWithHttpInfo($id)
-    {
-        $returnType = '';
-        $request = $this->deleteRequest($id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'delete'
-     *
-     * @param  string $id Inventory item identifier (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function deleteRequest($id)
-    {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling delete'
-            );
-        }
-
-        $resourcePath = '/inventory-items/{id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        //$query = \GuzzleHttp\Psr7\build_query($queryParams);
-        //this is changed for supporting deepobject in url in the form /skus?createdTime[lt]=2020-09-22T12:09:44Z
-        $query = http_build_query($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation retrieve
+     * Operation retrieveInventoryItems
      *
      * Gets an inventory item by ID.
      *
@@ -1570,14 +1570,14 @@ class InventoryItemsApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\InventoryItem|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function retrieve($id)
+    public function retrieveInventoryItems($id)
     {
-        list($response) = $this->retrieveWithHttpInfo($id);
+        list($response) = $this->retrieveInventoryItemsWithHttpInfo($id);
         return $response;
     }
 
     /**
-     * Operation retrieveWithHttpInfo
+     * Operation retrieveInventoryItemsWithHttpInfo
      *
      * Gets an inventory item by ID.
      *
@@ -1587,9 +1587,9 @@ class InventoryItemsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\InventoryItem|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retrieveWithHttpInfo($id)
+    public function retrieveInventoryItemsWithHttpInfo($id)
     {
-        $request = $this->retrieveRequest($id);
+        $request = $this->retrieveInventoryItemsRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1905,7 +1905,7 @@ class InventoryItemsApi
     }
 
     /**
-     * Operation retrieveAsync
+     * Operation retrieveInventoryItemsAsync
      *
      * Gets an inventory item by ID.
      *
@@ -1914,9 +1914,9 @@ class InventoryItemsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveAsync($id)
+    public function retrieveInventoryItemsAsync($id)
     {
-        return $this->retrieveAsyncWithHttpInfo($id)
+        return $this->retrieveInventoryItemsAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1925,7 +1925,7 @@ class InventoryItemsApi
     }
 
     /**
-     * Operation retrieveAsyncWithHttpInfo
+     * Operation retrieveInventoryItemsAsyncWithHttpInfo
      *
      * Gets an inventory item by ID.
      *
@@ -1934,10 +1934,10 @@ class InventoryItemsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveAsyncWithHttpInfo($id)
+    public function retrieveInventoryItemsAsyncWithHttpInfo($id)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\InventoryItem';
-        $request = $this->retrieveRequest($id);
+        $request = $this->retrieveInventoryItemsRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1974,19 +1974,19 @@ class InventoryItemsApi
     }
 
     /**
-     * Create request for operation 'retrieve'
+     * Create request for operation 'retrieveInventoryItems'
      *
      * @param  string $id Inventory item identifier. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function retrieveRequest($id)
+    protected function retrieveInventoryItemsRequest($id)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling retrieve'
+                'Missing the required parameter $id when calling retrieveInventoryItems'
             );
         }
 
@@ -2078,7 +2078,7 @@ class InventoryItemsApi
     }
 
     /**
-     * Operation update
+     * Operation updateInventoryItems
      *
      * Updates an inventory item.
      *
@@ -2089,14 +2089,14 @@ class InventoryItemsApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\InventoryItem|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function update($id, $inventory_item_update_request = null)
+    public function updateInventoryItems($id, $inventory_item_update_request = null)
     {
-        list($response) = $this->updateWithHttpInfo($id, $inventory_item_update_request);
+        list($response) = $this->updateInventoryItemsWithHttpInfo($id, $inventory_item_update_request);
         return $response;
     }
 
     /**
-     * Operation updateWithHttpInfo
+     * Operation updateInventoryItemsWithHttpInfo
      *
      * Updates an inventory item.
      *
@@ -2107,9 +2107,9 @@ class InventoryItemsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\InventoryItem|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateWithHttpInfo($id, $inventory_item_update_request = null)
+    public function updateInventoryItemsWithHttpInfo($id, $inventory_item_update_request = null)
     {
-        $request = $this->updateRequest($id, $inventory_item_update_request);
+        $request = $this->updateInventoryItemsRequest($id, $inventory_item_update_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2425,7 +2425,7 @@ class InventoryItemsApi
     }
 
     /**
-     * Operation updateAsync
+     * Operation updateInventoryItemsAsync
      *
      * Updates an inventory item.
      *
@@ -2435,9 +2435,9 @@ class InventoryItemsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAsync($id, $inventory_item_update_request = null)
+    public function updateInventoryItemsAsync($id, $inventory_item_update_request = null)
     {
-        return $this->updateAsyncWithHttpInfo($id, $inventory_item_update_request)
+        return $this->updateInventoryItemsAsyncWithHttpInfo($id, $inventory_item_update_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2446,7 +2446,7 @@ class InventoryItemsApi
     }
 
     /**
-     * Operation updateAsyncWithHttpInfo
+     * Operation updateInventoryItemsAsyncWithHttpInfo
      *
      * Updates an inventory item.
      *
@@ -2456,10 +2456,10 @@ class InventoryItemsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAsyncWithHttpInfo($id, $inventory_item_update_request = null)
+    public function updateInventoryItemsAsyncWithHttpInfo($id, $inventory_item_update_request = null)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\InventoryItem';
-        $request = $this->updateRequest($id, $inventory_item_update_request);
+        $request = $this->updateInventoryItemsRequest($id, $inventory_item_update_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2496,7 +2496,7 @@ class InventoryItemsApi
     }
 
     /**
-     * Create request for operation 'update'
+     * Create request for operation 'updateInventoryItems'
      *
      * @param  string $id Inventory item identifier. (required)
      * @param  \DigitalRiver\ApiSdk\Model\InventoryItemUpdateRequest $inventory_item_update_request (optional)
@@ -2504,12 +2504,12 @@ class InventoryItemsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateRequest($id, $inventory_item_update_request = null)
+    protected function updateInventoryItemsRequest($id, $inventory_item_update_request = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling update'
+                'Missing the required parameter $id when calling updateInventoryItems'
             );
         }
 

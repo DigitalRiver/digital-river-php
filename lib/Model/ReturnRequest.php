@@ -49,7 +49,7 @@ class ReturnRequest implements ModelInterface, ArrayAccess
         'order_id' => 'string',
         'reason' => 'string',
         'items' => '\DigitalRiver\ApiSdk\Model\RequestReturnItem[]',
-        'location' => '\DigitalRiver\ApiSdk\Model\Location',
+        'location' => '\DigitalRiver\ApiSdk\Model\ReturnLocation',
         'metadata' => 'map[string,AnyType]'
     ];
 
@@ -306,7 +306,7 @@ class ReturnRequest implements ModelInterface, ArrayAccess
     /**
      * Gets location
      *
-     * @return \DigitalRiver\ApiSdk\Model\Location|null
+     * @return \DigitalRiver\ApiSdk\Model\ReturnLocation|null
      */
     public function getLocation()
     {
@@ -316,7 +316,7 @@ class ReturnRequest implements ModelInterface, ArrayAccess
     /**
      * Sets location
      *
-     * @param \DigitalRiver\ApiSdk\Model\Location|null $location location
+     * @param \DigitalRiver\ApiSdk\Model\ReturnLocation|null $location location
      *
      * @return $this
      */

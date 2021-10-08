@@ -61,7 +61,13 @@ class SalesTransaction implements ModelInterface, ArrayAccess
         'payer_name' => 'string',
         'payee_id' => 'string',
         'payee_name' => 'string',
-        'live_mode' => 'bool'
+        'live_mode' => 'bool',
+        'order_upstream_id' => 'string',
+        'sku_tax_code' => 'string',
+        'ship_from_country' => 'string',
+        'ship_to_country' => 'string',
+        'bill_to_country' => 'string',
+        'payment_type' => 'string'
     ];
 
     /**
@@ -85,7 +91,13 @@ class SalesTransaction implements ModelInterface, ArrayAccess
         'payer_name' => null,
         'payee_id' => null,
         'payee_name' => null,
-        'live_mode' => null
+        'live_mode' => null,
+        'order_upstream_id' => null,
+        'sku_tax_code' => null,
+        'ship_from_country' => null,
+        'ship_to_country' => null,
+        'bill_to_country' => null,
+        'payment_type' => null
     ];
 
     /**
@@ -130,7 +142,13 @@ class SalesTransaction implements ModelInterface, ArrayAccess
         'payer_name' => 'payerName',
         'payee_id' => 'payeeId',
         'payee_name' => 'payeeName',
-        'live_mode' => 'liveMode'
+        'live_mode' => 'liveMode',
+        'order_upstream_id' => 'orderUpstreamID',
+        'sku_tax_code' => 'skuTaxCode',
+        'ship_from_country' => 'shipFromCountry',
+        'ship_to_country' => 'shipToCountry',
+        'bill_to_country' => 'billToCountry',
+        'payment_type' => 'paymentType'
     ];
 
     /**
@@ -154,7 +172,13 @@ class SalesTransaction implements ModelInterface, ArrayAccess
         'payer_name' => 'setPayerName',
         'payee_id' => 'setPayeeId',
         'payee_name' => 'setPayeeName',
-        'live_mode' => 'setLiveMode'
+        'live_mode' => 'setLiveMode',
+        'order_upstream_id' => 'setOrderUpstreamId',
+        'sku_tax_code' => 'setSkuTaxCode',
+        'ship_from_country' => 'setShipFromCountry',
+        'ship_to_country' => 'setShipToCountry',
+        'bill_to_country' => 'setBillToCountry',
+        'payment_type' => 'setPaymentType'
     ];
 
     /**
@@ -178,7 +202,13 @@ class SalesTransaction implements ModelInterface, ArrayAccess
         'payer_name' => 'getPayerName',
         'payee_id' => 'getPayeeId',
         'payee_name' => 'getPayeeName',
-        'live_mode' => 'getLiveMode'
+        'live_mode' => 'getLiveMode',
+        'order_upstream_id' => 'getOrderUpstreamId',
+        'sku_tax_code' => 'getSkuTaxCode',
+        'ship_from_country' => 'getShipFromCountry',
+        'ship_to_country' => 'getShipToCountry',
+        'bill_to_country' => 'getBillToCountry',
+        'payment_type' => 'getPaymentType'
     ];
 
     /**
@@ -291,6 +321,12 @@ class SalesTransaction implements ModelInterface, ArrayAccess
         $this->container['payee_id'] = isset($data['payee_id']) ? $data['payee_id'] : null;
         $this->container['payee_name'] = isset($data['payee_name']) ? $data['payee_name'] : null;
         $this->container['live_mode'] = isset($data['live_mode']) ? $data['live_mode'] : null;
+        $this->container['order_upstream_id'] = isset($data['order_upstream_id']) ? $data['order_upstream_id'] : null;
+        $this->container['sku_tax_code'] = isset($data['sku_tax_code']) ? $data['sku_tax_code'] : null;
+        $this->container['ship_from_country'] = isset($data['ship_from_country']) ? $data['ship_from_country'] : null;
+        $this->container['ship_to_country'] = isset($data['ship_to_country']) ? $data['ship_to_country'] : null;
+        $this->container['bill_to_country'] = isset($data['bill_to_country']) ? $data['bill_to_country'] : null;
+        $this->container['payment_type'] = isset($data['payment_type']) ? $data['payment_type'] : null;
     }
 
     /**
@@ -715,6 +751,150 @@ class SalesTransaction implements ModelInterface, ArrayAccess
     public function setLiveMode($live_mode)
     {
         $this->container['live_mode'] = $live_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_upstream_id
+     *
+     * @return string|null
+     */
+    public function getOrderUpstreamId()
+    {
+        return $this->container['order_upstream_id'];
+    }
+
+    /**
+     * Sets order_upstream_id
+     *
+     * @param string|null $order_upstream_id Unique upstream ID for the order.
+     *
+     * @return $this
+     */
+    public function setOrderUpstreamId($order_upstream_id)
+    {
+        $this->container['order_upstream_id'] = $order_upstream_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sku_tax_code
+     *
+     * @return string|null
+     */
+    public function getSkuTaxCode()
+    {
+        return $this->container['sku_tax_code'];
+    }
+
+    /**
+     * Sets sku_tax_code
+     *
+     * @param string|null $sku_tax_code The sku tax code.
+     *
+     * @return $this
+     */
+    public function setSkuTaxCode($sku_tax_code)
+    {
+        $this->container['sku_tax_code'] = $sku_tax_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets ship_from_country
+     *
+     * @return string|null
+     */
+    public function getShipFromCountry()
+    {
+        return $this->container['ship_from_country'];
+    }
+
+    /**
+     * Sets ship_from_country
+     *
+     * @param string|null $ship_from_country Country being shipped from.
+     *
+     * @return $this
+     */
+    public function setShipFromCountry($ship_from_country)
+    {
+        $this->container['ship_from_country'] = $ship_from_country;
+
+        return $this;
+    }
+
+    /**
+     * Gets ship_to_country
+     *
+     * @return string|null
+     */
+    public function getShipToCountry()
+    {
+        return $this->container['ship_to_country'];
+    }
+
+    /**
+     * Sets ship_to_country
+     *
+     * @param string|null $ship_to_country Country being shipped to.
+     *
+     * @return $this
+     */
+    public function setShipToCountry($ship_to_country)
+    {
+        $this->container['ship_to_country'] = $ship_to_country;
+
+        return $this;
+    }
+
+    /**
+     * Gets bill_to_country
+     *
+     * @return string|null
+     */
+    public function getBillToCountry()
+    {
+        return $this->container['bill_to_country'];
+    }
+
+    /**
+     * Sets bill_to_country
+     *
+     * @param string|null $bill_to_country Country listed on shopper's billing address.
+     *
+     * @return $this
+     */
+    public function setBillToCountry($bill_to_country)
+    {
+        $this->container['bill_to_country'] = $bill_to_country;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_type
+     *
+     * @return string|null
+     */
+    public function getPaymentType()
+    {
+        return $this->container['payment_type'];
+    }
+
+    /**
+     * Sets payment_type
+     *
+     * @param string|null $payment_type Type of payment used.
+     *
+     * @return $this
+     */
+    public function setPaymentType($payment_type)
+    {
+        $this->container['payment_type'] = $payment_type;
 
         return $this;
     }

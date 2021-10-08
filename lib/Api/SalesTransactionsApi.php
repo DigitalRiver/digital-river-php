@@ -116,6 +116,8 @@ class SalesTransactionsApi
      * @param  int $limit A limit on the number of objects returned. Limit can range between 1 and 5000, and the default is 10. (optional)
      * @param  map[string,\DateTime] $sale_time A filter on the list based on the sales transaction **saleTime** field. The value can be a string with an ISO-601 UTC format datetime or it can be a dictionary with the following options:    - **gt** - *return values where the saleTime field is after this timestamp*   - **gte** - *return values where the saleTime field is after or equal to this timestamp*   - **lt** - *return values where the saleTime field is before this timestamp*   - **lte** - *return values where the saleTime field is before or equal to this timestamp* (optional)
      * @param  string $sales_summary_id Only return sales transactions with this sales summary identifier (optional)
+     * @param  string $order_upstream_id Only return sales transactions with this order upstream identifier (optional)
+     * @param  string $payment_type Only return sales transactions with this payment type (optional)
      * @param  string $type Only return sales transactions of this type (optional)
      * @param  string $currency Only return sales transactions in this currency (optional)
      * @param  string $order_id Only return sales transactions with this order identifier (optional)
@@ -129,9 +131,9 @@ class SalesTransactionsApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\ListSalesTransactionsResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function listSalesTransactions($created_time = null, $ending_before = null, $starting_after = null, $ids = null, $limit = null, $sale_time = null, $sales_summary_id = null, $type = null, $currency = null, $order_id = null, $sku_id = null, $quantity = null, $amount = null, $digital_river_share = null, $payout_amount = null)
+    public function listSalesTransactions($created_time = null, $ending_before = null, $starting_after = null, $ids = null, $limit = null, $sale_time = null, $sales_summary_id = null, $order_upstream_id = null, $payment_type = null, $type = null, $currency = null, $order_id = null, $sku_id = null, $quantity = null, $amount = null, $digital_river_share = null, $payout_amount = null)
     {
-        list($response) = $this->listSalesTransactionsWithHttpInfo($created_time, $ending_before, $starting_after, $ids, $limit, $sale_time, $sales_summary_id, $type, $currency, $order_id, $sku_id, $quantity, $amount, $digital_river_share, $payout_amount);
+        list($response) = $this->listSalesTransactionsWithHttpInfo($created_time, $ending_before, $starting_after, $ids, $limit, $sale_time, $sales_summary_id, $order_upstream_id, $payment_type, $type, $currency, $order_id, $sku_id, $quantity, $amount, $digital_river_share, $payout_amount);
         return $response;
     }
 
@@ -147,6 +149,8 @@ class SalesTransactionsApi
      * @param  int $limit A limit on the number of objects returned. Limit can range between 1 and 5000, and the default is 10. (optional)
      * @param  map[string,\DateTime] $sale_time A filter on the list based on the sales transaction **saleTime** field. The value can be a string with an ISO-601 UTC format datetime or it can be a dictionary with the following options:    - **gt** - *return values where the saleTime field is after this timestamp*   - **gte** - *return values where the saleTime field is after or equal to this timestamp*   - **lt** - *return values where the saleTime field is before this timestamp*   - **lte** - *return values where the saleTime field is before or equal to this timestamp* (optional)
      * @param  string $sales_summary_id Only return sales transactions with this sales summary identifier (optional)
+     * @param  string $order_upstream_id Only return sales transactions with this order upstream identifier (optional)
+     * @param  string $payment_type Only return sales transactions with this payment type (optional)
      * @param  string $type Only return sales transactions of this type (optional)
      * @param  string $currency Only return sales transactions in this currency (optional)
      * @param  string $order_id Only return sales transactions with this order identifier (optional)
@@ -160,9 +164,9 @@ class SalesTransactionsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\ListSalesTransactionsResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listSalesTransactionsWithHttpInfo($created_time = null, $ending_before = null, $starting_after = null, $ids = null, $limit = null, $sale_time = null, $sales_summary_id = null, $type = null, $currency = null, $order_id = null, $sku_id = null, $quantity = null, $amount = null, $digital_river_share = null, $payout_amount = null)
+    public function listSalesTransactionsWithHttpInfo($created_time = null, $ending_before = null, $starting_after = null, $ids = null, $limit = null, $sale_time = null, $sales_summary_id = null, $order_upstream_id = null, $payment_type = null, $type = null, $currency = null, $order_id = null, $sku_id = null, $quantity = null, $amount = null, $digital_river_share = null, $payout_amount = null)
     {
-        $request = $this->listSalesTransactionsRequest($created_time, $ending_before, $starting_after, $ids, $limit, $sale_time, $sales_summary_id, $type, $currency, $order_id, $sku_id, $quantity, $amount, $digital_river_share, $payout_amount);
+        $request = $this->listSalesTransactionsRequest($created_time, $ending_before, $starting_after, $ids, $limit, $sale_time, $sales_summary_id, $order_upstream_id, $payment_type, $type, $currency, $order_id, $sku_id, $quantity, $amount, $digital_river_share, $payout_amount);
 
         try {
             $options = $this->createHttpClientOption();
@@ -469,6 +473,8 @@ class SalesTransactionsApi
      * @param  int $limit A limit on the number of objects returned. Limit can range between 1 and 5000, and the default is 10. (optional)
      * @param  map[string,\DateTime] $sale_time A filter on the list based on the sales transaction **saleTime** field. The value can be a string with an ISO-601 UTC format datetime or it can be a dictionary with the following options:    - **gt** - *return values where the saleTime field is after this timestamp*   - **gte** - *return values where the saleTime field is after or equal to this timestamp*   - **lt** - *return values where the saleTime field is before this timestamp*   - **lte** - *return values where the saleTime field is before or equal to this timestamp* (optional)
      * @param  string $sales_summary_id Only return sales transactions with this sales summary identifier (optional)
+     * @param  string $order_upstream_id Only return sales transactions with this order upstream identifier (optional)
+     * @param  string $payment_type Only return sales transactions with this payment type (optional)
      * @param  string $type Only return sales transactions of this type (optional)
      * @param  string $currency Only return sales transactions in this currency (optional)
      * @param  string $order_id Only return sales transactions with this order identifier (optional)
@@ -481,9 +487,9 @@ class SalesTransactionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSalesTransactionsAsync($created_time = null, $ending_before = null, $starting_after = null, $ids = null, $limit = null, $sale_time = null, $sales_summary_id = null, $type = null, $currency = null, $order_id = null, $sku_id = null, $quantity = null, $amount = null, $digital_river_share = null, $payout_amount = null)
+    public function listSalesTransactionsAsync($created_time = null, $ending_before = null, $starting_after = null, $ids = null, $limit = null, $sale_time = null, $sales_summary_id = null, $order_upstream_id = null, $payment_type = null, $type = null, $currency = null, $order_id = null, $sku_id = null, $quantity = null, $amount = null, $digital_river_share = null, $payout_amount = null)
     {
-        return $this->listSalesTransactionsAsyncWithHttpInfo($created_time, $ending_before, $starting_after, $ids, $limit, $sale_time, $sales_summary_id, $type, $currency, $order_id, $sku_id, $quantity, $amount, $digital_river_share, $payout_amount)
+        return $this->listSalesTransactionsAsyncWithHttpInfo($created_time, $ending_before, $starting_after, $ids, $limit, $sale_time, $sales_summary_id, $order_upstream_id, $payment_type, $type, $currency, $order_id, $sku_id, $quantity, $amount, $digital_river_share, $payout_amount)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -503,6 +509,8 @@ class SalesTransactionsApi
      * @param  int $limit A limit on the number of objects returned. Limit can range between 1 and 5000, and the default is 10. (optional)
      * @param  map[string,\DateTime] $sale_time A filter on the list based on the sales transaction **saleTime** field. The value can be a string with an ISO-601 UTC format datetime or it can be a dictionary with the following options:    - **gt** - *return values where the saleTime field is after this timestamp*   - **gte** - *return values where the saleTime field is after or equal to this timestamp*   - **lt** - *return values where the saleTime field is before this timestamp*   - **lte** - *return values where the saleTime field is before or equal to this timestamp* (optional)
      * @param  string $sales_summary_id Only return sales transactions with this sales summary identifier (optional)
+     * @param  string $order_upstream_id Only return sales transactions with this order upstream identifier (optional)
+     * @param  string $payment_type Only return sales transactions with this payment type (optional)
      * @param  string $type Only return sales transactions of this type (optional)
      * @param  string $currency Only return sales transactions in this currency (optional)
      * @param  string $order_id Only return sales transactions with this order identifier (optional)
@@ -515,10 +523,10 @@ class SalesTransactionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSalesTransactionsAsyncWithHttpInfo($created_time = null, $ending_before = null, $starting_after = null, $ids = null, $limit = null, $sale_time = null, $sales_summary_id = null, $type = null, $currency = null, $order_id = null, $sku_id = null, $quantity = null, $amount = null, $digital_river_share = null, $payout_amount = null)
+    public function listSalesTransactionsAsyncWithHttpInfo($created_time = null, $ending_before = null, $starting_after = null, $ids = null, $limit = null, $sale_time = null, $sales_summary_id = null, $order_upstream_id = null, $payment_type = null, $type = null, $currency = null, $order_id = null, $sku_id = null, $quantity = null, $amount = null, $digital_river_share = null, $payout_amount = null)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\ListSalesTransactionsResponse';
-        $request = $this->listSalesTransactionsRequest($created_time, $ending_before, $starting_after, $ids, $limit, $sale_time, $sales_summary_id, $type, $currency, $order_id, $sku_id, $quantity, $amount, $digital_river_share, $payout_amount);
+        $request = $this->listSalesTransactionsRequest($created_time, $ending_before, $starting_after, $ids, $limit, $sale_time, $sales_summary_id, $order_upstream_id, $payment_type, $type, $currency, $order_id, $sku_id, $quantity, $amount, $digital_river_share, $payout_amount);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -564,6 +572,8 @@ class SalesTransactionsApi
      * @param  int $limit A limit on the number of objects returned. Limit can range between 1 and 5000, and the default is 10. (optional)
      * @param  map[string,\DateTime] $sale_time A filter on the list based on the sales transaction **saleTime** field. The value can be a string with an ISO-601 UTC format datetime or it can be a dictionary with the following options:    - **gt** - *return values where the saleTime field is after this timestamp*   - **gte** - *return values where the saleTime field is after or equal to this timestamp*   - **lt** - *return values where the saleTime field is before this timestamp*   - **lte** - *return values where the saleTime field is before or equal to this timestamp* (optional)
      * @param  string $sales_summary_id Only return sales transactions with this sales summary identifier (optional)
+     * @param  string $order_upstream_id Only return sales transactions with this order upstream identifier (optional)
+     * @param  string $payment_type Only return sales transactions with this payment type (optional)
      * @param  string $type Only return sales transactions of this type (optional)
      * @param  string $currency Only return sales transactions in this currency (optional)
      * @param  string $order_id Only return sales transactions with this order identifier (optional)
@@ -576,7 +586,7 @@ class SalesTransactionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listSalesTransactionsRequest($created_time = null, $ending_before = null, $starting_after = null, $ids = null, $limit = null, $sale_time = null, $sales_summary_id = null, $type = null, $currency = null, $order_id = null, $sku_id = null, $quantity = null, $amount = null, $digital_river_share = null, $payout_amount = null)
+    protected function listSalesTransactionsRequest($created_time = null, $ending_before = null, $starting_after = null, $ids = null, $limit = null, $sale_time = null, $sales_summary_id = null, $order_upstream_id = null, $payment_type = null, $type = null, $currency = null, $order_id = null, $sku_id = null, $quantity = null, $amount = null, $digital_river_share = null, $payout_amount = null)
     {
         if ($limit !== null && $limit > 5000) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling SalesTransactionsApi.listSalesTransactions, must be smaller than or equal to 5000.');
@@ -668,6 +678,28 @@ class SalesTransactionsApi
             }
             else {
                 $queryParams['salesSummaryId'] = $sales_summary_id;
+            }
+        }
+        // query params
+        if ($order_upstream_id !== null) {
+            if('form' === 'form' && is_array($order_upstream_id)) {
+                foreach($order_upstream_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['orderUpstreamId'] = $order_upstream_id;
+            }
+        }
+        // query params
+        if ($payment_type !== null) {
+            if('form' === 'form' && is_array($payment_type)) {
+                foreach($payment_type as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['paymentType'] = $payment_type;
             }
         }
         // query params

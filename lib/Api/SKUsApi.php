@@ -964,18 +964,19 @@ class SKUsApi
      * @param  string $starting_after A cursor for use in pagination. The startingAfter parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with xyz, your subsequent calls can include startingAfter&#x3D;xyz in order to fetch the next page of the list. (optional)
      * @param  int $limit A limit on the number of objects returned. Limit can range between 1 and 100, and the default is 10. (optional)
      * @param  string[] $ids Only return objects with these IDs. (optional)
-     * @param  string $eccn The [Export Control Classification Number (ECCN)](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus/setting-the-eccn) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $part_number The [partNumber](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus#how-to-specify-a-physical-or-digital-product) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $hs_code The [hsCode](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $tax_code The [taxCode](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus/setting-the-tax-code) associated with the SKUs you want to retrieve. (optional)
+     * @param  string $eccn The Export Control Classification Number (ECCN) associated with the SKUs you want to retrieve. (optional)
+     * @param  string $part_number The partNumber associated with the SKUs you want to retrieve. (optional)
+     * @param  string $hs_code The hsCode associated with the SKUs you want to retrieve. (optional)
+     * @param  string $tax_code The taxCode associated with the SKUs you want to retrieve. (optional)
+     * @param  string $sku_group_id An unique identifier for the sku-group, can be client provided or DR system generated. (optional)
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\ListSkusResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function listSkus($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $eccn = null, $part_number = null, $hs_code = null, $tax_code = null)
+    public function listSkus($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $eccn = null, $part_number = null, $hs_code = null, $tax_code = null, $sku_group_id = null)
     {
-        list($response) = $this->listSkusWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $eccn, $part_number, $hs_code, $tax_code);
+        list($response) = $this->listSkusWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $eccn, $part_number, $hs_code, $tax_code, $sku_group_id);
         return $response;
     }
 
@@ -990,18 +991,19 @@ class SKUsApi
      * @param  string $starting_after A cursor for use in pagination. The startingAfter parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with xyz, your subsequent calls can include startingAfter&#x3D;xyz in order to fetch the next page of the list. (optional)
      * @param  int $limit A limit on the number of objects returned. Limit can range between 1 and 100, and the default is 10. (optional)
      * @param  string[] $ids Only return objects with these IDs. (optional)
-     * @param  string $eccn The [Export Control Classification Number (ECCN)](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus/setting-the-eccn) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $part_number The [partNumber](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus#how-to-specify-a-physical-or-digital-product) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $hs_code The [hsCode](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $tax_code The [taxCode](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus/setting-the-tax-code) associated with the SKUs you want to retrieve. (optional)
+     * @param  string $eccn The Export Control Classification Number (ECCN) associated with the SKUs you want to retrieve. (optional)
+     * @param  string $part_number The partNumber associated with the SKUs you want to retrieve. (optional)
+     * @param  string $hs_code The hsCode associated with the SKUs you want to retrieve. (optional)
+     * @param  string $tax_code The taxCode associated with the SKUs you want to retrieve. (optional)
+     * @param  string $sku_group_id An unique identifier for the sku-group, can be client provided or DR system generated. (optional)
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\ListSkusResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listSkusWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $eccn = null, $part_number = null, $hs_code = null, $tax_code = null)
+    public function listSkusWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $eccn = null, $part_number = null, $hs_code = null, $tax_code = null, $sku_group_id = null)
     {
-        $request = $this->listSkusRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $eccn, $part_number, $hs_code, $tax_code);
+        $request = $this->listSkusRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $eccn, $part_number, $hs_code, $tax_code, $sku_group_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1307,17 +1309,18 @@ class SKUsApi
      * @param  string $starting_after A cursor for use in pagination. The startingAfter parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with xyz, your subsequent calls can include startingAfter&#x3D;xyz in order to fetch the next page of the list. (optional)
      * @param  int $limit A limit on the number of objects returned. Limit can range between 1 and 100, and the default is 10. (optional)
      * @param  string[] $ids Only return objects with these IDs. (optional)
-     * @param  string $eccn The [Export Control Classification Number (ECCN)](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus/setting-the-eccn) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $part_number The [partNumber](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus#how-to-specify-a-physical-or-digital-product) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $hs_code The [hsCode](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $tax_code The [taxCode](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus/setting-the-tax-code) associated with the SKUs you want to retrieve. (optional)
+     * @param  string $eccn The Export Control Classification Number (ECCN) associated with the SKUs you want to retrieve. (optional)
+     * @param  string $part_number The partNumber associated with the SKUs you want to retrieve. (optional)
+     * @param  string $hs_code The hsCode associated with the SKUs you want to retrieve. (optional)
+     * @param  string $tax_code The taxCode associated with the SKUs you want to retrieve. (optional)
+     * @param  string $sku_group_id An unique identifier for the sku-group, can be client provided or DR system generated. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSkusAsync($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $eccn = null, $part_number = null, $hs_code = null, $tax_code = null)
+    public function listSkusAsync($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $eccn = null, $part_number = null, $hs_code = null, $tax_code = null, $sku_group_id = null)
     {
-        return $this->listSkusAsyncWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $eccn, $part_number, $hs_code, $tax_code)
+        return $this->listSkusAsyncWithHttpInfo($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $eccn, $part_number, $hs_code, $tax_code, $sku_group_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1336,18 +1339,19 @@ class SKUsApi
      * @param  string $starting_after A cursor for use in pagination. The startingAfter parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with xyz, your subsequent calls can include startingAfter&#x3D;xyz in order to fetch the next page of the list. (optional)
      * @param  int $limit A limit on the number of objects returned. Limit can range between 1 and 100, and the default is 10. (optional)
      * @param  string[] $ids Only return objects with these IDs. (optional)
-     * @param  string $eccn The [Export Control Classification Number (ECCN)](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus/setting-the-eccn) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $part_number The [partNumber](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus#how-to-specify-a-physical-or-digital-product) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $hs_code The [hsCode](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $tax_code The [taxCode](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus/setting-the-tax-code) associated with the SKUs you want to retrieve. (optional)
+     * @param  string $eccn The Export Control Classification Number (ECCN) associated with the SKUs you want to retrieve. (optional)
+     * @param  string $part_number The partNumber associated with the SKUs you want to retrieve. (optional)
+     * @param  string $hs_code The hsCode associated with the SKUs you want to retrieve. (optional)
+     * @param  string $tax_code The taxCode associated with the SKUs you want to retrieve. (optional)
+     * @param  string $sku_group_id An unique identifier for the sku-group, can be client provided or DR system generated. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSkusAsyncWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $eccn = null, $part_number = null, $hs_code = null, $tax_code = null)
+    public function listSkusAsyncWithHttpInfo($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $eccn = null, $part_number = null, $hs_code = null, $tax_code = null, $sku_group_id = null)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\ListSkusResponse';
-        $request = $this->listSkusRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $eccn, $part_number, $hs_code, $tax_code);
+        $request = $this->listSkusRequest($created_time, $updated_time, $ending_before, $starting_after, $limit, $ids, $eccn, $part_number, $hs_code, $tax_code, $sku_group_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1392,15 +1396,16 @@ class SKUsApi
      * @param  string $starting_after A cursor for use in pagination. The startingAfter parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with xyz, your subsequent calls can include startingAfter&#x3D;xyz in order to fetch the next page of the list. (optional)
      * @param  int $limit A limit on the number of objects returned. Limit can range between 1 and 100, and the default is 10. (optional)
      * @param  string[] $ids Only return objects with these IDs. (optional)
-     * @param  string $eccn The [Export Control Classification Number (ECCN)](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus/setting-the-eccn) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $part_number The [partNumber](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus#how-to-specify-a-physical-or-digital-product) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $hs_code The [hsCode](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus) associated with the SKUs you want to retrieve. (optional)
-     * @param  string $tax_code The [taxCode](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus/creating-skus/setting-the-tax-code) associated with the SKUs you want to retrieve. (optional)
+     * @param  string $eccn The Export Control Classification Number (ECCN) associated with the SKUs you want to retrieve. (optional)
+     * @param  string $part_number The partNumber associated with the SKUs you want to retrieve. (optional)
+     * @param  string $hs_code The hsCode associated with the SKUs you want to retrieve. (optional)
+     * @param  string $tax_code The taxCode associated with the SKUs you want to retrieve. (optional)
+     * @param  string $sku_group_id An unique identifier for the sku-group, can be client provided or DR system generated. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listSkusRequest($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $eccn = null, $part_number = null, $hs_code = null, $tax_code = null)
+    protected function listSkusRequest($created_time = null, $updated_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $eccn = null, $part_number = null, $hs_code = null, $tax_code = null, $sku_group_id = null)
     {
         if ($limit !== null && $limit > 100) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling SKUsApi.listSkus, must be smaller than or equal to 100.');
@@ -1525,6 +1530,17 @@ class SKUsApi
             }
             else {
                 $queryParams['taxCode'] = $tax_code;
+            }
+        }
+        // query params
+        if ($sku_group_id !== null) {
+            if('form' === 'form' && is_array($sku_group_id)) {
+                foreach($sku_group_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['skuGroupId'] = $sku_group_id;
             }
         }
 

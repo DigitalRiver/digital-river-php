@@ -49,7 +49,6 @@ class UpdateCustomerRequest implements ModelInterface, ArrayAccess
         'email' => 'string',
         'shipping' => '\DigitalRiver\ApiSdk\Model\Shipping',
         'default_source_id' => 'string',
-        'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\TaxIdentifier[]',
         'tax_certificate' => '\DigitalRiver\ApiSdk\Model\TaxCertificate',
         'request_to_be_forgotten' => 'bool',
         'type' => '\DigitalRiver\ApiSdk\Model\CustomerType',
@@ -67,7 +66,6 @@ class UpdateCustomerRequest implements ModelInterface, ArrayAccess
         'email' => 'email',
         'shipping' => null,
         'default_source_id' => null,
-        'tax_identifiers' => null,
         'tax_certificate' => null,
         'request_to_be_forgotten' => null,
         'type' => null,
@@ -106,7 +104,6 @@ class UpdateCustomerRequest implements ModelInterface, ArrayAccess
         'email' => 'email',
         'shipping' => 'shipping',
         'default_source_id' => 'defaultSourceId',
-        'tax_identifiers' => 'taxIdentifiers',
         'tax_certificate' => 'taxCertificate',
         'request_to_be_forgotten' => 'requestToBeForgotten',
         'type' => 'type',
@@ -124,7 +121,6 @@ class UpdateCustomerRequest implements ModelInterface, ArrayAccess
         'email' => 'setEmail',
         'shipping' => 'setShipping',
         'default_source_id' => 'setDefaultSourceId',
-        'tax_identifiers' => 'setTaxIdentifiers',
         'tax_certificate' => 'setTaxCertificate',
         'request_to_be_forgotten' => 'setRequestToBeForgotten',
         'type' => 'setType',
@@ -142,7 +138,6 @@ class UpdateCustomerRequest implements ModelInterface, ArrayAccess
         'email' => 'getEmail',
         'shipping' => 'getShipping',
         'default_source_id' => 'getDefaultSourceId',
-        'tax_identifiers' => 'getTaxIdentifiers',
         'tax_certificate' => 'getTaxCertificate',
         'request_to_be_forgotten' => 'getRequestToBeForgotten',
         'type' => 'getType',
@@ -214,7 +209,6 @@ class UpdateCustomerRequest implements ModelInterface, ArrayAccess
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
         $this->container['default_source_id'] = isset($data['default_source_id']) ? $data['default_source_id'] : null;
-        $this->container['tax_identifiers'] = isset($data['tax_identifiers']) ? $data['tax_identifiers'] : null;
         $this->container['tax_certificate'] = isset($data['tax_certificate']) ? $data['tax_certificate'] : null;
         $this->container['request_to_be_forgotten'] = isset($data['request_to_be_forgotten']) ? $data['request_to_be_forgotten'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -308,37 +302,13 @@ class UpdateCustomerRequest implements ModelInterface, ArrayAccess
     /**
      * Sets default_source_id
      *
-     * @param string|null $default_source_id The identifier of the [default source](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/payment-sources/using-the-source-identifier#switching-the-default-payment-source) attached to this customer.
+     * @param string|null $default_source_id The identifier of the default source attached to this customer.
      *
      * @return $this
      */
     public function setDefaultSourceId($default_source_id)
     {
         $this->container['default_source_id'] = $default_source_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets tax_identifiers
-     *
-     * @return \DigitalRiver\ApiSdk\Model\TaxIdentifier[]|null
-     */
-    public function getTaxIdentifiers()
-    {
-        return $this->container['tax_identifiers'];
-    }
-
-    /**
-     * Sets tax_identifiers
-     *
-     * @param \DigitalRiver\ApiSdk\Model\TaxIdentifier[]|null $tax_identifiers A list of [tax identifiers](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/customers/setting-tax-related-attributes#tax-identifiers) for this customer.
-     *
-     * @return $this
-     */
-    public function setTaxIdentifiers($tax_identifiers)
-    {
-        $this->container['tax_identifiers'] = $tax_identifiers;
 
         return $this;
     }
@@ -380,7 +350,7 @@ class UpdateCustomerRequest implements ModelInterface, ArrayAccess
     /**
      * Sets request_to_be_forgotten
      *
-     * @param bool|null $request_to_be_forgotten If <code>true</code>, indicates this customer has submitted a [request to be forgotten](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/customers/recording-a-request-to-be-forgotten).
+     * @param bool|null $request_to_be_forgotten If <code>true</code>, indicates this customer has submitted a request to be forgotten.
      *
      * @return $this
      */
@@ -452,7 +422,7 @@ class UpdateCustomerRequest implements ModelInterface, ArrayAccess
     /**
      * Sets locale
      *
-     * @param string|null $locale A [locale designator](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/checkouts/creating-checkouts/designating-a-locale) that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code
+     * @param string|null $locale A locale designator that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code.
      *
      * @return $this
      */

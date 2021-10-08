@@ -226,7 +226,7 @@ class SkuDiscount implements ModelInterface, ArrayAccess
     /**
      * Sets amount_off
      *
-     * @param double|null $amount_off The [discount expressed as an amount](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/applying-a-discount#item-level-discount).
+     * @param double|null $amount_off The discount expressed as an amount.
      *
      * @return $this
      */
@@ -250,7 +250,7 @@ class SkuDiscount implements ModelInterface, ArrayAccess
     /**
      * Sets percent_off
      *
-     * @param double|null $percent_off The [discount expressed as a percentage](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/applying-a-discount#item-level-discount).
+     * @param double|null $percent_off The discount expressed as a percentage.
      *
      * @return $this
      */
@@ -282,7 +282,7 @@ class SkuDiscount implements ModelInterface, ArrayAccess
     /**
      * Sets quantity
      *
-     * @param float|null $quantity The [quantity of the item](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/applying-a-discount#item-level-discount) to which the discount applies.
+     * @param float|null $quantity The quantity of the item to which the discount applies.
      *
      * @return $this
      */

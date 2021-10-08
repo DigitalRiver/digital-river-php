@@ -1,6 +1,6 @@
 # DigitalRiver\ApiSdk\RefundsApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## createRefunds
 
-> \DigitalRiver\ApiSdk\Model\Refund createRefunds($refund_request)
+> \DigitalRiver\ApiSdk\Model\OrderRefund createRefunds($refund_request)
 
 Creates a refund for an order.
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\DigitalRiver\ApiSdk\Model\Refund**](../Model/Refund.md)
+[**\DigitalRiver\ApiSdk\Model\OrderRefund**](../Model/OrderRefund.md)
 
 ### Authorization
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ## retrieveRefunds
 
-> \DigitalRiver\ApiSdk\Model\Refund retrieveRefunds($id)
+> \DigitalRiver\ApiSdk\Model\OrderRefund retrieveRefunds($id)
 
 Gets a refund by ID.
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\DigitalRiver\ApiSdk\Model\Refund**](../Model/Refund.md)
+[**\DigitalRiver\ApiSdk\Model\OrderRefund**](../Model/OrderRefund.md)
 
 ### Authorization
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 ## updateRefunds
 
-> \DigitalRiver\ApiSdk\Model\Refund updateRefunds($id, $update_refund_request)
+> \DigitalRiver\ApiSdk\Model\OrderRefund updateRefunds($id, $update_refund_request)
 
 Updates a refund for an order or a specific order charge.
 
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\DigitalRiver\ApiSdk\Model\Refund**](../Model/Refund.md)
+[**\DigitalRiver\ApiSdk\Model\OrderRefund**](../Model/OrderRefund.md)
 
 ### Authorization
 

@@ -168,7 +168,7 @@ class FileRequest implements ModelInterface, ArrayAccess
     }
 
     const PURPOSE_TAX_DOCUMENT_CUSTOMER_UPLOAD = 'tax_document_customer_upload';
-    const PURPOSE_CUSTOMER_TAX_INVOICE = 'customer_tax_invoice';
+    const PURPOSE_CUSTOMER_INVOICE = 'customer_invoice';
     const PURPOSE_CUSTOMER_CREDIT_MEMO = 'customer_credit_memo';
     
 
@@ -182,7 +182,7 @@ class FileRequest implements ModelInterface, ArrayAccess
     {
        $allowable = [
             self::PURPOSE_TAX_DOCUMENT_CUSTOMER_UPLOAD,
-            self::PURPOSE_CUSTOMER_TAX_INVOICE,
+            self::PURPOSE_CUSTOMER_INVOICE,
             self::PURPOSE_CUSTOMER_CREDIT_MEMO,
         ];
 
@@ -289,7 +289,7 @@ class FileRequest implements ModelInterface, ArrayAccess
     /**
      * Sets purpose
      *
-     * @param string $purpose The [purpose of the uploaded file](https://docs.digitalriver.com/digital-river-api/files-and-file-links-1/files/understanding-the-files-purpose).
+     * @param string $purpose The purpose of the uploaded file.
      *
      * @return $this
      */

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **created_time** | [**\DateTime**](\DateTime.md) | The time when the file was created. | [optional] 
 **file_name** | **string** | A filename for the file, suitable for saving to a filesystem. | [optional] 
 **links** | [**\DigitalRiver\ApiSdk\Model\FileLink[]**](FileLink.md) | An array of file links. | [optional] 
-**purpose** | **string** | The [purpose of the file](https://docs.digitalriver.com/digital-river-api/files-and-file-links-1/files/understanding-the-files-purpose). | [optional] 
+**purpose** | **string** | The purpose of the file. | [optional] 
 **title** | **string** | A user friendly title for the document. | [optional] 
 **size** | **float** | The size in bytes of the file object. | [optional] 
 **type** | **string** | The type of the file returned (e.g. pdf, jpg, or png). | [optional] 

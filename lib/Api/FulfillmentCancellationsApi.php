@@ -105,7 +105,7 @@ class FulfillmentCancellationsApi
     }
 
     /**
-     * Operation createGFCancellations
+     * Operation createFulfillmentCancellations
      *
      * Creates a cancellation
      *
@@ -115,14 +115,14 @@ class FulfillmentCancellationsApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\GlobalFulfillmentCancellationResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function createGFCancellations($global_fulfillment_cancellation_request = null)
+    public function createFulfillmentCancellations($global_fulfillment_cancellation_request = null)
     {
-        list($response) = $this->createGFCancellationsWithHttpInfo($global_fulfillment_cancellation_request);
+        list($response) = $this->createFulfillmentCancellationsWithHttpInfo($global_fulfillment_cancellation_request);
         return $response;
     }
 
     /**
-     * Operation createGFCancellationsWithHttpInfo
+     * Operation createFulfillmentCancellationsWithHttpInfo
      *
      * Creates a cancellation
      *
@@ -132,9 +132,9 @@ class FulfillmentCancellationsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\GlobalFulfillmentCancellationResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createGFCancellationsWithHttpInfo($global_fulfillment_cancellation_request = null)
+    public function createFulfillmentCancellationsWithHttpInfo($global_fulfillment_cancellation_request = null)
     {
-        $request = $this->createGFCancellationsRequest($global_fulfillment_cancellation_request);
+        $request = $this->createFulfillmentCancellationsRequest($global_fulfillment_cancellation_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -450,7 +450,7 @@ class FulfillmentCancellationsApi
     }
 
     /**
-     * Operation createGFCancellationsAsync
+     * Operation createFulfillmentCancellationsAsync
      *
      * Creates a cancellation
      *
@@ -459,9 +459,9 @@ class FulfillmentCancellationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createGFCancellationsAsync($global_fulfillment_cancellation_request = null)
+    public function createFulfillmentCancellationsAsync($global_fulfillment_cancellation_request = null)
     {
-        return $this->createGFCancellationsAsyncWithHttpInfo($global_fulfillment_cancellation_request)
+        return $this->createFulfillmentCancellationsAsyncWithHttpInfo($global_fulfillment_cancellation_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -470,7 +470,7 @@ class FulfillmentCancellationsApi
     }
 
     /**
-     * Operation createGFCancellationsAsyncWithHttpInfo
+     * Operation createFulfillmentCancellationsAsyncWithHttpInfo
      *
      * Creates a cancellation
      *
@@ -479,10 +479,10 @@ class FulfillmentCancellationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createGFCancellationsAsyncWithHttpInfo($global_fulfillment_cancellation_request = null)
+    public function createFulfillmentCancellationsAsyncWithHttpInfo($global_fulfillment_cancellation_request = null)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentCancellationResponse';
-        $request = $this->createGFCancellationsRequest($global_fulfillment_cancellation_request);
+        $request = $this->createFulfillmentCancellationsRequest($global_fulfillment_cancellation_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -519,14 +519,14 @@ class FulfillmentCancellationsApi
     }
 
     /**
-     * Create request for operation 'createGFCancellations'
+     * Create request for operation 'createFulfillmentCancellations'
      *
      * @param  \DigitalRiver\ApiSdk\Model\GlobalFulfillmentCancellationRequest $global_fulfillment_cancellation_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createGFCancellationsRequest($global_fulfillment_cancellation_request = null)
+    protected function createFulfillmentCancellationsRequest($global_fulfillment_cancellation_request = null)
     {
 
         $resourcePath = '/fulfillment-cancellations';
@@ -612,9 +612,9 @@ class FulfillmentCancellationsApi
     }
 
     /**
-     * Operation listGFCancellations
+     * Operation listFulfillmentCancellations
      *
-     * Returns a list of cancellations
+     * Returns a list of fulfillment cancellations
      *
      * @param  map[string,\DateTime] $created_time A filter on the list based on the **createdTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the createdTime field equals to this timestamp   - **gt**&amp;mdash;return values where the createdTime field is after this timestamp   - **gte**&amp;mdash;return values where the createdTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the createdTime field is before this timestamp   - **lte**&amp;mdash;return values where the createdTime field is before or equal to this timestamp (optional)
      * @param  string $ending_before A cursor for use in pagination. The endingBefore parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with xyz your subsequent calls can include endingBefore&#x3D;xyz in order to fetch the previous page of the list. (optional)
@@ -630,16 +630,16 @@ class FulfillmentCancellationsApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\ListGlobalFulfillmentCancellationsResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function listGFCancellations($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
+    public function listFulfillmentCancellations($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
     {
-        list($response) = $this->listGFCancellationsWithHttpInfo($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
+        list($response) = $this->listFulfillmentCancellationsWithHttpInfo($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
         return $response;
     }
 
     /**
-     * Operation listGFCancellationsWithHttpInfo
+     * Operation listFulfillmentCancellationsWithHttpInfo
      *
-     * Returns a list of cancellations
+     * Returns a list of fulfillment cancellations
      *
      * @param  map[string,\DateTime] $created_time A filter on the list based on the **createdTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the createdTime field equals to this timestamp   - **gt**&amp;mdash;return values where the createdTime field is after this timestamp   - **gte**&amp;mdash;return values where the createdTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the createdTime field is before this timestamp   - **lte**&amp;mdash;return values where the createdTime field is before or equal to this timestamp (optional)
      * @param  string $ending_before A cursor for use in pagination. The endingBefore parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with xyz your subsequent calls can include endingBefore&#x3D;xyz in order to fetch the previous page of the list. (optional)
@@ -655,9 +655,9 @@ class FulfillmentCancellationsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\ListGlobalFulfillmentCancellationsResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listGFCancellationsWithHttpInfo($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
+    public function listFulfillmentCancellationsWithHttpInfo($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
     {
-        $request = $this->listGFCancellationsRequest($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
+        $request = $this->listFulfillmentCancellationsRequest($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -953,9 +953,9 @@ class FulfillmentCancellationsApi
     }
 
     /**
-     * Operation listGFCancellationsAsync
+     * Operation listFulfillmentCancellationsAsync
      *
-     * Returns a list of cancellations
+     * Returns a list of fulfillment cancellations
      *
      * @param  map[string,\DateTime] $created_time A filter on the list based on the **createdTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the createdTime field equals to this timestamp   - **gt**&amp;mdash;return values where the createdTime field is after this timestamp   - **gte**&amp;mdash;return values where the createdTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the createdTime field is before this timestamp   - **lte**&amp;mdash;return values where the createdTime field is before or equal to this timestamp (optional)
      * @param  string $ending_before A cursor for use in pagination. The endingBefore parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with xyz your subsequent calls can include endingBefore&#x3D;xyz in order to fetch the previous page of the list. (optional)
@@ -970,9 +970,9 @@ class FulfillmentCancellationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listGFCancellationsAsync($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
+    public function listFulfillmentCancellationsAsync($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
     {
-        return $this->listGFCancellationsAsyncWithHttpInfo($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id)
+        return $this->listFulfillmentCancellationsAsyncWithHttpInfo($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -981,9 +981,9 @@ class FulfillmentCancellationsApi
     }
 
     /**
-     * Operation listGFCancellationsAsyncWithHttpInfo
+     * Operation listFulfillmentCancellationsAsyncWithHttpInfo
      *
-     * Returns a list of cancellations
+     * Returns a list of fulfillment cancellations
      *
      * @param  map[string,\DateTime] $created_time A filter on the list based on the **createdTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the createdTime field equals to this timestamp   - **gt**&amp;mdash;return values where the createdTime field is after this timestamp   - **gte**&amp;mdash;return values where the createdTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the createdTime field is before this timestamp   - **lte**&amp;mdash;return values where the createdTime field is before or equal to this timestamp (optional)
      * @param  string $ending_before A cursor for use in pagination. The endingBefore parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with xyz your subsequent calls can include endingBefore&#x3D;xyz in order to fetch the previous page of the list. (optional)
@@ -998,10 +998,10 @@ class FulfillmentCancellationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listGFCancellationsAsyncWithHttpInfo($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
+    public function listFulfillmentCancellationsAsyncWithHttpInfo($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\ListGlobalFulfillmentCancellationsResponse';
-        $request = $this->listGFCancellationsRequest($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
+        $request = $this->listFulfillmentCancellationsRequest($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1038,7 +1038,7 @@ class FulfillmentCancellationsApi
     }
 
     /**
-     * Create request for operation 'listGFCancellations'
+     * Create request for operation 'listFulfillmentCancellations'
      *
      * @param  map[string,\DateTime] $created_time A filter on the list based on the **createdTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the createdTime field equals to this timestamp   - **gt**&amp;mdash;return values where the createdTime field is after this timestamp   - **gte**&amp;mdash;return values where the createdTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the createdTime field is before this timestamp   - **lte**&amp;mdash;return values where the createdTime field is before or equal to this timestamp (optional)
      * @param  string $ending_before A cursor for use in pagination. The endingBefore parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with xyz your subsequent calls can include endingBefore&#x3D;xyz in order to fetch the previous page of the list. (optional)
@@ -1053,13 +1053,13 @@ class FulfillmentCancellationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listGFCancellationsRequest($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
+    protected function listFulfillmentCancellationsRequest($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
     {
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FulfillmentCancellationsApi.listGFCancellations, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling FulfillmentCancellationsApi.listFulfillmentCancellations, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FulfillmentCancellationsApi.listGFCancellations, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling FulfillmentCancellationsApi.listFulfillmentCancellations, must be bigger than or equal to 1.');
         }
 
 
@@ -1242,9 +1242,9 @@ class FulfillmentCancellationsApi
     }
 
     /**
-     * Operation retrieveGFCancellations
+     * Operation retrieveFulfillmentCancellations
      *
-     * Gets a cancellation by ID
+     * Gets a fulfillment cancellation by its unique identifier.
      *
      * @param  string $id Cancellation ID (required)
      *
@@ -1252,16 +1252,16 @@ class FulfillmentCancellationsApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\GlobalFulfillmentCancellationResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function retrieveGFCancellations($id)
+    public function retrieveFulfillmentCancellations($id)
     {
-        list($response) = $this->retrieveGFCancellationsWithHttpInfo($id);
+        list($response) = $this->retrieveFulfillmentCancellationsWithHttpInfo($id);
         return $response;
     }
 
     /**
-     * Operation retrieveGFCancellationsWithHttpInfo
+     * Operation retrieveFulfillmentCancellationsWithHttpInfo
      *
-     * Gets a cancellation by ID
+     * Gets a fulfillment cancellation by its unique identifier.
      *
      * @param  string $id Cancellation ID (required)
      *
@@ -1269,9 +1269,9 @@ class FulfillmentCancellationsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\GlobalFulfillmentCancellationResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retrieveGFCancellationsWithHttpInfo($id)
+    public function retrieveFulfillmentCancellationsWithHttpInfo($id)
     {
-        $request = $this->retrieveGFCancellationsRequest($id);
+        $request = $this->retrieveFulfillmentCancellationsRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1587,18 +1587,18 @@ class FulfillmentCancellationsApi
     }
 
     /**
-     * Operation retrieveGFCancellationsAsync
+     * Operation retrieveFulfillmentCancellationsAsync
      *
-     * Gets a cancellation by ID
+     * Gets a fulfillment cancellation by its unique identifier.
      *
      * @param  string $id Cancellation ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveGFCancellationsAsync($id)
+    public function retrieveFulfillmentCancellationsAsync($id)
     {
-        return $this->retrieveGFCancellationsAsyncWithHttpInfo($id)
+        return $this->retrieveFulfillmentCancellationsAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1607,19 +1607,19 @@ class FulfillmentCancellationsApi
     }
 
     /**
-     * Operation retrieveGFCancellationsAsyncWithHttpInfo
+     * Operation retrieveFulfillmentCancellationsAsyncWithHttpInfo
      *
-     * Gets a cancellation by ID
+     * Gets a fulfillment cancellation by its unique identifier.
      *
      * @param  string $id Cancellation ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveGFCancellationsAsyncWithHttpInfo($id)
+    public function retrieveFulfillmentCancellationsAsyncWithHttpInfo($id)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentCancellationResponse';
-        $request = $this->retrieveGFCancellationsRequest($id);
+        $request = $this->retrieveFulfillmentCancellationsRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1656,19 +1656,19 @@ class FulfillmentCancellationsApi
     }
 
     /**
-     * Create request for operation 'retrieveGFCancellations'
+     * Create request for operation 'retrieveFulfillmentCancellations'
      *
      * @param  string $id Cancellation ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function retrieveGFCancellationsRequest($id)
+    protected function retrieveFulfillmentCancellationsRequest($id)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling retrieveGFCancellations'
+                'Missing the required parameter $id when calling retrieveFulfillmentCancellations'
             );
         }
 

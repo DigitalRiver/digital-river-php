@@ -20,6 +20,12 @@ Name | Type | Description | Notes
 **payee_id** | **string** | The ID of the payee. | [optional] 
 **payee_name** | **string** | The name of the payee. | [optional] 
 **live_mode** | **bool** | Has the value true if the object exists in live mode or the value false if the object exists in test mode. | [optional] 
+**order_upstream_id** | **string** | Unique upstream ID for the order. | [optional] 
+**sku_tax_code** | **string** | The sku tax code. | [optional] 
+**ship_from_country** | **string** | Country being shipped from. | [optional] 
+**ship_to_country** | **string** | Country being shipped to. | [optional] 
+**bill_to_country** | **string** | Country listed on shopper&#39;s billing address. | [optional] 
+**payment_type** | **string** | Type of payment used. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

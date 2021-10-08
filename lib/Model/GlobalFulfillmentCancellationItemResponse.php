@@ -259,7 +259,7 @@ class GlobalFulfillmentCancellationItemResponse implements ModelInterface, Array
     /**
      * Sets fulfillment_order_item_id
      *
-     * @param string|null $fulfillment_order_item_id The identifier of the filfillment order item.
+     * @param string|null $fulfillment_order_item_id The identifier of the fulfillment order item.
      *
      * @return $this
      */
@@ -307,7 +307,7 @@ class GlobalFulfillmentCancellationItemResponse implements ModelInterface, Array
     /**
      * Sets quantity
      *
-     * @param int|null $quantity quantity
+     * @param int|null $quantity The quantity specified in the fulfillment cancellation request.
      *
      * @return $this
      */
@@ -331,7 +331,7 @@ class GlobalFulfillmentCancellationItemResponse implements ModelInterface, Array
     /**
      * Sets quantity_accepted
      *
-     * @param int|null $quantity_accepted quantity_accepted
+     * @param int|null $quantity_accepted The quantity accepted for cancellation by the fulfiller.
      *
      * @return $this
      */
@@ -355,7 +355,7 @@ class GlobalFulfillmentCancellationItemResponse implements ModelInterface, Array
     /**
      * Sets state
      *
-     * @param string|null $state The current state of the cancellation.
+     * @param string|null $state An enumeration indicating the current state of the item in the fulfillment cancellation.
      *
      * @return $this
      */

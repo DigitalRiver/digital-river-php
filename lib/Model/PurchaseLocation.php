@@ -25,7 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * PurchaseLocation Class Doc Comment
  *
  * @category Class
- * @description Used to [create a tax estimate](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/setting-the-purchase-location) for the customer.
+ * @description Used to create a tax estimate for the customer.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

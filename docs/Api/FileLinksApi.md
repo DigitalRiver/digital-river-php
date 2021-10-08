@@ -1,6 +1,6 @@
 # DigitalRiver\ApiSdk\FileLinksApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Creates a file link
 
-[Creates a new file link](https://docs.digitalriver.com/digital-river-api/files-and-file-links-1/file-links/creating-a-file-link) object.
+Creates a new file link object.
 
 ### Example
 

@@ -25,7 +25,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * Cancel Class Doc Comment
  *
  * @category Class
- * @description Represents the [cancellation](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/payment-charges#cancels) of all or part of the charge.
+ * @description Represents the cancellation of all or part of the charge.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

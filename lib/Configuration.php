@@ -70,7 +70,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://www.digitalriver.com/docs/digital-river-api-reference';
+    protected $host = 'https://api.digitalriver.com';
 
     /**
      * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
@@ -426,71 +426,11 @@ class Configuration
     {
         return [
             [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
+                "url" => "https://api.digitalriver.com",
                 "description" => "No description provided",
             ],
             [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
-                "description" => "No description provided",
-            ],
-            [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
+                "url" => "https://api.digitalriver.com",
                 "description" => "No description provided",
             ],
             [
@@ -498,15 +438,143 @@ class Configuration
                 "description" => "No description provided",
             ],
             [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
+                "url" => "https://api.digitalriver.com",
                 "description" => "No description provided",
             ],
             [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
+                "url" => "https://api.digitalriver.com",
                 "description" => "No description provided",
             ],
             [
-                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/pwehr/FulfillmentCancellations/1.0.0",
+                "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/GlobalFulfillmentOrders/master",
+                "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/Shipments/1.0.0",
+                "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/InventoryItems/master",
+                "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/InventoryLevels/master",
+                "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/Plans/master",
+                "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/Reservations/master",
+                "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/Shipments/master",
+                "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/ShippingQuotes/master",
+                "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "/",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/SkuGroups/1.0.1",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/Subscriptions/master",
+                "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/Subscriptions/1.0.2",
+                "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/TaxIdentifiers/1.0.0",
+                "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/TaxIdentifiers/1.0.2",
+                "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "https://virtserver.swaggerhub.com/DigitalRiverX",
+                "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "https://api.digitalriver.com",
                 "description" => "No description provided",
             ]
         ];

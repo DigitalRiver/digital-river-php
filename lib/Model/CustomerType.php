@@ -23,7 +23,7 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * CustomerType Class Doc Comment
  *
  * @category Class
- * @description The [type of customer](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/customers/setting-tax-related-attributes#customer-type).
+ * @description The type of customer.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

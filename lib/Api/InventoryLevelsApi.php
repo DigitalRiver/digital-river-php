@@ -105,7 +105,7 @@ class InventoryLevelsApi
     }
 
     /**
-     * Operation callList
+     * Operation listInventoryLevels
      *
      * Returns a list of inventory levels.
      *
@@ -118,14 +118,14 @@ class InventoryLevelsApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\InlineResponse2002|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function callList($inventory_item_ids, $updated_time = null, $ship_to_country = null, $available = null)
+    public function listInventoryLevels($inventory_item_ids, $updated_time = null, $ship_to_country = null, $available = null)
     {
-        list($response) = $this->callListWithHttpInfo($inventory_item_ids, $updated_time, $ship_to_country, $available);
+        list($response) = $this->listInventoryLevelsWithHttpInfo($inventory_item_ids, $updated_time, $ship_to_country, $available);
         return $response;
     }
 
     /**
-     * Operation callListWithHttpInfo
+     * Operation listInventoryLevelsWithHttpInfo
      *
      * Returns a list of inventory levels.
      *
@@ -138,9 +138,9 @@ class InventoryLevelsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\InlineResponse2002|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function callListWithHttpInfo($inventory_item_ids, $updated_time = null, $ship_to_country = null, $available = null)
+    public function listInventoryLevelsWithHttpInfo($inventory_item_ids, $updated_time = null, $ship_to_country = null, $available = null)
     {
-        $request = $this->callListRequest($inventory_item_ids, $updated_time, $ship_to_country, $available);
+        $request = $this->listInventoryLevelsRequest($inventory_item_ids, $updated_time, $ship_to_country, $available);
 
         try {
             $options = $this->createHttpClientOption();
@@ -436,7 +436,7 @@ class InventoryLevelsApi
     }
 
     /**
-     * Operation callListAsync
+     * Operation listInventoryLevelsAsync
      *
      * Returns a list of inventory levels.
      *
@@ -448,9 +448,9 @@ class InventoryLevelsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function callListAsync($inventory_item_ids, $updated_time = null, $ship_to_country = null, $available = null)
+    public function listInventoryLevelsAsync($inventory_item_ids, $updated_time = null, $ship_to_country = null, $available = null)
     {
-        return $this->callListAsyncWithHttpInfo($inventory_item_ids, $updated_time, $ship_to_country, $available)
+        return $this->listInventoryLevelsAsyncWithHttpInfo($inventory_item_ids, $updated_time, $ship_to_country, $available)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -459,7 +459,7 @@ class InventoryLevelsApi
     }
 
     /**
-     * Operation callListAsyncWithHttpInfo
+     * Operation listInventoryLevelsAsyncWithHttpInfo
      *
      * Returns a list of inventory levels.
      *
@@ -471,10 +471,10 @@ class InventoryLevelsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function callListAsyncWithHttpInfo($inventory_item_ids, $updated_time = null, $ship_to_country = null, $available = null)
+    public function listInventoryLevelsAsyncWithHttpInfo($inventory_item_ids, $updated_time = null, $ship_to_country = null, $available = null)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\InlineResponse2002';
-        $request = $this->callListRequest($inventory_item_ids, $updated_time, $ship_to_country, $available);
+        $request = $this->listInventoryLevelsRequest($inventory_item_ids, $updated_time, $ship_to_country, $available);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -511,7 +511,7 @@ class InventoryLevelsApi
     }
 
     /**
-     * Create request for operation 'callList'
+     * Create request for operation 'listInventoryLevels'
      *
      * @param  string[] $inventory_item_ids Only return inventory levels for these inventory items. (required)
      * @param  map[string,\DateTime] $updated_time A filter on the list based on the **updatedTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **gt**&amp;mdash;return values where the updatedTime field is after this timestamp   - **gte**&amp;mdash;return values where the updatedTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the updatedTime field is before this timestamp   - **lte**&amp;mdash;return values where the updatedTime field is before or equal to this timestamp (optional)
@@ -521,12 +521,12 @@ class InventoryLevelsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function callListRequest($inventory_item_ids, $updated_time = null, $ship_to_country = null, $available = null)
+    protected function listInventoryLevelsRequest($inventory_item_ids, $updated_time = null, $ship_to_country = null, $available = null)
     {
         // verify the required parameter 'inventory_item_ids' is set
         if ($inventory_item_ids === null || (is_array($inventory_item_ids) && count($inventory_item_ids) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inventory_item_ids when calling callList'
+                'Missing the required parameter $inventory_item_ids when calling listInventoryLevels'
             );
         }
 

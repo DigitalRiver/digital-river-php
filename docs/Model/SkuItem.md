@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | The identifier of the item. | [optional] 
-**sku_id** | **string** | The identifier of the [stock keeping unit (SKU)](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/skus). | [optional] 
+**sku_id** | **string** | The identifier of the stock keeping unit (SKU). | [optional] 
 **subscription_info** | [**\DigitalRiver\ApiSdk\Model\SubscriptionInfo**](SubscriptionInfo.md) |  | [optional] 
 **fees** | [**\DigitalRiver\ApiSdk\Model\Fees**](Fees.md) |  | [optional] 
 **quantity** | **int** | The number of items. | [optional] 
 **amount** | **double** | The cost of the items. | [optional] 
-**available_to_refund_amount** | **double** | The [available to refund](https://docs.digitalriver.com/digital-river-api/returns-and-refunds-1/refunds/issuing-refunds#checking-the-available-refund-amount) amount. | [optional] 
+**tariff_code** | **string** | “Harmonized Tariff Schedule” that adds 4 more country-specific digits to the end of the HS Code and is determined by individual countries of import. | [optional] 
 **tax** | [**\DigitalRiver\ApiSdk\Model\Tax**](Tax.md) |  | [optional] 
 **importer_tax** | [**\DigitalRiver\ApiSdk\Model\ImporterTax**](ImporterTax.md) |  | [optional] 
 **duties** | [**\DigitalRiver\ApiSdk\Model\Duties**](Duties.md) |  | [optional] 

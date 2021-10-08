@@ -341,7 +341,7 @@ class TaxCertificate implements ModelInterface, ArrayAccess
     /**
      * Sets file_id
      *
-     * @param string $file_id The identifier of the [file](https://docs.digitalriver.com/digital-river-api/files-and-file-links-1/files) that contains the tax certificate.
+     * @param string $file_id The identifier of the file that contains the tax certificate.
      *
      * @return $this
      */

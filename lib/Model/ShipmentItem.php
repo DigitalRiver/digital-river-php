@@ -53,7 +53,7 @@ class ShipmentItem implements ModelInterface, ArrayAccess
         'part_number' => 'string',
         'quantity' => 'float',
         'tracking_urls' => '\DigitalRiver\ApiSdk\Model\Tracking[]',
-        'unit_attributes' => '\DigitalRiver\ApiSdk\Model\UnitAttributes[]'
+        'unit_attributes' => '\DigitalRiver\ApiSdk\Model\ShipmentUnitAttributes[]'
     ];
 
     /**
@@ -248,7 +248,7 @@ class ShipmentItem implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier of a shipment item.
+     * @param string|null $id The unique identifier of a shipment item.
      *
      * @return $this
      */
@@ -320,7 +320,7 @@ class ShipmentItem implements ModelInterface, ArrayAccess
     /**
      * Sets inventory_item_id
      *
-     * @param string|null $inventory_item_id Identifier of an inventory item.
+     * @param string|null $inventory_item_id The identifier of the inventory item.
      *
      * @return $this
      */
@@ -344,7 +344,7 @@ class ShipmentItem implements ModelInterface, ArrayAccess
     /**
      * Sets part_number
      *
-     * @param string|null $part_number Manufacturer part number.
+     * @param string|null $part_number The manufacturer part number.
      *
      * @return $this
      */
@@ -406,7 +406,7 @@ class ShipmentItem implements ModelInterface, ArrayAccess
     /**
      * Gets unit_attributes
      *
-     * @return \DigitalRiver\ApiSdk\Model\UnitAttributes[]|null
+     * @return \DigitalRiver\ApiSdk\Model\ShipmentUnitAttributes[]|null
      */
     public function getUnitAttributes()
     {
@@ -416,7 +416,7 @@ class ShipmentItem implements ModelInterface, ArrayAccess
     /**
      * Sets unit_attributes
      *
-     * @param \DigitalRiver\ApiSdk\Model\UnitAttributes[]|null $unit_attributes unit_attributes
+     * @param \DigitalRiver\ApiSdk\Model\ShipmentUnitAttributes[]|null $unit_attributes unit_attributes
      *
      * @return $this
      */

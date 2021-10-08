@@ -53,10 +53,11 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
         'locale' => 'string',
         'application_id' => 'string',
         'browser_ip' => 'string',
-        'credit_amount' => 'double',
+        'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]',
         'ship_from' => '\DigitalRiver\ApiSdk\Model\ShipFrom',
         'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
         'bill_to' => '\DigitalRiver\ApiSdk\Model\Billing',
+        'organization' => '\DigitalRiver\ApiSdk\Model\Organization',
         'shipping_choice' => '\DigitalRiver\ApiSdk\Model\ShippingRequest',
         'discount' => '\DigitalRiver\ApiSdk\Model\Discount',
         'items' => '\DigitalRiver\ApiSdk\Model\SkuRequestItem[]',
@@ -82,10 +83,11 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
         'locale' => null,
         'application_id' => null,
         'browser_ip' => null,
-        'credit_amount' => 'double',
+        'tax_identifiers' => null,
         'ship_from' => null,
         'ship_to' => null,
         'bill_to' => null,
+        'organization' => null,
         'shipping_choice' => null,
         'discount' => null,
         'items' => null,
@@ -132,10 +134,11 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
         'locale' => 'locale',
         'application_id' => 'applicationId',
         'browser_ip' => 'browserIp',
-        'credit_amount' => 'creditAmount',
+        'tax_identifiers' => 'taxIdentifiers',
         'ship_from' => 'shipFrom',
         'ship_to' => 'shipTo',
         'bill_to' => 'billTo',
+        'organization' => 'organization',
         'shipping_choice' => 'shippingChoice',
         'discount' => 'discount',
         'items' => 'items',
@@ -161,10 +164,11 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
         'locale' => 'setLocale',
         'application_id' => 'setApplicationId',
         'browser_ip' => 'setBrowserIp',
-        'credit_amount' => 'setCreditAmount',
+        'tax_identifiers' => 'setTaxIdentifiers',
         'ship_from' => 'setShipFrom',
         'ship_to' => 'setShipTo',
         'bill_to' => 'setBillTo',
+        'organization' => 'setOrganization',
         'shipping_choice' => 'setShippingChoice',
         'discount' => 'setDiscount',
         'items' => 'setItems',
@@ -190,10 +194,11 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
         'locale' => 'getLocale',
         'application_id' => 'getApplicationId',
         'browser_ip' => 'getBrowserIp',
-        'credit_amount' => 'getCreditAmount',
+        'tax_identifiers' => 'getTaxIdentifiers',
         'ship_from' => 'getShipFrom',
         'ship_to' => 'getShipTo',
         'bill_to' => 'getBillTo',
+        'organization' => 'getOrganization',
         'shipping_choice' => 'getShippingChoice',
         'discount' => 'getDiscount',
         'items' => 'getItems',
@@ -273,10 +278,11 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
         $this->container['browser_ip'] = isset($data['browser_ip']) ? $data['browser_ip'] : null;
-        $this->container['credit_amount'] = isset($data['credit_amount']) ? $data['credit_amount'] : null;
+        $this->container['tax_identifiers'] = isset($data['tax_identifiers']) ? $data['tax_identifiers'] : null;
         $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
         $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
         $this->container['bill_to'] = isset($data['bill_to']) ? $data['bill_to'] : null;
+        $this->container['organization'] = isset($data['organization']) ? $data['organization'] : null;
         $this->container['shipping_choice'] = isset($data['shipping_choice']) ? $data['shipping_choice'] : null;
         $this->container['discount'] = isset($data['discount']) ? $data['discount'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
@@ -356,7 +362,7 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
     /**
      * Sets source_id
      *
-     * @param string|null $source_id The [unique identifier of a Source](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/payment-sources/using-the-source-identifier).
+     * @param string|null $source_id The unique identifier of a Source.
      *
      * @return $this
      */
@@ -380,7 +386,7 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string $currency A three-letter [ISO 4217 currency code](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/selecting-a-currency).
+     * @param string $currency A three-letter ISO 4217 currency code.
      *
      * @return $this
      */
@@ -428,7 +434,7 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
     /**
      * Sets locale
      *
-     * @param string|null $locale A [designator](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/designating-a-locale) that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code.
+     * @param string|null $locale A designator that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code.
      *
      * @return $this
      */
@@ -476,7 +482,7 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
     /**
      * Sets browser_ip
      *
-     * @param string|null $browser_ip The [IP address of the browser](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/checkouts/creating-checkouts#setting-checkout-attributes) used by the customer when placing the order.
+     * @param string|null $browser_ip The IP address of the browser used by the customer when placing the order.
      *
      * @return $this
      */
@@ -488,25 +494,25 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets credit_amount
+     * Gets tax_identifiers
      *
-     * @return double|null
+     * @return \DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]|null
      */
-    public function getCreditAmount()
+    public function getTaxIdentifiers()
     {
-        return $this->container['credit_amount'];
+        return $this->container['tax_identifiers'];
     }
 
     /**
-     * Sets credit_amount
+     * Sets tax_identifiers
      *
-     * @param double|null $credit_amount Represents the total amount of credit you are extending to the customer.
+     * @param \DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]|null $tax_identifiers tax_identifiers
      *
      * @return $this
      */
-    public function setCreditAmount($credit_amount)
+    public function setTaxIdentifiers($tax_identifiers)
     {
-        $this->container['credit_amount'] = $credit_amount;
+        $this->container['tax_identifiers'] = $tax_identifiers;
 
         return $this;
     }
@@ -579,6 +585,30 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
     public function setBillTo($bill_to)
     {
         $this->container['bill_to'] = $bill_to;
+
+        return $this;
+    }
+
+    /**
+     * Gets organization
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Organization|null
+     */
+    public function getOrganization()
+    {
+        return $this->container['organization'];
+    }
+
+    /**
+     * Sets organization
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Organization|null $organization organization
+     *
+     * @return $this
+     */
+    public function setOrganization($organization)
+    {
+        $this->container['organization'] = $organization;
 
         return $this;
     }
@@ -692,7 +722,7 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
     /**
      * Sets tax_inclusive
      *
-     * @param bool|null $tax_inclusive If <code>true</code>, indicates that the prices supplied are [tax inclusive](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/configuring-taxes).
+     * @param bool|null $tax_inclusive If <code>true</code>, indicates that the prices supplied are tax inclusive.
      *
      * @return $this
      */
@@ -812,7 +842,7 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
     /**
      * Sets upstream_id
      *
-     * @param string|null $upstream_id The user checkout identifier if it is different from the Digital River checkout identifier.
+     * @param string|null $upstream_id The upstream identifier.
      *
      * @return $this
      */

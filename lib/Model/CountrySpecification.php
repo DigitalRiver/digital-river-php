@@ -272,7 +272,7 @@ class CountrySpecification implements ModelInterface, ArrayAccess
     /**
      * Sets selling_entity
      *
-     * @param string|null $selling_entity A Digital River [selling entity](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/selling-entities).
+     * @param string|null $selling_entity A Digital River selling entity.
      *
      * @return $this
      */
@@ -296,7 +296,7 @@ class CountrySpecification implements ModelInterface, ArrayAccess
     /**
      * Sets billing_address_schema
      *
-     * @param string|null $billing_address_schema A [billing address schema](https://docs.digitalriver.com/digital-river-api/country-specs#using-the-countryspec-api).
+     * @param string|null $billing_address_schema A billing address schema.
      *
      * @return $this
      */
@@ -320,7 +320,7 @@ class CountrySpecification implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_address_schema
      *
-     * @param string|null $shipping_address_schema A [ship to address schema](https://docs.digitalriver.com/digital-river-api/country-specs#using-the-countryspec-api).
+     * @param string|null $shipping_address_schema A ship to address schema.
      *
      * @return $this
      */
@@ -344,7 +344,7 @@ class CountrySpecification implements ModelInterface, ArrayAccess
     /**
      * Sets billing_address_only_schema
      *
-     * @param string|null $billing_address_only_schema A [billing address only schema](https://docs.digitalriver.com/digital-river-api/country-specs#using-the-countryspec-api).
+     * @param string|null $billing_address_only_schema A billing address only schema.
      *
      * @return $this
      */

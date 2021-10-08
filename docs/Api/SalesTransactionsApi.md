@@ -1,6 +1,6 @@
 # DigitalRiver\ApiSdk\SalesTransactionsApi
 
-All URIs are relative to *https://www.digitalriver.com/docs/digital-river-api-reference*
+All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## listSalesTransactions
 
-> \DigitalRiver\ApiSdk\Model\ListSalesTransactionsResponse listSalesTransactions($created_time, $ending_before, $starting_after, $ids, $limit, $sale_time, $sales_summary_id, $type, $currency, $order_id, $sku_id, $quantity, $amount, $digital_river_share, $payout_amount)
+> \DigitalRiver\ApiSdk\Model\ListSalesTransactionsResponse listSalesTransactions($created_time, $ending_before, $starting_after, $ids, $limit, $sale_time, $sales_summary_id, $order_upstream_id, $payment_type, $type, $currency, $order_id, $sku_id, $quantity, $amount, $digital_river_share, $payout_amount)
 
 Returns a list of sales transactions
 
@@ -48,6 +48,10 @@ $sale_time = 2018-03-25T20:36:00Z; // map[string,\DateTime] | A filter on the li
 // Refer map[string,\DateTime]::$setters in digital-river-php/lib/Model/\DateTime.php to set the properties.
 $sales_summary_id = 'sales_summary_id_example'; // string | Only return sales transactions with this sales summary identifier
 
+$order_upstream_id = 'order_upstream_id_example'; // string | Only return sales transactions with this order upstream identifier
+
+$payment_type = 'payment_type_example'; // string | Only return sales transactions with this payment type
+
 $type = 'type_example'; // string | Only return sales transactions of this type
 
 $currency = 'currency_example'; // string | Only return sales transactions in this currency
@@ -66,7 +70,7 @@ $payout_amount = 20.99; // map[string,string] | A filter on the list based on th
 // Refer map[string,string]::$setters in digital-river-php/lib/Model/string.php to set the properties.
 
 try {
-    $result = $apiInstance->listSalesTransactions($created_time, $ending_before, $starting_after, $ids, $limit, $sale_time, $sales_summary_id, $type, $currency, $order_id, $sku_id, $quantity, $amount, $digital_river_share, $payout_amount);
+    $result = $apiInstance->listSalesTransactions($created_time, $ending_before, $starting_after, $ids, $limit, $sale_time, $sales_summary_id, $order_upstream_id, $payment_type, $type, $currency, $order_id, $sku_id, $quantity, $amount, $digital_river_share, $payout_amount);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SalesTransactionsApi->listSalesTransactions: ', $e->getMessage(), PHP_EOL;
@@ -86,6 +90,8 @@ Name | Type | Description  | Notes
  **limit** | **int**| A limit on the number of objects returned. Limit can range between 1 and 5000, and the default is 10. | [optional]
  **sale_time** | [**map[string,\DateTime]**](../Model/\DateTime.md)| A filter on the list based on the sales transaction **saleTime** field. The value can be a string with an ISO-601 UTC format datetime or it can be a dictionary with the following options:    - **gt** - *return values where the saleTime field is after this timestamp*   - **gte** - *return values where the saleTime field is after or equal to this timestamp*   - **lt** - *return values where the saleTime field is before this timestamp*   - **lte** - *return values where the saleTime field is before or equal to this timestamp* | [optional]
  **sales_summary_id** | **string**| Only return sales transactions with this sales summary identifier | [optional]
+ **order_upstream_id** | **string**| Only return sales transactions with this order upstream identifier | [optional]
+ **payment_type** | **string**| Only return sales transactions with this payment type | [optional]
  **type** | **string**| Only return sales transactions of this type | [optional]
  **currency** | **string**| Only return sales transactions in this currency | [optional]
  **order_id** | **string**| Only return sales transactions with this order identifier | [optional]

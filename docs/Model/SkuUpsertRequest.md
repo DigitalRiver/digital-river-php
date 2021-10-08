@@ -6,7 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **eccn** | **string** | The export control classification number. | 
 **hs_code** | **string** | The international and US Harmonized System code (sometimes referred to as the Harmonized Tariff Schedule). | [optional] 
+**sku_group_id** | **string** | The unique identifier of the Sku Group. | [optional] 
 **part_number** | **string** | The manufacturer&#39;s part number. | [optional] 
+**manufacturer_id** | **string** | The unique identifier | [optional] 
+**managed_fulfillment** | **string** | Signifies the product is physically fulfilled by Digital River. | [optional] 
+**allow_oversell** | **bool** | Determines whether customers are allowed to back order a product. | [optional] 
 **tax_code** | **string** | The designated tax code. | 
 **name** | **string** | The product’s name. | 
 **description** | **string** | A description of the product. | [optional] 

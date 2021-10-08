@@ -105,7 +105,7 @@ class FulfillmentReturnsApi
     }
 
     /**
-     * Operation createGFReturns
+     * Operation createFulfillmentReturns
      *
      * Creates a return
      *
@@ -115,14 +115,14 @@ class FulfillmentReturnsApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\GlobalFulfillmentReturnResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function createGFReturns($global_fulfillment_return_request = null)
+    public function createFulfillmentReturns($global_fulfillment_return_request = null)
     {
-        list($response) = $this->createGFReturnsWithHttpInfo($global_fulfillment_return_request);
+        list($response) = $this->createFulfillmentReturnsWithHttpInfo($global_fulfillment_return_request);
         return $response;
     }
 
     /**
-     * Operation createGFReturnsWithHttpInfo
+     * Operation createFulfillmentReturnsWithHttpInfo
      *
      * Creates a return
      *
@@ -132,9 +132,9 @@ class FulfillmentReturnsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\GlobalFulfillmentReturnResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createGFReturnsWithHttpInfo($global_fulfillment_return_request = null)
+    public function createFulfillmentReturnsWithHttpInfo($global_fulfillment_return_request = null)
     {
-        $request = $this->createGFReturnsRequest($global_fulfillment_return_request);
+        $request = $this->createFulfillmentReturnsRequest($global_fulfillment_return_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -450,7 +450,7 @@ class FulfillmentReturnsApi
     }
 
     /**
-     * Operation createGFReturnsAsync
+     * Operation createFulfillmentReturnsAsync
      *
      * Creates a return
      *
@@ -459,9 +459,9 @@ class FulfillmentReturnsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createGFReturnsAsync($global_fulfillment_return_request = null)
+    public function createFulfillmentReturnsAsync($global_fulfillment_return_request = null)
     {
-        return $this->createGFReturnsAsyncWithHttpInfo($global_fulfillment_return_request)
+        return $this->createFulfillmentReturnsAsyncWithHttpInfo($global_fulfillment_return_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -470,7 +470,7 @@ class FulfillmentReturnsApi
     }
 
     /**
-     * Operation createGFReturnsAsyncWithHttpInfo
+     * Operation createFulfillmentReturnsAsyncWithHttpInfo
      *
      * Creates a return
      *
@@ -479,10 +479,10 @@ class FulfillmentReturnsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createGFReturnsAsyncWithHttpInfo($global_fulfillment_return_request = null)
+    public function createFulfillmentReturnsAsyncWithHttpInfo($global_fulfillment_return_request = null)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentReturnResponse';
-        $request = $this->createGFReturnsRequest($global_fulfillment_return_request);
+        $request = $this->createFulfillmentReturnsRequest($global_fulfillment_return_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -519,14 +519,14 @@ class FulfillmentReturnsApi
     }
 
     /**
-     * Create request for operation 'createGFReturns'
+     * Create request for operation 'createFulfillmentReturns'
      *
      * @param  \DigitalRiver\ApiSdk\Model\GlobalFulfillmentReturnRequest $global_fulfillment_return_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createGFReturnsRequest($global_fulfillment_return_request = null)
+    protected function createFulfillmentReturnsRequest($global_fulfillment_return_request = null)
     {
 
         $resourcePath = '/fulfillment-returns';
@@ -612,9 +612,9 @@ class FulfillmentReturnsApi
     }
 
     /**
-     * Operation listGFRefunds
+     * Operation listFulfillmentReturns
      *
-     * Returns a list of returns
+     * Returns a list of fulfillment returns
      *
      * @param  map[string,\DateTime] $created_time A filter on the list based on the **createdTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the createdTime field equals to this timestamp   - **gt**&amp;mdash;return values where the createdTime field is after this timestamp   - **gte**&amp;mdash;return values where the createdTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the createdTime field is before this timestamp   - **lte**&amp;mdash;return values where the createdTime field is before or equal to this timestamp (optional)
      * @param  string $ending_before A cursor for use in pagination. The endingBefore parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with xyz your subsequent calls can include endingBefore&#x3D;xyz in order to fetch the previous page of the list. (optional)
@@ -630,16 +630,16 @@ class FulfillmentReturnsApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\ListGlobalFulfillmentReturnsResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function listGFRefunds($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
+    public function listFulfillmentReturns($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
     {
-        list($response) = $this->listGFRefundsWithHttpInfo($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
+        list($response) = $this->listFulfillmentReturnsWithHttpInfo($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
         return $response;
     }
 
     /**
-     * Operation listGFRefundsWithHttpInfo
+     * Operation listFulfillmentReturnsWithHttpInfo
      *
-     * Returns a list of returns
+     * Returns a list of fulfillment returns
      *
      * @param  map[string,\DateTime] $created_time A filter on the list based on the **createdTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the createdTime field equals to this timestamp   - **gt**&amp;mdash;return values where the createdTime field is after this timestamp   - **gte**&amp;mdash;return values where the createdTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the createdTime field is before this timestamp   - **lte**&amp;mdash;return values where the createdTime field is before or equal to this timestamp (optional)
      * @param  string $ending_before A cursor for use in pagination. The endingBefore parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with xyz your subsequent calls can include endingBefore&#x3D;xyz in order to fetch the previous page of the list. (optional)
@@ -655,9 +655,9 @@ class FulfillmentReturnsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\ListGlobalFulfillmentReturnsResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listGFRefundsWithHttpInfo($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
+    public function listFulfillmentReturnsWithHttpInfo($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
     {
-        $request = $this->listGFRefundsRequest($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
+        $request = $this->listFulfillmentReturnsRequest($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -953,9 +953,9 @@ class FulfillmentReturnsApi
     }
 
     /**
-     * Operation listGFRefundsAsync
+     * Operation listFulfillmentReturnsAsync
      *
-     * Returns a list of returns
+     * Returns a list of fulfillment returns
      *
      * @param  map[string,\DateTime] $created_time A filter on the list based on the **createdTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the createdTime field equals to this timestamp   - **gt**&amp;mdash;return values where the createdTime field is after this timestamp   - **gte**&amp;mdash;return values where the createdTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the createdTime field is before this timestamp   - **lte**&amp;mdash;return values where the createdTime field is before or equal to this timestamp (optional)
      * @param  string $ending_before A cursor for use in pagination. The endingBefore parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with xyz your subsequent calls can include endingBefore&#x3D;xyz in order to fetch the previous page of the list. (optional)
@@ -970,9 +970,9 @@ class FulfillmentReturnsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listGFRefundsAsync($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
+    public function listFulfillmentReturnsAsync($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
     {
-        return $this->listGFRefundsAsyncWithHttpInfo($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id)
+        return $this->listFulfillmentReturnsAsyncWithHttpInfo($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -981,9 +981,9 @@ class FulfillmentReturnsApi
     }
 
     /**
-     * Operation listGFRefundsAsyncWithHttpInfo
+     * Operation listFulfillmentReturnsAsyncWithHttpInfo
      *
-     * Returns a list of returns
+     * Returns a list of fulfillment returns
      *
      * @param  map[string,\DateTime] $created_time A filter on the list based on the **createdTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the createdTime field equals to this timestamp   - **gt**&amp;mdash;return values where the createdTime field is after this timestamp   - **gte**&amp;mdash;return values where the createdTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the createdTime field is before this timestamp   - **lte**&amp;mdash;return values where the createdTime field is before or equal to this timestamp (optional)
      * @param  string $ending_before A cursor for use in pagination. The endingBefore parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with xyz your subsequent calls can include endingBefore&#x3D;xyz in order to fetch the previous page of the list. (optional)
@@ -998,10 +998,10 @@ class FulfillmentReturnsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listGFRefundsAsyncWithHttpInfo($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
+    public function listFulfillmentReturnsAsyncWithHttpInfo($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\ListGlobalFulfillmentReturnsResponse';
-        $request = $this->listGFRefundsRequest($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
+        $request = $this->listFulfillmentReturnsRequest($created_time, $ending_before, $starting_after, $limit, $ids, $upstream_ids, $state, $fulfillment_order_id, $inventory_item_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1038,7 +1038,7 @@ class FulfillmentReturnsApi
     }
 
     /**
-     * Create request for operation 'listGFRefunds'
+     * Create request for operation 'listFulfillmentReturns'
      *
      * @param  map[string,\DateTime] $created_time A filter on the list based on the **createdTime** field. The value can be a string with an ISO-8601 UTC format datetime or it can be a dictionary with the following options:    - **eq**&amp;mdash;return values where the createdTime field equals to this timestamp   - **gt**&amp;mdash;return values where the createdTime field is after this timestamp   - **gte**&amp;mdash;return values where the createdTime field is after or equal to this timestamp   - **lt**&amp;mdash;return values where the createdTime field is before this timestamp   - **lte**&amp;mdash;return values where the createdTime field is before or equal to this timestamp (optional)
      * @param  string $ending_before A cursor for use in pagination. The endingBefore parameter is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, starting with xyz your subsequent calls can include endingBefore&#x3D;xyz in order to fetch the previous page of the list. (optional)
@@ -1053,13 +1053,13 @@ class FulfillmentReturnsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listGFRefundsRequest($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
+    protected function listFulfillmentReturnsRequest($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $upstream_ids = null, $state = null, $fulfillment_order_id = null, $inventory_item_id = null)
     {
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FulfillmentReturnsApi.listGFRefunds, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling FulfillmentReturnsApi.listFulfillmentReturns, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling FulfillmentReturnsApi.listGFRefunds, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling FulfillmentReturnsApi.listFulfillmentReturns, must be bigger than or equal to 1.');
         }
 
 
@@ -1242,9 +1242,9 @@ class FulfillmentReturnsApi
     }
 
     /**
-     * Operation retrieveGFReturns
+     * Operation retrieveFulfillmentReturns
      *
-     * Gets a return by ID
+     * Gets a fulfillment return by its unique identifier
      *
      * @param  string $id Return ID (required)
      *
@@ -1252,16 +1252,16 @@ class FulfillmentReturnsApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\GlobalFulfillmentReturnResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function retrieveGFReturns($id)
+    public function retrieveFulfillmentReturns($id)
     {
-        list($response) = $this->retrieveGFReturnsWithHttpInfo($id);
+        list($response) = $this->retrieveFulfillmentReturnsWithHttpInfo($id);
         return $response;
     }
 
     /**
-     * Operation retrieveGFReturnsWithHttpInfo
+     * Operation retrieveFulfillmentReturnsWithHttpInfo
      *
-     * Gets a return by ID
+     * Gets a fulfillment return by its unique identifier
      *
      * @param  string $id Return ID (required)
      *
@@ -1269,9 +1269,9 @@ class FulfillmentReturnsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\GlobalFulfillmentReturnResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retrieveGFReturnsWithHttpInfo($id)
+    public function retrieveFulfillmentReturnsWithHttpInfo($id)
     {
-        $request = $this->retrieveGFReturnsRequest($id);
+        $request = $this->retrieveFulfillmentReturnsRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1587,18 +1587,18 @@ class FulfillmentReturnsApi
     }
 
     /**
-     * Operation retrieveGFReturnsAsync
+     * Operation retrieveFulfillmentReturnsAsync
      *
-     * Gets a return by ID
+     * Gets a fulfillment return by its unique identifier
      *
      * @param  string $id Return ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveGFReturnsAsync($id)
+    public function retrieveFulfillmentReturnsAsync($id)
     {
-        return $this->retrieveGFReturnsAsyncWithHttpInfo($id)
+        return $this->retrieveFulfillmentReturnsAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1607,19 +1607,19 @@ class FulfillmentReturnsApi
     }
 
     /**
-     * Operation retrieveGFReturnsAsyncWithHttpInfo
+     * Operation retrieveFulfillmentReturnsAsyncWithHttpInfo
      *
-     * Gets a return by ID
+     * Gets a fulfillment return by its unique identifier
      *
      * @param  string $id Return ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveGFReturnsAsyncWithHttpInfo($id)
+    public function retrieveFulfillmentReturnsAsyncWithHttpInfo($id)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentReturnResponse';
-        $request = $this->retrieveGFReturnsRequest($id);
+        $request = $this->retrieveFulfillmentReturnsRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1656,19 +1656,19 @@ class FulfillmentReturnsApi
     }
 
     /**
-     * Create request for operation 'retrieveGFReturns'
+     * Create request for operation 'retrieveFulfillmentReturns'
      *
      * @param  string $id Return ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function retrieveGFReturnsRequest($id)
+    protected function retrieveFulfillmentReturnsRequest($id)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling retrieveGFReturns'
+                'Missing the required parameter $id when calling retrieveFulfillmentReturns'
             );
         }
 

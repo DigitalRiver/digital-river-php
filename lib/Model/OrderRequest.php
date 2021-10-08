@@ -54,15 +54,16 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'locale' => 'string',
         'application_id' => 'string',
         'browser_ip' => 'string',
-        'credit_amount' => 'double',
         'ship_from' => '\DigitalRiver\ApiSdk\Model\ShipFrom',
         'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
         'bill_to' => '\DigitalRiver\ApiSdk\Model\Billing',
+        'organization' => '\DigitalRiver\ApiSdk\Model\Organization',
         'shipping_choice' => '\DigitalRiver\ApiSdk\Model\ShippingRequest',
         'discount' => '\DigitalRiver\ApiSdk\Model\Discount',
         'items' => '\DigitalRiver\ApiSdk\Model\SkuRequestItem[]',
         'shipping_discount' => '\DigitalRiver\ApiSdk\Model\Discount',
         'tax_inclusive' => 'bool',
+        'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]',
         'charge_type' => '\DigitalRiver\ApiSdk\Model\ChargeType',
         'customer_type' => '\DigitalRiver\ApiSdk\Model\CustomerType',
         'metadata' => 'map[string,AnyType]',
@@ -84,15 +85,16 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'locale' => null,
         'application_id' => null,
         'browser_ip' => null,
-        'credit_amount' => 'double',
         'ship_from' => null,
         'ship_to' => null,
         'bill_to' => null,
+        'organization' => null,
         'shipping_choice' => null,
         'discount' => null,
         'items' => null,
         'shipping_discount' => null,
         'tax_inclusive' => null,
+        'tax_identifiers' => null,
         'charge_type' => null,
         'customer_type' => null,
         'metadata' => null,
@@ -135,15 +137,16 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'locale' => 'locale',
         'application_id' => 'applicationId',
         'browser_ip' => 'browserIp',
-        'credit_amount' => 'creditAmount',
         'ship_from' => 'shipFrom',
         'ship_to' => 'shipTo',
         'bill_to' => 'billTo',
+        'organization' => 'organization',
         'shipping_choice' => 'shippingChoice',
         'discount' => 'discount',
         'items' => 'items',
         'shipping_discount' => 'shippingDiscount',
         'tax_inclusive' => 'taxInclusive',
+        'tax_identifiers' => 'taxIdentifiers',
         'charge_type' => 'chargeType',
         'customer_type' => 'customerType',
         'metadata' => 'metadata',
@@ -165,15 +168,16 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'locale' => 'setLocale',
         'application_id' => 'setApplicationId',
         'browser_ip' => 'setBrowserIp',
-        'credit_amount' => 'setCreditAmount',
         'ship_from' => 'setShipFrom',
         'ship_to' => 'setShipTo',
         'bill_to' => 'setBillTo',
+        'organization' => 'setOrganization',
         'shipping_choice' => 'setShippingChoice',
         'discount' => 'setDiscount',
         'items' => 'setItems',
         'shipping_discount' => 'setShippingDiscount',
         'tax_inclusive' => 'setTaxInclusive',
+        'tax_identifiers' => 'setTaxIdentifiers',
         'charge_type' => 'setChargeType',
         'customer_type' => 'setCustomerType',
         'metadata' => 'setMetadata',
@@ -195,15 +199,16 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'locale' => 'getLocale',
         'application_id' => 'getApplicationId',
         'browser_ip' => 'getBrowserIp',
-        'credit_amount' => 'getCreditAmount',
         'ship_from' => 'getShipFrom',
         'ship_to' => 'getShipTo',
         'bill_to' => 'getBillTo',
+        'organization' => 'getOrganization',
         'shipping_choice' => 'getShippingChoice',
         'discount' => 'getDiscount',
         'items' => 'getItems',
         'shipping_discount' => 'getShippingDiscount',
         'tax_inclusive' => 'getTaxInclusive',
+        'tax_identifiers' => 'getTaxIdentifiers',
         'charge_type' => 'getChargeType',
         'customer_type' => 'getCustomerType',
         'metadata' => 'getMetadata',
@@ -279,15 +284,16 @@ class OrderRequest implements ModelInterface, ArrayAccess
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
         $this->container['browser_ip'] = isset($data['browser_ip']) ? $data['browser_ip'] : null;
-        $this->container['credit_amount'] = isset($data['credit_amount']) ? $data['credit_amount'] : null;
         $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
         $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
         $this->container['bill_to'] = isset($data['bill_to']) ? $data['bill_to'] : null;
+        $this->container['organization'] = isset($data['organization']) ? $data['organization'] : null;
         $this->container['shipping_choice'] = isset($data['shipping_choice']) ? $data['shipping_choice'] : null;
         $this->container['discount'] = isset($data['discount']) ? $data['discount'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['shipping_discount'] = isset($data['shipping_discount']) ? $data['shipping_discount'] : null;
         $this->container['tax_inclusive'] = isset($data['tax_inclusive']) ? $data['tax_inclusive'] : null;
+        $this->container['tax_identifiers'] = isset($data['tax_identifiers']) ? $data['tax_identifiers'] : null;
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['customer_type'] = isset($data['customer_type']) ? $data['customer_type'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
@@ -332,7 +338,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets checkout_id
      *
-     * @param string|null $checkout_id The unique identifier of a checkout.
+     * @param string|null $checkout_id The unique identifier of a Checkout.
      *
      * @return $this
      */
@@ -404,7 +410,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets currency
      *
-     * @param string|null $currency A three-letter [ISO 4217 currency code](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/selecting-a-currency).
+     * @param string|null $currency A three-letter ISO 4217 currency code.
      *
      * @return $this
      */
@@ -452,7 +458,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets locale
      *
-     * @param string|null $locale A [designator](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/designating-a-locale) that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code.
+     * @param string|null $locale A designator that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code.
      *
      * @return $this
      */
@@ -507,30 +513,6 @@ class OrderRequest implements ModelInterface, ArrayAccess
     public function setBrowserIp($browser_ip)
     {
         $this->container['browser_ip'] = $browser_ip;
-
-        return $this;
-    }
-
-    /**
-     * Gets credit_amount
-     *
-     * @return double|null
-     */
-    public function getCreditAmount()
-    {
-        return $this->container['credit_amount'];
-    }
-
-    /**
-     * Sets credit_amount
-     *
-     * @param double|null $credit_amount Represents the total amount of credit you are extending to the customer.
-     *
-     * @return $this
-     */
-    public function setCreditAmount($credit_amount)
-    {
-        $this->container['credit_amount'] = $credit_amount;
 
         return $this;
     }
@@ -603,6 +585,30 @@ class OrderRequest implements ModelInterface, ArrayAccess
     public function setBillTo($bill_to)
     {
         $this->container['bill_to'] = $bill_to;
+
+        return $this;
+    }
+
+    /**
+     * Gets organization
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Organization|null
+     */
+    public function getOrganization()
+    {
+        return $this->container['organization'];
+    }
+
+    /**
+     * Sets organization
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Organization|null $organization organization
+     *
+     * @return $this
+     */
+    public function setOrganization($organization)
+    {
+        $this->container['organization'] = $organization;
 
         return $this;
     }
@@ -716,13 +722,37 @@ class OrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets tax_inclusive
      *
-     * @param bool|null $tax_inclusive If <code>true</code>, indicates that the prices supplied are [tax inclusive](https://docs.digitalriver.com/digital-river-api/checkouts-and-orders/shared-properties/configuring-taxes).
+     * @param bool|null $tax_inclusive If <code>true</code>, indicates that the prices supplied are tax inclusive.
      *
      * @return $this
      */
     public function setTaxInclusive($tax_inclusive)
     {
         $this->container['tax_inclusive'] = $tax_inclusive;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_identifiers
+     *
+     * @return \DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]|null
+     */
+    public function getTaxIdentifiers()
+    {
+        return $this->container['tax_identifiers'];
+    }
+
+    /**
+     * Sets tax_identifiers
+     *
+     * @param \DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]|null $tax_identifiers tax_identifiers
+     *
+     * @return $this
+     */
+    public function setTaxIdentifiers($tax_identifiers)
+    {
+        $this->container['tax_identifiers'] = $tax_identifiers;
 
         return $this;
     }
@@ -836,7 +866,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets upstream_id
      *
-     * @param string|null $upstream_id The user checkout identifier if it is different from the Digital River checkout identifier.
+     * @param string|null $upstream_id The upstream identifier.
      *
      * @return $this
      */

@@ -46,8 +46,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'has_more' => 'bool',
-        'data' => '\DigitalRiver\ApiSdk\Model\Invoice[]'
+        'data' => '\DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder[]'
     ];
 
     /**
@@ -56,7 +55,6 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'has_more' => null,
         'data' => null
     ];
 
@@ -87,7 +85,6 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'has_more' => 'hasMore',
         'data' => 'data'
     ];
 
@@ -97,7 +94,6 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'has_more' => 'setHasMore',
         'data' => 'setData'
     ];
 
@@ -107,7 +103,6 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'has_more' => 'getHasMore',
         'data' => 'getData'
     ];
 
@@ -171,7 +166,6 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['has_more'] = isset($data['has_more']) ? $data['has_more'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -200,33 +194,9 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets has_more
-     *
-     * @return bool|null
-     */
-    public function getHasMore()
-    {
-        return $this->container['has_more'];
-    }
-
-    /**
-     * Sets has_more
-     *
-     * @param bool|null $has_more Whether or not there are more elements available after this set. If <code>false</code> this set represents the end of the list.
-     *
-     * @return $this
-     */
-    public function setHasMore($has_more)
-    {
-        $this->container['has_more'] = $has_more;
-
-        return $this;
-    }
-
-    /**
      * Gets data
      *
-     * @return \DigitalRiver\ApiSdk\Model\Invoice[]|null
+     * @return \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder[]|null
      */
     public function getData()
     {
@@ -236,7 +206,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \DigitalRiver\ApiSdk\Model\Invoice[]|null $data data
+     * @param \DigitalRiver\ApiSdk\Model\GlobalFulfillmentOrder[]|null $data data
      *
      * @return $this
      */

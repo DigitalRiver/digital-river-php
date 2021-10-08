@@ -177,8 +177,8 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const API_VERSION_LATEST = 'latest';
     const API_VERSION__DEFAULT = 'default';
+    const API_VERSION_YYYY_MM_DD = '<YYYY-MM-DD>';
     const TRANSPORT_TYPE_HTTP = 'HTTP';
     const TRANSPORT_TYPE_OAUTH = 'OAUTH';
     
@@ -192,8 +192,8 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess
     public function getApiVersionAllowableValues()
     {
        $allowable = [
-            self::API_VERSION_LATEST,
             self::API_VERSION__DEFAULT,
+            self::API_VERSION_YYYY_MM_DD,
         ];
 
         $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
@@ -320,7 +320,7 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets api_version
      *
-     * @param string|null $api_version Indicates whether to use the current default version of the API or the latest version of the API
+     * @param string|null $api_version Indicates whether to use the current, default version of the API or the version specified by YYYY-MM-DD.
      *
      * @return $this
      */

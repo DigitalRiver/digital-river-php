@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**customer_id** | **string** | The identifier of an existing customer. | [optional] 
 **type** | **string** | The type of tax identifier. | 
 **value** | **string** | The tax identifier. | 
 
