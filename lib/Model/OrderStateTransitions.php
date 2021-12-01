@@ -51,6 +51,7 @@ class OrderStateTransitions implements ModelInterface, ArrayAccess
         'pending_payment' => '\DateTime',
         'in_review' => '\DateTime',
         'complete' => '\DateTime',
+        'dispute' => '\DateTime',
         'cancelled' => '\DateTime',
         'fulfilled' => '\DateTime',
         'blocked' => '\DateTime',
@@ -67,6 +68,7 @@ class OrderStateTransitions implements ModelInterface, ArrayAccess
         'pending_payment' => 'date-time',
         'in_review' => 'date-time',
         'complete' => 'date-time',
+        'dispute' => 'date-time',
         'cancelled' => 'date-time',
         'fulfilled' => 'date-time',
         'blocked' => 'date-time',
@@ -104,6 +106,7 @@ class OrderStateTransitions implements ModelInterface, ArrayAccess
         'pending_payment' => 'pending_payment',
         'in_review' => 'in_review',
         'complete' => 'complete',
+        'dispute' => 'dispute',
         'cancelled' => 'cancelled',
         'fulfilled' => 'fulfilled',
         'blocked' => 'blocked',
@@ -120,6 +123,7 @@ class OrderStateTransitions implements ModelInterface, ArrayAccess
         'pending_payment' => 'setPendingPayment',
         'in_review' => 'setInReview',
         'complete' => 'setComplete',
+        'dispute' => 'setDispute',
         'cancelled' => 'setCancelled',
         'fulfilled' => 'setFulfilled',
         'blocked' => 'setBlocked',
@@ -136,6 +140,7 @@ class OrderStateTransitions implements ModelInterface, ArrayAccess
         'pending_payment' => 'getPendingPayment',
         'in_review' => 'getInReview',
         'complete' => 'getComplete',
+        'dispute' => 'getDispute',
         'cancelled' => 'getCancelled',
         'fulfilled' => 'getFulfilled',
         'blocked' => 'getBlocked',
@@ -206,6 +211,7 @@ class OrderStateTransitions implements ModelInterface, ArrayAccess
         $this->container['pending_payment'] = isset($data['pending_payment']) ? $data['pending_payment'] : null;
         $this->container['in_review'] = isset($data['in_review']) ? $data['in_review'] : null;
         $this->container['complete'] = isset($data['complete']) ? $data['complete'] : null;
+        $this->container['dispute'] = isset($data['dispute']) ? $data['dispute'] : null;
         $this->container['cancelled'] = isset($data['cancelled']) ? $data['cancelled'] : null;
         $this->container['fulfilled'] = isset($data['fulfilled']) ? $data['fulfilled'] : null;
         $this->container['blocked'] = isset($data['blocked']) ? $data['blocked'] : null;
@@ -328,6 +334,30 @@ class OrderStateTransitions implements ModelInterface, ArrayAccess
     public function setComplete($complete)
     {
         $this->container['complete'] = $complete;
+
+        return $this;
+    }
+
+    /**
+     * Gets dispute
+     *
+     * @return \DateTime|null
+     */
+    public function getDispute()
+    {
+        return $this->container['dispute'];
+    }
+
+    /**
+     * Sets dispute
+     *
+     * @param \DateTime|null $dispute dispute
+     *
+     * @return $this
+     */
+    public function setDispute($dispute)
+    {
+        $this->container['dispute'] = $dispute;
 
         return $this;
     }

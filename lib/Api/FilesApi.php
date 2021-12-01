@@ -109,9 +109,9 @@ class FilesApi
      *
      * Creates a file.
      *
-     * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). (required)
+     * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). Alternatively, a base64 encoded string may be sent. (required)
      * @param  string $purpose The purpose of the uploaded file. (required)
-     * @param  string $file_name A filename for the file, suitable for saving to a filesystem. (optional)
+     * @param  string $file_name A filename for the file, suitable for saving to a filesystem. fileName is required for a based64 encoded file. (optional)
      * @param  string $title A user friendly title for the document. (optional)
      * @param  \DateTime $link_expires_time Time at which the link expires. (optional)
      *
@@ -130,9 +130,9 @@ class FilesApi
      *
      * Creates a file.
      *
-     * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). (required)
+     * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). Alternatively, a base64 encoded string may be sent. (required)
      * @param  string $purpose The purpose of the uploaded file. (required)
-     * @param  string $file_name A filename for the file, suitable for saving to a filesystem. (optional)
+     * @param  string $file_name A filename for the file, suitable for saving to a filesystem. fileName is required for a based64 encoded file. (optional)
      * @param  string $title A user friendly title for the document. (optional)
      * @param  \DateTime $link_expires_time Time at which the link expires. (optional)
      *
@@ -462,9 +462,9 @@ class FilesApi
      *
      * Creates a file.
      *
-     * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). (required)
+     * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). Alternatively, a base64 encoded string may be sent. (required)
      * @param  string $purpose The purpose of the uploaded file. (required)
-     * @param  string $file_name A filename for the file, suitable for saving to a filesystem. (optional)
+     * @param  string $file_name A filename for the file, suitable for saving to a filesystem. fileName is required for a based64 encoded file. (optional)
      * @param  string $title A user friendly title for the document. (optional)
      * @param  \DateTime $link_expires_time Time at which the link expires. (optional)
      *
@@ -486,9 +486,9 @@ class FilesApi
      *
      * Creates a file.
      *
-     * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). (required)
+     * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). Alternatively, a base64 encoded string may be sent. (required)
      * @param  string $purpose The purpose of the uploaded file. (required)
-     * @param  string $file_name A filename for the file, suitable for saving to a filesystem. (optional)
+     * @param  string $file_name A filename for the file, suitable for saving to a filesystem. fileName is required for a based64 encoded file. (optional)
      * @param  string $title A user friendly title for the document. (optional)
      * @param  \DateTime $link_expires_time Time at which the link expires. (optional)
      *
@@ -537,9 +537,9 @@ class FilesApi
     /**
      * Create request for operation 'createFiles'
      *
-     * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). (required)
+     * @param  \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). Alternatively, a base64 encoded string may be sent. (required)
      * @param  string $purpose The purpose of the uploaded file. (required)
-     * @param  string $file_name A filename for the file, suitable for saving to a filesystem. (optional)
+     * @param  string $file_name A filename for the file, suitable for saving to a filesystem. fileName is required for a based64 encoded file. (optional)
      * @param  string $title A user friendly title for the document. (optional)
      * @param  \DateTime $link_expires_time Time at which the link expires. (optional)
      *
@@ -614,7 +614,7 @@ class FilesApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['multipart/form-data']
+                ['multipart/form-data', 'application/JSON']
             );
         }
 

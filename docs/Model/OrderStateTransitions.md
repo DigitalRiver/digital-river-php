@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **pending_payment** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **in_review** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **complete** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**dispute** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **cancelled** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **fulfilled** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **blocked** | [**\DateTime**](\DateTime.md) |  | [optional] 

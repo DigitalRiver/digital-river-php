@@ -52,7 +52,7 @@ class Billing implements ModelInterface, ArrayAccess
         'phone' => 'string',
         'email' => 'string',
         'organization' => 'string',
-        'additional_address_info' => '\DigitalRiver\ApiSdk\Model\AdditionalAddressInfo'
+        'additional_address_info' => '\DigitalRiver\ApiSdk\Model\AdditionalBillingAddressInfo'
     ];
 
     /**
@@ -350,7 +350,7 @@ class Billing implements ModelInterface, ArrayAccess
     /**
      * Gets additional_address_info
      *
-     * @return \DigitalRiver\ApiSdk\Model\AdditionalAddressInfo|null
+     * @return \DigitalRiver\ApiSdk\Model\AdditionalBillingAddressInfo|null
      */
     public function getAdditionalAddressInfo()
     {
@@ -360,7 +360,7 @@ class Billing implements ModelInterface, ArrayAccess
     /**
      * Sets additional_address_info
      *
-     * @param \DigitalRiver\ApiSdk\Model\AdditionalAddressInfo|null $additional_address_info additional_address_info
+     * @param \DigitalRiver\ApiSdk\Model\AdditionalBillingAddressInfo|null $additional_address_info additional_address_info
      *
      * @return $this
      */

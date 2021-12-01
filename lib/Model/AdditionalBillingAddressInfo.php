@@ -1,6 +1,6 @@
 <?php
 /**
- * SkuGroup
+ * AdditionalBillingAddressInfo
  *
  * PHP version 7.2
  *
@@ -22,14 +22,15 @@ use \ArrayAccess;
 use \DigitalRiver\ApiSdk\ObjectSerializer;
 
 /**
- * SkuGroup Class Doc Comment
+ * AdditionalBillingAddressInfo Class Doc Comment
  *
  * @category Class
+ * @description Captures any information that&#39;s not included in the basic address.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class SkuGroup implements ModelInterface, ArrayAccess
+class AdditionalBillingAddressInfo implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -38,7 +39,7 @@ class SkuGroup implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SkuGroup';
+    protected static $openAPIModelName = 'AdditionalBillingAddressInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -46,8 +47,10 @@ class SkuGroup implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'alias' => 'string'
+        'neighborhood' => 'string',
+        'division' => 'string',
+        'phonetic_name' => 'string',
+        'title' => 'string'
     ];
 
     /**
@@ -56,8 +59,10 @@ class SkuGroup implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'alias' => null
+        'neighborhood' => null,
+        'division' => null,
+        'phonetic_name' => null,
+        'title' => null
     ];
 
     /**
@@ -87,8 +92,10 @@ class SkuGroup implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'alias' => 'alias'
+        'neighborhood' => 'neighborhood',
+        'division' => 'division',
+        'phonetic_name' => 'phoneticName',
+        'title' => 'title'
     ];
 
     /**
@@ -97,8 +104,10 @@ class SkuGroup implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'alias' => 'setAlias'
+        'neighborhood' => 'setNeighborhood',
+        'division' => 'setDivision',
+        'phonetic_name' => 'setPhoneticName',
+        'title' => 'setTitle'
     ];
 
     /**
@@ -107,8 +116,10 @@ class SkuGroup implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'alias' => 'getAlias'
+        'neighborhood' => 'getNeighborhood',
+        'division' => 'getDivision',
+        'phonetic_name' => 'getPhoneticName',
+        'title' => 'getTitle'
     ];
 
     /**
@@ -152,8 +163,28 @@ class SkuGroup implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const TITLE_M = 'M';
+    const TITLE_MME = 'Mme';
+    const TITLE_MLLE = 'Mlle';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTitleAllowableValues()
+    {
+       $allowable = [
+            self::TITLE_M,
+            self::TITLE_MME,
+            self::TITLE_MLLE,
+        ];
+
+        $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
+        return $allowableAllCase;
+    }
     
 
     /**
@@ -171,8 +202,10 @@ class SkuGroup implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['alias'] = isset($data['alias']) ? $data['alias'] : null;
+        $this->container['neighborhood'] = isset($data['neighborhood']) ? $data['neighborhood'] : null;
+        $this->container['division'] = isset($data['division']) ? $data['division'] : null;
+        $this->container['phonetic_name'] = isset($data['phonetic_name']) ? $data['phonetic_name'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
     }
 
     /**
@@ -183,6 +216,15 @@ class SkuGroup implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTitleAllowableValues();
+       
+        if (!is_null($this->container['title']) && !in_array(strtolower($this->container['title']), $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'title', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -200,49 +242,106 @@ class SkuGroup implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets neighborhood
      *
      * @return string|null
      */
-    public function getId()
+    public function getNeighborhood()
     {
-        return $this->container['id'];
+        return $this->container['neighborhood'];
     }
 
     /**
-     * Sets id
+     * Sets neighborhood
      *
-     * @param string|null $id The unique identifier of the Sku Group.
+     * @param string|null $neighborhood The neighborhood of the address.
      *
      * @return $this
      */
-    public function setId($id)
+    public function setNeighborhood($neighborhood)
     {
-        $this->container['id'] = $id;
+        $this->container['neighborhood'] = $neighborhood;
 
         return $this;
     }
 
     /**
-     * Gets alias
+     * Gets division
      *
      * @return string|null
      */
-    public function getAlias()
+    public function getDivision()
     {
-        return $this->container['alias'];
+        return $this->container['division'];
     }
 
     /**
-     * Sets alias
+     * Sets division
      *
-     * @param string|null $alias A short usable value that represents the product code.
+     * @param string|null $division A division within an organization.
      *
      * @return $this
      */
-    public function setAlias($alias)
+    public function setDivision($division)
     {
-        $this->container['alias'] = $alias;
+        $this->container['division'] = $division;
+
+        return $this;
+    }
+
+    /**
+     * Gets phonetic_name
+     *
+     * @return string|null
+     */
+    public function getPhoneticName()
+    {
+        return $this->container['phonetic_name'];
+    }
+
+    /**
+     * Sets phonetic_name
+     *
+     * @param string|null $phonetic_name The phonetic spelling of a name.
+     *
+     * @return $this
+     */
+    public function setPhoneticName($phonetic_name)
+    {
+        $this->container['phonetic_name'] = $phonetic_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title title
+     *
+     * @return $this
+     */
+    public function setTitle($title)
+    {
+        $allowedValues = $this->getTitleAllowableValues();
+        if (!is_null($title) && !in_array(strtolower($title), $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'title', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['title'] = $title;
 
         return $this;
     }

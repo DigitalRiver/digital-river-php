@@ -265,7 +265,7 @@ class FileRequest implements ModelInterface, ArrayAccess
     /**
      * Sets file
      *
-     * @param \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol).
+     * @param \SplFileObject $file A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). Alternatively, a base64 encoded string may be sent.
      *
      * @return $this
      */
@@ -322,7 +322,7 @@ class FileRequest implements ModelInterface, ArrayAccess
     /**
      * Sets file_name
      *
-     * @param string|null $file_name A filename for the file, suitable for saving to a filesystem.
+     * @param string|null $file_name A filename for the file, suitable for saving to a filesystem. fileName is required for a based64 encoded file.
      *
      * @return $this
      */
