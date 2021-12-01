@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Creates a file.
 
-To upload a file to Digital River, you’ll need to send a request of type <code>multipart/form-data</code>. The request should contain the file you would like to upload, as well as the parameters for creating a file.
+To upload a file to Digital River, you’ll need to send a request of type <code>multipart/form-data</code>. The request should contain the file you would like to upload, as well as the parameters for creating a file. For appliation/JSON request type, a base64 encoded string may be sent in the payload.
 
 ### Example
 
@@ -36,11 +36,11 @@ $apiInstance = new DigitalRiver\ApiSdk\Api\FilesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$file = "/path/to/file.txt"; // \SplFileObject | A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol).
+$file = "/path/to/file.txt"; // \SplFileObject | A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). Alternatively, a base64 encoded string may be sent.
 
 $purpose = 'purpose_example'; // string | The purpose of the uploaded file.
 
-$file_name = 'file_name_example'; // string | A filename for the file, suitable for saving to a filesystem.
+$file_name = 'file_name_example'; // string | A filename for the file, suitable for saving to a filesystem. fileName is required for a based64 encoded file.
 
 $title = 'title_example'; // string | A user friendly title for the document.
 
@@ -61,9 +61,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **\SplFileObject****\SplFileObject**| A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). |
+ **file** | **\SplFileObject****\SplFileObject**| A file to upload. The file should follow the specifications of RFC 2388 (which defines file transfers for the multipart/form-data protocol). Alternatively, a base64 encoded string may be sent. |
  **purpose** | **string**| The purpose of the uploaded file. |
- **file_name** | **string**| A filename for the file, suitable for saving to a filesystem. | [optional]
+ **file_name** | **string**| A filename for the file, suitable for saving to a filesystem. fileName is required for a based64 encoded file. | [optional]
  **title** | **string**| A user friendly title for the document. | [optional]
  **link_expires_time** | **\DateTime**| Time at which the link expires. | [optional]
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: multipart/form-data
+- **Content-Type**: multipart/form-data, application/JSON
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)

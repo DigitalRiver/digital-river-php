@@ -1,6 +1,6 @@
 <?php
 /**
- * SkuGroup
+ * FileJsonRequest
  *
  * PHP version 7.2
  *
@@ -22,14 +22,14 @@ use \ArrayAccess;
 use \DigitalRiver\ApiSdk\ObjectSerializer;
 
 /**
- * SkuGroup Class Doc Comment
+ * FileJsonRequest Class Doc Comment
  *
  * @category Class
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class SkuGroup implements ModelInterface, ArrayAccess
+class FileJsonRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -38,7 +38,7 @@ class SkuGroup implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SkuGroup';
+    protected static $openAPIModelName = 'FileJsonRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -46,8 +46,11 @@ class SkuGroup implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'alias' => 'string'
+        'file' => '\SplFileObject',
+        'purpose' => 'string',
+        'file_name' => 'string',
+        'title' => 'string',
+        'link_expires_time' => '\DateTime'
     ];
 
     /**
@@ -56,8 +59,11 @@ class SkuGroup implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'alias' => null
+        'file' => 'binary',
+        'purpose' => null,
+        'file_name' => null,
+        'title' => null,
+        'link_expires_time' => 'date-time'
     ];
 
     /**
@@ -87,8 +93,11 @@ class SkuGroup implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'alias' => 'alias'
+        'file' => 'file',
+        'purpose' => 'purpose',
+        'file_name' => 'fileName',
+        'title' => 'title',
+        'link_expires_time' => 'linkExpiresTime'
     ];
 
     /**
@@ -97,8 +106,11 @@ class SkuGroup implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'alias' => 'setAlias'
+        'file' => 'setFile',
+        'purpose' => 'setPurpose',
+        'file_name' => 'setFileName',
+        'title' => 'setTitle',
+        'link_expires_time' => 'setLinkExpiresTime'
     ];
 
     /**
@@ -107,8 +119,11 @@ class SkuGroup implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'alias' => 'getAlias'
+        'file' => 'getFile',
+        'purpose' => 'getPurpose',
+        'file_name' => 'getFileName',
+        'title' => 'getTitle',
+        'link_expires_time' => 'getLinkExpiresTime'
     ];
 
     /**
@@ -152,8 +167,28 @@ class SkuGroup implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const PURPOSE_TAX_DOCUMENT_CUSTOMER_UPLOAD = 'tax_document_customer_upload';
+    const PURPOSE_CUSTOMER_INVOICE = 'customer_invoice';
+    const PURPOSE_CUSTOMER_CREDIT_MEMO = 'customer_credit_memo';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPurposeAllowableValues()
+    {
+       $allowable = [
+            self::PURPOSE_TAX_DOCUMENT_CUSTOMER_UPLOAD,
+            self::PURPOSE_CUSTOMER_INVOICE,
+            self::PURPOSE_CUSTOMER_CREDIT_MEMO,
+        ];
+
+        $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
+        return $allowableAllCase;
+    }
     
 
     /**
@@ -171,8 +206,11 @@ class SkuGroup implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['alias'] = isset($data['alias']) ? $data['alias'] : null;
+        $this->container['file'] = isset($data['file']) ? $data['file'] : null;
+        $this->container['purpose'] = isset($data['purpose']) ? $data['purpose'] : null;
+        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['link_expires_time'] = isset($data['link_expires_time']) ? $data['link_expires_time'] : null;
     }
 
     /**
@@ -184,6 +222,24 @@ class SkuGroup implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['file'] === null) {
+            $invalidProperties[] = "'file' can't be null";
+        }
+        if ($this->container['purpose'] === null) {
+            $invalidProperties[] = "'purpose' can't be null";
+        }
+        $allowedValues = $this->getPurposeAllowableValues();
+       
+        if (!is_null($this->container['purpose']) && !in_array(strtolower($this->container['purpose']), $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'purpose', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['file_name'] === null) {
+            $invalidProperties[] = "'file_name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -200,49 +256,130 @@ class SkuGroup implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets file
      *
-     * @return string|null
+     * @return \SplFileObject
      */
-    public function getId()
+    public function getFile()
     {
-        return $this->container['id'];
+        return $this->container['file'];
     }
 
     /**
-     * Sets id
+     * Sets file
      *
-     * @param string|null $id The unique identifier of the Sku Group.
+     * @param \SplFileObject $file For application/JSON protocol, a base64 encoded string may be sent.
      *
      * @return $this
      */
-    public function setId($id)
+    public function setFile($file)
     {
-        $this->container['id'] = $id;
+        $this->container['file'] = $file;
 
         return $this;
     }
 
     /**
-     * Gets alias
+     * Gets purpose
      *
-     * @return string|null
+     * @return string
      */
-    public function getAlias()
+    public function getPurpose()
     {
-        return $this->container['alias'];
+        return $this->container['purpose'];
     }
 
     /**
-     * Sets alias
+     * Sets purpose
      *
-     * @param string|null $alias A short usable value that represents the product code.
+     * @param string $purpose The purpose of the uploaded file.
      *
      * @return $this
      */
-    public function setAlias($alias)
+    public function setPurpose($purpose)
     {
-        $this->container['alias'] = $alias;
+        $allowedValues = $this->getPurposeAllowableValues();
+        if (!in_array(strtolower($purpose), $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'purpose', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['purpose'] = $purpose;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_name
+     *
+     * @return string
+     */
+    public function getFileName()
+    {
+        return $this->container['file_name'];
+    }
+
+    /**
+     * Sets file_name
+     *
+     * @param string $file_name A filename for the file, suitable for saving to a filesystem.
+     *
+     * @return $this
+     */
+    public function setFileName($file_name)
+    {
+        $this->container['file_name'] = $file_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title A user friendly title for the document.
+     *
+     * @return $this
+     */
+    public function setTitle($title)
+    {
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets link_expires_time
+     *
+     * @return \DateTime|null
+     */
+    public function getLinkExpiresTime()
+    {
+        return $this->container['link_expires_time'];
+    }
+
+    /**
+     * Sets link_expires_time
+     *
+     * @param \DateTime|null $link_expires_time Time at which the link expires.
+     *
+     * @return $this
+     */
+    public function setLinkExpiresTime($link_expires_time)
+    {
+        $this->container['link_expires_time'] = $link_expires_time;
 
         return $this;
     }

@@ -376,6 +376,7 @@ class Order implements ModelInterface, ArrayAccess
     const STATE_BLOCKED = 'blocked';
     const STATE_PENDING_PAYMENT = 'pending_payment';
     const STATE_IN_REVIEW = 'in_review';
+    const STATE_DISPUTE = 'dispute';
     const STATE_CANCELLED = 'cancelled';
     const STATE_FULFILLED = 'fulfilled';
     const STATE_COMPLETE = 'complete';
@@ -398,6 +399,7 @@ class Order implements ModelInterface, ArrayAccess
             self::STATE_BLOCKED,
             self::STATE_PENDING_PAYMENT,
             self::STATE_IN_REVIEW,
+            self::STATE_DISPUTE,
             self::STATE_CANCELLED,
             self::STATE_FULFILLED,
             self::STATE_COMPLETE,
