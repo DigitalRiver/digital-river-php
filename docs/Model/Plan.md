@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **created_time** | [**\DateTime**](\DateTime.md) | The time when the Plan was created. | [optional] 
 **name** | **string** | Describes the subscription products or services added to this plan. | [optional] 
 **reminder_offset_days** | **int** | How many days before the opening of the invoice should the reminder event be triggered. | [optional] 
+**billing_optimization** | **bool** | Indicates whether billing optimization is activated. | [optional] 
 **billing_offset_days** | **int** | The number of days before the opening of the invoice that the reminder event is triggered. | 
 **collection_period_days** | **int** | Represents the number of days that Digital River attempts to collect payment. | 
 **state** | **string** | The valid states of a plan. Setting a plan to &lt;code&gt;deactivated&lt;/code&gt; causes all connected subscriptions to end with the current period. | [optional] 

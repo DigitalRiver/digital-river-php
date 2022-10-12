@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ship_to** | [**\DigitalRiver\ApiSdk\Model\ShippingQuoteAddress**](ShippingQuoteAddress.md) |  | [optional] 
+**currency** | **string** | A three-letter ISO currency code. | [optional] 
 **quotes** | [**\DigitalRiver\ApiSdk\Model\ShippingQuote[]**](ShippingQuote.md) |  | [optional] 
 **live_mode** | **bool** | Has the value true if the object exists in live mode or the value false if the object exists in test mode. | [optional] 
 

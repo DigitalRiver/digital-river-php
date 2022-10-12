@@ -179,6 +179,7 @@ class Cancel implements ModelInterface, ArrayAccess
     }
 
     const STATE_PENDING = 'pending';
+    const STATE_PENDING_INFORMATION = 'pending_information';
     const STATE_COMPLETE = 'complete';
     const STATE_FAILED = 'failed';
     
@@ -193,6 +194,7 @@ class Cancel implements ModelInterface, ArrayAccess
     {
        $allowable = [
             self::STATE_PENDING,
+            self::STATE_PENDING_INFORMATION,
             self::STATE_COMPLETE,
             self::STATE_FAILED,
         ];

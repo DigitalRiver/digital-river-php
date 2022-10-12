@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**inventory_item_id** | **string** | The inventory item identifier. | 
-**price** | **double** | The unit price of the product. | 
+**product_details** | [**\DigitalRiver\ApiSdk\Model\ProductDetails**](ProductDetails.md) |  | 
+**amount** | **double** | The amount of the product. | [optional] 
 **quantity** | **int** |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

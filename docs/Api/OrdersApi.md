@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Creates a new order.
 
-Creates a new order.
+Creates a new order. For more details, refer to [Converting a checkout to an order](https://docs.digitalriver.com/digital-river-api/order-management/orders/creating-and-updating-an-order#creating-an-order-with-the-checkout-identifier).
 
 ### Example
 

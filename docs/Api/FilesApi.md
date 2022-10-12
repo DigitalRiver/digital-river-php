@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createFiles**](FilesApi.md#createFiles) | **POST** /files | Creates a file.
 [**deleteFiles**](FilesApi.md#deleteFiles) | **DELETE** /files/{id} | Deletes a file by ID.
+[**downloadFiles**](FilesApi.md#downloadFiles) | **GET** /files/{id}/content | Gets file content by ID.
 [**listFiles**](FilesApi.md#listFiles) | **GET** /files | Returns a list of files.
 [**retrieveFiles**](FilesApi.md#retrieveFiles) | **GET** /files/{id} | Gets a file by ID.
 
@@ -131,6 +132,68 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## downloadFiles
+
+> \DigitalRiver\ApiSdk\Model\FileContent downloadFiles($id)
+
+Gets file content by ID.
+
+Allows the caller to download the contents of the file associated with File resource. You must supply the unique identifier of the file.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = DigitalRiver\ApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new DigitalRiver\ApiSdk\Api\FilesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | File identifier.
+
+
+try {
+    $result = $apiInstance->downloadFiles($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FilesApi->downloadFiles: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| File identifier. |
+
+### Return type
+
+[**\DigitalRiver\ApiSdk\Model\FileContent**](../Model/FileContent.md)
 
 ### Authorization
 

@@ -51,6 +51,7 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'currency' => 'string',
         'email' => 'string',
         'locale' => 'string',
+        'invoice_attribute_id' => 'string',
         'browser_ip' => 'string',
         'application_id' => 'string',
         'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]',
@@ -61,8 +62,8 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'shipping_discount' => '\DigitalRiver\ApiSdk\Model\Discount',
         'charge_type' => '\DigitalRiver\ApiSdk\Model\ChargeType',
         'customer_type' => '\DigitalRiver\ApiSdk\Model\CustomerType',
-        'shipping_choice' => '\DigitalRiver\ApiSdk\Model\ShippingRequest',
         'purchase_location' => '\DigitalRiver\ApiSdk\Model\PurchaseLocation',
+        'shipping_choice' => '\DigitalRiver\ApiSdk\Model\ShippingRequest',
         'items' => '\DigitalRiver\ApiSdk\Model\SkuUpdateRequestItem',
         'upstream_id' => 'string',
         'metadata' => 'map[string,AnyType]'
@@ -79,6 +80,7 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'currency' => null,
         'email' => 'email',
         'locale' => null,
+        'invoice_attribute_id' => null,
         'browser_ip' => null,
         'application_id' => null,
         'tax_identifiers' => null,
@@ -89,8 +91,8 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'shipping_discount' => null,
         'charge_type' => null,
         'customer_type' => null,
-        'shipping_choice' => null,
         'purchase_location' => null,
+        'shipping_choice' => null,
         'items' => null,
         'upstream_id' => null,
         'metadata' => null
@@ -128,6 +130,7 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'currency' => 'currency',
         'email' => 'email',
         'locale' => 'locale',
+        'invoice_attribute_id' => 'invoiceAttributeId',
         'browser_ip' => 'browserIp',
         'application_id' => 'applicationId',
         'tax_identifiers' => 'taxIdentifiers',
@@ -138,8 +141,8 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'shipping_discount' => 'shippingDiscount',
         'charge_type' => 'chargeType',
         'customer_type' => 'customerType',
-        'shipping_choice' => 'shippingChoice',
         'purchase_location' => 'purchaseLocation',
+        'shipping_choice' => 'shippingChoice',
         'items' => 'items',
         'upstream_id' => 'upstreamId',
         'metadata' => 'metadata'
@@ -156,6 +159,7 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'currency' => 'setCurrency',
         'email' => 'setEmail',
         'locale' => 'setLocale',
+        'invoice_attribute_id' => 'setInvoiceAttributeId',
         'browser_ip' => 'setBrowserIp',
         'application_id' => 'setApplicationId',
         'tax_identifiers' => 'setTaxIdentifiers',
@@ -166,8 +170,8 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'shipping_discount' => 'setShippingDiscount',
         'charge_type' => 'setChargeType',
         'customer_type' => 'setCustomerType',
-        'shipping_choice' => 'setShippingChoice',
         'purchase_location' => 'setPurchaseLocation',
+        'shipping_choice' => 'setShippingChoice',
         'items' => 'setItems',
         'upstream_id' => 'setUpstreamId',
         'metadata' => 'setMetadata'
@@ -184,6 +188,7 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'currency' => 'getCurrency',
         'email' => 'getEmail',
         'locale' => 'getLocale',
+        'invoice_attribute_id' => 'getInvoiceAttributeId',
         'browser_ip' => 'getBrowserIp',
         'application_id' => 'getApplicationId',
         'tax_identifiers' => 'getTaxIdentifiers',
@@ -194,8 +199,8 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'shipping_discount' => 'getShippingDiscount',
         'charge_type' => 'getChargeType',
         'customer_type' => 'getCustomerType',
-        'shipping_choice' => 'getShippingChoice',
         'purchase_location' => 'getPurchaseLocation',
+        'shipping_choice' => 'getShippingChoice',
         'items' => 'getItems',
         'upstream_id' => 'getUpstreamId',
         'metadata' => 'getMetadata'
@@ -266,6 +271,7 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
+        $this->container['invoice_attribute_id'] = isset($data['invoice_attribute_id']) ? $data['invoice_attribute_id'] : null;
         $this->container['browser_ip'] = isset($data['browser_ip']) ? $data['browser_ip'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
         $this->container['tax_identifiers'] = isset($data['tax_identifiers']) ? $data['tax_identifiers'] : null;
@@ -276,8 +282,8 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         $this->container['shipping_discount'] = isset($data['shipping_discount']) ? $data['shipping_discount'] : null;
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['customer_type'] = isset($data['customer_type']) ? $data['customer_type'] : null;
-        $this->container['shipping_choice'] = isset($data['shipping_choice']) ? $data['shipping_choice'] : null;
         $this->container['purchase_location'] = isset($data['purchase_location']) ? $data['purchase_location'] : null;
+        $this->container['shipping_choice'] = isset($data['shipping_choice']) ? $data['shipping_choice'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['upstream_id'] = isset($data['upstream_id']) ? $data['upstream_id'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
@@ -423,6 +429,30 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
     public function setLocale($locale)
     {
         $this->container['locale'] = $locale;
+
+        return $this;
+    }
+
+    /**
+     * Gets invoice_attribute_id
+     *
+     * @return string|null
+     */
+    public function getInvoiceAttributeId()
+    {
+        return $this->container['invoice_attribute_id'];
+    }
+
+    /**
+     * Sets invoice_attribute_id
+     *
+     * @param string|null $invoice_attribute_id The unique identfier of the invoice attribute.
+     *
+     * @return $this
+     */
+    public function setInvoiceAttributeId($invoice_attribute_id)
+    {
+        $this->container['invoice_attribute_id'] = $invoice_attribute_id;
 
         return $this;
     }
@@ -668,30 +698,6 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets shipping_choice
-     *
-     * @return \DigitalRiver\ApiSdk\Model\ShippingRequest|null
-     */
-    public function getShippingChoice()
-    {
-        return $this->container['shipping_choice'];
-    }
-
-    /**
-     * Sets shipping_choice
-     *
-     * @param \DigitalRiver\ApiSdk\Model\ShippingRequest|null $shipping_choice shipping_choice
-     *
-     * @return $this
-     */
-    public function setShippingChoice($shipping_choice)
-    {
-        $this->container['shipping_choice'] = $shipping_choice;
-
-        return $this;
-    }
-
-    /**
      * Gets purchase_location
      *
      * @return \DigitalRiver\ApiSdk\Model\PurchaseLocation|null
@@ -711,6 +717,30 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
     public function setPurchaseLocation($purchase_location)
     {
         $this->container['purchase_location'] = $purchase_location;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_choice
+     *
+     * @return \DigitalRiver\ApiSdk\Model\ShippingRequest|null
+     */
+    public function getShippingChoice()
+    {
+        return $this->container['shipping_choice'];
+    }
+
+    /**
+     * Sets shipping_choice
+     *
+     * @param \DigitalRiver\ApiSdk\Model\ShippingRequest|null $shipping_choice shipping_choice
+     *
+     * @return $this
+     */
+    public function setShippingChoice($shipping_choice)
+    {
+        $this->container['shipping_choice'] = $shipping_choice;
 
         return $this;
     }

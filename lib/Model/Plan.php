@@ -57,6 +57,7 @@ class Plan implements ModelInterface, ArrayAccess
         'created_time' => '\DateTime',
         'name' => 'string',
         'reminder_offset_days' => 'int',
+        'billing_optimization' => 'bool',
         'billing_offset_days' => 'int',
         'collection_period_days' => 'int',
         'state' => 'string',
@@ -80,6 +81,7 @@ class Plan implements ModelInterface, ArrayAccess
         'created_time' => 'date-time',
         'name' => null,
         'reminder_offset_days' => null,
+        'billing_optimization' => null,
         'billing_offset_days' => null,
         'collection_period_days' => null,
         'state' => null,
@@ -124,6 +126,7 @@ class Plan implements ModelInterface, ArrayAccess
         'created_time' => 'createdTime',
         'name' => 'name',
         'reminder_offset_days' => 'reminderOffsetDays',
+        'billing_optimization' => 'billingOptimization',
         'billing_offset_days' => 'billingOffsetDays',
         'collection_period_days' => 'collectionPeriodDays',
         'state' => 'state',
@@ -147,6 +150,7 @@ class Plan implements ModelInterface, ArrayAccess
         'created_time' => 'setCreatedTime',
         'name' => 'setName',
         'reminder_offset_days' => 'setReminderOffsetDays',
+        'billing_optimization' => 'setBillingOptimization',
         'billing_offset_days' => 'setBillingOffsetDays',
         'collection_period_days' => 'setCollectionPeriodDays',
         'state' => 'setState',
@@ -170,6 +174,7 @@ class Plan implements ModelInterface, ArrayAccess
         'created_time' => 'getCreatedTime',
         'name' => 'getName',
         'reminder_offset_days' => 'getReminderOffsetDays',
+        'billing_optimization' => 'getBillingOptimization',
         'billing_offset_days' => 'getBillingOffsetDays',
         'collection_period_days' => 'getCollectionPeriodDays',
         'state' => 'getState',
@@ -291,6 +296,7 @@ class Plan implements ModelInterface, ArrayAccess
         $this->container['created_time'] = isset($data['created_time']) ? $data['created_time'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['reminder_offset_days'] = isset($data['reminder_offset_days']) ? $data['reminder_offset_days'] : null;
+        $this->container['billing_optimization'] = isset($data['billing_optimization']) ? $data['billing_optimization'] : null;
         $this->container['billing_offset_days'] = isset($data['billing_offset_days']) ? $data['billing_offset_days'] : null;
         $this->container['collection_period_days'] = isset($data['collection_period_days']) ? $data['collection_period_days'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
@@ -626,6 +632,30 @@ class Plan implements ModelInterface, ArrayAccess
     public function setReminderOffsetDays($reminder_offset_days)
     {
         $this->container['reminder_offset_days'] = $reminder_offset_days;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_optimization
+     *
+     * @return bool|null
+     */
+    public function getBillingOptimization()
+    {
+        return $this->container['billing_optimization'];
+    }
+
+    /**
+     * Sets billing_optimization
+     *
+     * @param bool|null $billing_optimization Indicates whether billing optimization is activated.
+     *
+     * @return $this
+     */
+    public function setBillingOptimization($billing_optimization)
+    {
+        $this->container['billing_optimization'] = $billing_optimization;
 
         return $this;
     }

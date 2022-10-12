@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **browser_ip** | **string** | The IP address of the browser used by the customer when placing the order. | [optional] 
 **application_id** | **string** | An arbitrary string identifier that can be used to track the application type. | [optional] [readonly] 
 **tax_identifiers** | [**\DigitalRiver\ApiSdk\Model\TaxIdentifier[]**](TaxIdentifier.md) | A list of the tax identifiers applied to this order. | [optional] 
+**invoice_attributes** | [**\DigitalRiver\ApiSdk\Model\InvoiceAttributes**](InvoiceAttributes.md) |  | [optional] 
 **ship_from** | [**\DigitalRiver\ApiSdk\Model\ShipFrom**](ShipFrom.md) |  | [optional] 
 **ship_to** | [**\DigitalRiver\ApiSdk\Model\Shipping**](Shipping.md) |  | [optional] 
 **bill_to** | [**\DigitalRiver\ApiSdk\Model\Billing**](Billing.md) |  | [optional] 

@@ -49,7 +49,7 @@ class Subscription implements ModelInterface, ArrayAccess
         'contract_binding_until' => '\DateTime',
         'created_time' => '\DateTime',
         'updated_time' => '\DateTime',
-        'state_transitions' => '\DigitalRiver\ApiSdk\Model\StateTransitions',
+        'state_transitions' => '\DigitalRiver\ApiSdk\Model\SubscriptionStateTransitions',
         'live_mode' => 'bool',
         'id' => 'string',
         'billing_agreement_id' => 'string',
@@ -64,6 +64,7 @@ class Subscription implements ModelInterface, ArrayAccess
         'items' => '\DigitalRiver\ApiSdk\Model\SubscriptionItems[]',
         'current_period_end_date' => '\DateTime',
         'next_invoice_date' => '\DateTime',
+        'next_reminder_date' => '\DateTime',
         'metadata' => 'map[string,AnyType]'
     ];
 
@@ -91,6 +92,7 @@ class Subscription implements ModelInterface, ArrayAccess
         'items' => null,
         'current_period_end_date' => 'date-time',
         'next_invoice_date' => 'date-time',
+        'next_reminder_date' => 'date-time',
         'metadata' => null
     ];
 
@@ -139,6 +141,7 @@ class Subscription implements ModelInterface, ArrayAccess
         'items' => 'items',
         'current_period_end_date' => 'currentPeriodEndDate',
         'next_invoice_date' => 'nextInvoiceDate',
+        'next_reminder_date' => 'nextReminderDate',
         'metadata' => 'metadata'
     ];
 
@@ -166,6 +169,7 @@ class Subscription implements ModelInterface, ArrayAccess
         'items' => 'setItems',
         'current_period_end_date' => 'setCurrentPeriodEndDate',
         'next_invoice_date' => 'setNextInvoiceDate',
+        'next_reminder_date' => 'setNextReminderDate',
         'metadata' => 'setMetadata'
     ];
 
@@ -193,6 +197,7 @@ class Subscription implements ModelInterface, ArrayAccess
         'items' => 'getItems',
         'current_period_end_date' => 'getCurrentPeriodEndDate',
         'next_invoice_date' => 'getNextInvoiceDate',
+        'next_reminder_date' => 'getNextReminderDate',
         'metadata' => 'getMetadata'
     ];
 
@@ -240,6 +245,7 @@ class Subscription implements ModelInterface, ArrayAccess
     const STATE_DRAFT = 'draft';
     const STATE_ACTIVE_PENDING_INVOICE = 'activePendingInvoice';
     const STATE_ACTIVE = 'active';
+    const STATE_ACTIVE_FREE = 'activeFree';
     const STATE_FAILED = 'failed';
     const STATE_CANCELLED = 'cancelled';
     const STATE_ENDED = 'ended';
@@ -257,6 +263,7 @@ class Subscription implements ModelInterface, ArrayAccess
             self::STATE_DRAFT,
             self::STATE_ACTIVE_PENDING_INVOICE,
             self::STATE_ACTIVE,
+            self::STATE_ACTIVE_FREE,
             self::STATE_FAILED,
             self::STATE_CANCELLED,
             self::STATE_ENDED,
@@ -300,6 +307,7 @@ class Subscription implements ModelInterface, ArrayAccess
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['current_period_end_date'] = isset($data['current_period_end_date']) ? $data['current_period_end_date'] : null;
         $this->container['next_invoice_date'] = isset($data['next_invoice_date']) ? $data['next_invoice_date'] : null;
+        $this->container['next_reminder_date'] = isset($data['next_reminder_date']) ? $data['next_reminder_date'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
     }
 
@@ -417,7 +425,7 @@ class Subscription implements ModelInterface, ArrayAccess
     /**
      * Gets state_transitions
      *
-     * @return \DigitalRiver\ApiSdk\Model\StateTransitions|null
+     * @return \DigitalRiver\ApiSdk\Model\SubscriptionStateTransitions|null
      */
     public function getStateTransitions()
     {
@@ -427,7 +435,7 @@ class Subscription implements ModelInterface, ArrayAccess
     /**
      * Sets state_transitions
      *
-     * @param \DigitalRiver\ApiSdk\Model\StateTransitions|null $state_transitions state_transitions
+     * @param \DigitalRiver\ApiSdk\Model\SubscriptionStateTransitions|null $state_transitions state_transitions
      *
      * @return $this
      */
@@ -779,6 +787,30 @@ class Subscription implements ModelInterface, ArrayAccess
     public function setNextInvoiceDate($next_invoice_date)
     {
         $this->container['next_invoice_date'] = $next_invoice_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_reminder_date
+     *
+     * @return \DateTime|null
+     */
+    public function getNextReminderDate()
+    {
+        return $this->container['next_reminder_date'];
+    }
+
+    /**
+     * Sets next_reminder_date
+     *
+     * @param \DateTime|null $next_reminder_date Date when the next reminder event will be sent.
+     *
+     * @return $this
+     */
+    public function setNextReminderDate($next_reminder_date)
+    {
+        $this->container['next_reminder_date'] = $next_reminder_date;
 
         return $this;
     }

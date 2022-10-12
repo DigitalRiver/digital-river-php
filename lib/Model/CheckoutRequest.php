@@ -51,6 +51,7 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
         'currency' => 'string',
         'email' => 'string',
         'locale' => 'string',
+        'invoice_attribute_id' => 'string',
         'application_id' => 'string',
         'browser_ip' => 'string',
         'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]',
@@ -81,6 +82,7 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
         'currency' => null,
         'email' => 'email',
         'locale' => null,
+        'invoice_attribute_id' => null,
         'application_id' => null,
         'browser_ip' => null,
         'tax_identifiers' => null,
@@ -132,6 +134,7 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
         'currency' => 'currency',
         'email' => 'email',
         'locale' => 'locale',
+        'invoice_attribute_id' => 'invoiceAttributeId',
         'application_id' => 'applicationId',
         'browser_ip' => 'browserIp',
         'tax_identifiers' => 'taxIdentifiers',
@@ -162,6 +165,7 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
         'currency' => 'setCurrency',
         'email' => 'setEmail',
         'locale' => 'setLocale',
+        'invoice_attribute_id' => 'setInvoiceAttributeId',
         'application_id' => 'setApplicationId',
         'browser_ip' => 'setBrowserIp',
         'tax_identifiers' => 'setTaxIdentifiers',
@@ -192,6 +196,7 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
         'currency' => 'getCurrency',
         'email' => 'getEmail',
         'locale' => 'getLocale',
+        'invoice_attribute_id' => 'getInvoiceAttributeId',
         'application_id' => 'getApplicationId',
         'browser_ip' => 'getBrowserIp',
         'tax_identifiers' => 'getTaxIdentifiers',
@@ -276,6 +281,7 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
+        $this->container['invoice_attribute_id'] = isset($data['invoice_attribute_id']) ? $data['invoice_attribute_id'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
         $this->container['browser_ip'] = isset($data['browser_ip']) ? $data['browser_ip'] : null;
         $this->container['tax_identifiers'] = isset($data['tax_identifiers']) ? $data['tax_identifiers'] : null;
@@ -441,6 +447,30 @@ class CheckoutRequest implements ModelInterface, ArrayAccess
     public function setLocale($locale)
     {
         $this->container['locale'] = $locale;
+
+        return $this;
+    }
+
+    /**
+     * Gets invoice_attribute_id
+     *
+     * @return string|null
+     */
+    public function getInvoiceAttributeId()
+    {
+        return $this->container['invoice_attribute_id'];
+    }
+
+    /**
+     * Sets invoice_attribute_id
+     *
+     * @param string|null $invoice_attribute_id The unique identfier of the invoice attribute.
+     *
+     * @return $this
+     */
+    public function setInvoiceAttributeId($invoice_attribute_id)
+    {
+        $this->container['invoice_attribute_id'] = $invoice_attribute_id;
 
         return $this;
     }

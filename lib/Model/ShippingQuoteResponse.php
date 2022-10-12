@@ -46,7 +46,7 @@ class ShippingQuoteResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ship_to' => '\DigitalRiver\ApiSdk\Model\ShippingQuoteAddress',
+        'currency' => 'string',
         'quotes' => '\DigitalRiver\ApiSdk\Model\ShippingQuote[]',
         'live_mode' => 'bool'
     ];
@@ -57,7 +57,7 @@ class ShippingQuoteResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'ship_to' => null,
+        'currency' => null,
         'quotes' => null,
         'live_mode' => null
     ];
@@ -89,7 +89,7 @@ class ShippingQuoteResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ship_to' => 'shipTo',
+        'currency' => 'currency',
         'quotes' => 'quotes',
         'live_mode' => 'liveMode'
     ];
@@ -100,7 +100,7 @@ class ShippingQuoteResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ship_to' => 'setShipTo',
+        'currency' => 'setCurrency',
         'quotes' => 'setQuotes',
         'live_mode' => 'setLiveMode'
     ];
@@ -111,7 +111,7 @@ class ShippingQuoteResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ship_to' => 'getShipTo',
+        'currency' => 'getCurrency',
         'quotes' => 'getQuotes',
         'live_mode' => 'getLiveMode'
     ];
@@ -176,7 +176,7 @@ class ShippingQuoteResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['quotes'] = isset($data['quotes']) ? $data['quotes'] : null;
         $this->container['live_mode'] = isset($data['live_mode']) ? $data['live_mode'] : null;
     }
@@ -206,25 +206,25 @@ class ShippingQuoteResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ship_to
+     * Gets currency
      *
-     * @return \DigitalRiver\ApiSdk\Model\ShippingQuoteAddress|null
+     * @return string|null
      */
-    public function getShipTo()
+    public function getCurrency()
     {
-        return $this->container['ship_to'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets ship_to
+     * Sets currency
      *
-     * @param \DigitalRiver\ApiSdk\Model\ShippingQuoteAddress|null $ship_to ship_to
+     * @param string|null $currency A three-letter ISO currency code.
      *
      * @return $this
      */
-    public function setShipTo($ship_to)
+    public function setCurrency($currency)
     {
-        $this->container['ship_to'] = $ship_to;
+        $this->container['currency'] = $currency;
 
         return $this;
     }

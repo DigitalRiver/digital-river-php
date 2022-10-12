@@ -47,6 +47,7 @@ class SkuRequestItem implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'sku_id' => 'string',
+        'product_details' => '\DigitalRiver\ApiSdk\Model\ProductDetails',
         'subscription_info' => '\DigitalRiver\ApiSdk\Model\SubscriptionInfo',
         'price' => 'double',
         'aggregate_price' => 'double',
@@ -63,6 +64,7 @@ class SkuRequestItem implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'sku_id' => null,
+        'product_details' => null,
         'subscription_info' => null,
         'price' => 'double',
         'aggregate_price' => 'double',
@@ -100,6 +102,7 @@ class SkuRequestItem implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'sku_id' => 'skuId',
+        'product_details' => 'productDetails',
         'subscription_info' => 'subscriptionInfo',
         'price' => 'price',
         'aggregate_price' => 'aggregatePrice',
@@ -116,6 +119,7 @@ class SkuRequestItem implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'sku_id' => 'setSkuId',
+        'product_details' => 'setProductDetails',
         'subscription_info' => 'setSubscriptionInfo',
         'price' => 'setPrice',
         'aggregate_price' => 'setAggregatePrice',
@@ -132,6 +136,7 @@ class SkuRequestItem implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'sku_id' => 'getSkuId',
+        'product_details' => 'getProductDetails',
         'subscription_info' => 'getSubscriptionInfo',
         'price' => 'getPrice',
         'aggregate_price' => 'getAggregatePrice',
@@ -202,6 +207,7 @@ class SkuRequestItem implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['sku_id'] = isset($data['sku_id']) ? $data['sku_id'] : null;
+        $this->container['product_details'] = isset($data['product_details']) ? $data['product_details'] : null;
         $this->container['subscription_info'] = isset($data['subscription_info']) ? $data['subscription_info'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['aggregate_price'] = isset($data['aggregate_price']) ? $data['aggregate_price'] : null;
@@ -220,9 +226,6 @@ class SkuRequestItem implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['sku_id'] === null) {
-            $invalidProperties[] = "'sku_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -241,7 +244,7 @@ class SkuRequestItem implements ModelInterface, ArrayAccess
     /**
      * Gets sku_id
      *
-     * @return string
+     * @return string|null
      */
     public function getSkuId()
     {
@@ -251,13 +254,37 @@ class SkuRequestItem implements ModelInterface, ArrayAccess
     /**
      * Sets sku_id
      *
-     * @param string $sku_id The identifier of the stock keeping unit (SKU).
+     * @param string|null $sku_id The identifier of the stock keeping unit (SKU).
      *
      * @return $this
      */
     public function setSkuId($sku_id)
     {
         $this->container['sku_id'] = $sku_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_details
+     *
+     * @return \DigitalRiver\ApiSdk\Model\ProductDetails|null
+     */
+    public function getProductDetails()
+    {
+        return $this->container['product_details'];
+    }
+
+    /**
+     * Sets product_details
+     *
+     * @param \DigitalRiver\ApiSdk\Model\ProductDetails|null $product_details product_details
+     *
+     * @return $this
+     */
+    public function setProductDetails($product_details)
+    {
+        $this->container['product_details'] = $product_details;
 
         return $this;
     }

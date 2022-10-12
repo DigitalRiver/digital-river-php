@@ -105,7 +105,7 @@ class ShippingQuotesApi
     }
 
     /**
-     * Operation listShippingQuotes
+     * Operation postShippingQuotes
      *
      * Returns shipping quotes
      *
@@ -115,14 +115,14 @@ class ShippingQuotesApi
      * @throws \InvalidArgumentException
      * @return \DigitalRiver\ApiSdk\Model\ShippingQuoteResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function listShippingQuotes($shipping_quote_request = null)
+    public function postShippingQuotes($shipping_quote_request = null)
     {
-        list($response) = $this->listShippingQuotesWithHttpInfo($shipping_quote_request);
+        list($response) = $this->postShippingQuotesWithHttpInfo($shipping_quote_request);
         return $response;
     }
 
     /**
-     * Operation listShippingQuotesWithHttpInfo
+     * Operation postShippingQuotesWithHttpInfo
      *
      * Returns shipping quotes
      *
@@ -132,9 +132,9 @@ class ShippingQuotesApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalRiver\ApiSdk\Model\ShippingQuoteResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listShippingQuotesWithHttpInfo($shipping_quote_request = null)
+    public function postShippingQuotesWithHttpInfo($shipping_quote_request = null)
     {
-        $request = $this->listShippingQuotesRequest($shipping_quote_request);
+        $request = $this->postShippingQuotesRequest($shipping_quote_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -430,7 +430,7 @@ class ShippingQuotesApi
     }
 
     /**
-     * Operation listShippingQuotesAsync
+     * Operation postShippingQuotesAsync
      *
      * Returns shipping quotes
      *
@@ -439,9 +439,9 @@ class ShippingQuotesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listShippingQuotesAsync($shipping_quote_request = null)
+    public function postShippingQuotesAsync($shipping_quote_request = null)
     {
-        return $this->listShippingQuotesAsyncWithHttpInfo($shipping_quote_request)
+        return $this->postShippingQuotesAsyncWithHttpInfo($shipping_quote_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -450,7 +450,7 @@ class ShippingQuotesApi
     }
 
     /**
-     * Operation listShippingQuotesAsyncWithHttpInfo
+     * Operation postShippingQuotesAsyncWithHttpInfo
      *
      * Returns shipping quotes
      *
@@ -459,10 +459,10 @@ class ShippingQuotesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listShippingQuotesAsyncWithHttpInfo($shipping_quote_request = null)
+    public function postShippingQuotesAsyncWithHttpInfo($shipping_quote_request = null)
     {
         $returnType = '\DigitalRiver\ApiSdk\Model\ShippingQuoteResponse';
-        $request = $this->listShippingQuotesRequest($shipping_quote_request);
+        $request = $this->postShippingQuotesRequest($shipping_quote_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -499,14 +499,14 @@ class ShippingQuotesApi
     }
 
     /**
-     * Create request for operation 'listShippingQuotes'
+     * Create request for operation 'postShippingQuotes'
      *
      * @param  \DigitalRiver\ApiSdk\Model\ShippingQuoteRequest $shipping_quote_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listShippingQuotesRequest($shipping_quote_request = null)
+    protected function postShippingQuotesRequest($shipping_quote_request = null)
     {
 
         $resourcePath = '/shipping-quotes';

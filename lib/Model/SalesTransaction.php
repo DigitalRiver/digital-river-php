@@ -67,7 +67,10 @@ class SalesTransaction implements ModelInterface, ArrayAccess
         'ship_from_country' => 'string',
         'ship_to_country' => 'string',
         'bill_to_country' => 'string',
-        'payment_type' => 'string'
+        'payment_type' => 'string',
+        'line_item_id' => 'string',
+        'order_metadata' => 'map[string,AnyType]',
+        'line_item_metadata' => 'map[string,AnyType]'
     ];
 
     /**
@@ -97,7 +100,10 @@ class SalesTransaction implements ModelInterface, ArrayAccess
         'ship_from_country' => null,
         'ship_to_country' => null,
         'bill_to_country' => null,
-        'payment_type' => null
+        'payment_type' => null,
+        'line_item_id' => null,
+        'order_metadata' => null,
+        'line_item_metadata' => null
     ];
 
     /**
@@ -148,7 +154,10 @@ class SalesTransaction implements ModelInterface, ArrayAccess
         'ship_from_country' => 'shipFromCountry',
         'ship_to_country' => 'shipToCountry',
         'bill_to_country' => 'billToCountry',
-        'payment_type' => 'paymentType'
+        'payment_type' => 'paymentType',
+        'line_item_id' => 'lineItemId',
+        'order_metadata' => 'orderMetadata',
+        'line_item_metadata' => 'lineItemMetadata'
     ];
 
     /**
@@ -178,7 +187,10 @@ class SalesTransaction implements ModelInterface, ArrayAccess
         'ship_from_country' => 'setShipFromCountry',
         'ship_to_country' => 'setShipToCountry',
         'bill_to_country' => 'setBillToCountry',
-        'payment_type' => 'setPaymentType'
+        'payment_type' => 'setPaymentType',
+        'line_item_id' => 'setLineItemId',
+        'order_metadata' => 'setOrderMetadata',
+        'line_item_metadata' => 'setLineItemMetadata'
     ];
 
     /**
@@ -208,7 +220,10 @@ class SalesTransaction implements ModelInterface, ArrayAccess
         'ship_from_country' => 'getShipFromCountry',
         'ship_to_country' => 'getShipToCountry',
         'bill_to_country' => 'getBillToCountry',
-        'payment_type' => 'getPaymentType'
+        'payment_type' => 'getPaymentType',
+        'line_item_id' => 'getLineItemId',
+        'order_metadata' => 'getOrderMetadata',
+        'line_item_metadata' => 'getLineItemMetadata'
     ];
 
     /**
@@ -327,6 +342,9 @@ class SalesTransaction implements ModelInterface, ArrayAccess
         $this->container['ship_to_country'] = isset($data['ship_to_country']) ? $data['ship_to_country'] : null;
         $this->container['bill_to_country'] = isset($data['bill_to_country']) ? $data['bill_to_country'] : null;
         $this->container['payment_type'] = isset($data['payment_type']) ? $data['payment_type'] : null;
+        $this->container['line_item_id'] = isset($data['line_item_id']) ? $data['line_item_id'] : null;
+        $this->container['order_metadata'] = isset($data['order_metadata']) ? $data['order_metadata'] : null;
+        $this->container['line_item_metadata'] = isset($data['line_item_metadata']) ? $data['line_item_metadata'] : null;
     }
 
     /**
@@ -895,6 +913,78 @@ class SalesTransaction implements ModelInterface, ArrayAccess
     public function setPaymentType($payment_type)
     {
         $this->container['payment_type'] = $payment_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets line_item_id
+     *
+     * @return string|null
+     */
+    public function getLineItemId()
+    {
+        return $this->container['line_item_id'];
+    }
+
+    /**
+     * Sets line_item_id
+     *
+     * @param string|null $line_item_id The unique identiier of the line item.
+     *
+     * @return $this
+     */
+    public function setLineItemId($line_item_id)
+    {
+        $this->container['line_item_id'] = $line_item_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_metadata
+     *
+     * @return map[string,AnyType]|null
+     */
+    public function getOrderMetadata()
+    {
+        return $this->container['order_metadata'];
+    }
+
+    /**
+     * Sets order_metadata
+     *
+     * @param map[string,AnyType]|null $order_metadata Key-value pairs used to store additional data. Value can be string, boolean or integer types.
+     *
+     * @return $this
+     */
+    public function setOrderMetadata($order_metadata)
+    {
+        $this->container['order_metadata'] = $order_metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets line_item_metadata
+     *
+     * @return map[string,AnyType]|null
+     */
+    public function getLineItemMetadata()
+    {
+        return $this->container['line_item_metadata'];
+    }
+
+    /**
+     * Sets line_item_metadata
+     *
+     * @param map[string,AnyType]|null $line_item_metadata Key-value pairs used to store additional data. Value can be string, boolean or integer types.
+     *
+     * @return $this
+     */
+    public function setLineItemMetadata($line_item_metadata)
+    {
+        $this->container['line_item_metadata'] = $line_item_metadata;
 
         return $this;
     }

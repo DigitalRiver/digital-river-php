@@ -206,7 +206,7 @@ class CheckoutTaxIdentifierRequest implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier for a tax identifier
+     * @param string|null $id The unique identifier of a tax identifier.
      *
      * @return $this
      */

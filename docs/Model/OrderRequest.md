@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **currency** | **string** | A three-letter ISO 4217 currency code. | [optional] 
 **email** | **string** | The customer&#39;s email address. | [optional] 
 **locale** | **string** | A designator that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code. | [optional] 
+**invoice_attribute_id** | **string** | The unique identfier of the invoice attribute. | [optional] 
 **application_id** | **string** | An arbitrary string identifier that can be used to track the application type. | [optional] 
 **browser_ip** | **string** | The IP address of the browser used by the customer when placing the order. | [optional] 
 **ship_from** | [**\DigitalRiver\ApiSdk\Model\ShipFrom**](ShipFrom.md) |  | [optional] 

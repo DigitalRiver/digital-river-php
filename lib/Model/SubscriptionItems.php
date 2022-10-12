@@ -50,6 +50,7 @@ class SubscriptionItems implements ModelInterface, ArrayAccess
         'price' => 'double',
         'metadata' => 'map[string,AnyType]',
         'sku_id' => 'string',
+        'product_details' => '\DigitalRiver\ApiSdk\Model\ProductDetails',
         'quantity' => 'int'
     ];
 
@@ -63,6 +64,7 @@ class SubscriptionItems implements ModelInterface, ArrayAccess
         'price' => 'double',
         'metadata' => null,
         'sku_id' => null,
+        'product_details' => null,
         'quantity' => null
     ];
 
@@ -97,6 +99,7 @@ class SubscriptionItems implements ModelInterface, ArrayAccess
         'price' => 'price',
         'metadata' => 'metadata',
         'sku_id' => 'skuId',
+        'product_details' => 'productDetails',
         'quantity' => 'quantity'
     ];
 
@@ -110,6 +113,7 @@ class SubscriptionItems implements ModelInterface, ArrayAccess
         'price' => 'setPrice',
         'metadata' => 'setMetadata',
         'sku_id' => 'setSkuId',
+        'product_details' => 'setProductDetails',
         'quantity' => 'setQuantity'
     ];
 
@@ -123,6 +127,7 @@ class SubscriptionItems implements ModelInterface, ArrayAccess
         'price' => 'getPrice',
         'metadata' => 'getMetadata',
         'sku_id' => 'getSkuId',
+        'product_details' => 'getProductDetails',
         'quantity' => 'getQuantity'
     ];
 
@@ -190,6 +195,7 @@ class SubscriptionItems implements ModelInterface, ArrayAccess
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['sku_id'] = isset($data['sku_id']) ? $data['sku_id'] : null;
+        $this->container['product_details'] = isset($data['product_details']) ? $data['product_details'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
     }
 
@@ -309,6 +315,30 @@ class SubscriptionItems implements ModelInterface, ArrayAccess
     public function setSkuId($sku_id)
     {
         $this->container['sku_id'] = $sku_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_details
+     *
+     * @return \DigitalRiver\ApiSdk\Model\ProductDetails|null
+     */
+    public function getProductDetails()
+    {
+        return $this->container['product_details'];
+    }
+
+    /**
+     * Sets product_details
+     *
+     * @param \DigitalRiver\ApiSdk\Model\ProductDetails|null $product_details product_details
+     *
+     * @return $this
+     */
+    public function setProductDetails($product_details)
+    {
+        $this->container['product_details'] = $product_details;
 
         return $this;
     }

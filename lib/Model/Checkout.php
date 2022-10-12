@@ -70,6 +70,7 @@ class Checkout implements ModelInterface, ArrayAccess
         'total_amount' => 'double',
         'discount' => '\DigitalRiver\ApiSdk\Model\Discount',
         'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\TaxIdentifier[]',
+        'invoice_attributes' => '\DigitalRiver\ApiSdk\Model\InvoiceAttributes',
         'purchase_location' => '\DigitalRiver\ApiSdk\Model\PurchaseLocation',
         'customer_type' => '\DigitalRiver\ApiSdk\Model\CustomerType',
         'selling_entity' => '\DigitalRiver\ApiSdk\Model\SellingEntity',
@@ -111,6 +112,7 @@ class Checkout implements ModelInterface, ArrayAccess
         'total_amount' => 'double',
         'discount' => null,
         'tax_identifiers' => null,
+        'invoice_attributes' => null,
         'purchase_location' => null,
         'customer_type' => null,
         'selling_entity' => null,
@@ -173,6 +175,7 @@ class Checkout implements ModelInterface, ArrayAccess
         'total_amount' => 'totalAmount',
         'discount' => 'discount',
         'tax_identifiers' => 'taxIdentifiers',
+        'invoice_attributes' => 'invoiceAttributes',
         'purchase_location' => 'purchaseLocation',
         'customer_type' => 'customerType',
         'selling_entity' => 'sellingEntity',
@@ -214,6 +217,7 @@ class Checkout implements ModelInterface, ArrayAccess
         'total_amount' => 'setTotalAmount',
         'discount' => 'setDiscount',
         'tax_identifiers' => 'setTaxIdentifiers',
+        'invoice_attributes' => 'setInvoiceAttributes',
         'purchase_location' => 'setPurchaseLocation',
         'customer_type' => 'setCustomerType',
         'selling_entity' => 'setSellingEntity',
@@ -255,6 +259,7 @@ class Checkout implements ModelInterface, ArrayAccess
         'total_amount' => 'getTotalAmount',
         'discount' => 'getDiscount',
         'tax_identifiers' => 'getTaxIdentifiers',
+        'invoice_attributes' => 'getInvoiceAttributes',
         'purchase_location' => 'getPurchaseLocation',
         'customer_type' => 'getCustomerType',
         'selling_entity' => 'getSellingEntity',
@@ -350,6 +355,7 @@ class Checkout implements ModelInterface, ArrayAccess
         $this->container['total_amount'] = isset($data['total_amount']) ? $data['total_amount'] : null;
         $this->container['discount'] = isset($data['discount']) ? $data['discount'] : null;
         $this->container['tax_identifiers'] = isset($data['tax_identifiers']) ? $data['tax_identifiers'] : null;
+        $this->container['invoice_attributes'] = isset($data['invoice_attributes']) ? $data['invoice_attributes'] : null;
         $this->container['purchase_location'] = isset($data['purchase_location']) ? $data['purchase_location'] : null;
         $this->container['customer_type'] = isset($data['customer_type']) ? $data['customer_type'] : null;
         $this->container['selling_entity'] = isset($data['selling_entity']) ? $data['selling_entity'] : null;
@@ -957,6 +963,30 @@ class Checkout implements ModelInterface, ArrayAccess
     public function setTaxIdentifiers($tax_identifiers)
     {
         $this->container['tax_identifiers'] = $tax_identifiers;
+
+        return $this;
+    }
+
+    /**
+     * Gets invoice_attributes
+     *
+     * @return \DigitalRiver\ApiSdk\Model\InvoiceAttributes|null
+     */
+    public function getInvoiceAttributes()
+    {
+        return $this->container['invoice_attributes'];
+    }
+
+    /**
+     * Sets invoice_attributes
+     *
+     * @param \DigitalRiver\ApiSdk\Model\InvoiceAttributes|null $invoice_attributes invoice_attributes
+     *
+     * @return $this
+     */
+    public function setInvoiceAttributes($invoice_attributes)
+    {
+        $this->container['invoice_attributes'] = $invoice_attributes;
 
         return $this;
     }

@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **billing_address_only_schema** | **string** | A billing address only schema. | [optional] 
 **individual_tax_identifiers_schemas** | **string[]** |  | [optional] 
 **business_tax_identifiers_schemas** | **string[]** |  | [optional] 
+**tax_identifiers_info** | [**\DigitalRiver\ApiSdk\Model\TaxIdentifiersInfo**](TaxIdentifiersInfo.md) |  | [optional] 
+**invoice_attribute_info** | [**\DigitalRiver\ApiSdk\Model\InvoiceAttributeInfo**](InvoiceAttributeInfo.md) |  | [optional] 
 **live_mode** | **bool** | Has the value &lt;code&gt;true&lt;/code&gt; if the object exists in live mode or the value &lt;code&gt;false&lt;/code&gt; if the object exists in test mode. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

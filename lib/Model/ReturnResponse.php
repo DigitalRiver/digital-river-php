@@ -48,17 +48,13 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'created_time' => '\DateTime',
-        'updated_time' => '\DateTime',
         'order_id' => 'string',
-        'currency' => 'string',
-        'items' => '\DigitalRiver\ApiSdk\Model\ReturnItem[]',
+        'rma_number' => 'string',
         'reason' => 'string',
-        'failure_reason' => 'string',
-        'state' => 'string',
-        'location' => '\DigitalRiver\ApiSdk\Model\ReturnLocation',
-        'live_mode' => 'bool',
-        'metadata' => 'map[string,AnyType]',
-        'refund_ids' => 'string[]'
+        'type' => 'string',
+        'return_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
+        'items' => '\DigitalRiver\ApiSdk\Model\ReturnItem[]',
+        'live_mode' => 'bool'
     ];
 
     /**
@@ -69,17 +65,13 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created_time' => 'date-time',
-        'updated_time' => 'date-time',
         'order_id' => null,
-        'currency' => null,
-        'items' => null,
+        'rma_number' => null,
         'reason' => null,
-        'failure_reason' => null,
-        'state' => null,
-        'location' => null,
-        'live_mode' => null,
-        'metadata' => null,
-        'refund_ids' => null
+        'type' => null,
+        'return_to' => null,
+        'items' => null,
+        'live_mode' => null
     ];
 
     /**
@@ -111,17 +103,13 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created_time' => 'createdTime',
-        'updated_time' => 'updatedTime',
         'order_id' => 'orderId',
-        'currency' => 'currency',
-        'items' => 'items',
+        'rma_number' => 'rmaNumber',
         'reason' => 'reason',
-        'failure_reason' => 'failureReason',
-        'state' => 'state',
-        'location' => 'location',
-        'live_mode' => 'liveMode',
-        'metadata' => 'metadata',
-        'refund_ids' => 'refundIds'
+        'type' => 'type',
+        'return_to' => 'returnTo',
+        'items' => 'items',
+        'live_mode' => 'liveMode'
     ];
 
     /**
@@ -132,17 +120,13 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created_time' => 'setCreatedTime',
-        'updated_time' => 'setUpdatedTime',
         'order_id' => 'setOrderId',
-        'currency' => 'setCurrency',
-        'items' => 'setItems',
+        'rma_number' => 'setRmaNumber',
         'reason' => 'setReason',
-        'failure_reason' => 'setFailureReason',
-        'state' => 'setState',
-        'location' => 'setLocation',
-        'live_mode' => 'setLiveMode',
-        'metadata' => 'setMetadata',
-        'refund_ids' => 'setRefundIds'
+        'type' => 'setType',
+        'return_to' => 'setReturnTo',
+        'items' => 'setItems',
+        'live_mode' => 'setLiveMode'
     ];
 
     /**
@@ -153,17 +137,13 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created_time' => 'getCreatedTime',
-        'updated_time' => 'getUpdatedTime',
         'order_id' => 'getOrderId',
-        'currency' => 'getCurrency',
-        'items' => 'getItems',
+        'rma_number' => 'getRmaNumber',
         'reason' => 'getReason',
-        'failure_reason' => 'getFailureReason',
-        'state' => 'getState',
-        'location' => 'getLocation',
-        'live_mode' => 'getLiveMode',
-        'metadata' => 'getMetadata',
-        'refund_ids' => 'getRefundIds'
+        'type' => 'getType',
+        'return_to' => 'getReturnTo',
+        'items' => 'getItems',
+        'live_mode' => 'getLiveMode'
     ];
 
     /**
@@ -207,8 +187,10 @@ class ReturnResponse implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const STATE_CREATED = 'created';
-    const STATE_ACCEPTED = 'accepted';
+    const TYPE_AUTHORIZATION = 'authorization';
+    const TYPE_RECEIVED = 'received';
+    const TYPE_REFUSED = 'refused';
+    const TYPE_UNDELIVERABLE = 'undeliverable';
     
 
     
@@ -217,11 +199,13 @@ class ReturnResponse implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getStateAllowableValues()
+    public function getTypeAllowableValues()
     {
        $allowable = [
-            self::STATE_CREATED,
-            self::STATE_ACCEPTED,
+            self::TYPE_AUTHORIZATION,
+            self::TYPE_RECEIVED,
+            self::TYPE_REFUSED,
+            self::TYPE_UNDELIVERABLE,
         ];
 
         $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
@@ -246,17 +230,13 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created_time'] = isset($data['created_time']) ? $data['created_time'] : null;
-        $this->container['updated_time'] = isset($data['updated_time']) ? $data['updated_time'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['rma_number'] = isset($data['rma_number']) ? $data['rma_number'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
-        $this->container['failure_reason'] = isset($data['failure_reason']) ? $data['failure_reason'] : null;
-        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-        $this->container['location'] = isset($data['location']) ? $data['location'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['return_to'] = isset($data['return_to']) ? $data['return_to'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['live_mode'] = isset($data['live_mode']) ? $data['live_mode'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['refund_ids'] = isset($data['refund_ids']) ? $data['refund_ids'] : null;
     }
 
     /**
@@ -268,11 +248,15 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getStateAllowableValues();
+        if (!is_null($this->container['reason']) && (mb_strlen($this->container['reason']) > 64)) {
+            $invalidProperties[] = "invalid value for 'reason', the character length must be smaller than or equal to 64.";
+        }
+
+        $allowedValues = $this->getTypeAllowableValues();
        
-        if (!is_null($this->container['state']) && !in_array(strtolower($this->container['state']), $allowedValues, true)) {
+        if (!is_null($this->container['type']) && !in_array(strtolower($this->container['type']), $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'state', must be one of '%s'",
+                "invalid value for 'type', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -341,30 +325,6 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets updated_time
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedTime()
-    {
-        return $this->container['updated_time'];
-    }
-
-    /**
-     * Sets updated_time
-     *
-     * @param \DateTime|null $updated_time The time at which the return was updated.
-     *
-     * @return $this
-     */
-    public function setUpdatedTime($updated_time)
-    {
-        $this->container['updated_time'] = $updated_time;
-
-        return $this;
-    }
-
-    /**
      * Gets order_id
      *
      * @return string|null
@@ -377,7 +337,7 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param string|null $order_id The unique identifier of the order.
+     * @param string|null $order_id The unique identifier of the order associated with the return.
      *
      * @return $this
      */
@@ -389,25 +349,110 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets currency
+     * Gets rma_number
      *
      * @return string|null
      */
-    public function getCurrency()
+    public function getRmaNumber()
     {
-        return $this->container['currency'];
+        return $this->container['rma_number'];
     }
 
     /**
-     * Sets currency
+     * Sets rma_number
      *
-     * @param string|null $currency A three-letter ISO currency code.
+     * @param string|null $rma_number The return merchandise authorization number.
      *
      * @return $this
      */
-    public function setCurrency($currency)
+    public function setRmaNumber($rma_number)
     {
-        $this->container['currency'] = $currency;
+        $this->container['rma_number'] = $rma_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return string|null
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param string|null $reason The reason for the return.
+     *
+     * @return $this
+     */
+    public function setReason($reason)
+    {
+        if (!is_null($reason) && (mb_strlen($reason) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $reason when calling ReturnResponse., must be smaller than or equal to 64.');
+        }
+
+        $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array(strtolower($type), $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets return_to
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Shipping|null
+     */
+    public function getReturnTo()
+    {
+        return $this->container['return_to'];
+    }
+
+    /**
+     * Sets return_to
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Shipping|null $return_to return_to
+     *
+     * @return $this
+     */
+    public function setReturnTo($return_to)
+    {
+        $this->container['return_to'] = $return_to;
 
         return $this;
     }
@@ -437,111 +482,6 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets reason
-     *
-     * @return string|null
-     */
-    public function getReason()
-    {
-        return $this->container['reason'];
-    }
-
-    /**
-     * Sets reason
-     *
-     * @param string|null $reason The reason for the return.
-     *
-     * @return $this
-     */
-    public function setReason($reason)
-    {
-        $this->container['reason'] = $reason;
-
-        return $this;
-    }
-
-    /**
-     * Gets failure_reason
-     *
-     * @return string|null
-     */
-    public function getFailureReason()
-    {
-        return $this->container['failure_reason'];
-    }
-
-    /**
-     * Sets failure_reason
-     *
-     * @param string|null $failure_reason An enumeration indicating the reason for the return failure, if known.
-     *
-     * @return $this
-     */
-    public function setFailureReason($failure_reason)
-    {
-        $this->container['failure_reason'] = $failure_reason;
-
-        return $this;
-    }
-
-    /**
-     * Gets state
-     *
-     * @return string|null
-     */
-    public function getState()
-    {
-        return $this->container['state'];
-    }
-
-    /**
-     * Sets state
-     *
-     * @param string|null $state An enumeration indicating the state of the return.
-     *
-     * @return $this
-     */
-    public function setState($state)
-    {
-        $allowedValues = $this->getStateAllowableValues();
-        if (!is_null($state) && !in_array(strtolower($state), $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'state', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['state'] = $state;
-
-        return $this;
-    }
-
-    /**
-     * Gets location
-     *
-     * @return \DigitalRiver\ApiSdk\Model\ReturnLocation|null
-     */
-    public function getLocation()
-    {
-        return $this->container['location'];
-    }
-
-    /**
-     * Sets location
-     *
-     * @param \DigitalRiver\ApiSdk\Model\ReturnLocation|null $location location
-     *
-     * @return $this
-     */
-    public function setLocation($location)
-    {
-        $this->container['location'] = $location;
-
-        return $this;
-    }
-
-    /**
      * Gets live_mode
      *
      * @return bool|null
@@ -561,54 +501,6 @@ class ReturnResponse implements ModelInterface, ArrayAccess
     public function setLiveMode($live_mode)
     {
         $this->container['live_mode'] = $live_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return map[string,AnyType]|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param map[string,AnyType]|null $metadata Key-value pairs used to store additional data. Value can be string, boolean or integer types.
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets refund_ids
-     *
-     * @return string[]|null
-     */
-    public function getRefundIds()
-    {
-        return $this->container['refund_ids'];
-    }
-
-    /**
-     * Sets refund_ids
-     *
-     * @param string[]|null $refund_ids refund_ids
-     *
-     * @return $this
-     */
-    public function setRefundIds($refund_ids)
-    {
-        $this->container['refund_ids'] = $refund_ids;
 
         return $this;
     }

@@ -47,8 +47,10 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'currency' => 'string',
-        'ship_to' => '\DigitalRiver\ApiSdk\Model\ShippingQuoteAddress',
-        'items' => '\DigitalRiver\ApiSdk\Model\ProductItemRequest[]'
+        'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
+        'ship_from' => '\DigitalRiver\ApiSdk\Model\GLShipFrom',
+        'items' => '\DigitalRiver\ApiSdk\Model\ProductItemRequest[]',
+        'packages' => '\DigitalRiver\ApiSdk\Model\PackageRequest[]'
     ];
 
     /**
@@ -59,7 +61,9 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'currency' => null,
         'ship_to' => null,
-        'items' => null
+        'ship_from' => null,
+        'items' => null,
+        'packages' => null
     ];
 
     /**
@@ -91,7 +95,9 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'currency' => 'currency',
         'ship_to' => 'shipTo',
-        'items' => 'items'
+        'ship_from' => 'shipFrom',
+        'items' => 'items',
+        'packages' => 'packages'
     ];
 
     /**
@@ -102,7 +108,9 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'currency' => 'setCurrency',
         'ship_to' => 'setShipTo',
-        'items' => 'setItems'
+        'ship_from' => 'setShipFrom',
+        'items' => 'setItems',
+        'packages' => 'setPackages'
     ];
 
     /**
@@ -113,7 +121,9 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'currency' => 'getCurrency',
         'ship_to' => 'getShipTo',
-        'items' => 'getItems'
+        'ship_from' => 'getShipFrom',
+        'items' => 'getItems',
+        'packages' => 'getPackages'
     ];
 
     /**
@@ -178,7 +188,9 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
     {
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
+        $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['packages'] = isset($data['packages']) ? $data['packages'] : null;
     }
 
     /**
@@ -241,7 +253,7 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
     /**
      * Gets ship_to
      *
-     * @return \DigitalRiver\ApiSdk\Model\ShippingQuoteAddress
+     * @return \DigitalRiver\ApiSdk\Model\Shipping
      */
     public function getShipTo()
     {
@@ -251,13 +263,37 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
     /**
      * Sets ship_to
      *
-     * @param \DigitalRiver\ApiSdk\Model\ShippingQuoteAddress $ship_to ship_to
+     * @param \DigitalRiver\ApiSdk\Model\Shipping $ship_to ship_to
      *
      * @return $this
      */
     public function setShipTo($ship_to)
     {
         $this->container['ship_to'] = $ship_to;
+
+        return $this;
+    }
+
+    /**
+     * Gets ship_from
+     *
+     * @return \DigitalRiver\ApiSdk\Model\GLShipFrom|null
+     */
+    public function getShipFrom()
+    {
+        return $this->container['ship_from'];
+    }
+
+    /**
+     * Sets ship_from
+     *
+     * @param \DigitalRiver\ApiSdk\Model\GLShipFrom|null $ship_from ship_from
+     *
+     * @return $this
+     */
+    public function setShipFrom($ship_from)
+    {
+        $this->container['ship_from'] = $ship_from;
 
         return $this;
     }
@@ -282,6 +318,30 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
     public function setItems($items)
     {
         $this->container['items'] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets packages
+     *
+     * @return \DigitalRiver\ApiSdk\Model\PackageRequest[]|null
+     */
+    public function getPackages()
+    {
+        return $this->container['packages'];
+    }
+
+    /**
+     * Sets packages
+     *
+     * @param \DigitalRiver\ApiSdk\Model\PackageRequest[]|null $packages packages
+     *
+     * @return $this
+     */
+    public function setPackages($packages)
+    {
+        $this->container['packages'] = $packages;
 
         return $this;
     }

@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **part_number** | **string** | The manufacturer&#39;s part number. | [optional] 
 **manufacturer_id** | **string** | The unique identifier | [optional] 
 **managed_fulfillment** | **string** | Signifies the product is physically fulfilled by Digital River. | [optional] 
-**allow_oversell** | **bool** | Determines whether customers are allowed to back order a product. | [optional] 
 **tax_code** | **string** | The designated tax code. | [optional] 
 **name** | **string** | The product’s name. | [optional] 
 **description** | **string** | A description of the product. | [optional] 

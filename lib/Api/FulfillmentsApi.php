@@ -1278,7 +1278,7 @@ class FulfillmentsApi
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \DigitalRiver\ApiSdk\Model\Fulfillment|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
+     * @return \DigitalRiver\ApiSdk\Model\FulfillmentOrder|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
     public function retrieveFulfillments($id)
     {
@@ -1295,7 +1295,7 @@ class FulfillmentsApi
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \DigitalRiver\ApiSdk\Model\Fulfillment|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalRiver\ApiSdk\Model\FulfillmentOrder|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
     public function retrieveFulfillmentsWithHttpInfo($id)
     {
@@ -1332,14 +1332,14 @@ class FulfillmentsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\DigitalRiver\ApiSdk\Model\Fulfillment' === '\SplFileObject') {
+                    if ('\DigitalRiver\ApiSdk\Model\FulfillmentOrder' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\Fulfillment', []),
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\FulfillmentOrder', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1489,7 +1489,7 @@ class FulfillmentsApi
                     ];
             }
 
-            $returnType = '\DigitalRiver\ApiSdk\Model\Fulfillment';
+            $returnType = '\DigitalRiver\ApiSdk\Model\FulfillmentOrder';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1508,7 +1508,7 @@ class FulfillmentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\Fulfillment',
+                        '\DigitalRiver\ApiSdk\Model\FulfillmentOrder',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1646,7 +1646,7 @@ class FulfillmentsApi
      */
     public function retrieveFulfillmentsAsyncWithHttpInfo($id)
     {
-        $returnType = '\DigitalRiver\ApiSdk\Model\Fulfillment';
+        $returnType = '\DigitalRiver\ApiSdk\Model\FulfillmentOrder';
         $request = $this->retrieveFulfillmentsRequest($id);
 
         return $this->client

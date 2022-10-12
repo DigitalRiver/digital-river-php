@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **manufacturer_id** | **string** | The unique identifier | [optional] 
 **managed_fulfillment** | **string** | Signifies the product is physically fulfilled by Digital River. | [optional] 
 **physical** | **bool** | Identifies whether or not a product is  physical, so that the appropriate data requirements are enforced. | [optional] 
-**allow_oversell** | **bool** | Determines whether customers are allowed to back order a product. | [optional] 
 **tax_code** | **string** | The designated tax code. | [optional] 
 **name** | **string** | The product’s name. | [optional] 
 **description** | **string** | A description of the product. | [optional] 

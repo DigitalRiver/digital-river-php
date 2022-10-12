@@ -49,7 +49,8 @@ class ShippingRequest implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'amount' => 'double',
         'description' => 'string',
-        'service_level' => 'string'
+        'service_level' => 'string',
+        'shipping_terms' => 'string'
     ];
 
     /**
@@ -60,7 +61,8 @@ class ShippingRequest implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'amount' => 'double',
         'description' => null,
-        'service_level' => null
+        'service_level' => null,
+        'shipping_terms' => null
     ];
 
     /**
@@ -92,7 +94,8 @@ class ShippingRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'amount' => 'amount',
         'description' => 'description',
-        'service_level' => 'serviceLevel'
+        'service_level' => 'serviceLevel',
+        'shipping_terms' => 'shippingTerms'
     ];
 
     /**
@@ -103,7 +106,8 @@ class ShippingRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'amount' => 'setAmount',
         'description' => 'setDescription',
-        'service_level' => 'setServiceLevel'
+        'service_level' => 'setServiceLevel',
+        'shipping_terms' => 'setShippingTerms'
     ];
 
     /**
@@ -114,7 +118,8 @@ class ShippingRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'amount' => 'getAmount',
         'description' => 'getDescription',
-        'service_level' => 'getServiceLevel'
+        'service_level' => 'getServiceLevel',
+        'shipping_terms' => 'getShippingTerms'
     ];
 
     /**
@@ -158,8 +163,26 @@ class ShippingRequest implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const SHIPPING_TERMS_DDP = 'DDP';
+    const SHIPPING_TERMS_DAP = 'DAP';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getShippingTermsAllowableValues()
+    {
+       $allowable = [
+            self::SHIPPING_TERMS_DDP,
+            self::SHIPPING_TERMS_DAP,
+        ];
+
+        $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
+        return $allowableAllCase;
+    }
     
 
     /**
@@ -180,6 +203,7 @@ class ShippingRequest implements ModelInterface, ArrayAccess
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['service_level'] = isset($data['service_level']) ? $data['service_level'] : null;
+        $this->container['shipping_terms'] = isset($data['shipping_terms']) ? $data['shipping_terms'] : null;
     }
 
     /**
@@ -190,6 +214,15 @@ class ShippingRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getShippingTermsAllowableValues();
+       
+        if (!is_null($this->container['shipping_terms']) && !in_array(strtolower($this->container['shipping_terms']), $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'shipping_terms', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -274,6 +307,39 @@ class ShippingRequest implements ModelInterface, ArrayAccess
     public function setServiceLevel($service_level)
     {
         $this->container['service_level'] = $service_level;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_terms
+     *
+     * @return string|null
+     */
+    public function getShippingTerms()
+    {
+        return $this->container['shipping_terms'];
+    }
+
+    /**
+     * Sets shipping_terms
+     *
+     * @param string|null $shipping_terms The options for paying a transaction's full landed cost amount. DDP (Delivered Duty Paid) allows customers to pay the full amount during checkout. DAP (Deliverated At Place) allows customers to pay product and shipping costs at checkout, while paying duties, fees, and import fees upon delivery.
+     *
+     * @return $this
+     */
+    public function setShippingTerms($shipping_terms)
+    {
+        $allowedValues = $this->getShippingTermsAllowableValues();
+        if (!is_null($shipping_terms) && !in_array(strtolower($shipping_terms), $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'shipping_terms', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['shipping_terms'] = $shipping_terms;
 
         return $this;
     }

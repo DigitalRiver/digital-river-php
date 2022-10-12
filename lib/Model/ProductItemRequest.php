@@ -46,8 +46,8 @@ class ProductItemRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'inventory_item_id' => 'string',
-        'price' => 'double',
+        'product_details' => '\DigitalRiver\ApiSdk\Model\ProductDetails',
+        'amount' => 'double',
         'quantity' => 'int'
     ];
 
@@ -57,8 +57,8 @@ class ProductItemRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'inventory_item_id' => null,
-        'price' => 'double',
+        'product_details' => null,
+        'amount' => 'double',
         'quantity' => null
     ];
 
@@ -89,8 +89,8 @@ class ProductItemRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'inventory_item_id' => 'inventoryItemId',
-        'price' => 'price',
+        'product_details' => 'productDetails',
+        'amount' => 'amount',
         'quantity' => 'quantity'
     ];
 
@@ -100,8 +100,8 @@ class ProductItemRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'inventory_item_id' => 'setInventoryItemId',
-        'price' => 'setPrice',
+        'product_details' => 'setProductDetails',
+        'amount' => 'setAmount',
         'quantity' => 'setQuantity'
     ];
 
@@ -111,8 +111,8 @@ class ProductItemRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'inventory_item_id' => 'getInventoryItemId',
-        'price' => 'getPrice',
+        'product_details' => 'getProductDetails',
+        'amount' => 'getAmount',
         'quantity' => 'getQuantity'
     ];
 
@@ -176,8 +176,8 @@ class ProductItemRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['inventory_item_id'] = isset($data['inventory_item_id']) ? $data['inventory_item_id'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['product_details'] = isset($data['product_details']) ? $data['product_details'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
     }
 
@@ -190,11 +190,8 @@ class ProductItemRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['inventory_item_id'] === null) {
-            $invalidProperties[] = "'inventory_item_id' can't be null";
-        }
-        if ($this->container['price'] === null) {
-            $invalidProperties[] = "'price' can't be null";
+        if ($this->container['product_details'] === null) {
+            $invalidProperties[] = "'product_details' can't be null";
         }
         if ($this->container['quantity'] === null) {
             $invalidProperties[] = "'quantity' can't be null";
@@ -215,49 +212,49 @@ class ProductItemRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets inventory_item_id
+     * Gets product_details
      *
-     * @return string
+     * @return \DigitalRiver\ApiSdk\Model\ProductDetails
      */
-    public function getInventoryItemId()
+    public function getProductDetails()
     {
-        return $this->container['inventory_item_id'];
+        return $this->container['product_details'];
     }
 
     /**
-     * Sets inventory_item_id
+     * Sets product_details
      *
-     * @param string $inventory_item_id The inventory item identifier.
+     * @param \DigitalRiver\ApiSdk\Model\ProductDetails $product_details product_details
      *
      * @return $this
      */
-    public function setInventoryItemId($inventory_item_id)
+    public function setProductDetails($product_details)
     {
-        $this->container['inventory_item_id'] = $inventory_item_id;
+        $this->container['product_details'] = $product_details;
 
         return $this;
     }
 
     /**
-     * Gets price
+     * Gets amount
      *
-     * @return double
+     * @return double|null
      */
-    public function getPrice()
+    public function getAmount()
     {
-        return $this->container['price'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets price
+     * Sets amount
      *
-     * @param double $price The unit price of the product.
+     * @param double|null $amount The amount of the product.
      *
      * @return $this
      */
-    public function setPrice($price)
+    public function setAmount($amount)
     {
-        $this->container['price'] = $price;
+        $this->container['amount'] = $amount;
 
         return $this;
     }

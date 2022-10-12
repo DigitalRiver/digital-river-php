@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **total_amount** | **double** | Represents the total charge amount. | [optional] [readonly] 
 **discount** | [**\DigitalRiver\ApiSdk\Model\Discount**](Discount.md) |  | [optional] 
 **tax_identifiers** | [**\DigitalRiver\ApiSdk\Model\TaxIdentifier[]**](TaxIdentifier.md) |  | [optional] 
+**invoice_attributes** | [**\DigitalRiver\ApiSdk\Model\InvoiceAttributes**](InvoiceAttributes.md) |  | [optional] 
 **purchase_location** | [**\DigitalRiver\ApiSdk\Model\PurchaseLocation**](PurchaseLocation.md) |  | [optional] 
 **customer_type** | [**\DigitalRiver\ApiSdk\Model\CustomerType**](CustomerType.md) |  | [optional] 
 **selling_entity** | [**\DigitalRiver\ApiSdk\Model\SellingEntity**](SellingEntity.md) |  | [optional] 

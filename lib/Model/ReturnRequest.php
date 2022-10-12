@@ -47,10 +47,9 @@ class ReturnRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'order_id' => 'string',
+        'rma_number' => 'string',
         'reason' => 'string',
-        'items' => '\DigitalRiver\ApiSdk\Model\RequestReturnItem[]',
-        'location' => '\DigitalRiver\ApiSdk\Model\ReturnLocation',
-        'metadata' => 'map[string,AnyType]'
+        'items' => '\DigitalRiver\ApiSdk\Model\ReturnItemRequest[]'
     ];
 
     /**
@@ -60,10 +59,9 @@ class ReturnRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'order_id' => null,
+        'rma_number' => null,
         'reason' => null,
-        'items' => null,
-        'location' => null,
-        'metadata' => null
+        'items' => null
     ];
 
     /**
@@ -94,10 +92,9 @@ class ReturnRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'order_id' => 'orderId',
+        'rma_number' => 'rmaNumber',
         'reason' => 'reason',
-        'items' => 'items',
-        'location' => 'location',
-        'metadata' => 'metadata'
+        'items' => 'items'
     ];
 
     /**
@@ -107,10 +104,9 @@ class ReturnRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'order_id' => 'setOrderId',
+        'rma_number' => 'setRmaNumber',
         'reason' => 'setReason',
-        'items' => 'setItems',
-        'location' => 'setLocation',
-        'metadata' => 'setMetadata'
+        'items' => 'setItems'
     ];
 
     /**
@@ -120,10 +116,9 @@ class ReturnRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'order_id' => 'getOrderId',
+        'rma_number' => 'getRmaNumber',
         'reason' => 'getReason',
-        'items' => 'getItems',
-        'location' => 'getLocation',
-        'metadata' => 'getMetadata'
+        'items' => 'getItems'
     ];
 
     /**
@@ -187,10 +182,9 @@ class ReturnRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['rma_number'] = isset($data['rma_number']) ? $data['rma_number'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
-        $this->container['location'] = isset($data['location']) ? $data['location'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
     }
 
     /**
@@ -204,6 +198,9 @@ class ReturnRequest implements ModelInterface, ArrayAccess
 
         if ($this->container['order_id'] === null) {
             $invalidProperties[] = "'order_id' can't be null";
+        }
+        if ($this->container['rma_number'] === null) {
+            $invalidProperties[] = "'rma_number' can't be null";
         }
         if (!is_null($this->container['reason']) && (mb_strlen($this->container['reason']) > 64)) {
             $invalidProperties[] = "invalid value for 'reason', the character length must be smaller than or equal to 64.";
@@ -240,13 +237,37 @@ class ReturnRequest implements ModelInterface, ArrayAccess
     /**
      * Sets order_id
      *
-     * @param string $order_id The unique identifier of the Order associated with the Return.
+     * @param string $order_id The unique identifier of the order associated with the return.
      *
      * @return $this
      */
     public function setOrderId($order_id)
     {
         $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets rma_number
+     *
+     * @return string
+     */
+    public function getRmaNumber()
+    {
+        return $this->container['rma_number'];
+    }
+
+    /**
+     * Sets rma_number
+     *
+     * @param string $rma_number The return merchandise authorization number.
+     *
+     * @return $this
+     */
+    public function setRmaNumber($rma_number)
+    {
+        $this->container['rma_number'] = $rma_number;
 
         return $this;
     }
@@ -282,7 +303,7 @@ class ReturnRequest implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \DigitalRiver\ApiSdk\Model\RequestReturnItem[]
+     * @return \DigitalRiver\ApiSdk\Model\ReturnItemRequest[]
      */
     public function getItems()
     {
@@ -292,61 +313,13 @@ class ReturnRequest implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \DigitalRiver\ApiSdk\Model\RequestReturnItem[] $items items
+     * @param \DigitalRiver\ApiSdk\Model\ReturnItemRequest[] $items items
      *
      * @return $this
      */
     public function setItems($items)
     {
         $this->container['items'] = $items;
-
-        return $this;
-    }
-
-    /**
-     * Gets location
-     *
-     * @return \DigitalRiver\ApiSdk\Model\ReturnLocation|null
-     */
-    public function getLocation()
-    {
-        return $this->container['location'];
-    }
-
-    /**
-     * Sets location
-     *
-     * @param \DigitalRiver\ApiSdk\Model\ReturnLocation|null $location location
-     *
-     * @return $this
-     */
-    public function setLocation($location)
-    {
-        $this->container['location'] = $location;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return map[string,AnyType]|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param map[string,AnyType]|null $metadata Key-value pairs used to store additional data. Value can be string, boolean or integer types.
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
 
         return $this;
     }
