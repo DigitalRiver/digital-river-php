@@ -26,6 +26,9 @@ Name | Type | Description | Notes
 **ship_to_country** | **string** | Country being shipped to. | [optional] 
 **bill_to_country** | **string** | Country listed on shopper&#39;s billing address. | [optional] 
 **payment_type** | **string** | Type of payment used. | [optional] 
+**line_item_id** | **string** | The unique identiier of the line item. | [optional] 
+**order_metadata** | [**map[string,AnyType]**](AnyType.md) | Key-value pairs used to store additional data. Value can be string, boolean or integer types. | [optional] 
+**line_item_metadata** | [**map[string,AnyType]**](AnyType.md) | Key-value pairs used to store additional data. Value can be string, boolean or integer types. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

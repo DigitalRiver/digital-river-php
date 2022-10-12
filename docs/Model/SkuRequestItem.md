@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sku_id** | **string** | The identifier of the stock keeping unit (SKU). | 
+**sku_id** | **string** | The identifier of the stock keeping unit (SKU). | [optional] 
+**product_details** | [**\DigitalRiver\ApiSdk\Model\ProductDetails**](ProductDetails.md) |  | [optional] 
 **subscription_info** | [**\DigitalRiver\ApiSdk\Model\SubscriptionInfo**](SubscriptionInfo.md) |  | [optional] 
 **price** | **double** | The price of an item. | [optional] 
 **aggregate_price** | **double** | The total price of multiple items. | [optional] 

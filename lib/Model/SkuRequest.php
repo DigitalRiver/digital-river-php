@@ -53,7 +53,6 @@ class SkuRequest implements ModelInterface, ArrayAccess
         'part_number' => 'string',
         'manufacturer_id' => 'string',
         'managed_fulfillment' => 'string',
-        'allow_oversell' => 'bool',
         'tax_code' => 'string',
         'name' => 'string',
         'description' => 'string',
@@ -78,7 +77,6 @@ class SkuRequest implements ModelInterface, ArrayAccess
         'part_number' => null,
         'manufacturer_id' => null,
         'managed_fulfillment' => null,
-        'allow_oversell' => null,
         'tax_code' => null,
         'name' => null,
         'description' => null,
@@ -124,7 +122,6 @@ class SkuRequest implements ModelInterface, ArrayAccess
         'part_number' => 'partNumber',
         'manufacturer_id' => 'manufacturerId',
         'managed_fulfillment' => 'managedFulfillment',
-        'allow_oversell' => 'allowOversell',
         'tax_code' => 'taxCode',
         'name' => 'name',
         'description' => 'description',
@@ -149,7 +146,6 @@ class SkuRequest implements ModelInterface, ArrayAccess
         'part_number' => 'setPartNumber',
         'manufacturer_id' => 'setManufacturerId',
         'managed_fulfillment' => 'setManagedFulfillment',
-        'allow_oversell' => 'setAllowOversell',
         'tax_code' => 'setTaxCode',
         'name' => 'setName',
         'description' => 'setDescription',
@@ -174,7 +170,6 @@ class SkuRequest implements ModelInterface, ArrayAccess
         'part_number' => 'getPartNumber',
         'manufacturer_id' => 'getManufacturerId',
         'managed_fulfillment' => 'getManagedFulfillment',
-        'allow_oversell' => 'getAllowOversell',
         'tax_code' => 'getTaxCode',
         'name' => 'getName',
         'description' => 'getDescription',
@@ -291,7 +286,6 @@ class SkuRequest implements ModelInterface, ArrayAccess
         $this->container['part_number'] = isset($data['part_number']) ? $data['part_number'] : null;
         $this->container['manufacturer_id'] = isset($data['manufacturer_id']) ? $data['manufacturer_id'] : null;
         $this->container['managed_fulfillment'] = isset($data['managed_fulfillment']) ? $data['managed_fulfillment'] : null;
-        $this->container['allow_oversell'] = isset($data['allow_oversell']) ? $data['allow_oversell'] : null;
         $this->container['tax_code'] = isset($data['tax_code']) ? $data['tax_code'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -530,30 +524,6 @@ class SkuRequest implements ModelInterface, ArrayAccess
             );
         }
         $this->container['managed_fulfillment'] = $managed_fulfillment;
-
-        return $this;
-    }
-
-    /**
-     * Gets allow_oversell
-     *
-     * @return bool|null
-     */
-    public function getAllowOversell()
-    {
-        return $this->container['allow_oversell'];
-    }
-
-    /**
-     * Sets allow_oversell
-     *
-     * @param bool|null $allow_oversell Determines whether customers are allowed to back order a product.
-     *
-     * @return $this
-     */
-    public function setAllowOversell($allow_oversell)
-    {
-        $this->container['allow_oversell'] = $allow_oversell;
 
         return $this;
     }

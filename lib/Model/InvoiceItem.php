@@ -48,6 +48,7 @@ class InvoiceItem implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'sku_id' => 'string',
+        'product_details' => '\DigitalRiver\ApiSdk\Model\ProductDetails',
         'subscription_info' => '\DigitalRiver\ApiSdk\Model\SubscriptionInfo',
         'fees' => '\DigitalRiver\ApiSdk\Model\Fees',
         'quantity' => 'int',
@@ -67,6 +68,7 @@ class InvoiceItem implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'sku_id' => null,
+        'product_details' => null,
         'subscription_info' => null,
         'fees' => null,
         'quantity' => null,
@@ -107,6 +109,7 @@ class InvoiceItem implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'sku_id' => 'skuId',
+        'product_details' => 'productDetails',
         'subscription_info' => 'subscriptionInfo',
         'fees' => 'fees',
         'quantity' => 'quantity',
@@ -126,6 +129,7 @@ class InvoiceItem implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'sku_id' => 'setSkuId',
+        'product_details' => 'setProductDetails',
         'subscription_info' => 'setSubscriptionInfo',
         'fees' => 'setFees',
         'quantity' => 'setQuantity',
@@ -145,6 +149,7 @@ class InvoiceItem implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'sku_id' => 'getSkuId',
+        'product_details' => 'getProductDetails',
         'subscription_info' => 'getSubscriptionInfo',
         'fees' => 'getFees',
         'quantity' => 'getQuantity',
@@ -218,6 +223,7 @@ class InvoiceItem implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['sku_id'] = isset($data['sku_id']) ? $data['sku_id'] : null;
+        $this->container['product_details'] = isset($data['product_details']) ? $data['product_details'] : null;
         $this->container['subscription_info'] = isset($data['subscription_info']) ? $data['subscription_info'] : null;
         $this->container['fees'] = isset($data['fees']) ? $data['fees'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
@@ -297,6 +303,30 @@ class InvoiceItem implements ModelInterface, ArrayAccess
     public function setSkuId($sku_id)
     {
         $this->container['sku_id'] = $sku_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_details
+     *
+     * @return \DigitalRiver\ApiSdk\Model\ProductDetails|null
+     */
+    public function getProductDetails()
+    {
+        return $this->container['product_details'];
+    }
+
+    /**
+     * Sets product_details
+     *
+     * @param \DigitalRiver\ApiSdk\Model\ProductDetails|null $product_details product_details
+     *
+     * @return $this
+     */
+    public function setProductDetails($product_details)
+    {
+        $this->container['product_details'] = $product_details;
 
         return $this;
     }

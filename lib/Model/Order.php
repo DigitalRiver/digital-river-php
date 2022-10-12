@@ -56,6 +56,7 @@ class Order implements ModelInterface, ArrayAccess
         'browser_ip' => 'string',
         'application_id' => 'string',
         'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\TaxIdentifier[]',
+        'invoice_attributes' => '\DigitalRiver\ApiSdk\Model\InvoiceAttributes',
         'ship_from' => '\DigitalRiver\ApiSdk\Model\ShipFrom',
         'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
         'bill_to' => '\DigitalRiver\ApiSdk\Model\Billing',
@@ -110,6 +111,7 @@ class Order implements ModelInterface, ArrayAccess
         'browser_ip' => null,
         'application_id' => null,
         'tax_identifiers' => null,
+        'invoice_attributes' => null,
         'ship_from' => null,
         'ship_to' => null,
         'bill_to' => null,
@@ -185,6 +187,7 @@ class Order implements ModelInterface, ArrayAccess
         'browser_ip' => 'browserIp',
         'application_id' => 'applicationId',
         'tax_identifiers' => 'taxIdentifiers',
+        'invoice_attributes' => 'invoiceAttributes',
         'ship_from' => 'shipFrom',
         'ship_to' => 'shipTo',
         'bill_to' => 'billTo',
@@ -239,6 +242,7 @@ class Order implements ModelInterface, ArrayAccess
         'browser_ip' => 'setBrowserIp',
         'application_id' => 'setApplicationId',
         'tax_identifiers' => 'setTaxIdentifiers',
+        'invoice_attributes' => 'setInvoiceAttributes',
         'ship_from' => 'setShipFrom',
         'ship_to' => 'setShipTo',
         'bill_to' => 'setBillTo',
@@ -293,6 +297,7 @@ class Order implements ModelInterface, ArrayAccess
         'browser_ip' => 'getBrowserIp',
         'application_id' => 'getApplicationId',
         'tax_identifiers' => 'getTaxIdentifiers',
+        'invoice_attributes' => 'getInvoiceAttributes',
         'ship_from' => 'getShipFrom',
         'ship_to' => 'getShipTo',
         'bill_to' => 'getBillTo',
@@ -453,6 +458,7 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['browser_ip'] = isset($data['browser_ip']) ? $data['browser_ip'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
         $this->container['tax_identifiers'] = isset($data['tax_identifiers']) ? $data['tax_identifiers'] : null;
+        $this->container['invoice_attributes'] = isset($data['invoice_attributes']) ? $data['invoice_attributes'] : null;
         $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
         $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
         $this->container['bill_to'] = isset($data['bill_to']) ? $data['bill_to'] : null;
@@ -773,6 +779,30 @@ class Order implements ModelInterface, ArrayAccess
     public function setTaxIdentifiers($tax_identifiers)
     {
         $this->container['tax_identifiers'] = $tax_identifiers;
+
+        return $this;
+    }
+
+    /**
+     * Gets invoice_attributes
+     *
+     * @return \DigitalRiver\ApiSdk\Model\InvoiceAttributes|null
+     */
+    public function getInvoiceAttributes()
+    {
+        return $this->container['invoice_attributes'];
+    }
+
+    /**
+     * Sets invoice_attributes
+     *
+     * @param \DigitalRiver\ApiSdk\Model\InvoiceAttributes|null $invoice_attributes invoice_attributes
+     *
+     * @return $this
+     */
+    public function setInvoiceAttributes($invoice_attributes)
+    {
+        $this->container['invoice_attributes'] = $invoice_attributes;
 
         return $this;
     }

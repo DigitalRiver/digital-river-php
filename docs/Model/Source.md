@@ -29,6 +29,8 @@ Name | Type | Description | Notes
 **klarna_credit_recurring** | [**\DigitalRiver\ApiSdk\Model\KlarnaRecurring**](KlarnaRecurring.md) |  | [optional] 
 **konbini** | [**\DigitalRiver\ApiSdk\Model\Konbini**](Konbini.md) |  | [optional] 
 **bank_transfer** | [**object**](.md) |  | [optional] 
+**msts** | [**object**](.md) |  | [optional] 
+**bancontact** | [**object**](.md) |  | [optional] 
 **flow** | **string** | The authentication flow of the source. | [optional] 
 **state** | **string** | The status of the source, one of pending_funds, pending_redirect, requires_action, cancelled, chargeable, consumed or failed. You can only use chargeable sources to create a charge. | [optional] 
 **metadata** | [**map[string,AnyType]**](AnyType.md) | Key-value pairs used to store additional data. Value can be string, boolean or integer types. | [optional] 

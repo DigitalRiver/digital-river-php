@@ -25,7 +25,6 @@ use \DigitalRiver\ApiSdk\ObjectSerializer;
  * Shipping Class Doc Comment
  *
  * @category Class
- * @description The ship to addresss of the customer.
  * @package  DigitalRiver\ApiSdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -261,7 +260,7 @@ class Shipping implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name The customer's name.
+     * @param string|null $name The recipient’s name.
      *
      * @return $this
      */
@@ -285,7 +284,7 @@ class Shipping implements ModelInterface, ArrayAccess
     /**
      * Sets phone
      *
-     * @param string|null $phone The customer's phone number.
+     * @param string|null $phone The recipient’s phone number.
      *
      * @return $this
      */
@@ -309,7 +308,7 @@ class Shipping implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string|null $email The customer's email address.
+     * @param string|null $email The recipient’s email address.
      *
      * @return $this
      */
@@ -333,7 +332,7 @@ class Shipping implements ModelInterface, ArrayAccess
     /**
      * Sets organization
      *
-     * @param string|null $organization The customer's organization.
+     * @param string|null $organization The recipient’s organization.
      *
      * @return $this
      */

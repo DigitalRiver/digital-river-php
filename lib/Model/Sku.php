@@ -55,7 +55,6 @@ class Sku implements ModelInterface, ArrayAccess
         'manufacturer_id' => 'string',
         'managed_fulfillment' => 'string',
         'physical' => 'bool',
-        'allow_oversell' => 'bool',
         'tax_code' => 'string',
         'name' => 'string',
         'description' => 'string',
@@ -84,7 +83,6 @@ class Sku implements ModelInterface, ArrayAccess
         'manufacturer_id' => null,
         'managed_fulfillment' => null,
         'physical' => null,
-        'allow_oversell' => null,
         'tax_code' => null,
         'name' => null,
         'description' => null,
@@ -134,7 +132,6 @@ class Sku implements ModelInterface, ArrayAccess
         'manufacturer_id' => 'manufacturerId',
         'managed_fulfillment' => 'managedFulfillment',
         'physical' => 'physical',
-        'allow_oversell' => 'allowOversell',
         'tax_code' => 'taxCode',
         'name' => 'name',
         'description' => 'description',
@@ -163,7 +160,6 @@ class Sku implements ModelInterface, ArrayAccess
         'manufacturer_id' => 'setManufacturerId',
         'managed_fulfillment' => 'setManagedFulfillment',
         'physical' => 'setPhysical',
-        'allow_oversell' => 'setAllowOversell',
         'tax_code' => 'setTaxCode',
         'name' => 'setName',
         'description' => 'setDescription',
@@ -192,7 +188,6 @@ class Sku implements ModelInterface, ArrayAccess
         'manufacturer_id' => 'getManufacturerId',
         'managed_fulfillment' => 'getManagedFulfillment',
         'physical' => 'getPhysical',
-        'allow_oversell' => 'getAllowOversell',
         'tax_code' => 'getTaxCode',
         'name' => 'getName',
         'description' => 'getDescription',
@@ -313,7 +308,6 @@ class Sku implements ModelInterface, ArrayAccess
         $this->container['manufacturer_id'] = isset($data['manufacturer_id']) ? $data['manufacturer_id'] : null;
         $this->container['managed_fulfillment'] = isset($data['managed_fulfillment']) ? $data['managed_fulfillment'] : null;
         $this->container['physical'] = isset($data['physical']) ? $data['physical'] : null;
-        $this->container['allow_oversell'] = isset($data['allow_oversell']) ? $data['allow_oversell'] : null;
         $this->container['tax_code'] = isset($data['tax_code']) ? $data['tax_code'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -590,30 +584,6 @@ class Sku implements ModelInterface, ArrayAccess
     public function setPhysical($physical)
     {
         $this->container['physical'] = $physical;
-
-        return $this;
-    }
-
-    /**
-     * Gets allow_oversell
-     *
-     * @return bool|null
-     */
-    public function getAllowOversell()
-    {
-        return $this->container['allow_oversell'];
-    }
-
-    /**
-     * Sets allow_oversell
-     *
-     * @param bool|null $allow_oversell Determines whether customers are allowed to back order a product.
-     *
-     * @return $this
-     */
-    public function setAllowOversell($allow_oversell)
-    {
-        $this->container['allow_oversell'] = $allow_oversell;
 
         return $this;
     }

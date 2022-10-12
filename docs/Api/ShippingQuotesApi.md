@@ -4,13 +4,13 @@ All URIs are relative to *https://api.digitalriver.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listShippingQuotes**](ShippingQuotesApi.md#listShippingQuotes) | **POST** /shipping-quotes | Returns shipping quotes
+[**postShippingQuotes**](ShippingQuotesApi.md#postShippingQuotes) | **POST** /shipping-quotes | Returns shipping quotes
 
 
 
-## listShippingQuotes
+## postShippingQuotes
 
-> \DigitalRiver\ApiSdk\Model\ShippingQuoteResponse listShippingQuotes($shipping_quote_request)
+> \DigitalRiver\ApiSdk\Model\ShippingQuoteResponse postShippingQuotes($shipping_quote_request)
 
 Returns shipping quotes
 
@@ -32,10 +32,10 @@ $shipping_quote_request = new \DigitalRiver\ApiSdk\Model\ShippingQuoteRequest();
 // Refer \DigitalRiver\ApiSdk\Model\ShippingQuoteRequest::$setters in digital-river-php/lib/Model/ShippingQuoteRequest.php to set the properties.
 
 try {
-    $result = $apiInstance->listShippingQuotes($shipping_quote_request);
+    $result = $apiInstance->postShippingQuotes($shipping_quote_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ShippingQuotesApi->listShippingQuotes: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ShippingQuotesApi->postShippingQuotes: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

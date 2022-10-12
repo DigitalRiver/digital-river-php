@@ -71,6 +71,8 @@ class Source implements ModelInterface, ArrayAccess
         'klarna_credit_recurring' => '\DigitalRiver\ApiSdk\Model\KlarnaRecurring',
         'konbini' => '\DigitalRiver\ApiSdk\Model\Konbini',
         'bank_transfer' => 'object',
+        'msts' => 'object',
+        'bancontact' => 'object',
         'flow' => 'string',
         'state' => 'string',
         'metadata' => 'map[string,AnyType]',
@@ -110,6 +112,8 @@ class Source implements ModelInterface, ArrayAccess
         'klarna_credit_recurring' => null,
         'konbini' => null,
         'bank_transfer' => null,
+        'msts' => null,
+        'bancontact' => null,
         'flow' => null,
         'state' => null,
         'metadata' => null,
@@ -170,6 +174,8 @@ class Source implements ModelInterface, ArrayAccess
         'klarna_credit_recurring' => 'klarnaCreditRecurring',
         'konbini' => 'konbini',
         'bank_transfer' => 'bankTransfer',
+        'msts' => 'msts',
+        'bancontact' => 'bancontact',
         'flow' => 'flow',
         'state' => 'state',
         'metadata' => 'metadata',
@@ -209,6 +215,8 @@ class Source implements ModelInterface, ArrayAccess
         'klarna_credit_recurring' => 'setKlarnaCreditRecurring',
         'konbini' => 'setKonbini',
         'bank_transfer' => 'setBankTransfer',
+        'msts' => 'setMsts',
+        'bancontact' => 'setBancontact',
         'flow' => 'setFlow',
         'state' => 'setState',
         'metadata' => 'setMetadata',
@@ -248,6 +256,8 @@ class Source implements ModelInterface, ArrayAccess
         'klarna_credit_recurring' => 'getKlarnaCreditRecurring',
         'konbini' => 'getKonbini',
         'bank_transfer' => 'getBankTransfer',
+        'msts' => 'getMsts',
+        'bancontact' => 'getBancontact',
         'flow' => 'getFlow',
         'state' => 'getState',
         'metadata' => 'getMetadata',
@@ -314,6 +324,8 @@ class Source implements ModelInterface, ArrayAccess
     const TYPE_KLARNA_CREDIT_RECURRING = 'klarnaCreditRecurring';
     const TYPE_KONBINI = 'konbini';
     const TYPE_BANK_TRANSFER = 'bankTransfer';
+    const TYPE_MSTS = 'msts';
+    const TYPE_BANCONTACT = 'bancontact';
     const FLOW_STANDARD = 'standard';
     const FLOW_REDIRECT = 'redirect';
     const FLOW_RECEIVER = 'receiver';
@@ -352,6 +364,8 @@ class Source implements ModelInterface, ArrayAccess
             self::TYPE_KLARNA_CREDIT_RECURRING,
             self::TYPE_KONBINI,
             self::TYPE_BANK_TRANSFER,
+            self::TYPE_MSTS,
+            self::TYPE_BANCONTACT,
         ];
 
         $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
@@ -437,6 +451,8 @@ class Source implements ModelInterface, ArrayAccess
         $this->container['klarna_credit_recurring'] = isset($data['klarna_credit_recurring']) ? $data['klarna_credit_recurring'] : null;
         $this->container['konbini'] = isset($data['konbini']) ? $data['konbini'] : null;
         $this->container['bank_transfer'] = isset($data['bank_transfer']) ? $data['bank_transfer'] : null;
+        $this->container['msts'] = isset($data['msts']) ? $data['msts'] : null;
+        $this->container['bancontact'] = isset($data['bancontact']) ? $data['bancontact'] : null;
         $this->container['flow'] = isset($data['flow']) ? $data['flow'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
@@ -1101,6 +1117,54 @@ class Source implements ModelInterface, ArrayAccess
     public function setBankTransfer($bank_transfer)
     {
         $this->container['bank_transfer'] = $bank_transfer;
+
+        return $this;
+    }
+
+    /**
+     * Gets msts
+     *
+     * @return object|null
+     */
+    public function getMsts()
+    {
+        return $this->container['msts'];
+    }
+
+    /**
+     * Sets msts
+     *
+     * @param object|null $msts msts
+     *
+     * @return $this
+     */
+    public function setMsts($msts)
+    {
+        $this->container['msts'] = $msts;
+
+        return $this;
+    }
+
+    /**
+     * Gets bancontact
+     *
+     * @return object|null
+     */
+    public function getBancontact()
+    {
+        return $this->container['bancontact'];
+    }
+
+    /**
+     * Sets bancontact
+     *
+     * @param object|null $bancontact bancontact
+     *
+     * @return $this
+     */
+    public function setBancontact($bancontact)
+    {
+        $this->container['bancontact'] = $bancontact;
 
         return $this;
     }

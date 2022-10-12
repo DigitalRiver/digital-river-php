@@ -48,6 +48,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'sku_id' => 'string',
+        'product_details' => '\DigitalRiver\ApiSdk\Model\ProductDetails',
         'subscription_info' => '\DigitalRiver\ApiSdk\Model\SubscriptionInfo',
         'fees' => '\DigitalRiver\ApiSdk\Model\Fees',
         'quantity' => 'int',
@@ -55,12 +56,13 @@ class OrderItem implements ModelInterface, ArrayAccess
         'state_transitions' => '\DigitalRiver\ApiSdk\Model\OrderItemStateTransitions',
         'amount' => 'double',
         'available_to_refund_amount' => 'double',
-        'tariff_code' => 'string',
+        'seller_tax_identifier' => 'string',
         'tax' => '\DigitalRiver\ApiSdk\Model\Tax',
         'importer_tax' => '\DigitalRiver\ApiSdk\Model\ImporterTax',
         'duties' => '\DigitalRiver\ApiSdk\Model\Duties',
         'discount' => '\DigitalRiver\ApiSdk\Model\SkuDiscount',
         'ship_from' => '\DigitalRiver\ApiSdk\Model\ShipFrom',
+        'shipping' => '\DigitalRiver\ApiSdk\Model\ItemShipping',
         'metadata' => 'map[string,AnyType]'
     ];
 
@@ -72,6 +74,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'sku_id' => null,
+        'product_details' => null,
         'subscription_info' => null,
         'fees' => null,
         'quantity' => null,
@@ -79,12 +82,13 @@ class OrderItem implements ModelInterface, ArrayAccess
         'state_transitions' => null,
         'amount' => 'double',
         'available_to_refund_amount' => 'double',
-        'tariff_code' => null,
+        'seller_tax_identifier' => null,
         'tax' => null,
         'importer_tax' => null,
         'duties' => null,
         'discount' => null,
         'ship_from' => null,
+        'shipping' => null,
         'metadata' => null
     ];
 
@@ -117,6 +121,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'sku_id' => 'skuId',
+        'product_details' => 'productDetails',
         'subscription_info' => 'subscriptionInfo',
         'fees' => 'fees',
         'quantity' => 'quantity',
@@ -124,12 +129,13 @@ class OrderItem implements ModelInterface, ArrayAccess
         'state_transitions' => 'stateTransitions',
         'amount' => 'amount',
         'available_to_refund_amount' => 'availableToRefundAmount',
-        'tariff_code' => 'tariffCode',
+        'seller_tax_identifier' => 'sellerTaxIdentifier',
         'tax' => 'tax',
         'importer_tax' => 'importerTax',
         'duties' => 'duties',
         'discount' => 'discount',
         'ship_from' => 'shipFrom',
+        'shipping' => 'shipping',
         'metadata' => 'metadata'
     ];
 
@@ -141,6 +147,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'sku_id' => 'setSkuId',
+        'product_details' => 'setProductDetails',
         'subscription_info' => 'setSubscriptionInfo',
         'fees' => 'setFees',
         'quantity' => 'setQuantity',
@@ -148,12 +155,13 @@ class OrderItem implements ModelInterface, ArrayAccess
         'state_transitions' => 'setStateTransitions',
         'amount' => 'setAmount',
         'available_to_refund_amount' => 'setAvailableToRefundAmount',
-        'tariff_code' => 'setTariffCode',
+        'seller_tax_identifier' => 'setSellerTaxIdentifier',
         'tax' => 'setTax',
         'importer_tax' => 'setImporterTax',
         'duties' => 'setDuties',
         'discount' => 'setDiscount',
         'ship_from' => 'setShipFrom',
+        'shipping' => 'setShipping',
         'metadata' => 'setMetadata'
     ];
 
@@ -165,6 +173,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'sku_id' => 'getSkuId',
+        'product_details' => 'getProductDetails',
         'subscription_info' => 'getSubscriptionInfo',
         'fees' => 'getFees',
         'quantity' => 'getQuantity',
@@ -172,12 +181,13 @@ class OrderItem implements ModelInterface, ArrayAccess
         'state_transitions' => 'getStateTransitions',
         'amount' => 'getAmount',
         'available_to_refund_amount' => 'getAvailableToRefundAmount',
-        'tariff_code' => 'getTariffCode',
+        'seller_tax_identifier' => 'getSellerTaxIdentifier',
         'tax' => 'getTax',
         'importer_tax' => 'getImporterTax',
         'duties' => 'getDuties',
         'discount' => 'getDiscount',
         'ship_from' => 'getShipFrom',
+        'shipping' => 'getShipping',
         'metadata' => 'getMetadata'
     ];
 
@@ -269,6 +279,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['sku_id'] = isset($data['sku_id']) ? $data['sku_id'] : null;
+        $this->container['product_details'] = isset($data['product_details']) ? $data['product_details'] : null;
         $this->container['subscription_info'] = isset($data['subscription_info']) ? $data['subscription_info'] : null;
         $this->container['fees'] = isset($data['fees']) ? $data['fees'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
@@ -276,12 +287,13 @@ class OrderItem implements ModelInterface, ArrayAccess
         $this->container['state_transitions'] = isset($data['state_transitions']) ? $data['state_transitions'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['available_to_refund_amount'] = isset($data['available_to_refund_amount']) ? $data['available_to_refund_amount'] : null;
-        $this->container['tariff_code'] = isset($data['tariff_code']) ? $data['tariff_code'] : null;
+        $this->container['seller_tax_identifier'] = isset($data['seller_tax_identifier']) ? $data['seller_tax_identifier'] : null;
         $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
         $this->container['importer_tax'] = isset($data['importer_tax']) ? $data['importer_tax'] : null;
         $this->container['duties'] = isset($data['duties']) ? $data['duties'] : null;
         $this->container['discount'] = isset($data['discount']) ? $data['discount'] : null;
         $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
+        $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
     }
 
@@ -362,6 +374,30 @@ class OrderItem implements ModelInterface, ArrayAccess
     public function setSkuId($sku_id)
     {
         $this->container['sku_id'] = $sku_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_details
+     *
+     * @return \DigitalRiver\ApiSdk\Model\ProductDetails|null
+     */
+    public function getProductDetails()
+    {
+        return $this->container['product_details'];
+    }
+
+    /**
+     * Sets product_details
+     *
+     * @param \DigitalRiver\ApiSdk\Model\ProductDetails|null $product_details product_details
+     *
+     * @return $this
+     */
+    public function setProductDetails($product_details)
+    {
+        $this->container['product_details'] = $product_details;
 
         return $this;
     }
@@ -544,25 +580,25 @@ class OrderItem implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets tariff_code
+     * Gets seller_tax_identifier
      *
      * @return string|null
      */
-    public function getTariffCode()
+    public function getSellerTaxIdentifier()
     {
-        return $this->container['tariff_code'];
+        return $this->container['seller_tax_identifier'];
     }
 
     /**
-     * Sets tariff_code
+     * Sets seller_tax_identifier
      *
-     * @param string|null $tariff_code “Harmonized Tariff Schedule” that adds 4 more country-specific digits to the end of the HS Code and is determined by individual countries of import.
+     * @param string|null $seller_tax_identifier The tax identifier of the seller.
      *
      * @return $this
      */
-    public function setTariffCode($tariff_code)
+    public function setSellerTaxIdentifier($seller_tax_identifier)
     {
-        $this->container['tariff_code'] = $tariff_code;
+        $this->container['seller_tax_identifier'] = $seller_tax_identifier;
 
         return $this;
     }
@@ -683,6 +719,30 @@ class OrderItem implements ModelInterface, ArrayAccess
     public function setShipFrom($ship_from)
     {
         $this->container['ship_from'] = $ship_from;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping
+     *
+     * @return \DigitalRiver\ApiSdk\Model\ItemShipping|null
+     */
+    public function getShipping()
+    {
+        return $this->container['shipping'];
+    }
+
+    /**
+     * Sets shipping
+     *
+     * @param \DigitalRiver\ApiSdk\Model\ItemShipping|null $shipping shipping
+     *
+     * @return $this
+     */
+    public function setShipping($shipping)
+    {
+        $this->container['shipping'] = $shipping;
 
         return $this;
     }

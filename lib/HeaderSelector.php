@@ -18,6 +18,7 @@
 namespace DigitalRiver\ApiSdk;
 
 use \Exception;
+use DigitalRiver\ApiSdk\Configuration;
 
 /**
  * ApiException Class Doc Comment
@@ -29,7 +30,12 @@ use \Exception;
  */
 class HeaderSelector
 {
+    private $config;
 
+    public function __construct() {
+        $this->config = Configuration::getDefaultConfiguration();
+    }
+  
     /**
      * @param string[] $accept
      * @param string[] $contentTypes
@@ -45,6 +51,14 @@ class HeaderSelector
         }
 
         $headers['Content-Type'] = $this->selectContentTypeHeader($contentTypes);
+		
+        $customHeaders = $this->config->getCustomHeaders();
+        if ($customHeaders) {
+            $headers = array_merge(
+                $headers,
+                $customHeaders
+            );
+        }		
         return $headers;
     }
 

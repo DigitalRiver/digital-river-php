@@ -47,16 +47,13 @@ class ShippingQuote implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'currency' => 'string',
+        'description' => 'string',
         'service_level' => 'string',
-        'shipping' => 'double',
-        'handling' => 'double',
-        'fees' => 'double',
-        'total' => 'double',
-        'signature_required_type' => 'string',
-        'estimated_minimum_delivery_time' => 'float',
-        'estimated_maximum_delivery_time' => 'float',
-        'items' => '\DigitalRiver\ApiSdk\Model\ProductItem[]'
+        'estimated_delivery' => 'string',
+        'shipping_terms' => 'string',
+        'total_amount' => 'double',
+        'ship_from' => '\DigitalRiver\ApiSdk\Model\GLShipFrom',
+        'fees' => '\DigitalRiver\ApiSdk\Model\ShippingQuoteFees'
     ];
 
     /**
@@ -66,16 +63,13 @@ class ShippingQuote implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'currency' => null,
+        'description' => null,
         'service_level' => null,
-        'shipping' => 'double',
-        'handling' => 'double',
-        'fees' => 'double',
-        'total' => 'double',
-        'signature_required_type' => null,
-        'estimated_minimum_delivery_time' => 'integer',
-        'estimated_maximum_delivery_time' => 'integer',
-        'items' => null
+        'estimated_delivery' => null,
+        'shipping_terms' => null,
+        'total_amount' => 'double',
+        'ship_from' => null,
+        'fees' => null
     ];
 
     /**
@@ -106,16 +100,13 @@ class ShippingQuote implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'currency' => 'currency',
+        'description' => 'description',
         'service_level' => 'serviceLevel',
-        'shipping' => 'shipping',
-        'handling' => 'handling',
-        'fees' => 'fees',
-        'total' => 'total',
-        'signature_required_type' => 'signatureRequiredType',
-        'estimated_minimum_delivery_time' => 'estimatedMinimumDeliveryTime',
-        'estimated_maximum_delivery_time' => 'estimatedMaximumDeliveryTime',
-        'items' => 'items'
+        'estimated_delivery' => 'estimatedDelivery',
+        'shipping_terms' => 'shippingTerms',
+        'total_amount' => 'totalAmount',
+        'ship_from' => 'shipFrom',
+        'fees' => 'fees'
     ];
 
     /**
@@ -125,16 +116,13 @@ class ShippingQuote implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'currency' => 'setCurrency',
+        'description' => 'setDescription',
         'service_level' => 'setServiceLevel',
-        'shipping' => 'setShipping',
-        'handling' => 'setHandling',
-        'fees' => 'setFees',
-        'total' => 'setTotal',
-        'signature_required_type' => 'setSignatureRequiredType',
-        'estimated_minimum_delivery_time' => 'setEstimatedMinimumDeliveryTime',
-        'estimated_maximum_delivery_time' => 'setEstimatedMaximumDeliveryTime',
-        'items' => 'setItems'
+        'estimated_delivery' => 'setEstimatedDelivery',
+        'shipping_terms' => 'setShippingTerms',
+        'total_amount' => 'setTotalAmount',
+        'ship_from' => 'setShipFrom',
+        'fees' => 'setFees'
     ];
 
     /**
@@ -144,16 +132,13 @@ class ShippingQuote implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'currency' => 'getCurrency',
+        'description' => 'getDescription',
         'service_level' => 'getServiceLevel',
-        'shipping' => 'getShipping',
-        'handling' => 'getHandling',
-        'fees' => 'getFees',
-        'total' => 'getTotal',
-        'signature_required_type' => 'getSignatureRequiredType',
-        'estimated_minimum_delivery_time' => 'getEstimatedMinimumDeliveryTime',
-        'estimated_maximum_delivery_time' => 'getEstimatedMaximumDeliveryTime',
-        'items' => 'getItems'
+        'estimated_delivery' => 'getEstimatedDelivery',
+        'shipping_terms' => 'getShippingTerms',
+        'total_amount' => 'getTotalAmount',
+        'ship_from' => 'getShipFrom',
+        'fees' => 'getFees'
     ];
 
     /**
@@ -197,8 +182,8 @@ class ShippingQuote implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const SIGNATURE_REQUIRED_TYPE_STANDARD = 'standard';
-    const SIGNATURE_REQUIRED_TYPE_ADULT = 'adult';
+    const SHIPPING_TERMS_DDP = 'DDP';
+    const SHIPPING_TERMS_DAP = 'DAP';
     
 
     
@@ -207,11 +192,11 @@ class ShippingQuote implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getSignatureRequiredTypeAllowableValues()
+    public function getShippingTermsAllowableValues()
     {
        $allowable = [
-            self::SIGNATURE_REQUIRED_TYPE_STANDARD,
-            self::SIGNATURE_REQUIRED_TYPE_ADULT,
+            self::SHIPPING_TERMS_DDP,
+            self::SHIPPING_TERMS_DAP,
         ];
 
         $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
@@ -235,16 +220,13 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['service_level'] = isset($data['service_level']) ? $data['service_level'] : null;
-        $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
-        $this->container['handling'] = isset($data['handling']) ? $data['handling'] : null;
+        $this->container['estimated_delivery'] = isset($data['estimated_delivery']) ? $data['estimated_delivery'] : null;
+        $this->container['shipping_terms'] = isset($data['shipping_terms']) ? $data['shipping_terms'] : null;
+        $this->container['total_amount'] = isset($data['total_amount']) ? $data['total_amount'] : null;
+        $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
         $this->container['fees'] = isset($data['fees']) ? $data['fees'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
-        $this->container['signature_required_type'] = isset($data['signature_required_type']) ? $data['signature_required_type'] : null;
-        $this->container['estimated_minimum_delivery_time'] = isset($data['estimated_minimum_delivery_time']) ? $data['estimated_minimum_delivery_time'] : null;
-        $this->container['estimated_maximum_delivery_time'] = isset($data['estimated_maximum_delivery_time']) ? $data['estimated_maximum_delivery_time'] : null;
-        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
     }
 
     /**
@@ -256,11 +238,11 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getSignatureRequiredTypeAllowableValues();
+        $allowedValues = $this->getShippingTermsAllowableValues();
        
-        if (!is_null($this->container['signature_required_type']) && !in_array(strtolower($this->container['signature_required_type']), $allowedValues, true)) {
+        if (!is_null($this->container['shipping_terms']) && !in_array(strtolower($this->container['shipping_terms']), $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'signature_required_type', must be one of '%s'",
+                "invalid value for 'shipping_terms', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -293,7 +275,7 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Shipping quote identifier
      *
      * @return $this
      */
@@ -305,25 +287,25 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets currency
+     * Gets description
      *
      * @return string|null
      */
-    public function getCurrency()
+    public function getDescription()
     {
-        return $this->container['currency'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets currency
+     * Sets description
      *
-     * @param string|null $currency A three-letter ISO currency code.
+     * @param string|null $description Shipping method description
      *
      * @return $this
      */
-    public function setCurrency($currency)
+    public function setDescription($description)
     {
-        $this->container['currency'] = $currency;
+        $this->container['description'] = $description;
 
         return $this;
     }
@@ -353,49 +335,106 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets shipping
+     * Gets estimated_delivery
      *
-     * @return double|null
+     * @return string|null
      */
-    public function getShipping()
+    public function getEstimatedDelivery()
     {
-        return $this->container['shipping'];
+        return $this->container['estimated_delivery'];
     }
 
     /**
-     * Sets shipping
+     * Sets estimated_delivery
      *
-     * @param double|null $shipping The shipping amount.
+     * @param string|null $estimated_delivery estimated_delivery
      *
      * @return $this
      */
-    public function setShipping($shipping)
+    public function setEstimatedDelivery($estimated_delivery)
     {
-        $this->container['shipping'] = $shipping;
+        $this->container['estimated_delivery'] = $estimated_delivery;
 
         return $this;
     }
 
     /**
-     * Gets handling
+     * Gets shipping_terms
      *
-     * @return double|null
+     * @return string|null
      */
-    public function getHandling()
+    public function getShippingTerms()
     {
-        return $this->container['handling'];
+        return $this->container['shipping_terms'];
     }
 
     /**
-     * Sets handling
+     * Sets shipping_terms
      *
-     * @param double|null $handling The handling amount.
+     * @param string|null $shipping_terms The terms of shipping.
      *
      * @return $this
      */
-    public function setHandling($handling)
+    public function setShippingTerms($shipping_terms)
     {
-        $this->container['handling'] = $handling;
+        $allowedValues = $this->getShippingTermsAllowableValues();
+        if (!is_null($shipping_terms) && !in_array(strtolower($shipping_terms), $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'shipping_terms', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['shipping_terms'] = $shipping_terms;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_amount
+     *
+     * @return double|null
+     */
+    public function getTotalAmount()
+    {
+        return $this->container['total_amount'];
+    }
+
+    /**
+     * Sets total_amount
+     *
+     * @param double|null $total_amount The shipping amount.
+     *
+     * @return $this
+     */
+    public function setTotalAmount($total_amount)
+    {
+        $this->container['total_amount'] = $total_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets ship_from
+     *
+     * @return \DigitalRiver\ApiSdk\Model\GLShipFrom|null
+     */
+    public function getShipFrom()
+    {
+        return $this->container['ship_from'];
+    }
+
+    /**
+     * Sets ship_from
+     *
+     * @param \DigitalRiver\ApiSdk\Model\GLShipFrom|null $ship_from ship_from
+     *
+     * @return $this
+     */
+    public function setShipFrom($ship_from)
+    {
+        $this->container['ship_from'] = $ship_from;
 
         return $this;
     }
@@ -403,7 +442,7 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     /**
      * Gets fees
      *
-     * @return double|null
+     * @return \DigitalRiver\ApiSdk\Model\ShippingQuoteFees|null
      */
     public function getFees()
     {
@@ -413,142 +452,13 @@ class ShippingQuote implements ModelInterface, ArrayAccess
     /**
      * Sets fees
      *
-     * @param double|null $fees The fee amount.
+     * @param \DigitalRiver\ApiSdk\Model\ShippingQuoteFees|null $fees fees
      *
      * @return $this
      */
     public function setFees($fees)
     {
         $this->container['fees'] = $fees;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return double|null
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param double|null $total The total shipping and handling amount.
-     *
-     * @return $this
-     */
-    public function setTotal($total)
-    {
-        $this->container['total'] = $total;
-
-        return $this;
-    }
-
-    /**
-     * Gets signature_required_type
-     *
-     * @return string|null
-     */
-    public function getSignatureRequiredType()
-    {
-        return $this->container['signature_required_type'];
-    }
-
-    /**
-     * Sets signature_required_type
-     *
-     * @param string|null $signature_required_type Indicates whether a signature is needed upon delivery, and, if it is, what type of signature is required.
-     *
-     * @return $this
-     */
-    public function setSignatureRequiredType($signature_required_type)
-    {
-        $allowedValues = $this->getSignatureRequiredTypeAllowableValues();
-        if (!is_null($signature_required_type) && !in_array(strtolower($signature_required_type), $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'signature_required_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['signature_required_type'] = $signature_required_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets estimated_minimum_delivery_time
-     *
-     * @return float|null
-     */
-    public function getEstimatedMinimumDeliveryTime()
-    {
-        return $this->container['estimated_minimum_delivery_time'];
-    }
-
-    /**
-     * Sets estimated_minimum_delivery_time
-     *
-     * @param float|null $estimated_minimum_delivery_time The minimum estimated time until delivery (in minutes).
-     *
-     * @return $this
-     */
-    public function setEstimatedMinimumDeliveryTime($estimated_minimum_delivery_time)
-    {
-        $this->container['estimated_minimum_delivery_time'] = $estimated_minimum_delivery_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets estimated_maximum_delivery_time
-     *
-     * @return float|null
-     */
-    public function getEstimatedMaximumDeliveryTime()
-    {
-        return $this->container['estimated_maximum_delivery_time'];
-    }
-
-    /**
-     * Sets estimated_maximum_delivery_time
-     *
-     * @param float|null $estimated_maximum_delivery_time The maximum estimated time until delivery (in minutes).
-     *
-     * @return $this
-     */
-    public function setEstimatedMaximumDeliveryTime($estimated_maximum_delivery_time)
-    {
-        $this->container['estimated_maximum_delivery_time'] = $estimated_maximum_delivery_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets items
-     *
-     * @return \DigitalRiver\ApiSdk\Model\ProductItem[]|null
-     */
-    public function getItems()
-    {
-        return $this->container['items'];
-    }
-
-    /**
-     * Sets items
-     *
-     * @param \DigitalRiver\ApiSdk\Model\ProductItem[]|null $items items
-     *
-     * @return $this
-     */
-    public function setItems($items)
-    {
-        $this->container['items'] = $items;
 
         return $this;
     }

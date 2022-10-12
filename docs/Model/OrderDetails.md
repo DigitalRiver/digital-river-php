@@ -1,0 +1,55 @@
+# # OrderDetails
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **string** | The unique identifier for the order. | [optional] [readonly] 
+**checkout_id** | **string** | The unique identifier of the checkout submitted to create the order. | [optional] 
+**created_time** | [**\DateTime**](\DateTime.md) | Time at which the order was created. | [optional] [readonly] 
+**customer_id** | **string** | The identifier of the customer associated with this order. | [optional] 
+**currency** | **string** | A three-letter ISO currency code. | [optional] 
+**email** | **string** | The customer&#39;s email address. | [optional] 
+**locale** | **string** | A designator that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code. | [optional] 
+**browser_ip** | **string** | The IP address of the browser used by the customer when placing the order. | [optional] 
+**application_id** | **string** | An arbitrary string identifier that can be used to track the application type. | [optional] [readonly] 
+**tax_identifiers** | [**\DigitalRiver\ApiSdk\Model\TaxIdentifier[]**](TaxIdentifier.md) | A list of the tax identifiers applied to this order. | [optional] 
+**invoice_attributes** | [**\DigitalRiver\ApiSdk\Model\InvoiceAttributes**](InvoiceAttributes.md) |  | [optional] 
+**ship_from** | [**\DigitalRiver\ApiSdk\Model\ShipFrom**](ShipFrom.md) |  | [optional] 
+**ship_to** | [**\DigitalRiver\ApiSdk\Model\Shipping**](Shipping.md) |  | [optional] 
+**bill_to** | [**\DigitalRiver\ApiSdk\Model\Billing**](Billing.md) |  | [optional] 
+**organization** | [**\DigitalRiver\ApiSdk\Model\Organization**](Organization.md) |  | [optional] 
+**subtotal** | **double** | Represents the total order amount exclusive of tax. | [optional] [readonly] 
+**total_tax** | **double** | Represents the total tax amount. | [optional] [readonly] 
+**total_importer_tax** | **double** | Represents the total tax amount from the importer of record. | [optional] 
+**importer_of_record_tax** | **bool** | If &lt;code&gt;true&lt;/code&gt;, indicates that the tax amount is paid by the importer of record. | [optional] [readonly] 
+**total_fees** | **double** | Represents the total fee amount. | [optional] [readonly] 
+**total_duty** | **double** | Represents the total duty amount. | [optional] [readonly] 
+**total_discount** | **double** | Represents the total discount amount. | [optional] [readonly] 
+**total_shipping** | **double** | Represents the total shipping amount. | [optional] [readonly] 
+**total_amount** | **double** | Represents the total charge amount. | [optional] [readonly] 
+**discount** | [**\DigitalRiver\ApiSdk\Model\Discount**](Discount.md) |  | [optional] 
+**available_to_refund_amount** | **double** | The available to refund amount at the order-level. | [optional] 
+**refunded_amount** | **double** | Represents the total payment amount refunded. | [optional] [readonly] 
+**cancelled_amount** | **double** | Represents the total payment amount cancelled. | [optional] [readonly] 
+**captured_amount** | **double** | Represents the total payment amount captured. | [optional] [readonly] 
+**items** | [**\DigitalRiver\ApiSdk\Model\OrderItem[]**](OrderItem.md) |  | [optional] 
+**invoice_pd_fs** | [**\DigitalRiver\ApiSdk\Model\File[]**](File.md) | An array of links to downloadable PDF invoices. If no invoices exist yet, the array is null. | [optional] 
+**credit_memo_pd_fs** | [**\DigitalRiver\ApiSdk\Model\File[]**](File.md) | An array of links to downloadable PDF credit memos. If no credit memos exist yet, the array is null. | [optional] 
+**request_to_be_forgotten** | **bool** | If &lt;code&gt;true&lt;/code&gt; indicates a user placing an order has requested this order be forgotten. | [optional] [default to false]
+**shipping_choice** | [**\DigitalRiver\ApiSdk\Model\ShippingChoice**](ShippingChoice.md) |  | [optional] 
+**state** | **string** | The current order state. | [optional] [readonly] 
+**state_transitions** | [**\DigitalRiver\ApiSdk\Model\OrderStateTransitions**](OrderStateTransitions.md) |  | [optional] 
+**fraud_state** | **string** | The fraud review state. | [optional] [readonly] 
+**fraud_state_transitions** | [**\DigitalRiver\ApiSdk\Model\FraudStateTransitions**](FraudStateTransitions.md) |  | [optional] 
+**live_mode** | **bool** | Has the value &lt;code&gt;true&lt;/code&gt; if the object exists in live mode or the value &lt;code&gt;false&lt;/code&gt; if the object exists in test mode. | [optional] 
+**metadata** | [**map[string,AnyType]**](AnyType.md) | Key-value pairs used to store additional data. Value can be string, boolean or integer types. | [optional] 
+**selling_entity** | [**\DigitalRiver\ApiSdk\Model\SellingEntity**](SellingEntity.md) |  | [optional] 
+**purchase_location** | [**\DigitalRiver\ApiSdk\Model\PurchaseLocation**](PurchaseLocation.md) |  | [optional] 
+**customer_type** | [**\DigitalRiver\ApiSdk\Model\CustomerType**](CustomerType.md) |  | [optional] 
+**upstream_id** | **string** | The upstream identifier. | [optional] 
+**updated_time** | [**\DateTime**](\DateTime.md) | Time at which the order was created. | [optional] [readonly] 
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+
+

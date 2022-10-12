@@ -47,9 +47,8 @@ class StateTransitions implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'activated' => '\DateTime',
-        'failed' => '\DateTime',
-        'cancelled' => '\DateTime',
-        'ended' => '\DateTime'
+        'discontinued' => '\DateTime',
+        'deactivated' => '\DateTime'
     ];
 
     /**
@@ -59,9 +58,8 @@ class StateTransitions implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'activated' => 'date-time',
-        'failed' => 'date-time',
-        'cancelled' => 'date-time',
-        'ended' => 'date-time'
+        'discontinued' => 'date-time',
+        'deactivated' => 'date-time'
     ];
 
     /**
@@ -92,9 +90,8 @@ class StateTransitions implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'activated' => 'activated',
-        'failed' => 'failed',
-        'cancelled' => 'cancelled',
-        'ended' => 'ended'
+        'discontinued' => 'discontinued',
+        'deactivated' => 'deactivated'
     ];
 
     /**
@@ -104,9 +101,8 @@ class StateTransitions implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'activated' => 'setActivated',
-        'failed' => 'setFailed',
-        'cancelled' => 'setCancelled',
-        'ended' => 'setEnded'
+        'discontinued' => 'setDiscontinued',
+        'deactivated' => 'setDeactivated'
     ];
 
     /**
@@ -116,9 +112,8 @@ class StateTransitions implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'activated' => 'getActivated',
-        'failed' => 'getFailed',
-        'cancelled' => 'getCancelled',
-        'ended' => 'getEnded'
+        'discontinued' => 'getDiscontinued',
+        'deactivated' => 'getDeactivated'
     ];
 
     /**
@@ -182,9 +177,8 @@ class StateTransitions implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['activated'] = isset($data['activated']) ? $data['activated'] : null;
-        $this->container['failed'] = isset($data['failed']) ? $data['failed'] : null;
-        $this->container['cancelled'] = isset($data['cancelled']) ? $data['cancelled'] : null;
-        $this->container['ended'] = isset($data['ended']) ? $data['ended'] : null;
+        $this->container['discontinued'] = isset($data['discontinued']) ? $data['discontinued'] : null;
+        $this->container['deactivated'] = isset($data['deactivated']) ? $data['deactivated'] : null;
     }
 
     /**
@@ -224,7 +218,7 @@ class StateTransitions implements ModelInterface, ArrayAccess
     /**
      * Sets activated
      *
-     * @param \DateTime|null $activated activated
+     * @param \DateTime|null $activated Can be subscribed to, updates are restricted to some fields
      *
      * @return $this
      */
@@ -236,73 +230,49 @@ class StateTransitions implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets failed
+     * Gets discontinued
      *
      * @return \DateTime|null
      */
-    public function getFailed()
+    public function getDiscontinued()
     {
-        return $this->container['failed'];
+        return $this->container['discontinued'];
     }
 
     /**
-     * Sets failed
+     * Sets discontinued
      *
-     * @param \DateTime|null $failed failed
+     * @param \DateTime|null $discontinued Has active subscriptions, but not accepting new ones
      *
      * @return $this
      */
-    public function setFailed($failed)
+    public function setDiscontinued($discontinued)
     {
-        $this->container['failed'] = $failed;
+        $this->container['discontinued'] = $discontinued;
 
         return $this;
     }
 
     /**
-     * Gets cancelled
+     * Gets deactivated
      *
      * @return \DateTime|null
      */
-    public function getCancelled()
+    public function getDeactivated()
     {
-        return $this->container['cancelled'];
+        return $this->container['deactivated'];
     }
 
     /**
-     * Sets cancelled
+     * Sets deactivated
      *
-     * @param \DateTime|null $cancelled cancelled
+     * @param \DateTime|null $deactivated All subscriptions will be stopped
      *
      * @return $this
      */
-    public function setCancelled($cancelled)
+    public function setDeactivated($deactivated)
     {
-        $this->container['cancelled'] = $cancelled;
-
-        return $this;
-    }
-
-    /**
-     * Gets ended
-     *
-     * @return \DateTime|null
-     */
-    public function getEnded()
-    {
-        return $this->container['ended'];
-    }
-
-    /**
-     * Sets ended
-     *
-     * @param \DateTime|null $ended ended
-     *
-     * @return $this
-     */
-    public function setEnded($ended)
-    {
-        $this->container['ended'] = $ended;
+        $this->container['deactivated'] = $deactivated;
 
         return $this;
     }

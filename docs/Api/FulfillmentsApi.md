@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## retrieveFulfillments
 
-> \DigitalRiver\ApiSdk\Model\Fulfillment retrieveFulfillments($id)
+> \DigitalRiver\ApiSdk\Model\FulfillmentOrder retrieveFulfillments($id)
 
 Gets a Fulfillment by unique identifier
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\DigitalRiver\ApiSdk\Model\Fulfillment**](../Model/Fulfillment.md)
+[**\DigitalRiver\ApiSdk\Model\FulfillmentOrder**](../Model/FulfillmentOrder.md)
 
 ### Authorization
 

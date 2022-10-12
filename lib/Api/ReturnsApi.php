@@ -109,15 +109,15 @@ class ReturnsApi
      *
      * Creates a return
      *
-     * @param  \DigitalRiver\ApiSdk\Model\ReturnRequest $return_request return_request (optional)
+     * @param  \DigitalRiver\ApiSdk\Model\ReturnsRequest $returns_request returns_request (optional)
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \DigitalRiver\ApiSdk\Model\CreateReturnResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
+     * @return \DigitalRiver\ApiSdk\Model\CreateReturnsResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function createReturns($return_request = null)
+    public function createReturns($returns_request = null)
     {
-        list($response) = $this->createReturnsWithHttpInfo($return_request);
+        list($response) = $this->createReturnsWithHttpInfo($returns_request);
         return $response;
     }
 
@@ -126,15 +126,15 @@ class ReturnsApi
      *
      * Creates a return
      *
-     * @param  \DigitalRiver\ApiSdk\Model\ReturnRequest $return_request (optional)
+     * @param  \DigitalRiver\ApiSdk\Model\ReturnsRequest $returns_request (optional)
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \DigitalRiver\ApiSdk\Model\CreateReturnResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalRiver\ApiSdk\Model\CreateReturnsResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createReturnsWithHttpInfo($return_request = null)
+    public function createReturnsWithHttpInfo($returns_request = null)
     {
-        $request = $this->createReturnsRequest($return_request);
+        $request = $this->createReturnsRequest($returns_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -167,14 +167,14 @@ class ReturnsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\DigitalRiver\ApiSdk\Model\CreateReturnResponse' === '\SplFileObject') {
+                    if ('\DigitalRiver\ApiSdk\Model\CreateReturnsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\CreateReturnResponse', []),
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\CreateReturnsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -324,7 +324,7 @@ class ReturnsApi
                     ];
             }
 
-            $returnType = '\DigitalRiver\ApiSdk\Model\CreateReturnResponse';
+            $returnType = '\DigitalRiver\ApiSdk\Model\CreateReturnsResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -343,7 +343,7 @@ class ReturnsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\CreateReturnResponse',
+                        '\DigitalRiver\ApiSdk\Model\CreateReturnsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -454,14 +454,14 @@ class ReturnsApi
      *
      * Creates a return
      *
-     * @param  \DigitalRiver\ApiSdk\Model\ReturnRequest $return_request (optional)
+     * @param  \DigitalRiver\ApiSdk\Model\ReturnsRequest $returns_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReturnsAsync($return_request = null)
+    public function createReturnsAsync($returns_request = null)
     {
-        return $this->createReturnsAsyncWithHttpInfo($return_request)
+        return $this->createReturnsAsyncWithHttpInfo($returns_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -474,15 +474,15 @@ class ReturnsApi
      *
      * Creates a return
      *
-     * @param  \DigitalRiver\ApiSdk\Model\ReturnRequest $return_request (optional)
+     * @param  \DigitalRiver\ApiSdk\Model\ReturnsRequest $returns_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReturnsAsyncWithHttpInfo($return_request = null)
+    public function createReturnsAsyncWithHttpInfo($returns_request = null)
     {
-        $returnType = '\DigitalRiver\ApiSdk\Model\CreateReturnResponse';
-        $request = $this->createReturnsRequest($return_request);
+        $returnType = '\DigitalRiver\ApiSdk\Model\CreateReturnsResponse';
+        $request = $this->createReturnsRequest($returns_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -521,12 +521,12 @@ class ReturnsApi
     /**
      * Create request for operation 'createReturns'
      *
-     * @param  \DigitalRiver\ApiSdk\Model\ReturnRequest $return_request (optional)
+     * @param  \DigitalRiver\ApiSdk\Model\ReturnsRequest $returns_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createReturnsRequest($return_request = null)
+    protected function createReturnsRequest($returns_request = null)
     {
 
         $resourcePath = '/returns';
@@ -541,8 +541,8 @@ class ReturnsApi
 
         // body params
         $_tempBody = null;
-        if (isset($return_request)) {
-            $_tempBody = $return_request;
+        if (isset($returns_request)) {
+            $_tempBody = $returns_request;
         }
 
         if ($multipart) {
@@ -631,7 +631,7 @@ class ReturnsApi
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \DigitalRiver\ApiSdk\Model\ListReturnsResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
+     * @return \DigitalRiver\ApiSdk\Model\ListReturnsResponse1|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
     public function listReturns($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $state = null, $order_id = null, $sku_id = null)
     {
@@ -655,7 +655,7 @@ class ReturnsApi
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \DigitalRiver\ApiSdk\Model\ListReturnsResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalRiver\ApiSdk\Model\ListReturnsResponse1|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
     public function listReturnsWithHttpInfo($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $state = null, $order_id = null, $sku_id = null)
     {
@@ -692,14 +692,14 @@ class ReturnsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\DigitalRiver\ApiSdk\Model\ListReturnsResponse' === '\SplFileObject') {
+                    if ('\DigitalRiver\ApiSdk\Model\ListReturnsResponse1' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\ListReturnsResponse', []),
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\ListReturnsResponse1', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -837,7 +837,7 @@ class ReturnsApi
                     ];
             }
 
-            $returnType = '\DigitalRiver\ApiSdk\Model\ListReturnsResponse';
+            $returnType = '\DigitalRiver\ApiSdk\Model\ListReturnsResponse1';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -856,7 +856,7 @@ class ReturnsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\ListReturnsResponse',
+                        '\DigitalRiver\ApiSdk\Model\ListReturnsResponse1',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1000,7 +1000,7 @@ class ReturnsApi
      */
     public function listReturnsAsyncWithHttpInfo($created_time = null, $ending_before = null, $starting_after = null, $limit = null, $ids = null, $state = null, $order_id = null, $sku_id = null)
     {
-        $returnType = '\DigitalRiver\ApiSdk\Model\ListReturnsResponse';
+        $returnType = '\DigitalRiver\ApiSdk\Model\ListReturnsResponse1';
         $request = $this->listReturnsRequest($created_time, $ending_before, $starting_after, $limit, $ids, $state, $order_id, $sku_id);
 
         return $this->client
@@ -1242,7 +1242,7 @@ class ReturnsApi
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \DigitalRiver\ApiSdk\Model\ReturnResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
+     * @return \DigitalRiver\ApiSdk\Model\ReturnsResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
     public function retrieveReturns($id)
     {
@@ -1259,7 +1259,7 @@ class ReturnsApi
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \DigitalRiver\ApiSdk\Model\ReturnResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalRiver\ApiSdk\Model\ReturnsResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
     public function retrieveReturnsWithHttpInfo($id)
     {
@@ -1296,14 +1296,14 @@ class ReturnsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\DigitalRiver\ApiSdk\Model\ReturnResponse' === '\SplFileObject') {
+                    if ('\DigitalRiver\ApiSdk\Model\ReturnsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\ReturnResponse', []),
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\ReturnsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1453,7 +1453,7 @@ class ReturnsApi
                     ];
             }
 
-            $returnType = '\DigitalRiver\ApiSdk\Model\ReturnResponse';
+            $returnType = '\DigitalRiver\ApiSdk\Model\ReturnsResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1472,7 +1472,7 @@ class ReturnsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\ReturnResponse',
+                        '\DigitalRiver\ApiSdk\Model\ReturnsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1610,7 +1610,7 @@ class ReturnsApi
      */
     public function retrieveReturnsAsyncWithHttpInfo($id)
     {
-        $returnType = '\DigitalRiver\ApiSdk\Model\ReturnResponse';
+        $returnType = '\DigitalRiver\ApiSdk\Model\ReturnsResponse';
         $request = $this->retrieveReturnsRequest($id);
 
         return $this->client
@@ -1761,15 +1761,15 @@ class ReturnsApi
      * Updates an existing return
      *
      * @param  string $id Return ID (required)
-     * @param  \DigitalRiver\ApiSdk\Model\UpdateReturnRequest $update_return_request update_return_request (optional)
+     * @param  \DigitalRiver\ApiSdk\Model\UpdateReturnsRequest $update_returns_request update_returns_request (optional)
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \DigitalRiver\ApiSdk\Model\ReturnResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
+     * @return \DigitalRiver\ApiSdk\Model\ReturnsResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors
      */
-    public function updateReturns($id, $update_return_request = null)
+    public function updateReturns($id, $update_returns_request = null)
     {
-        list($response) = $this->updateReturnsWithHttpInfo($id, $update_return_request);
+        list($response) = $this->updateReturnsWithHttpInfo($id, $update_returns_request);
         return $response;
     }
 
@@ -1779,15 +1779,15 @@ class ReturnsApi
      * Updates an existing return
      *
      * @param  string $id Return ID (required)
-     * @param  \DigitalRiver\ApiSdk\Model\UpdateReturnRequest $update_return_request (optional)
+     * @param  \DigitalRiver\ApiSdk\Model\UpdateReturnsRequest $update_returns_request (optional)
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \DigitalRiver\ApiSdk\Model\ReturnResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalRiver\ApiSdk\Model\ReturnsResponse|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors|\DigitalRiver\ApiSdk\Model\Errors, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateReturnsWithHttpInfo($id, $update_return_request = null)
+    public function updateReturnsWithHttpInfo($id, $update_returns_request = null)
     {
-        $request = $this->updateReturnsRequest($id, $update_return_request);
+        $request = $this->updateReturnsRequest($id, $update_returns_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1820,14 +1820,14 @@ class ReturnsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\DigitalRiver\ApiSdk\Model\ReturnResponse' === '\SplFileObject') {
+                    if ('\DigitalRiver\ApiSdk\Model\ReturnsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\ReturnResponse', []),
+                        ObjectSerializer::deserialize($content, '\DigitalRiver\ApiSdk\Model\ReturnsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1989,7 +1989,7 @@ class ReturnsApi
                     ];
             }
 
-            $returnType = '\DigitalRiver\ApiSdk\Model\ReturnResponse';
+            $returnType = '\DigitalRiver\ApiSdk\Model\ReturnsResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2008,7 +2008,7 @@ class ReturnsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DigitalRiver\ApiSdk\Model\ReturnResponse',
+                        '\DigitalRiver\ApiSdk\Model\ReturnsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2128,14 +2128,14 @@ class ReturnsApi
      * Updates an existing return
      *
      * @param  string $id Return ID (required)
-     * @param  \DigitalRiver\ApiSdk\Model\UpdateReturnRequest $update_return_request (optional)
+     * @param  \DigitalRiver\ApiSdk\Model\UpdateReturnsRequest $update_returns_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateReturnsAsync($id, $update_return_request = null)
+    public function updateReturnsAsync($id, $update_returns_request = null)
     {
-        return $this->updateReturnsAsyncWithHttpInfo($id, $update_return_request)
+        return $this->updateReturnsAsyncWithHttpInfo($id, $update_returns_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2149,15 +2149,15 @@ class ReturnsApi
      * Updates an existing return
      *
      * @param  string $id Return ID (required)
-     * @param  \DigitalRiver\ApiSdk\Model\UpdateReturnRequest $update_return_request (optional)
+     * @param  \DigitalRiver\ApiSdk\Model\UpdateReturnsRequest $update_returns_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateReturnsAsyncWithHttpInfo($id, $update_return_request = null)
+    public function updateReturnsAsyncWithHttpInfo($id, $update_returns_request = null)
     {
-        $returnType = '\DigitalRiver\ApiSdk\Model\ReturnResponse';
-        $request = $this->updateReturnsRequest($id, $update_return_request);
+        $returnType = '\DigitalRiver\ApiSdk\Model\ReturnsResponse';
+        $request = $this->updateReturnsRequest($id, $update_returns_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2197,12 +2197,12 @@ class ReturnsApi
      * Create request for operation 'updateReturns'
      *
      * @param  string $id Return ID (required)
-     * @param  \DigitalRiver\ApiSdk\Model\UpdateReturnRequest $update_return_request (optional)
+     * @param  \DigitalRiver\ApiSdk\Model\UpdateReturnsRequest $update_returns_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateReturnsRequest($id, $update_return_request = null)
+    protected function updateReturnsRequest($id, $update_returns_request = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -2231,8 +2231,8 @@ class ReturnsApi
 
         // body params
         $_tempBody = null;
-        if (isset($update_return_request)) {
-            $_tempBody = $update_return_request;
+        if (isset($update_returns_request)) {
+            $_tempBody = $update_returns_request;
         }
 
         if ($multipart) {

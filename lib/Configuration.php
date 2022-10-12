@@ -52,6 +52,13 @@ class Configuration
     protected $accessToken = '';
 
     /**
+     * Associate array to store custom headers
+     *
+     * @var string[]
+     */
+	protected $customHeaders = [];
+	
+    /**
      * Username for HTTP basic authentication
      *
      * @var string
@@ -182,7 +189,30 @@ class Configuration
     {
         return $this->accessToken;
     }
+	
+    /**
+     * Sets the custom headers for troubleshooting
+     *
+     * @param array $customHeaders Custom headers for troubleshooting
+     *
+     * @return $this
+     */
+    public function setCustomHeaders($customHeaders)
+    {
+        $this->customHeaders = $customHeaders;
+        return $this;
+    }
 
+    /**
+     * Gets the custom headers for troubleshooting
+     *
+     * @return array Custom headers for troubleshooting
+     */
+    public function getCustomHeaders()
+    {
+        return $this->customHeaders;
+    }
+	
     /**
      * Sets the username for HTTP basic authentication
      *
@@ -385,7 +415,7 @@ class Configuration
         $report  = 'PHP SDK (DigitalRiver\ApiSdk) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    The version of the OpenAPI document: 2021' . PHP_EOL;
+        $report .= '    The version of the OpenAPI document: 2022' . PHP_EOL;
         $report .= '    SDK Package Version: 1.0.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
@@ -462,6 +492,10 @@ class Configuration
                 "description" => "No description provided",
             ],
             [
+                "url" => "https://api.digitalriver.com",
+                "description" => "No description provided",
+            ],
+            [
                 "url" => "https://virtserver.swaggerhub.com/pwehr/FulfillmentCancellations/1.0.0",
                 "description" => "SwaggerHub API Auto Mocking",
             ],
@@ -490,6 +524,10 @@ class Configuration
                 "description" => "No description provided",
             ],
             [
+                "url" => "/",
+                "description" => "No description provided",
+            ],
+            [
                 "url" => "https://api.digitalriver.com",
                 "description" => "No description provided",
             ],
@@ -502,7 +540,7 @@ class Configuration
                 "description" => "SwaggerHub API Auto Mocking",
             ],
             [
-                "url" => "https://api.digitalriver.com",
+                "url" => "https://www.digitalriver.com/docs/digital-river-api-reference/",
                 "description" => "No description provided",
             ],
             [
@@ -528,6 +566,10 @@ class Configuration
             [
                 "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/Shipments/master",
                 "description" => "SwaggerHub API Auto Mocking",
+            ],
+            [
+                "url" => "/",
+                "description" => "No description provided",
             ],
             [
                 "url" => "https://virtserver.swaggerhub.com/DigitalRiverX/ShippingQuotes/master",

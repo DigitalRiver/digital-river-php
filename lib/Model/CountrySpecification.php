@@ -53,6 +53,8 @@ class CountrySpecification implements ModelInterface, ArrayAccess
         'billing_address_only_schema' => 'string',
         'individual_tax_identifiers_schemas' => 'string[]',
         'business_tax_identifiers_schemas' => 'string[]',
+        'tax_identifiers_info' => '\DigitalRiver\ApiSdk\Model\TaxIdentifiersInfo',
+        'invoice_attribute_info' => '\DigitalRiver\ApiSdk\Model\InvoiceAttributeInfo',
         'live_mode' => 'bool'
     ];
 
@@ -69,6 +71,8 @@ class CountrySpecification implements ModelInterface, ArrayAccess
         'billing_address_only_schema' => null,
         'individual_tax_identifiers_schemas' => null,
         'business_tax_identifiers_schemas' => null,
+        'tax_identifiers_info' => null,
+        'invoice_attribute_info' => null,
         'live_mode' => null
     ];
 
@@ -106,6 +110,8 @@ class CountrySpecification implements ModelInterface, ArrayAccess
         'billing_address_only_schema' => 'billingAddressOnlySchema',
         'individual_tax_identifiers_schemas' => 'individualTaxIdentifiersSchemas',
         'business_tax_identifiers_schemas' => 'businessTaxIdentifiersSchemas',
+        'tax_identifiers_info' => 'taxIdentifiersInfo',
+        'invoice_attribute_info' => 'invoiceAttributeInfo',
         'live_mode' => 'liveMode'
     ];
 
@@ -122,6 +128,8 @@ class CountrySpecification implements ModelInterface, ArrayAccess
         'billing_address_only_schema' => 'setBillingAddressOnlySchema',
         'individual_tax_identifiers_schemas' => 'setIndividualTaxIdentifiersSchemas',
         'business_tax_identifiers_schemas' => 'setBusinessTaxIdentifiersSchemas',
+        'tax_identifiers_info' => 'setTaxIdentifiersInfo',
+        'invoice_attribute_info' => 'setInvoiceAttributeInfo',
         'live_mode' => 'setLiveMode'
     ];
 
@@ -138,6 +146,8 @@ class CountrySpecification implements ModelInterface, ArrayAccess
         'billing_address_only_schema' => 'getBillingAddressOnlySchema',
         'individual_tax_identifiers_schemas' => 'getIndividualTaxIdentifiersSchemas',
         'business_tax_identifiers_schemas' => 'getBusinessTaxIdentifiersSchemas',
+        'tax_identifiers_info' => 'getTaxIdentifiersInfo',
+        'invoice_attribute_info' => 'getInvoiceAttributeInfo',
         'live_mode' => 'getLiveMode'
     ];
 
@@ -208,6 +218,8 @@ class CountrySpecification implements ModelInterface, ArrayAccess
         $this->container['billing_address_only_schema'] = isset($data['billing_address_only_schema']) ? $data['billing_address_only_schema'] : null;
         $this->container['individual_tax_identifiers_schemas'] = isset($data['individual_tax_identifiers_schemas']) ? $data['individual_tax_identifiers_schemas'] : null;
         $this->container['business_tax_identifiers_schemas'] = isset($data['business_tax_identifiers_schemas']) ? $data['business_tax_identifiers_schemas'] : null;
+        $this->container['tax_identifiers_info'] = isset($data['tax_identifiers_info']) ? $data['tax_identifiers_info'] : null;
+        $this->container['invoice_attribute_info'] = isset($data['invoice_attribute_info']) ? $data['invoice_attribute_info'] : null;
         $this->container['live_mode'] = isset($data['live_mode']) ? $data['live_mode'] : null;
     }
 
@@ -399,6 +411,54 @@ class CountrySpecification implements ModelInterface, ArrayAccess
     public function setBusinessTaxIdentifiersSchemas($business_tax_identifiers_schemas)
     {
         $this->container['business_tax_identifiers_schemas'] = $business_tax_identifiers_schemas;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_identifiers_info
+     *
+     * @return \DigitalRiver\ApiSdk\Model\TaxIdentifiersInfo|null
+     */
+    public function getTaxIdentifiersInfo()
+    {
+        return $this->container['tax_identifiers_info'];
+    }
+
+    /**
+     * Sets tax_identifiers_info
+     *
+     * @param \DigitalRiver\ApiSdk\Model\TaxIdentifiersInfo|null $tax_identifiers_info tax_identifiers_info
+     *
+     * @return $this
+     */
+    public function setTaxIdentifiersInfo($tax_identifiers_info)
+    {
+        $this->container['tax_identifiers_info'] = $tax_identifiers_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets invoice_attribute_info
+     *
+     * @return \DigitalRiver\ApiSdk\Model\InvoiceAttributeInfo|null
+     */
+    public function getInvoiceAttributeInfo()
+    {
+        return $this->container['invoice_attribute_info'];
+    }
+
+    /**
+     * Sets invoice_attribute_info
+     *
+     * @param \DigitalRiver\ApiSdk\Model\InvoiceAttributeInfo|null $invoice_attribute_info invoice_attribute_info
+     *
+     * @return $this
+     */
+    public function setInvoiceAttributeInfo($invoice_attribute_info)
+    {
+        $this->container['invoice_attribute_info'] = $invoice_attribute_info;
 
         return $this;
     }

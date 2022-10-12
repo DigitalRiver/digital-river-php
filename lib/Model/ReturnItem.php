@@ -47,11 +47,9 @@ class ReturnItem implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'item_id' => 'string',
-        'sku_id' => 'string',
-        'amount' => 'double',
+        'product_details' => '\DigitalRiver\ApiSdk\Model\ProductDetails',
         'quantity' => 'int',
-        'quantity_accepted' => 'int',
-        'state' => 'string'
+        'condition' => 'string'
     ];
 
     /**
@@ -61,11 +59,9 @@ class ReturnItem implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'item_id' => null,
-        'sku_id' => null,
-        'amount' => 'double',
+        'product_details' => null,
         'quantity' => null,
-        'quantity_accepted' => null,
-        'state' => null
+        'condition' => null
     ];
 
     /**
@@ -96,11 +92,9 @@ class ReturnItem implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'item_id' => 'itemId',
-        'sku_id' => 'skuId',
-        'amount' => 'amount',
+        'product_details' => 'productDetails',
         'quantity' => 'quantity',
-        'quantity_accepted' => 'quantityAccepted',
-        'state' => 'state'
+        'condition' => 'condition'
     ];
 
     /**
@@ -110,11 +104,9 @@ class ReturnItem implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'item_id' => 'setItemId',
-        'sku_id' => 'setSkuId',
-        'amount' => 'setAmount',
+        'product_details' => 'setProductDetails',
         'quantity' => 'setQuantity',
-        'quantity_accepted' => 'setQuantityAccepted',
-        'state' => 'setState'
+        'condition' => 'setCondition'
     ];
 
     /**
@@ -124,11 +116,9 @@ class ReturnItem implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'item_id' => 'getItemId',
-        'sku_id' => 'getSkuId',
-        'amount' => 'getAmount',
+        'product_details' => 'getProductDetails',
         'quantity' => 'getQuantity',
-        'quantity_accepted' => 'getQuantityAccepted',
-        'state' => 'getState'
+        'condition' => 'getCondition'
     ];
 
     /**
@@ -172,26 +162,8 @@ class ReturnItem implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const STATE_CREATED = 'created';
-    const STATE_ACCEPTED = 'accepted';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStateAllowableValues()
-    {
-       $allowable = [
-            self::STATE_CREATED,
-            self::STATE_ACCEPTED,
-        ];
-
-        $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
-        return $allowableAllCase;
-    }
     
 
     /**
@@ -210,11 +182,9 @@ class ReturnItem implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['item_id'] = isset($data['item_id']) ? $data['item_id'] : null;
-        $this->container['sku_id'] = isset($data['sku_id']) ? $data['sku_id'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['product_details'] = isset($data['product_details']) ? $data['product_details'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
-        $this->container['quantity_accepted'] = isset($data['quantity_accepted']) ? $data['quantity_accepted'] : null;
-        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['condition'] = isset($data['condition']) ? $data['condition'] : null;
     }
 
     /**
@@ -226,15 +196,9 @@ class ReturnItem implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getStateAllowableValues();
-       
-        if (!is_null($this->container['state']) && !in_array(strtolower($this->container['state']), $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'state', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['quantity'] === null) {
+            $invalidProperties[] = "'quantity' can't be null";
         }
-
         return $invalidProperties;
     }
 
@@ -275,49 +239,25 @@ class ReturnItem implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets sku_id
+     * Gets product_details
      *
-     * @return string|null
+     * @return \DigitalRiver\ApiSdk\Model\ProductDetails|null
      */
-    public function getSkuId()
+    public function getProductDetails()
     {
-        return $this->container['sku_id'];
+        return $this->container['product_details'];
     }
 
     /**
-     * Sets sku_id
+     * Sets product_details
      *
-     * @param string|null $sku_id The identifier of the SKU.
+     * @param \DigitalRiver\ApiSdk\Model\ProductDetails|null $product_details product_details
      *
      * @return $this
      */
-    public function setSkuId($sku_id)
+    public function setProductDetails($product_details)
     {
-        $this->container['sku_id'] = $sku_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return double|null
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param double|null $amount amount
-     *
-     * @return $this
-     */
-    public function setAmount($amount)
-    {
-        $this->container['amount'] = $amount;
+        $this->container['product_details'] = $product_details;
 
         return $this;
     }
@@ -325,7 +265,7 @@ class ReturnItem implements ModelInterface, ArrayAccess
     /**
      * Gets quantity
      *
-     * @return int|null
+     * @return int
      */
     public function getQuantity()
     {
@@ -335,7 +275,7 @@ class ReturnItem implements ModelInterface, ArrayAccess
     /**
      * Sets quantity
      *
-     * @param int|null $quantity quantity
+     * @param int $quantity The number of items.
      *
      * @return $this
      */
@@ -347,58 +287,25 @@ class ReturnItem implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets quantity_accepted
-     *
-     * @return int|null
-     */
-    public function getQuantityAccepted()
-    {
-        return $this->container['quantity_accepted'];
-    }
-
-    /**
-     * Sets quantity_accepted
-     *
-     * @param int|null $quantity_accepted quantity_accepted
-     *
-     * @return $this
-     */
-    public function setQuantityAccepted($quantity_accepted)
-    {
-        $this->container['quantity_accepted'] = $quantity_accepted;
-
-        return $this;
-    }
-
-    /**
-     * Gets state
+     * Gets condition
      *
      * @return string|null
      */
-    public function getState()
+    public function getCondition()
     {
-        return $this->container['state'];
+        return $this->container['condition'];
     }
 
     /**
-     * Sets state
+     * Sets condition
      *
-     * @param string|null $state The current state of the return item.
+     * @param string|null $condition Condition of the returned goods.
      *
      * @return $this
      */
-    public function setState($state)
+    public function setCondition($condition)
     {
-        $allowedValues = $this->getStateAllowableValues();
-        if (!is_null($state) && !in_array(strtolower($state), $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'state', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['state'] = $state;
+        $this->container['condition'] = $condition;
 
         return $this;
     }

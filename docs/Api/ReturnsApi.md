@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## createReturns
 
-> \DigitalRiver\ApiSdk\Model\CreateReturnResponse createReturns($return_request)
+> \DigitalRiver\ApiSdk\Model\CreateReturnsResponse createReturns($returns_request)
 
 Creates a return
 
@@ -36,11 +36,11 @@ $apiInstance = new DigitalRiver\ApiSdk\Api\ReturnsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$return_request = new \DigitalRiver\ApiSdk\Model\ReturnRequest(); // \DigitalRiver\ApiSdk\Model\ReturnRequest | 
-// Refer \DigitalRiver\ApiSdk\Model\ReturnRequest::$setters in digital-river-php/lib/Model/ReturnRequest.php to set the properties.
+$returns_request = new \DigitalRiver\ApiSdk\Model\ReturnsRequest(); // \DigitalRiver\ApiSdk\Model\ReturnsRequest | 
+// Refer \DigitalRiver\ApiSdk\Model\ReturnsRequest::$setters in digital-river-php/lib/Model/ReturnsRequest.php to set the properties.
 
 try {
-    $result = $apiInstance->createReturns($return_request);
+    $result = $apiInstance->createReturns($returns_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnsApi->createReturns: ', $e->getMessage(), PHP_EOL;
@@ -53,11 +53,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **return_request** | [**\DigitalRiver\ApiSdk\Model\ReturnRequest**](../Model/ReturnRequest.md)|  | [optional]
+ **returns_request** | [**\DigitalRiver\ApiSdk\Model\ReturnsRequest**](../Model/ReturnsRequest.md)|  | [optional]
 
 ### Return type
 
-[**\DigitalRiver\ApiSdk\Model\CreateReturnResponse**](../Model/CreateReturnResponse.md)
+[**\DigitalRiver\ApiSdk\Model\CreateReturnsResponse**](../Model/CreateReturnsResponse.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ## listReturns
 
-> \DigitalRiver\ApiSdk\Model\ListReturnsResponse listReturns($created_time, $ending_before, $starting_after, $limit, $ids, $state, $order_id, $sku_id)
+> \DigitalRiver\ApiSdk\Model\ListReturnsResponse1 listReturns($created_time, $ending_before, $starting_after, $limit, $ids, $state, $order_id, $sku_id)
 
 Returns a list of returns
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\DigitalRiver\ApiSdk\Model\ListReturnsResponse**](../Model/ListReturnsResponse.md)
+[**\DigitalRiver\ApiSdk\Model\ListReturnsResponse1**](../Model/ListReturnsResponse1.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ## retrieveReturns
 
-> \DigitalRiver\ApiSdk\Model\ReturnResponse retrieveReturns($id)
+> \DigitalRiver\ApiSdk\Model\ReturnsResponse retrieveReturns($id)
 
 Gets a return by ID
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\DigitalRiver\ApiSdk\Model\ReturnResponse**](../Model/ReturnResponse.md)
+[**\DigitalRiver\ApiSdk\Model\ReturnsResponse**](../Model/ReturnsResponse.md)
 
 ### Authorization
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ## updateReturns
 
-> \DigitalRiver\ApiSdk\Model\ReturnResponse updateReturns($id, $update_return_request)
+> \DigitalRiver\ApiSdk\Model\ReturnsResponse updateReturns($id, $update_returns_request)
 
 Updates an existing return
 
@@ -245,11 +245,11 @@ $apiInstance = new DigitalRiver\ApiSdk\Api\ReturnsApi(
 );
 $id = 'id_example'; // string | Return ID
 
-$update_return_request = new \DigitalRiver\ApiSdk\Model\UpdateReturnRequest(); // \DigitalRiver\ApiSdk\Model\UpdateReturnRequest | 
-// Refer \DigitalRiver\ApiSdk\Model\UpdateReturnRequest::$setters in digital-river-php/lib/Model/UpdateReturnRequest.php to set the properties.
+$update_returns_request = new \DigitalRiver\ApiSdk\Model\UpdateReturnsRequest(); // \DigitalRiver\ApiSdk\Model\UpdateReturnsRequest | 
+// Refer \DigitalRiver\ApiSdk\Model\UpdateReturnsRequest::$setters in digital-river-php/lib/Model/UpdateReturnsRequest.php to set the properties.
 
 try {
-    $result = $apiInstance->updateReturns($id, $update_return_request);
+    $result = $apiInstance->updateReturns($id, $update_returns_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReturnsApi->updateReturns: ', $e->getMessage(), PHP_EOL;
@@ -263,11 +263,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Return ID |
- **update_return_request** | [**\DigitalRiver\ApiSdk\Model\UpdateReturnRequest**](../Model/UpdateReturnRequest.md)|  | [optional]
+ **update_returns_request** | [**\DigitalRiver\ApiSdk\Model\UpdateReturnsRequest**](../Model/UpdateReturnsRequest.md)|  | [optional]
 
 ### Return type
 
-[**\DigitalRiver\ApiSdk\Model\ReturnResponse**](../Model/ReturnResponse.md)
+[**\DigitalRiver\ApiSdk\Model\ReturnsResponse**](../Model/ReturnsResponse.md)
 
 ### Authorization
 

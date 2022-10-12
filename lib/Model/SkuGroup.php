@@ -212,7 +212,7 @@ class SkuGroup implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id The unique identifier of the Sku Group.
+     * @param string|null $id The system generated unique identifier of the Sku Group.
      *
      * @return $this
      */
@@ -236,7 +236,7 @@ class SkuGroup implements ModelInterface, ArrayAccess
     /**
      * Sets alias
      *
-     * @param string|null $alias A short usable value that represents the product code.
+     * @param string|null $alias A short usable value that represents the item. This value will be given to the brand.
      *
      * @return $this
      */
