@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **country_of_origin** | **string** | A two-letter Alpha-2 country code as described in the ISO 3166 international standard. | [optional] 
 **weight** | **double** | The weight of the product measured in the unit specified by weightUnit. | [optional] 
 **weight_unit** | **string** | The unit of measurement applied to the weight. | [optional] 
+**item_breadcrumb** | **string** | The full path to the category where item is included. Categories should be separated by “ &gt; “. | [optional] 
 **metadata** | [**map[string,AnyType]**](AnyType.md) | Key-value pairs used to store additional data. Value can be string, boolean or integer types. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

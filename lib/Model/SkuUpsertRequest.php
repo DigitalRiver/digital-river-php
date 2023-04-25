@@ -60,6 +60,7 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
         'country_of_origin' => 'string',
         'weight' => 'double',
         'weight_unit' => 'string',
+        'item_breadcrumb' => 'string',
         'metadata' => 'map[string,AnyType]'
     ];
 
@@ -83,6 +84,7 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
         'country_of_origin' => null,
         'weight' => 'double',
         'weight_unit' => null,
+        'item_breadcrumb' => null,
         'metadata' => null
     ];
 
@@ -127,6 +129,7 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
         'country_of_origin' => 'countryOfOrigin',
         'weight' => 'weight',
         'weight_unit' => 'weightUnit',
+        'item_breadcrumb' => 'itemBreadcrumb',
         'metadata' => 'metadata'
     ];
 
@@ -150,6 +153,7 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
         'country_of_origin' => 'setCountryOfOrigin',
         'weight' => 'setWeight',
         'weight_unit' => 'setWeightUnit',
+        'item_breadcrumb' => 'setItemBreadcrumb',
         'metadata' => 'setMetadata'
     ];
 
@@ -173,6 +177,7 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
         'country_of_origin' => 'getCountryOfOrigin',
         'weight' => 'getWeight',
         'weight_unit' => 'getWeightUnit',
+        'item_breadcrumb' => 'getItemBreadcrumb',
         'metadata' => 'getMetadata'
     ];
 
@@ -288,6 +293,7 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
         $this->container['country_of_origin'] = isset($data['country_of_origin']) ? $data['country_of_origin'] : null;
         $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
         $this->container['weight_unit'] = isset($data['weight_unit']) ? $data['weight_unit'] : null;
+        $this->container['item_breadcrumb'] = isset($data['item_breadcrumb']) ? $data['item_breadcrumb'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
     }
 
@@ -300,9 +306,6 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['eccn'] === null) {
-            $invalidProperties[] = "'eccn' can't be null";
-        }
         $allowedValues = $this->getManagedFulfillmentAllowableValues();
        
         if (!is_null($this->container['managed_fulfillment']) && !in_array(strtolower($this->container['managed_fulfillment']), $allowedValues, true)) {
@@ -312,14 +315,8 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['tax_code'] === null) {
-            $invalidProperties[] = "'tax_code' can't be null";
-        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['country_of_origin'] === null) {
-            $invalidProperties[] = "'country_of_origin' can't be null";
         }
         $allowedValues = $this->getWeightUnitAllowableValues();
        
@@ -348,7 +345,7 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
     /**
      * Gets eccn
      *
-     * @return string
+     * @return string|null
      */
     public function getEccn()
     {
@@ -358,7 +355,7 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
     /**
      * Sets eccn
      *
-     * @param string $eccn The export control classification number.
+     * @param string|null $eccn The export control classification number.
      *
      * @return $this
      */
@@ -501,7 +498,7 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
     /**
      * Gets tax_code
      *
-     * @return string
+     * @return string|null
      */
     public function getTaxCode()
     {
@@ -511,7 +508,7 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
     /**
      * Sets tax_code
      *
-     * @param string $tax_code The designated tax code.
+     * @param string|null $tax_code The designated tax code.
      *
      * @return $this
      */
@@ -621,7 +618,7 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
     /**
      * Gets country_of_origin
      *
-     * @return string
+     * @return string|null
      */
     public function getCountryOfOrigin()
     {
@@ -631,7 +628,7 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
     /**
      * Sets country_of_origin
      *
-     * @param string $country_of_origin A two-letter Alpha-2 country code as described in the ISO 3166 international standard.
+     * @param string|null $country_of_origin A two-letter Alpha-2 country code as described in the ISO 3166 international standard.
      *
      * @return $this
      */
@@ -695,6 +692,30 @@ class SkuUpsertRequest implements ModelInterface, ArrayAccess
             );
         }
         $this->container['weight_unit'] = $weight_unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_breadcrumb
+     *
+     * @return string|null
+     */
+    public function getItemBreadcrumb()
+    {
+        return $this->container['item_breadcrumb'];
+    }
+
+    /**
+     * Sets item_breadcrumb
+     *
+     * @param string|null $item_breadcrumb The full path to the category where item is included. Categories should be separated by “ > “.
+     *
+     * @return $this
+     */
+    public function setItemBreadcrumb($item_breadcrumb)
+    {
+        $this->container['item_breadcrumb'] = $item_breadcrumb;
 
         return $this;
     }

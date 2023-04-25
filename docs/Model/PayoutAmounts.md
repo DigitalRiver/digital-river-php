@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **shipping_discount** | **double** | Shipping discount amount. | [optional] 
 **regulatory_fee_discount** | **double** | Regulatory fee discount amount. | [optional] 
 **remit_shipping** | **double** | Shipping remittance amount. | [optional] 
+**remit_landed_cost** | **double** | Landed Cost remittance amount. | [optional] 
 **payout_amount** | **double** | Payout amount. | [optional] 
 **store_credit** | **double** | Store credit. | [optional] 
 

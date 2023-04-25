@@ -73,6 +73,11 @@ class Source implements ModelInterface, ArrayAccess
         'bank_transfer' => 'object',
         'msts' => 'object',
         'bancontact' => 'object',
+        'ideal' => 'object',
+        'gift_card' => '\DigitalRiver\ApiSdk\Model\GiftCard',
+        'amazon_pay' => 'object',
+        'after_pay' => 'object',
+        'cc_avenue' => 'object',
         'flow' => 'string',
         'state' => 'string',
         'metadata' => 'map[string,AnyType]',
@@ -114,6 +119,11 @@ class Source implements ModelInterface, ArrayAccess
         'bank_transfer' => null,
         'msts' => null,
         'bancontact' => null,
+        'ideal' => null,
+        'gift_card' => null,
+        'amazon_pay' => null,
+        'after_pay' => null,
+        'cc_avenue' => null,
         'flow' => null,
         'state' => null,
         'metadata' => null,
@@ -176,6 +186,11 @@ class Source implements ModelInterface, ArrayAccess
         'bank_transfer' => 'bankTransfer',
         'msts' => 'msts',
         'bancontact' => 'bancontact',
+        'ideal' => 'ideal',
+        'gift_card' => 'giftCard',
+        'amazon_pay' => 'amazonPay',
+        'after_pay' => 'afterPay',
+        'cc_avenue' => 'ccAvenue',
         'flow' => 'flow',
         'state' => 'state',
         'metadata' => 'metadata',
@@ -217,6 +232,11 @@ class Source implements ModelInterface, ArrayAccess
         'bank_transfer' => 'setBankTransfer',
         'msts' => 'setMsts',
         'bancontact' => 'setBancontact',
+        'ideal' => 'setIdeal',
+        'gift_card' => 'setGiftCard',
+        'amazon_pay' => 'setAmazonPay',
+        'after_pay' => 'setAfterPay',
+        'cc_avenue' => 'setCcAvenue',
         'flow' => 'setFlow',
         'state' => 'setState',
         'metadata' => 'setMetadata',
@@ -258,6 +278,11 @@ class Source implements ModelInterface, ArrayAccess
         'bank_transfer' => 'getBankTransfer',
         'msts' => 'getMsts',
         'bancontact' => 'getBancontact',
+        'ideal' => 'getIdeal',
+        'gift_card' => 'getGiftCard',
+        'amazon_pay' => 'getAmazonPay',
+        'after_pay' => 'getAfterPay',
+        'cc_avenue' => 'getCcAvenue',
         'flow' => 'getFlow',
         'state' => 'getState',
         'metadata' => 'getMetadata',
@@ -326,6 +351,11 @@ class Source implements ModelInterface, ArrayAccess
     const TYPE_BANK_TRANSFER = 'bankTransfer';
     const TYPE_MSTS = 'msts';
     const TYPE_BANCONTACT = 'bancontact';
+    const TYPE_GIFT_CARD = 'giftCard';
+    const TYPE_IDEAL = 'ideal';
+    const TYPE_AMAZON_PAY = 'amazonPay';
+    const TYPE_AFTER_PAY = 'afterPay';
+    const TYPE_CC_AVENUE = 'ccAvenue';
     const FLOW_STANDARD = 'standard';
     const FLOW_REDIRECT = 'redirect';
     const FLOW_RECEIVER = 'receiver';
@@ -366,6 +396,11 @@ class Source implements ModelInterface, ArrayAccess
             self::TYPE_BANK_TRANSFER,
             self::TYPE_MSTS,
             self::TYPE_BANCONTACT,
+            self::TYPE_GIFT_CARD,
+            self::TYPE_IDEAL,
+            self::TYPE_AMAZON_PAY,
+            self::TYPE_AFTER_PAY,
+            self::TYPE_CC_AVENUE,
         ];
 
         $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
@@ -453,6 +488,11 @@ class Source implements ModelInterface, ArrayAccess
         $this->container['bank_transfer'] = isset($data['bank_transfer']) ? $data['bank_transfer'] : null;
         $this->container['msts'] = isset($data['msts']) ? $data['msts'] : null;
         $this->container['bancontact'] = isset($data['bancontact']) ? $data['bancontact'] : null;
+        $this->container['ideal'] = isset($data['ideal']) ? $data['ideal'] : null;
+        $this->container['gift_card'] = isset($data['gift_card']) ? $data['gift_card'] : null;
+        $this->container['amazon_pay'] = isset($data['amazon_pay']) ? $data['amazon_pay'] : null;
+        $this->container['after_pay'] = isset($data['after_pay']) ? $data['after_pay'] : null;
+        $this->container['cc_avenue'] = isset($data['cc_avenue']) ? $data['cc_avenue'] : null;
         $this->container['flow'] = isset($data['flow']) ? $data['flow'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
@@ -1165,6 +1205,126 @@ class Source implements ModelInterface, ArrayAccess
     public function setBancontact($bancontact)
     {
         $this->container['bancontact'] = $bancontact;
+
+        return $this;
+    }
+
+    /**
+     * Gets ideal
+     *
+     * @return object|null
+     */
+    public function getIdeal()
+    {
+        return $this->container['ideal'];
+    }
+
+    /**
+     * Sets ideal
+     *
+     * @param object|null $ideal ideal
+     *
+     * @return $this
+     */
+    public function setIdeal($ideal)
+    {
+        $this->container['ideal'] = $ideal;
+
+        return $this;
+    }
+
+    /**
+     * Gets gift_card
+     *
+     * @return \DigitalRiver\ApiSdk\Model\GiftCard|null
+     */
+    public function getGiftCard()
+    {
+        return $this->container['gift_card'];
+    }
+
+    /**
+     * Sets gift_card
+     *
+     * @param \DigitalRiver\ApiSdk\Model\GiftCard|null $gift_card gift_card
+     *
+     * @return $this
+     */
+    public function setGiftCard($gift_card)
+    {
+        $this->container['gift_card'] = $gift_card;
+
+        return $this;
+    }
+
+    /**
+     * Gets amazon_pay
+     *
+     * @return object|null
+     */
+    public function getAmazonPay()
+    {
+        return $this->container['amazon_pay'];
+    }
+
+    /**
+     * Sets amazon_pay
+     *
+     * @param object|null $amazon_pay amazon_pay
+     *
+     * @return $this
+     */
+    public function setAmazonPay($amazon_pay)
+    {
+        $this->container['amazon_pay'] = $amazon_pay;
+
+        return $this;
+    }
+
+    /**
+     * Gets after_pay
+     *
+     * @return object|null
+     */
+    public function getAfterPay()
+    {
+        return $this->container['after_pay'];
+    }
+
+    /**
+     * Sets after_pay
+     *
+     * @param object|null $after_pay after_pay
+     *
+     * @return $this
+     */
+    public function setAfterPay($after_pay)
+    {
+        $this->container['after_pay'] = $after_pay;
+
+        return $this;
+    }
+
+    /**
+     * Gets cc_avenue
+     *
+     * @return object|null
+     */
+    public function getCcAvenue()
+    {
+        return $this->container['cc_avenue'];
+    }
+
+    /**
+     * Sets cc_avenue
+     *
+     * @param object|null $cc_avenue cc_avenue
+     *
+     * @return $this
+     */
+    public function setCcAvenue($cc_avenue)
+    {
+        $this->container['cc_avenue'] = $cc_avenue;
 
         return $this;
     }

@@ -75,8 +75,10 @@ class Checkout implements ModelInterface, ArrayAccess
         'customer_type' => '\DigitalRiver\ApiSdk\Model\CustomerType',
         'selling_entity' => '\DigitalRiver\ApiSdk\Model\SellingEntity',
         'items' => '\DigitalRiver\ApiSdk\Model\SkuItem[]',
+        'billing_optimization' => '\DigitalRiver\ApiSdk\Model\BillingOptimization',
         'shipping_choice' => '\DigitalRiver\ApiSdk\Model\ShippingChoice',
         'payment' => '\DigitalRiver\ApiSdk\Model\Payments',
+        'disclosures' => '\DigitalRiver\ApiSdk\Model\Disclosures',
         'live_mode' => 'bool',
         'metadata' => 'map[string,AnyType]',
         'upstream_id' => 'string'
@@ -117,8 +119,10 @@ class Checkout implements ModelInterface, ArrayAccess
         'customer_type' => null,
         'selling_entity' => null,
         'items' => null,
+        'billing_optimization' => null,
         'shipping_choice' => null,
         'payment' => null,
+        'disclosures' => null,
         'live_mode' => null,
         'metadata' => null,
         'upstream_id' => null
@@ -180,8 +184,10 @@ class Checkout implements ModelInterface, ArrayAccess
         'customer_type' => 'customerType',
         'selling_entity' => 'sellingEntity',
         'items' => 'items',
+        'billing_optimization' => 'billingOptimization',
         'shipping_choice' => 'shippingChoice',
         'payment' => 'payment',
+        'disclosures' => 'disclosures',
         'live_mode' => 'liveMode',
         'metadata' => 'metadata',
         'upstream_id' => 'upstreamId'
@@ -222,8 +228,10 @@ class Checkout implements ModelInterface, ArrayAccess
         'customer_type' => 'setCustomerType',
         'selling_entity' => 'setSellingEntity',
         'items' => 'setItems',
+        'billing_optimization' => 'setBillingOptimization',
         'shipping_choice' => 'setShippingChoice',
         'payment' => 'setPayment',
+        'disclosures' => 'setDisclosures',
         'live_mode' => 'setLiveMode',
         'metadata' => 'setMetadata',
         'upstream_id' => 'setUpstreamId'
@@ -264,8 +272,10 @@ class Checkout implements ModelInterface, ArrayAccess
         'customer_type' => 'getCustomerType',
         'selling_entity' => 'getSellingEntity',
         'items' => 'getItems',
+        'billing_optimization' => 'getBillingOptimization',
         'shipping_choice' => 'getShippingChoice',
         'payment' => 'getPayment',
+        'disclosures' => 'getDisclosures',
         'live_mode' => 'getLiveMode',
         'metadata' => 'getMetadata',
         'upstream_id' => 'getUpstreamId'
@@ -360,8 +370,10 @@ class Checkout implements ModelInterface, ArrayAccess
         $this->container['customer_type'] = isset($data['customer_type']) ? $data['customer_type'] : null;
         $this->container['selling_entity'] = isset($data['selling_entity']) ? $data['selling_entity'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['billing_optimization'] = isset($data['billing_optimization']) ? $data['billing_optimization'] : null;
         $this->container['shipping_choice'] = isset($data['shipping_choice']) ? $data['shipping_choice'] : null;
         $this->container['payment'] = isset($data['payment']) ? $data['payment'] : null;
+        $this->container['disclosures'] = isset($data['disclosures']) ? $data['disclosures'] : null;
         $this->container['live_mode'] = isset($data['live_mode']) ? $data['live_mode'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['upstream_id'] = isset($data['upstream_id']) ? $data['upstream_id'] : null;
@@ -1088,6 +1100,30 @@ class Checkout implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets billing_optimization
+     *
+     * @return \DigitalRiver\ApiSdk\Model\BillingOptimization|null
+     */
+    public function getBillingOptimization()
+    {
+        return $this->container['billing_optimization'];
+    }
+
+    /**
+     * Sets billing_optimization
+     *
+     * @param \DigitalRiver\ApiSdk\Model\BillingOptimization|null $billing_optimization billing_optimization
+     *
+     * @return $this
+     */
+    public function setBillingOptimization($billing_optimization)
+    {
+        $this->container['billing_optimization'] = $billing_optimization;
+
+        return $this;
+    }
+
+    /**
      * Gets shipping_choice
      *
      * @return \DigitalRiver\ApiSdk\Model\ShippingChoice|null
@@ -1131,6 +1167,30 @@ class Checkout implements ModelInterface, ArrayAccess
     public function setPayment($payment)
     {
         $this->container['payment'] = $payment;
+
+        return $this;
+    }
+
+    /**
+     * Gets disclosures
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Disclosures|null
+     */
+    public function getDisclosures()
+    {
+        return $this->container['disclosures'];
+    }
+
+    /**
+     * Sets disclosures
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Disclosures|null $disclosures disclosures
+     *
+     * @return $this
+     */
+    public function setDisclosures($disclosures)
+    {
+        $this->container['disclosures'] = $disclosures;
 
         return $this;
     }

@@ -47,6 +47,7 @@ class UpdateOrderRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'request_to_be_forgotten' => 'bool',
+        'upstream_id' => 'string',
         'metadata' => 'map[string,AnyType]'
     ];
 
@@ -57,6 +58,7 @@ class UpdateOrderRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'request_to_be_forgotten' => null,
+        'upstream_id' => null,
         'metadata' => null
     ];
 
@@ -88,6 +90,7 @@ class UpdateOrderRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'request_to_be_forgotten' => 'requestToBeForgotten',
+        'upstream_id' => 'upstreamId',
         'metadata' => 'metadata'
     ];
 
@@ -98,6 +101,7 @@ class UpdateOrderRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'request_to_be_forgotten' => 'setRequestToBeForgotten',
+        'upstream_id' => 'setUpstreamId',
         'metadata' => 'setMetadata'
     ];
 
@@ -108,6 +112,7 @@ class UpdateOrderRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'request_to_be_forgotten' => 'getRequestToBeForgotten',
+        'upstream_id' => 'getUpstreamId',
         'metadata' => 'getMetadata'
     ];
 
@@ -172,6 +177,7 @@ class UpdateOrderRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['request_to_be_forgotten'] = isset($data['request_to_be_forgotten']) ? $data['request_to_be_forgotten'] : false;
+        $this->container['upstream_id'] = isset($data['upstream_id']) ? $data['upstream_id'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
     }
 
@@ -219,6 +225,30 @@ class UpdateOrderRequest implements ModelInterface, ArrayAccess
     public function setRequestToBeForgotten($request_to_be_forgotten)
     {
         $this->container['request_to_be_forgotten'] = $request_to_be_forgotten;
+
+        return $this;
+    }
+
+    /**
+     * Gets upstream_id
+     *
+     * @return string|null
+     */
+    public function getUpstreamId()
+    {
+        return $this->container['upstream_id'];
+    }
+
+    /**
+     * Sets upstream_id
+     *
+     * @param string|null $upstream_id The upstream identifier.
+     *
+     * @return $this
+     */
+    public function setUpstreamId($upstream_id)
+    {
+        $this->container['upstream_id'] = $upstream_id;
 
         return $this;
     }

@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **purchase_location** | [**\DigitalRiver\ApiSdk\Model\PurchaseLocation**](PurchaseLocation.md) |  | [optional] 
 **shipping_choice** | [**\DigitalRiver\ApiSdk\Model\ShippingRequest**](ShippingRequest.md) |  | [optional] 
 **items** | [**\DigitalRiver\ApiSdk\Model\SkuUpdateRequestItem**](SkuUpdateRequestItem.md) |  | [optional] 
+**billing_optimization** | [**\DigitalRiver\ApiSdk\Model\BillingOptimization**](BillingOptimization.md) |  | [optional] 
 **upstream_id** | **string** | The upstream identifier. | [optional] 
 **metadata** | [**map[string,AnyType]**](AnyType.md) | Key-value pairs used to store additional data. Value can be string, boolean or integer types. | [optional] 
 

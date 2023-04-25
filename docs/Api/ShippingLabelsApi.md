@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createShippingLabel**](ShippingLabelsApi.md#createShippingLabel) | **POST** /shipping-labels | Returns shipping label
 [**listShippingLabel**](ShippingLabelsApi.md#listShippingLabel) | **GET** /shipping-labels | Returns shipping label
+[**retrieveShippingLabels**](ShippingLabelsApi.md#retrieveShippingLabels) | **GET** /shipping-labels/{id} | Gets a shipping label by ID.
 
 
 
@@ -123,6 +124,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\DigitalRiver\ApiSdk\Model\ListShippingLabel**](../Model/ListShippingLabel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## retrieveShippingLabels
+
+> \DigitalRiver\ApiSdk\Model\ShippingLabelResponse retrieveShippingLabels($id)
+
+Gets a shipping label by ID.
+
+Retrieves the details of a shipping label. Supply the unique identifier of the shipping label.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$apiInstance = new DigitalRiver\ApiSdk\Api\ShippingLabelsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$id = 'id_example'; // string | Shipping Label ID
+
+
+try {
+    $result = $apiInstance->retrieveShippingLabels($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ShippingLabelsApi->retrieveShippingLabels: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Shipping Label ID |
+
+### Return type
+
+[**\DigitalRiver\ApiSdk\Model\ShippingLabelResponse**](../Model/ShippingLabelResponse.md)
 
 ### Authorization
 

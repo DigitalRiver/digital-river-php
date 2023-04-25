@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **organization** | [**\DigitalRiver\ApiSdk\Model\Organization**](Organization.md) |  | [optional] 
 **shipping_choice** | [**\DigitalRiver\ApiSdk\Model\ShippingRequest**](ShippingRequest.md) |  | [optional] 
 **discount** | [**\DigitalRiver\ApiSdk\Model\Discount**](Discount.md) |  | [optional] 
+**billing_optimization** | [**\DigitalRiver\ApiSdk\Model\BillingOptimization**](BillingOptimization.md) |  | [optional] 
 **items** | [**\DigitalRiver\ApiSdk\Model\SkuRequestItem[]**](SkuRequestItem.md) |  | 
 **shipping_discount** | [**\DigitalRiver\ApiSdk\Model\Discount**](Discount.md) |  | [optional] 
 **tax_inclusive** | **bool** | If &lt;code&gt;true&lt;/code&gt;, indicates that the prices supplied are tax inclusive. | [optional] 
@@ -27,6 +28,7 @@ Name | Type | Description | Notes
 **metadata** | [**map[string,AnyType]**](AnyType.md) | Key-value pairs used to store additional data. Value can be string, boolean or integer types. | [optional] 
 **purchase_location** | [**\DigitalRiver\ApiSdk\Model\PurchaseLocation**](PurchaseLocation.md) |  | [optional] 
 **upstream_id** | **string** | The upstream identifier. | [optional] 
+**disclosures** | [**\DigitalRiver\ApiSdk\Model\Disclosures**](Disclosures.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

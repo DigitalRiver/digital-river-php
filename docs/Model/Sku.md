@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **country_of_origin** | **string** | A two-letter Alpha-2 country code as described in the ISO 3166 international standard. | [optional] 
 **weight** | **double** | The weight of the product measured in the unit specified by weightUnit. | [optional] 
 **weight_unit** | **string** | The unit of measurement applied to the weight. | [optional] 
+**item_breadcrumb** | **string** | The full path to the category where item is included. Categories should be separated by “ &gt; “. | [optional] 
 **live_mode** | **bool** | Has the value &lt;code&gt;true&lt;/code&gt; if the object exists in live mode or the value &lt;code&gt;false&lt;/code&gt; if the object exists in test mode. | [optional] 
 **metadata** | [**map[string,AnyType]**](AnyType.md) | Key-value pairs used to store additional data. Value can be string, boolean or integer types. | [optional] 
 **updated_time** | [**\DateTime**](\DateTime.md) | The time when the SKU was last updated. | [optional] [readonly] 

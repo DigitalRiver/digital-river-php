@@ -63,6 +63,7 @@ class Sku implements ModelInterface, ArrayAccess
         'country_of_origin' => 'string',
         'weight' => 'double',
         'weight_unit' => 'string',
+        'item_breadcrumb' => 'string',
         'live_mode' => 'bool',
         'metadata' => 'map[string,AnyType]',
         'updated_time' => '\DateTime'
@@ -91,6 +92,7 @@ class Sku implements ModelInterface, ArrayAccess
         'country_of_origin' => null,
         'weight' => 'double',
         'weight_unit' => null,
+        'item_breadcrumb' => null,
         'live_mode' => null,
         'metadata' => null,
         'updated_time' => 'date-time'
@@ -140,6 +142,7 @@ class Sku implements ModelInterface, ArrayAccess
         'country_of_origin' => 'countryOfOrigin',
         'weight' => 'weight',
         'weight_unit' => 'weightUnit',
+        'item_breadcrumb' => 'itemBreadcrumb',
         'live_mode' => 'liveMode',
         'metadata' => 'metadata',
         'updated_time' => 'updatedTime'
@@ -168,6 +171,7 @@ class Sku implements ModelInterface, ArrayAccess
         'country_of_origin' => 'setCountryOfOrigin',
         'weight' => 'setWeight',
         'weight_unit' => 'setWeightUnit',
+        'item_breadcrumb' => 'setItemBreadcrumb',
         'live_mode' => 'setLiveMode',
         'metadata' => 'setMetadata',
         'updated_time' => 'setUpdatedTime'
@@ -196,6 +200,7 @@ class Sku implements ModelInterface, ArrayAccess
         'country_of_origin' => 'getCountryOfOrigin',
         'weight' => 'getWeight',
         'weight_unit' => 'getWeightUnit',
+        'item_breadcrumb' => 'getItemBreadcrumb',
         'live_mode' => 'getLiveMode',
         'metadata' => 'getMetadata',
         'updated_time' => 'getUpdatedTime'
@@ -316,6 +321,7 @@ class Sku implements ModelInterface, ArrayAccess
         $this->container['country_of_origin'] = isset($data['country_of_origin']) ? $data['country_of_origin'] : null;
         $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
         $this->container['weight_unit'] = isset($data['weight_unit']) ? $data['weight_unit'] : null;
+        $this->container['item_breadcrumb'] = isset($data['item_breadcrumb']) ? $data['item_breadcrumb'] : null;
         $this->container['live_mode'] = isset($data['live_mode']) ? $data['live_mode'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['updated_time'] = isset($data['updated_time']) ? $data['updated_time'] : null;
@@ -785,6 +791,30 @@ class Sku implements ModelInterface, ArrayAccess
             );
         }
         $this->container['weight_unit'] = $weight_unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_breadcrumb
+     *
+     * @return string|null
+     */
+    public function getItemBreadcrumb()
+    {
+        return $this->container['item_breadcrumb'];
+    }
+
+    /**
+     * Sets item_breadcrumb
+     *
+     * @param string|null $item_breadcrumb The full path to the category where item is included. Categories should be separated by “ > “.
+     *
+     * @return $this
+     */
+    public function setItemBreadcrumb($item_breadcrumb)
+    {
+        $this->container['item_breadcrumb'] = $item_breadcrumb;
 
         return $this;
     }

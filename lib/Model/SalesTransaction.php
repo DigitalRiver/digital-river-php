@@ -48,6 +48,7 @@ class SalesTransaction implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'created_time' => '\DateTime',
+        'updated_time' => '\DateTime',
         'sale_time' => '\DateTime',
         'sales_summary_id' => 'string',
         'currency' => 'string',
@@ -81,6 +82,7 @@ class SalesTransaction implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'created_time' => 'date-time',
+        'updated_time' => 'date-time',
         'sale_time' => 'date-time',
         'sales_summary_id' => null,
         'currency' => null,
@@ -135,6 +137,7 @@ class SalesTransaction implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'created_time' => 'createdTime',
+        'updated_time' => 'updatedTime',
         'sale_time' => 'saleTime',
         'sales_summary_id' => 'salesSummaryId',
         'currency' => 'currency',
@@ -168,6 +171,7 @@ class SalesTransaction implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'created_time' => 'setCreatedTime',
+        'updated_time' => 'setUpdatedTime',
         'sale_time' => 'setSaleTime',
         'sales_summary_id' => 'setSalesSummaryId',
         'currency' => 'setCurrency',
@@ -201,6 +205,7 @@ class SalesTransaction implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'created_time' => 'getCreatedTime',
+        'updated_time' => 'getUpdatedTime',
         'sale_time' => 'getSaleTime',
         'sales_summary_id' => 'getSalesSummaryId',
         'currency' => 'getCurrency',
@@ -322,6 +327,7 @@ class SalesTransaction implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['created_time'] = isset($data['created_time']) ? $data['created_time'] : null;
+        $this->container['updated_time'] = isset($data['updated_time']) ? $data['updated_time'] : null;
         $this->container['sale_time'] = isset($data['sale_time']) ? $data['sale_time'] : null;
         $this->container['sales_summary_id'] = isset($data['sales_summary_id']) ? $data['sales_summary_id'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
@@ -424,6 +430,30 @@ class SalesTransaction implements ModelInterface, ArrayAccess
     public function setCreatedTime($created_time)
     {
         $this->container['created_time'] = $created_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_time
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedTime()
+    {
+        return $this->container['updated_time'];
+    }
+
+    /**
+     * Sets updated_time
+     *
+     * @param \DateTime|null $updated_time Time at which the sales transaction was last updated.
+     *
+     * @return $this
+     */
+    public function setUpdatedTime($updated_time)
+    {
+        $this->container['updated_time'] = $updated_time;
 
         return $this;
     }

@@ -47,6 +47,7 @@ class GlobalFulfillmentCancellationItemResponse implements ModelInterface, Array
       */
     protected static $openAPITypes = [
         'fulfillment_order_item_id' => 'string',
+        'fulfillment_order_item_upstream_id' => 'string',
         'inventory_item_id' => 'string',
         'quantity' => 'int',
         'quantity_accepted' => 'int',
@@ -60,6 +61,7 @@ class GlobalFulfillmentCancellationItemResponse implements ModelInterface, Array
       */
     protected static $openAPIFormats = [
         'fulfillment_order_item_id' => null,
+        'fulfillment_order_item_upstream_id' => null,
         'inventory_item_id' => null,
         'quantity' => null,
         'quantity_accepted' => null,
@@ -94,6 +96,7 @@ class GlobalFulfillmentCancellationItemResponse implements ModelInterface, Array
      */
     protected static $attributeMap = [
         'fulfillment_order_item_id' => 'fulfillmentOrderItemId',
+        'fulfillment_order_item_upstream_id' => 'fulfillmentOrderItemUpstreamId',
         'inventory_item_id' => 'inventoryItemId',
         'quantity' => 'quantity',
         'quantity_accepted' => 'quantityAccepted',
@@ -107,6 +110,7 @@ class GlobalFulfillmentCancellationItemResponse implements ModelInterface, Array
      */
     protected static $setters = [
         'fulfillment_order_item_id' => 'setFulfillmentOrderItemId',
+        'fulfillment_order_item_upstream_id' => 'setFulfillmentOrderItemUpstreamId',
         'inventory_item_id' => 'setInventoryItemId',
         'quantity' => 'setQuantity',
         'quantity_accepted' => 'setQuantityAccepted',
@@ -120,6 +124,7 @@ class GlobalFulfillmentCancellationItemResponse implements ModelInterface, Array
      */
     protected static $getters = [
         'fulfillment_order_item_id' => 'getFulfillmentOrderItemId',
+        'fulfillment_order_item_upstream_id' => 'getFulfillmentOrderItemUpstreamId',
         'inventory_item_id' => 'getInventoryItemId',
         'quantity' => 'getQuantity',
         'quantity_accepted' => 'getQuantityAccepted',
@@ -207,6 +212,7 @@ class GlobalFulfillmentCancellationItemResponse implements ModelInterface, Array
     public function __construct(array $data = null)
     {
         $this->container['fulfillment_order_item_id'] = isset($data['fulfillment_order_item_id']) ? $data['fulfillment_order_item_id'] : null;
+        $this->container['fulfillment_order_item_upstream_id'] = isset($data['fulfillment_order_item_upstream_id']) ? $data['fulfillment_order_item_upstream_id'] : null;
         $this->container['inventory_item_id'] = isset($data['inventory_item_id']) ? $data['inventory_item_id'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['quantity_accepted'] = isset($data['quantity_accepted']) ? $data['quantity_accepted'] : null;
@@ -266,6 +272,30 @@ class GlobalFulfillmentCancellationItemResponse implements ModelInterface, Array
     public function setFulfillmentOrderItemId($fulfillment_order_item_id)
     {
         $this->container['fulfillment_order_item_id'] = $fulfillment_order_item_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets fulfillment_order_item_upstream_id
+     *
+     * @return string|null
+     */
+    public function getFulfillmentOrderItemUpstreamId()
+    {
+        return $this->container['fulfillment_order_item_upstream_id'];
+    }
+
+    /**
+     * Sets fulfillment_order_item_upstream_id
+     *
+     * @param string|null $fulfillment_order_item_upstream_id The identifier of the item in the upstream fulfillment order
+     *
+     * @return $this
+     */
+    public function setFulfillmentOrderItemUpstreamId($fulfillment_order_item_upstream_id)
+    {
+        $this->container['fulfillment_order_item_upstream_id'] = $fulfillment_order_item_upstream_id;
 
         return $this;
     }

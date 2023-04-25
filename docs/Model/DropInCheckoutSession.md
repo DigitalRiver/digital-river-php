@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **locale** | **string** | A designator that combines the two-letter ISO 639-1 language code with the ISO 3166-1 alpha-2 country code. | [optional] 
 **customer_type** | [**\DigitalRiver\ApiSdk\Model\CustomerType**](CustomerType.md) |  | [optional] 
 **charge_type** | [**\DigitalRiver\ApiSdk\Model\ChargeType**](ChargeType.md) |  | [optional] 
+**disclosures** | [**\DigitalRiver\ApiSdk\Model\Disclosures**](Disclosures.md) |  | [optional] 
 **style** | [**object**](.md) | Style for drop-in | [optional] 
 **options** | [**\DigitalRiver\ApiSdk\Model\DropInOptionsRequest**](DropInOptionsRequest.md) |  | [optional] 
 **redirects** | [**\DigitalRiver\ApiSdk\Model\Redirects**](Redirects.md) |  | [optional] 

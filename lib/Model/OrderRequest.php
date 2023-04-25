@@ -61,6 +61,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'organization' => '\DigitalRiver\ApiSdk\Model\Organization',
         'shipping_choice' => '\DigitalRiver\ApiSdk\Model\ShippingRequest',
         'discount' => '\DigitalRiver\ApiSdk\Model\Discount',
+        'billing_optimization' => '\DigitalRiver\ApiSdk\Model\BillingOptimization',
         'items' => '\DigitalRiver\ApiSdk\Model\SkuRequestItem[]',
         'shipping_discount' => '\DigitalRiver\ApiSdk\Model\Discount',
         'tax_inclusive' => 'bool',
@@ -69,6 +70,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'customer_type' => '\DigitalRiver\ApiSdk\Model\CustomerType',
         'metadata' => 'map[string,AnyType]',
         'purchase_location' => '\DigitalRiver\ApiSdk\Model\PurchaseLocation',
+        'disclosures' => '\DigitalRiver\ApiSdk\Model\Disclosures',
         'upstream_id' => 'string'
     ];
 
@@ -93,6 +95,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'organization' => null,
         'shipping_choice' => null,
         'discount' => null,
+        'billing_optimization' => null,
         'items' => null,
         'shipping_discount' => null,
         'tax_inclusive' => null,
@@ -101,6 +104,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'customer_type' => null,
         'metadata' => null,
         'purchase_location' => null,
+        'disclosures' => null,
         'upstream_id' => null
     ];
 
@@ -146,6 +150,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'organization' => 'organization',
         'shipping_choice' => 'shippingChoice',
         'discount' => 'discount',
+        'billing_optimization' => 'billingOptimization',
         'items' => 'items',
         'shipping_discount' => 'shippingDiscount',
         'tax_inclusive' => 'taxInclusive',
@@ -154,6 +159,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'customer_type' => 'customerType',
         'metadata' => 'metadata',
         'purchase_location' => 'purchaseLocation',
+        'disclosures' => 'disclosures',
         'upstream_id' => 'upstreamId'
     ];
 
@@ -178,6 +184,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'organization' => 'setOrganization',
         'shipping_choice' => 'setShippingChoice',
         'discount' => 'setDiscount',
+        'billing_optimization' => 'setBillingOptimization',
         'items' => 'setItems',
         'shipping_discount' => 'setShippingDiscount',
         'tax_inclusive' => 'setTaxInclusive',
@@ -186,6 +193,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'customer_type' => 'setCustomerType',
         'metadata' => 'setMetadata',
         'purchase_location' => 'setPurchaseLocation',
+        'disclosures' => 'setDisclosures',
         'upstream_id' => 'setUpstreamId'
     ];
 
@@ -210,6 +218,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'organization' => 'getOrganization',
         'shipping_choice' => 'getShippingChoice',
         'discount' => 'getDiscount',
+        'billing_optimization' => 'getBillingOptimization',
         'items' => 'getItems',
         'shipping_discount' => 'getShippingDiscount',
         'tax_inclusive' => 'getTaxInclusive',
@@ -218,6 +227,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
         'customer_type' => 'getCustomerType',
         'metadata' => 'getMetadata',
         'purchase_location' => 'getPurchaseLocation',
+        'disclosures' => 'getDisclosures',
         'upstream_id' => 'getUpstreamId'
     ];
 
@@ -296,6 +306,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
         $this->container['organization'] = isset($data['organization']) ? $data['organization'] : null;
         $this->container['shipping_choice'] = isset($data['shipping_choice']) ? $data['shipping_choice'] : null;
         $this->container['discount'] = isset($data['discount']) ? $data['discount'] : null;
+        $this->container['billing_optimization'] = isset($data['billing_optimization']) ? $data['billing_optimization'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['shipping_discount'] = isset($data['shipping_discount']) ? $data['shipping_discount'] : null;
         $this->container['tax_inclusive'] = isset($data['tax_inclusive']) ? $data['tax_inclusive'] : null;
@@ -304,6 +315,7 @@ class OrderRequest implements ModelInterface, ArrayAccess
         $this->container['customer_type'] = isset($data['customer_type']) ? $data['customer_type'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['purchase_location'] = isset($data['purchase_location']) ? $data['purchase_location'] : null;
+        $this->container['disclosures'] = isset($data['disclosures']) ? $data['disclosures'] : null;
         $this->container['upstream_id'] = isset($data['upstream_id']) ? $data['upstream_id'] : null;
     }
 
@@ -692,6 +704,30 @@ class OrderRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets billing_optimization
+     *
+     * @return \DigitalRiver\ApiSdk\Model\BillingOptimization|null
+     */
+    public function getBillingOptimization()
+    {
+        return $this->container['billing_optimization'];
+    }
+
+    /**
+     * Sets billing_optimization
+     *
+     * @param \DigitalRiver\ApiSdk\Model\BillingOptimization|null $billing_optimization billing_optimization
+     *
+     * @return $this
+     */
+    public function setBillingOptimization($billing_optimization)
+    {
+        $this->container['billing_optimization'] = $billing_optimization;
+
+        return $this;
+    }
+
+    /**
      * Gets items
      *
      * @return \DigitalRiver\ApiSdk\Model\SkuRequestItem[]|null
@@ -879,6 +915,30 @@ class OrderRequest implements ModelInterface, ArrayAccess
     public function setPurchaseLocation($purchase_location)
     {
         $this->container['purchase_location'] = $purchase_location;
+
+        return $this;
+    }
+
+    /**
+     * Gets disclosures
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Disclosures|null
+     */
+    public function getDisclosures()
+    {
+        return $this->container['disclosures'];
+    }
+
+    /**
+     * Sets disclosures
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Disclosures|null $disclosures disclosures
+     *
+     * @return $this
+     */
+    public function setDisclosures($disclosures)
+    {
+        $this->container['disclosures'] = $disclosures;
 
         return $this;
     }

@@ -48,7 +48,9 @@ class ShippingMethodQuote implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'description' => 'string',
         'service_level' => 'string',
-        'amount' => 'double'
+        'shipping_terms' => 'string',
+        'amount' => 'double',
+        'ship_from' => '\DigitalRiver\ApiSdk\Model\GLShipFrom'
     ];
 
     /**
@@ -59,7 +61,9 @@ class ShippingMethodQuote implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'description' => null,
         'service_level' => null,
-        'amount' => 'double'
+        'shipping_terms' => null,
+        'amount' => 'double',
+        'ship_from' => null
     ];
 
     /**
@@ -91,7 +95,9 @@ class ShippingMethodQuote implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'description' => 'description',
         'service_level' => 'serviceLevel',
-        'amount' => 'amount'
+        'shipping_terms' => 'shippingTerms',
+        'amount' => 'amount',
+        'ship_from' => 'shipFrom'
     ];
 
     /**
@@ -102,7 +108,9 @@ class ShippingMethodQuote implements ModelInterface, ArrayAccess
     protected static $setters = [
         'description' => 'setDescription',
         'service_level' => 'setServiceLevel',
-        'amount' => 'setAmount'
+        'shipping_terms' => 'setShippingTerms',
+        'amount' => 'setAmount',
+        'ship_from' => 'setShipFrom'
     ];
 
     /**
@@ -113,7 +121,9 @@ class ShippingMethodQuote implements ModelInterface, ArrayAccess
     protected static $getters = [
         'description' => 'getDescription',
         'service_level' => 'getServiceLevel',
-        'amount' => 'getAmount'
+        'shipping_terms' => 'getShippingTerms',
+        'amount' => 'getAmount',
+        'ship_from' => 'getShipFrom'
     ];
 
     /**
@@ -157,8 +167,26 @@ class ShippingMethodQuote implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const SHIPPING_TERMS_DDP = 'DDP';
+    const SHIPPING_TERMS_DAP = 'DAP';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getShippingTermsAllowableValues()
+    {
+       $allowable = [
+            self::SHIPPING_TERMS_DDP,
+            self::SHIPPING_TERMS_DAP,
+        ];
+
+        $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
+        return $allowableAllCase;
+    }
     
 
     /**
@@ -178,7 +206,9 @@ class ShippingMethodQuote implements ModelInterface, ArrayAccess
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['service_level'] = isset($data['service_level']) ? $data['service_level'] : null;
+        $this->container['shipping_terms'] = isset($data['shipping_terms']) ? $data['shipping_terms'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
     }
 
     /**
@@ -189,6 +219,15 @@ class ShippingMethodQuote implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getShippingTermsAllowableValues();
+       
+        if (!is_null($this->container['shipping_terms']) && !in_array(strtolower($this->container['shipping_terms']), $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'shipping_terms', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -218,7 +257,7 @@ class ShippingMethodQuote implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string|null $description The shipping method's description.
+     * @param string|null $description Shipping method description
      *
      * @return $this
      */
@@ -254,6 +293,39 @@ class ShippingMethodQuote implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets shipping_terms
+     *
+     * @return string|null
+     */
+    public function getShippingTerms()
+    {
+        return $this->container['shipping_terms'];
+    }
+
+    /**
+     * Sets shipping_terms
+     *
+     * @param string|null $shipping_terms The terms of shipping.
+     *
+     * @return $this
+     */
+    public function setShippingTerms($shipping_terms)
+    {
+        $allowedValues = $this->getShippingTermsAllowableValues();
+        if (!is_null($shipping_terms) && !in_array(strtolower($shipping_terms), $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'shipping_terms', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['shipping_terms'] = $shipping_terms;
+
+        return $this;
+    }
+
+    /**
      * Gets amount
      *
      * @return double|null
@@ -266,13 +338,37 @@ class ShippingMethodQuote implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param double|null $amount The shipping method's cost.
+     * @param double|null $amount The shipping amount.
      *
      * @return $this
      */
     public function setAmount($amount)
     {
         $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets ship_from
+     *
+     * @return \DigitalRiver\ApiSdk\Model\GLShipFrom|null
+     */
+    public function getShipFrom()
+    {
+        return $this->container['ship_from'];
+    }
+
+    /**
+     * Sets ship_from
+     *
+     * @param \DigitalRiver\ApiSdk\Model\GLShipFrom|null $ship_from ship_from
+     *
+     * @return $this
+     */
+    public function setShipFrom($ship_from)
+    {
+        $this->container['ship_from'] = $ship_from;
 
         return $this;
     }

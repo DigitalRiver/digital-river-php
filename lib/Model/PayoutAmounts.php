@@ -60,6 +60,7 @@ class PayoutAmounts implements ModelInterface, ArrayAccess
         'shipping_discount' => 'double',
         'regulatory_fee_discount' => 'double',
         'remit_shipping' => 'double',
+        'remit_landed_cost' => 'double',
         'payout_amount' => 'double',
         'store_credit' => 'double'
     ];
@@ -84,6 +85,7 @@ class PayoutAmounts implements ModelInterface, ArrayAccess
         'shipping_discount' => 'double',
         'regulatory_fee_discount' => 'double',
         'remit_shipping' => 'double',
+        'remit_landed_cost' => 'double',
         'payout_amount' => 'double',
         'store_credit' => 'double'
     ];
@@ -129,6 +131,7 @@ class PayoutAmounts implements ModelInterface, ArrayAccess
         'shipping_discount' => 'shippingDiscount',
         'regulatory_fee_discount' => 'regulatoryFeeDiscount',
         'remit_shipping' => 'remitShipping',
+        'remit_landed_cost' => 'remitLandedCost',
         'payout_amount' => 'payoutAmount',
         'store_credit' => 'storeCredit'
     ];
@@ -153,6 +156,7 @@ class PayoutAmounts implements ModelInterface, ArrayAccess
         'shipping_discount' => 'setShippingDiscount',
         'regulatory_fee_discount' => 'setRegulatoryFeeDiscount',
         'remit_shipping' => 'setRemitShipping',
+        'remit_landed_cost' => 'setRemitLandedCost',
         'payout_amount' => 'setPayoutAmount',
         'store_credit' => 'setStoreCredit'
     ];
@@ -177,6 +181,7 @@ class PayoutAmounts implements ModelInterface, ArrayAccess
         'shipping_discount' => 'getShippingDiscount',
         'regulatory_fee_discount' => 'getRegulatoryFeeDiscount',
         'remit_shipping' => 'getRemitShipping',
+        'remit_landed_cost' => 'getRemitLandedCost',
         'payout_amount' => 'getPayoutAmount',
         'store_credit' => 'getStoreCredit'
     ];
@@ -255,6 +260,7 @@ class PayoutAmounts implements ModelInterface, ArrayAccess
         $this->container['shipping_discount'] = isset($data['shipping_discount']) ? $data['shipping_discount'] : null;
         $this->container['regulatory_fee_discount'] = isset($data['regulatory_fee_discount']) ? $data['regulatory_fee_discount'] : null;
         $this->container['remit_shipping'] = isset($data['remit_shipping']) ? $data['remit_shipping'] : null;
+        $this->container['remit_landed_cost'] = isset($data['remit_landed_cost']) ? $data['remit_landed_cost'] : null;
         $this->container['payout_amount'] = isset($data['payout_amount']) ? $data['payout_amount'] : null;
         $this->container['store_credit'] = isset($data['store_credit']) ? $data['store_credit'] : null;
     }
@@ -615,6 +621,30 @@ class PayoutAmounts implements ModelInterface, ArrayAccess
     public function setRemitShipping($remit_shipping)
     {
         $this->container['remit_shipping'] = $remit_shipping;
+
+        return $this;
+    }
+
+    /**
+     * Gets remit_landed_cost
+     *
+     * @return double|null
+     */
+    public function getRemitLandedCost()
+    {
+        return $this->container['remit_landed_cost'];
+    }
+
+    /**
+     * Sets remit_landed_cost
+     *
+     * @param double|null $remit_landed_cost Landed Cost remittance amount.
+     *
+     * @return $this
+     */
+    public function setRemitLandedCost($remit_landed_cost)
+    {
+        $this->container['remit_landed_cost'] = $remit_landed_cost;
 
         return $this;
     }

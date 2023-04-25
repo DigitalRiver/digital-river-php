@@ -46,15 +46,9 @@ class ProductItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'inventory_item_id' => 'string',
         'quantity' => 'int',
-        'available_quantity' => 'double',
-        'available_time' => '\DateTime',
-        'ship_from' => '\DigitalRiver\ApiSdk\Model\ShipFrom',
-        'shipping' => 'double',
-        'handling' => 'double',
-        'fees' => 'double',
-        'total' => 'double'
+        'item_id' => 'string',
+        'product_details' => '\DigitalRiver\ApiSdk\Model\ProductDetails'
     ];
 
     /**
@@ -63,15 +57,9 @@ class ProductItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'inventory_item_id' => null,
         'quantity' => null,
-        'available_quantity' => 'double',
-        'available_time' => 'date-time',
-        'ship_from' => null,
-        'shipping' => 'double',
-        'handling' => 'double',
-        'fees' => 'double',
-        'total' => 'double'
+        'item_id' => null,
+        'product_details' => null
     ];
 
     /**
@@ -101,15 +89,9 @@ class ProductItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'inventory_item_id' => 'inventoryItemId',
         'quantity' => 'quantity',
-        'available_quantity' => 'availableQuantity',
-        'available_time' => 'availableTime',
-        'ship_from' => 'shipFrom',
-        'shipping' => 'shipping',
-        'handling' => 'handling',
-        'fees' => 'fees',
-        'total' => 'total'
+        'item_id' => 'itemId',
+        'product_details' => 'productDetails'
     ];
 
     /**
@@ -118,15 +100,9 @@ class ProductItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'inventory_item_id' => 'setInventoryItemId',
         'quantity' => 'setQuantity',
-        'available_quantity' => 'setAvailableQuantity',
-        'available_time' => 'setAvailableTime',
-        'ship_from' => 'setShipFrom',
-        'shipping' => 'setShipping',
-        'handling' => 'setHandling',
-        'fees' => 'setFees',
-        'total' => 'setTotal'
+        'item_id' => 'setItemId',
+        'product_details' => 'setProductDetails'
     ];
 
     /**
@@ -135,15 +111,9 @@ class ProductItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'inventory_item_id' => 'getInventoryItemId',
         'quantity' => 'getQuantity',
-        'available_quantity' => 'getAvailableQuantity',
-        'available_time' => 'getAvailableTime',
-        'ship_from' => 'getShipFrom',
-        'shipping' => 'getShipping',
-        'handling' => 'getHandling',
-        'fees' => 'getFees',
-        'total' => 'getTotal'
+        'item_id' => 'getItemId',
+        'product_details' => 'getProductDetails'
     ];
 
     /**
@@ -206,15 +176,9 @@ class ProductItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['inventory_item_id'] = isset($data['inventory_item_id']) ? $data['inventory_item_id'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
-        $this->container['available_quantity'] = isset($data['available_quantity']) ? $data['available_quantity'] : null;
-        $this->container['available_time'] = isset($data['available_time']) ? $data['available_time'] : null;
-        $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
-        $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
-        $this->container['handling'] = isset($data['handling']) ? $data['handling'] : null;
-        $this->container['fees'] = isset($data['fees']) ? $data['fees'] : null;
-        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['item_id'] = isset($data['item_id']) ? $data['item_id'] : null;
+        $this->container['product_details'] = isset($data['product_details']) ? $data['product_details'] : null;
     }
 
     /**
@@ -226,6 +190,12 @@ class ProductItem implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['quantity'] === null) {
+            $invalidProperties[] = "'quantity' can't be null";
+        }
+        if ($this->container['item_id'] === null) {
+            $invalidProperties[] = "'item_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -242,33 +212,9 @@ class ProductItem implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets inventory_item_id
-     *
-     * @return string|null
-     */
-    public function getInventoryItemId()
-    {
-        return $this->container['inventory_item_id'];
-    }
-
-    /**
-     * Sets inventory_item_id
-     *
-     * @param string|null $inventory_item_id The inventory item identifier.
-     *
-     * @return $this
-     */
-    public function setInventoryItemId($inventory_item_id)
-    {
-        $this->container['inventory_item_id'] = $inventory_item_id;
-
-        return $this;
-    }
-
-    /**
      * Gets quantity
      *
-     * @return int|null
+     * @return int
      */
     public function getQuantity()
     {
@@ -278,7 +224,7 @@ class ProductItem implements ModelInterface, ArrayAccess
     /**
      * Sets quantity
      *
-     * @param int|null $quantity quantity
+     * @param int $quantity quantity
      *
      * @return $this
      */
@@ -290,169 +236,49 @@ class ProductItem implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets available_quantity
+     * Gets item_id
      *
-     * @return double|null
+     * @return string
      */
-    public function getAvailableQuantity()
+    public function getItemId()
     {
-        return $this->container['available_quantity'];
+        return $this->container['item_id'];
     }
 
     /**
-     * Sets available_quantity
+     * Sets item_id
      *
-     * @param double|null $available_quantity The quantity of inventory items available for sale.
+     * @param string $item_id Digital River's line item identifier from the order
      *
      * @return $this
      */
-    public function setAvailableQuantity($available_quantity)
+    public function setItemId($item_id)
     {
-        $this->container['available_quantity'] = $available_quantity;
+        $this->container['item_id'] = $item_id;
 
         return $this;
     }
 
     /**
-     * Gets available_time
+     * Gets product_details
      *
-     * @return \DateTime|null
+     * @return \DigitalRiver\ApiSdk\Model\ProductDetails|null
      */
-    public function getAvailableTime()
+    public function getProductDetails()
     {
-        return $this->container['available_time'];
+        return $this->container['product_details'];
     }
 
     /**
-     * Sets available_time
+     * Sets product_details
      *
-     * @param \DateTime|null $available_time Time when the inventory items will be available again.
+     * @param \DigitalRiver\ApiSdk\Model\ProductDetails|null $product_details product_details
      *
      * @return $this
      */
-    public function setAvailableTime($available_time)
+    public function setProductDetails($product_details)
     {
-        $this->container['available_time'] = $available_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets ship_from
-     *
-     * @return \DigitalRiver\ApiSdk\Model\ShipFrom|null
-     */
-    public function getShipFrom()
-    {
-        return $this->container['ship_from'];
-    }
-
-    /**
-     * Sets ship_from
-     *
-     * @param \DigitalRiver\ApiSdk\Model\ShipFrom|null $ship_from ship_from
-     *
-     * @return $this
-     */
-    public function setShipFrom($ship_from)
-    {
-        $this->container['ship_from'] = $ship_from;
-
-        return $this;
-    }
-
-    /**
-     * Gets shipping
-     *
-     * @return double|null
-     */
-    public function getShipping()
-    {
-        return $this->container['shipping'];
-    }
-
-    /**
-     * Sets shipping
-     *
-     * @param double|null $shipping The shipping amount.
-     *
-     * @return $this
-     */
-    public function setShipping($shipping)
-    {
-        $this->container['shipping'] = $shipping;
-
-        return $this;
-    }
-
-    /**
-     * Gets handling
-     *
-     * @return double|null
-     */
-    public function getHandling()
-    {
-        return $this->container['handling'];
-    }
-
-    /**
-     * Sets handling
-     *
-     * @param double|null $handling The handling amount.
-     *
-     * @return $this
-     */
-    public function setHandling($handling)
-    {
-        $this->container['handling'] = $handling;
-
-        return $this;
-    }
-
-    /**
-     * Gets fees
-     *
-     * @return double|null
-     */
-    public function getFees()
-    {
-        return $this->container['fees'];
-    }
-
-    /**
-     * Sets fees
-     *
-     * @param double|null $fees The fee amount.
-     *
-     * @return $this
-     */
-    public function setFees($fees)
-    {
-        $this->container['fees'] = $fees;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return double|null
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param double|null $total The total shipping and handling amount.
-     *
-     * @return $this
-     */
-    public function setTotal($total)
-    {
-        $this->container['total'] = $total;
+        $this->container['product_details'] = $product_details;
 
         return $this;
     }

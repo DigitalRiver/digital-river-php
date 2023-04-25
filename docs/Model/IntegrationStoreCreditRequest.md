@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount** | **double** | The store credit amount. | [optional] 
+**amount** | **double** | The store credit amount. | 
 **name** | **string** | The store credit name. | [optional] 
-**upstream_id** | **string** | The upstream store credit identifier. | [optional] 
+**upstream_id** | **string** | The upstream store credit identifier. | 
 **icon_url** | **string** | The store credit image url. | [optional] 
 **last_four** | **string** | The last four digits of the store credit. | [optional] 
 

@@ -53,7 +53,8 @@ class WireTransfer implements ModelInterface, ArrayAccess
         'reference_id' => 'string',
         'account_number' => 'string',
         'additional_bank_information' => 'string',
-        'iban' => 'string'
+        'iban' => 'string',
+        'swift_code' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class WireTransfer implements ModelInterface, ArrayAccess
         'reference_id' => null,
         'account_number' => null,
         'additional_bank_information' => null,
-        'iban' => null
+        'iban' => null,
+        'swift_code' => null
     ];
 
     /**
@@ -106,7 +108,8 @@ class WireTransfer implements ModelInterface, ArrayAccess
         'reference_id' => 'referenceId',
         'account_number' => 'accountNumber',
         'additional_bank_information' => 'additionalBankInformation',
-        'iban' => 'iban'
+        'iban' => 'iban',
+        'swift_code' => 'swiftCode'
     ];
 
     /**
@@ -122,7 +125,8 @@ class WireTransfer implements ModelInterface, ArrayAccess
         'reference_id' => 'setReferenceId',
         'account_number' => 'setAccountNumber',
         'additional_bank_information' => 'setAdditionalBankInformation',
-        'iban' => 'setIban'
+        'iban' => 'setIban',
+        'swift_code' => 'setSwiftCode'
     ];
 
     /**
@@ -138,7 +142,8 @@ class WireTransfer implements ModelInterface, ArrayAccess
         'reference_id' => 'getReferenceId',
         'account_number' => 'getAccountNumber',
         'additional_bank_information' => 'getAdditionalBankInformation',
-        'iban' => 'getIban'
+        'iban' => 'getIban',
+        'swift_code' => 'getSwiftCode'
     ];
 
     /**
@@ -209,6 +214,7 @@ class WireTransfer implements ModelInterface, ArrayAccess
         $this->container['account_number'] = isset($data['account_number']) ? $data['account_number'] : null;
         $this->container['additional_bank_information'] = isset($data['additional_bank_information']) ? $data['additional_bank_information'] : null;
         $this->container['iban'] = isset($data['iban']) ? $data['iban'] : null;
+        $this->container['swift_code'] = isset($data['swift_code']) ? $data['swift_code'] : null;
     }
 
     /**
@@ -423,6 +429,30 @@ class WireTransfer implements ModelInterface, ArrayAccess
     public function setIban($iban)
     {
         $this->container['iban'] = $iban;
+
+        return $this;
+    }
+
+    /**
+     * Gets swift_code
+     *
+     * @return string|null
+     */
+    public function getSwiftCode()
+    {
+        return $this->container['swift_code'];
+    }
+
+    /**
+     * Sets swift_code
+     *
+     * @param string|null $swift_code .
+     *
+     * @return $this
+     */
+    public function setSwiftCode($swift_code)
+    {
+        $this->container['swift_code'] = $swift_code;
 
         return $this;
     }

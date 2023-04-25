@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Unique identifier for the sales transaction | [optional] 
 **created_time** | [**\DateTime**](\DateTime.md) | Time at which the sales transaction was created | [optional] 
+**updated_time** | [**\DateTime**](\DateTime.md) | Time at which the sales transaction was last updated. | [optional] [readonly] 
 **sale_time** | [**\DateTime**](\DateTime.md) | Time at which the sales occurred. | [optional] 
 **sales_summary_id** | **string** | Unique identifier of a Digital River sales summary, if any. | [optional] 
 **currency** | **string** | Three-letter ISO currency code representing the sale currency. | [optional] 

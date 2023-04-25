@@ -50,7 +50,6 @@ class ShippingLabelRequest implements ModelInterface, ArrayAccess
         'label_format' => 'string',
         'shipping_choice' => '\DigitalRiver\ApiSdk\Model\ShippingRequest',
         'ship_from' => '\DigitalRiver\ApiSdk\Model\GLShipFrom',
-        'items' => '\DigitalRiver\ApiSdk\Model\ProductItemRequest[]',
         'packages' => '\DigitalRiver\ApiSdk\Model\PackageRequest[]'
     ];
 
@@ -64,7 +63,6 @@ class ShippingLabelRequest implements ModelInterface, ArrayAccess
         'label_format' => null,
         'shipping_choice' => null,
         'ship_from' => null,
-        'items' => null,
         'packages' => null
     ];
 
@@ -99,7 +97,6 @@ class ShippingLabelRequest implements ModelInterface, ArrayAccess
         'label_format' => 'labelFormat',
         'shipping_choice' => 'shippingChoice',
         'ship_from' => 'shipFrom',
-        'items' => 'items',
         'packages' => 'packages'
     ];
 
@@ -113,7 +110,6 @@ class ShippingLabelRequest implements ModelInterface, ArrayAccess
         'label_format' => 'setLabelFormat',
         'shipping_choice' => 'setShippingChoice',
         'ship_from' => 'setShipFrom',
-        'items' => 'setItems',
         'packages' => 'setPackages'
     ];
 
@@ -127,7 +123,6 @@ class ShippingLabelRequest implements ModelInterface, ArrayAccess
         'label_format' => 'getLabelFormat',
         'shipping_choice' => 'getShippingChoice',
         'ship_from' => 'getShipFrom',
-        'items' => 'getItems',
         'packages' => 'getPackages'
     ];
 
@@ -173,6 +168,9 @@ class ShippingLabelRequest implements ModelInterface, ArrayAccess
     }
 
     const LABEL_FORMAT_PDF = 'PDF';
+    const LABEL_FORMAT_PNG = 'PNG';
+    const LABEL_FORMAT_JPG = 'JPG';
+    const LABEL_FORMAT_ZPL = 'ZPL';
     
 
     
@@ -185,6 +183,9 @@ class ShippingLabelRequest implements ModelInterface, ArrayAccess
     {
        $allowable = [
             self::LABEL_FORMAT_PDF,
+            self::LABEL_FORMAT_PNG,
+            self::LABEL_FORMAT_JPG,
+            self::LABEL_FORMAT_ZPL,
         ];
 
         $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
@@ -211,7 +212,6 @@ class ShippingLabelRequest implements ModelInterface, ArrayAccess
         $this->container['label_format'] = isset($data['label_format']) ? $data['label_format'] : null;
         $this->container['shipping_choice'] = isset($data['shipping_choice']) ? $data['shipping_choice'] : null;
         $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
-        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['packages'] = isset($data['packages']) ? $data['packages'] : null;
     }
 
@@ -239,9 +239,6 @@ class ShippingLabelRequest implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['items'] === null) {
-            $invalidProperties[] = "'items' can't be null";
-        }
         if ($this->container['packages'] === null) {
             $invalidProperties[] = "'packages' can't be null";
         }
@@ -361,30 +358,6 @@ class ShippingLabelRequest implements ModelInterface, ArrayAccess
     public function setShipFrom($ship_from)
     {
         $this->container['ship_from'] = $ship_from;
-
-        return $this;
-    }
-
-    /**
-     * Gets items
-     *
-     * @return \DigitalRiver\ApiSdk\Model\ProductItemRequest[]
-     */
-    public function getItems()
-    {
-        return $this->container['items'];
-    }
-
-    /**
-     * Sets items
-     *
-     * @param \DigitalRiver\ApiSdk\Model\ProductItemRequest[] $items items
-     *
-     * @return $this
-     */
-    public function setItems($items)
-    {
-        $this->container['items'] = $items;
 
         return $this;
     }
