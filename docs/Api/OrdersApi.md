@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createOrders**](OrdersApi.md#createOrders) | **POST** /orders | Creates a new order.
 [**listOrders**](OrdersApi.md#listOrders) | **GET** /orders | Returns a list of orders.
+[**retrieveOrderTracking**](OrdersApi.md#retrieveOrderTracking) | **GET** /orders/{id}/tracking | Tracks Global Logistics shipments.
 [**retrieveOrders**](OrdersApi.md#retrieveOrders) | **GET** /orders/{id} | Gets an order by ID.
 [**updateOrders**](OrdersApi.md#updateOrders) | **POST** /orders/{id} | Updates an existing order.
 
@@ -231,9 +232,71 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## retrieveOrderTracking
+
+> \DigitalRiver\ApiSdk\Model\OrderTracking retrieveOrderTracking($id)
+
+Tracks Global Logistics shipments.
+
+Retrieves the details of [Global Logistics](https://docs.digitalriver.com/digital-river-api/using-our-services/global-logistics) shipments. Supply the unique identifier of the order you would like to retrieve.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = DigitalRiver\ApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new DigitalRiver\ApiSdk\Api\OrdersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Order ID
+
+
+try {
+    $result = $apiInstance->retrieveOrderTracking($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrdersApi->retrieveOrderTracking: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Order ID |
+
+### Return type
+
+[**\DigitalRiver\ApiSdk\Model\OrderTracking**](../Model/OrderTracking.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## retrieveOrders
 
-> \DigitalRiver\ApiSdk\Model\Order retrieveOrders($id)
+> \DigitalRiver\ApiSdk\Model\Order retrieveOrders($id, $expand)
 
 Gets an order by ID.
 
@@ -258,9 +321,11 @@ $apiInstance = new DigitalRiver\ApiSdk\Api\OrdersApi(
 );
 $id = 'id_example'; // string | Order ID
 
+$expand = True; // bool | Enhanced Payload
+
 
 try {
-    $result = $apiInstance->retrieveOrders($id);
+    $result = $apiInstance->retrieveOrders($id, $expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->retrieveOrders: ', $e->getMessage(), PHP_EOL;
@@ -274,6 +339,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Order ID |
+ **expand** | **bool**| Enhanced Payload | [optional]
 
 ### Return type
 

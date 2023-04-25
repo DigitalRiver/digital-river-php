@@ -58,6 +58,7 @@ class DropInCheckoutSession implements ModelInterface, ArrayAccess
         'locale' => 'string',
         'customer_type' => '\DigitalRiver\ApiSdk\Model\CustomerType',
         'charge_type' => '\DigitalRiver\ApiSdk\Model\ChargeType',
+        'disclosures' => '\DigitalRiver\ApiSdk\Model\Disclosures',
         'style' => 'object',
         'options' => '\DigitalRiver\ApiSdk\Model\DropInOptionsRequest',
         'redirects' => '\DigitalRiver\ApiSdk\Model\Redirects',
@@ -82,6 +83,7 @@ class DropInCheckoutSession implements ModelInterface, ArrayAccess
         'locale' => null,
         'customer_type' => null,
         'charge_type' => null,
+        'disclosures' => null,
         'style' => null,
         'options' => null,
         'redirects' => null,
@@ -127,6 +129,7 @@ class DropInCheckoutSession implements ModelInterface, ArrayAccess
         'locale' => 'locale',
         'customer_type' => 'customerType',
         'charge_type' => 'chargeType',
+        'disclosures' => 'disclosures',
         'style' => 'style',
         'options' => 'options',
         'redirects' => 'redirects',
@@ -151,6 +154,7 @@ class DropInCheckoutSession implements ModelInterface, ArrayAccess
         'locale' => 'setLocale',
         'customer_type' => 'setCustomerType',
         'charge_type' => 'setChargeType',
+        'disclosures' => 'setDisclosures',
         'style' => 'setStyle',
         'options' => 'setOptions',
         'redirects' => 'setRedirects',
@@ -175,6 +179,7 @@ class DropInCheckoutSession implements ModelInterface, ArrayAccess
         'locale' => 'getLocale',
         'customer_type' => 'getCustomerType',
         'charge_type' => 'getChargeType',
+        'disclosures' => 'getDisclosures',
         'style' => 'getStyle',
         'options' => 'getOptions',
         'redirects' => 'getRedirects',
@@ -253,6 +258,7 @@ class DropInCheckoutSession implements ModelInterface, ArrayAccess
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['customer_type'] = isset($data['customer_type']) ? $data['customer_type'] : null;
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
+        $this->container['disclosures'] = isset($data['disclosures']) ? $data['disclosures'] : null;
         $this->container['style'] = isset($data['style']) ? $data['style'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['redirects'] = isset($data['redirects']) ? $data['redirects'] : null;
@@ -567,6 +573,30 @@ class DropInCheckoutSession implements ModelInterface, ArrayAccess
     public function setChargeType($charge_type)
     {
         $this->container['charge_type'] = $charge_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets disclosures
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Disclosures|null
+     */
+    public function getDisclosures()
+    {
+        return $this->container['disclosures'];
+    }
+
+    /**
+     * Sets disclosures
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Disclosures|null $disclosures disclosures
+     *
+     * @return $this
+     */
+    public function setDisclosures($disclosures)
+    {
+        $this->container['disclosures'] = $disclosures;
 
         return $this;
     }

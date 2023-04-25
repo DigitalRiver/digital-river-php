@@ -50,7 +50,8 @@ class PackageRequest implements ModelInterface, ArrayAccess
         'weight_unit' => 'string',
         'height' => 'int',
         'width' => 'int',
-        'length' => 'int'
+        'length' => 'int',
+        'items' => '\DigitalRiver\ApiSdk\Model\ProductItemRequest[]'
     ];
 
     /**
@@ -63,7 +64,8 @@ class PackageRequest implements ModelInterface, ArrayAccess
         'weight_unit' => null,
         'height' => null,
         'width' => null,
-        'length' => null
+        'length' => null,
+        'items' => null
     ];
 
     /**
@@ -97,7 +99,8 @@ class PackageRequest implements ModelInterface, ArrayAccess
         'weight_unit' => 'weightUnit',
         'height' => 'height',
         'width' => 'width',
-        'length' => 'length'
+        'length' => 'length',
+        'items' => 'items'
     ];
 
     /**
@@ -110,7 +113,8 @@ class PackageRequest implements ModelInterface, ArrayAccess
         'weight_unit' => 'setWeightUnit',
         'height' => 'setHeight',
         'width' => 'setWidth',
-        'length' => 'setLength'
+        'length' => 'setLength',
+        'items' => 'setItems'
     ];
 
     /**
@@ -123,7 +127,8 @@ class PackageRequest implements ModelInterface, ArrayAccess
         'weight_unit' => 'getWeightUnit',
         'height' => 'getHeight',
         'width' => 'getWidth',
-        'length' => 'getLength'
+        'length' => 'getLength',
+        'items' => 'getItems'
     ];
 
     /**
@@ -191,6 +196,7 @@ class PackageRequest implements ModelInterface, ArrayAccess
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['length'] = isset($data['length']) ? $data['length'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
     }
 
     /**
@@ -207,6 +213,9 @@ class PackageRequest implements ModelInterface, ArrayAccess
         }
         if ($this->container['weight_unit'] === null) {
             $invalidProperties[] = "'weight_unit' can't be null";
+        }
+        if ($this->container['items'] === null) {
+            $invalidProperties[] = "'items' can't be null";
         }
         return $invalidProperties;
     }
@@ -339,6 +348,30 @@ class PackageRequest implements ModelInterface, ArrayAccess
     public function setLength($length)
     {
         $this->container['length'] = $length;
+
+        return $this;
+    }
+
+    /**
+     * Gets items
+     *
+     * @return \DigitalRiver\ApiSdk\Model\ProductItemRequest[]
+     */
+    public function getItems()
+    {
+        return $this->container['items'];
+    }
+
+    /**
+     * Sets items
+     *
+     * @param \DigitalRiver\ApiSdk\Model\ProductItemRequest[] $items items
+     *
+     * @return $this
+     */
+    public function setItems($items)
+    {
+        $this->container['items'] = $items;
 
         return $this;
     }

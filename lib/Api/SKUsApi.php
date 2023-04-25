@@ -2696,7 +2696,7 @@ class SKUsApi
      *
      * Upserts a SKU
      *
-     * @param  string $id The SKU identifier. (required)
+     * @param  string $id The identifier of the SKU to update or create. If a SKU with this &#x60;id&#x60; exists, then Digital River uses the data in the request body to update the resource. Otherwise, Digital River uses that same data to create a new SKU resource and assigns it &#x60;id&#x60;. (required)
      * @param  \DigitalRiver\ApiSdk\Model\SkuUpsertRequest $sku_upsert_request sku_upsert_request (optional)
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
@@ -2714,7 +2714,7 @@ class SKUsApi
      *
      * Upserts a SKU
      *
-     * @param  string $id The SKU identifier. (required)
+     * @param  string $id The identifier of the SKU to update or create. If a SKU with this &#x60;id&#x60; exists, then Digital River uses the data in the request body to update the resource. Otherwise, Digital River uses that same data to create a new SKU resource and assigns it &#x60;id&#x60;. (required)
      * @param  \DigitalRiver\ApiSdk\Model\SkuUpsertRequest $sku_upsert_request (optional)
      *
      * @throws \DigitalRiver\ApiSdk\ApiException on non-2xx response
@@ -3063,7 +3063,7 @@ class SKUsApi
      *
      * Upserts a SKU
      *
-     * @param  string $id The SKU identifier. (required)
+     * @param  string $id The identifier of the SKU to update or create. If a SKU with this &#x60;id&#x60; exists, then Digital River uses the data in the request body to update the resource. Otherwise, Digital River uses that same data to create a new SKU resource and assigns it &#x60;id&#x60;. (required)
      * @param  \DigitalRiver\ApiSdk\Model\SkuUpsertRequest $sku_upsert_request (optional)
      *
      * @throws \InvalidArgumentException
@@ -3084,7 +3084,7 @@ class SKUsApi
      *
      * Upserts a SKU
      *
-     * @param  string $id The SKU identifier. (required)
+     * @param  string $id The identifier of the SKU to update or create. If a SKU with this &#x60;id&#x60; exists, then Digital River uses the data in the request body to update the resource. Otherwise, Digital River uses that same data to create a new SKU resource and assigns it &#x60;id&#x60;. (required)
      * @param  \DigitalRiver\ApiSdk\Model\SkuUpsertRequest $sku_upsert_request (optional)
      *
      * @throws \InvalidArgumentException
@@ -3132,7 +3132,7 @@ class SKUsApi
     /**
      * Create request for operation 'upsertSkus'
      *
-     * @param  string $id The SKU identifier. (required)
+     * @param  string $id The identifier of the SKU to update or create. If a SKU with this &#x60;id&#x60; exists, then Digital River uses the data in the request body to update the resource. Otherwise, Digital River uses that same data to create a new SKU resource and assigns it &#x60;id&#x60;. (required)
      * @param  \DigitalRiver\ApiSdk\Model\SkuUpsertRequest $sku_upsert_request (optional)
      *
      * @throws \InvalidArgumentException

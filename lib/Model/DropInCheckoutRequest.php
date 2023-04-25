@@ -57,13 +57,13 @@ class DropInCheckoutRequest implements ModelInterface, ArrayAccess
         'bill_to' => '\DigitalRiver\ApiSdk\Model\IntegrationAddress',
         'ship_from' => '\DigitalRiver\ApiSdk\Model\ShipFrom',
         'discount' => '\DigitalRiver\ApiSdk\Model\Discount',
-        'shipping_discount' => '\DigitalRiver\ApiSdk\Model\Discount',
         'browser_ip' => 'string',
         'application_id' => 'string',
         'locale' => 'string',
         'customer_type' => '\DigitalRiver\ApiSdk\Model\CustomerType',
         'charge_type' => '\DigitalRiver\ApiSdk\Model\ChargeType',
         'tax_identifiers' => '\DigitalRiver\ApiSdk\Model\CheckoutTaxIdentifierRequest[]',
+        'disclosures' => '\DigitalRiver\ApiSdk\Model\Disclosures',
         'style' => 'object',
         'options' => '\DigitalRiver\ApiSdk\Model\DropInOptionsRequest',
         'redirects' => '\DigitalRiver\ApiSdk\Model\Redirects',
@@ -87,13 +87,13 @@ class DropInCheckoutRequest implements ModelInterface, ArrayAccess
         'bill_to' => null,
         'ship_from' => null,
         'discount' => null,
-        'shipping_discount' => null,
         'browser_ip' => null,
         'application_id' => null,
         'locale' => null,
         'customer_type' => null,
         'charge_type' => null,
         'tax_identifiers' => null,
+        'disclosures' => null,
         'style' => null,
         'options' => null,
         'redirects' => null,
@@ -138,13 +138,13 @@ class DropInCheckoutRequest implements ModelInterface, ArrayAccess
         'bill_to' => 'billTo',
         'ship_from' => 'shipFrom',
         'discount' => 'discount',
-        'shipping_discount' => 'shippingDiscount',
         'browser_ip' => 'browserIp',
         'application_id' => 'applicationId',
         'locale' => 'locale',
         'customer_type' => 'customerType',
         'charge_type' => 'chargeType',
         'tax_identifiers' => 'taxIdentifiers',
+        'disclosures' => 'disclosures',
         'style' => 'style',
         'options' => 'options',
         'redirects' => 'redirects',
@@ -168,13 +168,13 @@ class DropInCheckoutRequest implements ModelInterface, ArrayAccess
         'bill_to' => 'setBillTo',
         'ship_from' => 'setShipFrom',
         'discount' => 'setDiscount',
-        'shipping_discount' => 'setShippingDiscount',
         'browser_ip' => 'setBrowserIp',
         'application_id' => 'setApplicationId',
         'locale' => 'setLocale',
         'customer_type' => 'setCustomerType',
         'charge_type' => 'setChargeType',
         'tax_identifiers' => 'setTaxIdentifiers',
+        'disclosures' => 'setDisclosures',
         'style' => 'setStyle',
         'options' => 'setOptions',
         'redirects' => 'setRedirects',
@@ -198,13 +198,13 @@ class DropInCheckoutRequest implements ModelInterface, ArrayAccess
         'bill_to' => 'getBillTo',
         'ship_from' => 'getShipFrom',
         'discount' => 'getDiscount',
-        'shipping_discount' => 'getShippingDiscount',
         'browser_ip' => 'getBrowserIp',
         'application_id' => 'getApplicationId',
         'locale' => 'getLocale',
         'customer_type' => 'getCustomerType',
         'charge_type' => 'getChargeType',
         'tax_identifiers' => 'getTaxIdentifiers',
+        'disclosures' => 'getDisclosures',
         'style' => 'getStyle',
         'options' => 'getOptions',
         'redirects' => 'getRedirects',
@@ -356,13 +356,13 @@ class DropInCheckoutRequest implements ModelInterface, ArrayAccess
         $this->container['bill_to'] = isset($data['bill_to']) ? $data['bill_to'] : null;
         $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
         $this->container['discount'] = isset($data['discount']) ? $data['discount'] : null;
-        $this->container['shipping_discount'] = isset($data['shipping_discount']) ? $data['shipping_discount'] : null;
         $this->container['browser_ip'] = isset($data['browser_ip']) ? $data['browser_ip'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['customer_type'] = isset($data['customer_type']) ? $data['customer_type'] : null;
         $this->container['charge_type'] = isset($data['charge_type']) ? $data['charge_type'] : null;
         $this->container['tax_identifiers'] = isset($data['tax_identifiers']) ? $data['tax_identifiers'] : null;
+        $this->container['disclosures'] = isset($data['disclosures']) ? $data['disclosures'] : null;
         $this->container['style'] = isset($data['style']) ? $data['style'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['redirects'] = isset($data['redirects']) ? $data['redirects'] : null;
@@ -676,30 +676,6 @@ class DropInCheckoutRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets shipping_discount
-     *
-     * @return \DigitalRiver\ApiSdk\Model\Discount|null
-     */
-    public function getShippingDiscount()
-    {
-        return $this->container['shipping_discount'];
-    }
-
-    /**
-     * Sets shipping_discount
-     *
-     * @param \DigitalRiver\ApiSdk\Model\Discount|null $shipping_discount shipping_discount
-     *
-     * @return $this
-     */
-    public function setShippingDiscount($shipping_discount)
-    {
-        $this->container['shipping_discount'] = $shipping_discount;
-
-        return $this;
-    }
-
-    /**
      * Gets browser_ip
      *
      * @return string|null
@@ -839,6 +815,30 @@ class DropInCheckoutRequest implements ModelInterface, ArrayAccess
     public function setTaxIdentifiers($tax_identifiers)
     {
         $this->container['tax_identifiers'] = $tax_identifiers;
+
+        return $this;
+    }
+
+    /**
+     * Gets disclosures
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Disclosures|null
+     */
+    public function getDisclosures()
+    {
+        return $this->container['disclosures'];
+    }
+
+    /**
+     * Sets disclosures
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Disclosures|null $disclosures disclosures
+     *
+     * @return $this
+     */
+    public function setDisclosures($disclosures)
+    {
+        $this->container['disclosures'] = $disclosures;
 
         return $this;
     }

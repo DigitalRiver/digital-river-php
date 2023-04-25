@@ -76,6 +76,7 @@ class Order implements ModelInterface, ArrayAccess
         'cancelled_amount' => 'double',
         'captured_amount' => 'double',
         'items' => '\DigitalRiver\ApiSdk\Model\OrderItem[]',
+        'billing_optimization' => '\DigitalRiver\ApiSdk\Model\BillingOptimization',
         'invoice_pd_fs' => '\DigitalRiver\ApiSdk\Model\File[]',
         'credit_memo_pd_fs' => '\DigitalRiver\ApiSdk\Model\File[]',
         'request_to_be_forgotten' => 'bool',
@@ -86,6 +87,7 @@ class Order implements ModelInterface, ArrayAccess
         'fraud_state_transitions' => '\DigitalRiver\ApiSdk\Model\FraudStateTransitions',
         'cancel_reason' => 'string',
         'payment' => '\DigitalRiver\ApiSdk\Model\Payments',
+        'disclosures' => '\DigitalRiver\ApiSdk\Model\Disclosures',
         'live_mode' => 'bool',
         'metadata' => 'map[string,AnyType]',
         'selling_entity' => '\DigitalRiver\ApiSdk\Model\SellingEntity',
@@ -131,6 +133,7 @@ class Order implements ModelInterface, ArrayAccess
         'cancelled_amount' => 'double',
         'captured_amount' => 'double',
         'items' => null,
+        'billing_optimization' => null,
         'invoice_pd_fs' => null,
         'credit_memo_pd_fs' => null,
         'request_to_be_forgotten' => null,
@@ -141,6 +144,7 @@ class Order implements ModelInterface, ArrayAccess
         'fraud_state_transitions' => null,
         'cancel_reason' => null,
         'payment' => null,
+        'disclosures' => null,
         'live_mode' => null,
         'metadata' => null,
         'selling_entity' => null,
@@ -207,6 +211,7 @@ class Order implements ModelInterface, ArrayAccess
         'cancelled_amount' => 'cancelledAmount',
         'captured_amount' => 'capturedAmount',
         'items' => 'items',
+        'billing_optimization' => 'billingOptimization',
         'invoice_pd_fs' => 'invoicePDFs',
         'credit_memo_pd_fs' => 'creditMemoPDFs',
         'request_to_be_forgotten' => 'requestToBeForgotten',
@@ -217,6 +222,7 @@ class Order implements ModelInterface, ArrayAccess
         'fraud_state_transitions' => 'fraudStateTransitions',
         'cancel_reason' => 'cancelReason',
         'payment' => 'payment',
+        'disclosures' => 'disclosures',
         'live_mode' => 'liveMode',
         'metadata' => 'metadata',
         'selling_entity' => 'sellingEntity',
@@ -262,6 +268,7 @@ class Order implements ModelInterface, ArrayAccess
         'cancelled_amount' => 'setCancelledAmount',
         'captured_amount' => 'setCapturedAmount',
         'items' => 'setItems',
+        'billing_optimization' => 'setBillingOptimization',
         'invoice_pd_fs' => 'setInvoicePdFs',
         'credit_memo_pd_fs' => 'setCreditMemoPdFs',
         'request_to_be_forgotten' => 'setRequestToBeForgotten',
@@ -272,6 +279,7 @@ class Order implements ModelInterface, ArrayAccess
         'fraud_state_transitions' => 'setFraudStateTransitions',
         'cancel_reason' => 'setCancelReason',
         'payment' => 'setPayment',
+        'disclosures' => 'setDisclosures',
         'live_mode' => 'setLiveMode',
         'metadata' => 'setMetadata',
         'selling_entity' => 'setSellingEntity',
@@ -317,6 +325,7 @@ class Order implements ModelInterface, ArrayAccess
         'cancelled_amount' => 'getCancelledAmount',
         'captured_amount' => 'getCapturedAmount',
         'items' => 'getItems',
+        'billing_optimization' => 'getBillingOptimization',
         'invoice_pd_fs' => 'getInvoicePdFs',
         'credit_memo_pd_fs' => 'getCreditMemoPdFs',
         'request_to_be_forgotten' => 'getRequestToBeForgotten',
@@ -327,6 +336,7 @@ class Order implements ModelInterface, ArrayAccess
         'fraud_state_transitions' => 'getFraudStateTransitions',
         'cancel_reason' => 'getCancelReason',
         'payment' => 'getPayment',
+        'disclosures' => 'getDisclosures',
         'live_mode' => 'getLiveMode',
         'metadata' => 'getMetadata',
         'selling_entity' => 'getSellingEntity',
@@ -478,6 +488,7 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['cancelled_amount'] = isset($data['cancelled_amount']) ? $data['cancelled_amount'] : null;
         $this->container['captured_amount'] = isset($data['captured_amount']) ? $data['captured_amount'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['billing_optimization'] = isset($data['billing_optimization']) ? $data['billing_optimization'] : null;
         $this->container['invoice_pd_fs'] = isset($data['invoice_pd_fs']) ? $data['invoice_pd_fs'] : null;
         $this->container['credit_memo_pd_fs'] = isset($data['credit_memo_pd_fs']) ? $data['credit_memo_pd_fs'] : null;
         $this->container['request_to_be_forgotten'] = isset($data['request_to_be_forgotten']) ? $data['request_to_be_forgotten'] : false;
@@ -488,6 +499,7 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['fraud_state_transitions'] = isset($data['fraud_state_transitions']) ? $data['fraud_state_transitions'] : null;
         $this->container['cancel_reason'] = isset($data['cancel_reason']) ? $data['cancel_reason'] : null;
         $this->container['payment'] = isset($data['payment']) ? $data['payment'] : null;
+        $this->container['disclosures'] = isset($data['disclosures']) ? $data['disclosures'] : null;
         $this->container['live_mode'] = isset($data['live_mode']) ? $data['live_mode'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['selling_entity'] = isset($data['selling_entity']) ? $data['selling_entity'] : null;
@@ -1264,6 +1276,30 @@ class Order implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets billing_optimization
+     *
+     * @return \DigitalRiver\ApiSdk\Model\BillingOptimization|null
+     */
+    public function getBillingOptimization()
+    {
+        return $this->container['billing_optimization'];
+    }
+
+    /**
+     * Sets billing_optimization
+     *
+     * @param \DigitalRiver\ApiSdk\Model\BillingOptimization|null $billing_optimization billing_optimization
+     *
+     * @return $this
+     */
+    public function setBillingOptimization($billing_optimization)
+    {
+        $this->container['billing_optimization'] = $billing_optimization;
+
+        return $this;
+    }
+
+    /**
      * Gets invoice_pd_fs
      *
      * @return \DigitalRiver\ApiSdk\Model\File[]|null
@@ -1521,6 +1557,30 @@ class Order implements ModelInterface, ArrayAccess
     public function setPayment($payment)
     {
         $this->container['payment'] = $payment;
+
+        return $this;
+    }
+
+    /**
+     * Gets disclosures
+     *
+     * @return \DigitalRiver\ApiSdk\Model\Disclosures|null
+     */
+    public function getDisclosures()
+    {
+        return $this->container['disclosures'];
+    }
+
+    /**
+     * Sets disclosures
+     *
+     * @param \DigitalRiver\ApiSdk\Model\Disclosures|null $disclosures disclosures
+     *
+     * @return $this
+     */
+    public function setDisclosures($disclosures)
+    {
+        $this->container['disclosures'] = $disclosures;
 
         return $this;
     }

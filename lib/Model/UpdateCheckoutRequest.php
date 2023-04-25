@@ -65,6 +65,7 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'purchase_location' => '\DigitalRiver\ApiSdk\Model\PurchaseLocation',
         'shipping_choice' => '\DigitalRiver\ApiSdk\Model\ShippingRequest',
         'items' => '\DigitalRiver\ApiSdk\Model\SkuUpdateRequestItem',
+        'billing_optimization' => '\DigitalRiver\ApiSdk\Model\BillingOptimization',
         'upstream_id' => 'string',
         'metadata' => 'map[string,AnyType]'
     ];
@@ -94,6 +95,7 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'purchase_location' => null,
         'shipping_choice' => null,
         'items' => null,
+        'billing_optimization' => null,
         'upstream_id' => null,
         'metadata' => null
     ];
@@ -144,6 +146,7 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'purchase_location' => 'purchaseLocation',
         'shipping_choice' => 'shippingChoice',
         'items' => 'items',
+        'billing_optimization' => 'billingOptimization',
         'upstream_id' => 'upstreamId',
         'metadata' => 'metadata'
     ];
@@ -173,6 +176,7 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'purchase_location' => 'setPurchaseLocation',
         'shipping_choice' => 'setShippingChoice',
         'items' => 'setItems',
+        'billing_optimization' => 'setBillingOptimization',
         'upstream_id' => 'setUpstreamId',
         'metadata' => 'setMetadata'
     ];
@@ -202,6 +206,7 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         'purchase_location' => 'getPurchaseLocation',
         'shipping_choice' => 'getShippingChoice',
         'items' => 'getItems',
+        'billing_optimization' => 'getBillingOptimization',
         'upstream_id' => 'getUpstreamId',
         'metadata' => 'getMetadata'
     ];
@@ -285,6 +290,7 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
         $this->container['purchase_location'] = isset($data['purchase_location']) ? $data['purchase_location'] : null;
         $this->container['shipping_choice'] = isset($data['shipping_choice']) ? $data['shipping_choice'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['billing_optimization'] = isset($data['billing_optimization']) ? $data['billing_optimization'] : null;
         $this->container['upstream_id'] = isset($data['upstream_id']) ? $data['upstream_id'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
     }
@@ -765,6 +771,30 @@ class UpdateCheckoutRequest implements ModelInterface, ArrayAccess
     public function setItems($items)
     {
         $this->container['items'] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_optimization
+     *
+     * @return \DigitalRiver\ApiSdk\Model\BillingOptimization|null
+     */
+    public function getBillingOptimization()
+    {
+        return $this->container['billing_optimization'];
+    }
+
+    /**
+     * Sets billing_optimization
+     *
+     * @param \DigitalRiver\ApiSdk\Model\BillingOptimization|null $billing_optimization billing_optimization
+     *
+     * @return $this
+     */
+    public function setBillingOptimization($billing_optimization)
+    {
+        $this->container['billing_optimization'] = $billing_optimization;
 
         return $this;
     }

@@ -202,6 +202,12 @@ class IntegrationStoreCreditRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
+        if ($this->container['upstream_id'] === null) {
+            $invalidProperties[] = "'upstream_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -220,7 +226,7 @@ class IntegrationStoreCreditRequest implements ModelInterface, ArrayAccess
     /**
      * Gets amount
      *
-     * @return double|null
+     * @return double
      */
     public function getAmount()
     {
@@ -230,7 +236,7 @@ class IntegrationStoreCreditRequest implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param double|null $amount The store credit amount.
+     * @param double $amount The store credit amount.
      *
      * @return $this
      */
@@ -268,7 +274,7 @@ class IntegrationStoreCreditRequest implements ModelInterface, ArrayAccess
     /**
      * Gets upstream_id
      *
-     * @return string|null
+     * @return string
      */
     public function getUpstreamId()
     {
@@ -278,7 +284,7 @@ class IntegrationStoreCreditRequest implements ModelInterface, ArrayAccess
     /**
      * Sets upstream_id
      *
-     * @param string|null $upstream_id The upstream store credit identifier.
+     * @param string $upstream_id The upstream store credit identifier.
      *
      * @return $this
      */

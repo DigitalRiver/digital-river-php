@@ -47,6 +47,7 @@ class GlobalFulfillmentCancellationItemRequest implements ModelInterface, ArrayA
       */
     protected static $openAPITypes = [
         'fulfillment_order_item_id' => 'string',
+        'fulfillment_order_item_upstream_id' => 'string',
         'quantity' => 'int'
     ];
 
@@ -57,6 +58,7 @@ class GlobalFulfillmentCancellationItemRequest implements ModelInterface, ArrayA
       */
     protected static $openAPIFormats = [
         'fulfillment_order_item_id' => null,
+        'fulfillment_order_item_upstream_id' => null,
         'quantity' => null
     ];
 
@@ -88,6 +90,7 @@ class GlobalFulfillmentCancellationItemRequest implements ModelInterface, ArrayA
      */
     protected static $attributeMap = [
         'fulfillment_order_item_id' => 'fulfillmentOrderItemId',
+        'fulfillment_order_item_upstream_id' => 'fulfillmentOrderItemUpstreamId',
         'quantity' => 'quantity'
     ];
 
@@ -98,6 +101,7 @@ class GlobalFulfillmentCancellationItemRequest implements ModelInterface, ArrayA
      */
     protected static $setters = [
         'fulfillment_order_item_id' => 'setFulfillmentOrderItemId',
+        'fulfillment_order_item_upstream_id' => 'setFulfillmentOrderItemUpstreamId',
         'quantity' => 'setQuantity'
     ];
 
@@ -108,6 +112,7 @@ class GlobalFulfillmentCancellationItemRequest implements ModelInterface, ArrayA
      */
     protected static $getters = [
         'fulfillment_order_item_id' => 'getFulfillmentOrderItemId',
+        'fulfillment_order_item_upstream_id' => 'getFulfillmentOrderItemUpstreamId',
         'quantity' => 'getQuantity'
     ];
 
@@ -172,6 +177,7 @@ class GlobalFulfillmentCancellationItemRequest implements ModelInterface, ArrayA
     public function __construct(array $data = null)
     {
         $this->container['fulfillment_order_item_id'] = isset($data['fulfillment_order_item_id']) ? $data['fulfillment_order_item_id'] : null;
+        $this->container['fulfillment_order_item_upstream_id'] = isset($data['fulfillment_order_item_upstream_id']) ? $data['fulfillment_order_item_upstream_id'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
     }
 
@@ -225,6 +231,30 @@ class GlobalFulfillmentCancellationItemRequest implements ModelInterface, ArrayA
     public function setFulfillmentOrderItemId($fulfillment_order_item_id)
     {
         $this->container['fulfillment_order_item_id'] = $fulfillment_order_item_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets fulfillment_order_item_upstream_id
+     *
+     * @return string|null
+     */
+    public function getFulfillmentOrderItemUpstreamId()
+    {
+        return $this->container['fulfillment_order_item_upstream_id'];
+    }
+
+    /**
+     * Sets fulfillment_order_item_upstream_id
+     *
+     * @param string|null $fulfillment_order_item_upstream_id The identifier of the item in the upstream fulfillment order
+     *
+     * @return $this
+     */
+    public function setFulfillmentOrderItemUpstreamId($fulfillment_order_item_upstream_id)
+    {
+        $this->container['fulfillment_order_item_upstream_id'] = $fulfillment_order_item_upstream_id;
 
         return $this;
     }

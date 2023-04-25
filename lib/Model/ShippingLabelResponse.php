@@ -48,7 +48,7 @@ class ShippingLabelResponse implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'order_id' => 'string',
-        'labels' => '\DigitalRiver\ApiSdk\Model\LabelResponse[]',
+        'shipments' => '\DigitalRiver\ApiSdk\Model\Shipments[]',
         'return_to' => '\DigitalRiver\ApiSdk\Model\Shipping'
     ];
 
@@ -60,7 +60,7 @@ class ShippingLabelResponse implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'order_id' => null,
-        'labels' => null,
+        'shipments' => null,
         'return_to' => null
     ];
 
@@ -93,7 +93,7 @@ class ShippingLabelResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'order_id' => 'orderId',
-        'labels' => 'labels',
+        'shipments' => 'shipments',
         'return_to' => 'returnTo'
     ];
 
@@ -105,7 +105,7 @@ class ShippingLabelResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'order_id' => 'setOrderId',
-        'labels' => 'setLabels',
+        'shipments' => 'setShipments',
         'return_to' => 'setReturnTo'
     ];
 
@@ -117,7 +117,7 @@ class ShippingLabelResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'order_id' => 'getOrderId',
-        'labels' => 'getLabels',
+        'shipments' => 'getShipments',
         'return_to' => 'getReturnTo'
     ];
 
@@ -183,7 +183,7 @@ class ShippingLabelResponse implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
-        $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
+        $this->container['shipments'] = isset($data['shipments']) ? $data['shipments'] : null;
         $this->container['return_to'] = isset($data['return_to']) ? $data['return_to'] : null;
     }
 
@@ -260,25 +260,25 @@ class ShippingLabelResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets labels
+     * Gets shipments
      *
-     * @return \DigitalRiver\ApiSdk\Model\LabelResponse[]|null
+     * @return \DigitalRiver\ApiSdk\Model\Shipments[]|null
      */
-    public function getLabels()
+    public function getShipments()
     {
-        return $this->container['labels'];
+        return $this->container['shipments'];
     }
 
     /**
-     * Sets labels
+     * Sets shipments
      *
-     * @param \DigitalRiver\ApiSdk\Model\LabelResponse[]|null $labels labels
+     * @param \DigitalRiver\ApiSdk\Model\Shipments[]|null $shipments shipments
      *
      * @return $this
      */
-    public function setLabels($labels)
+    public function setShipments($shipments)
     {
-        $this->container['labels'] = $labels;
+        $this->container['shipments'] = $shipments;
 
         return $this;
     }

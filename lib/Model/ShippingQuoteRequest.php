@@ -49,8 +49,7 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
         'currency' => 'string',
         'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
         'ship_from' => '\DigitalRiver\ApiSdk\Model\GLShipFrom',
-        'items' => '\DigitalRiver\ApiSdk\Model\ProductItemRequest[]',
-        'packages' => '\DigitalRiver\ApiSdk\Model\PackageRequest[]'
+        'packages' => '\DigitalRiver\ApiSdk\Model\ShippingQuotePackages[]'
     ];
 
     /**
@@ -62,7 +61,6 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
         'currency' => null,
         'ship_to' => null,
         'ship_from' => null,
-        'items' => null,
         'packages' => null
     ];
 
@@ -96,7 +94,6 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
         'currency' => 'currency',
         'ship_to' => 'shipTo',
         'ship_from' => 'shipFrom',
-        'items' => 'items',
         'packages' => 'packages'
     ];
 
@@ -109,7 +106,6 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
         'currency' => 'setCurrency',
         'ship_to' => 'setShipTo',
         'ship_from' => 'setShipFrom',
-        'items' => 'setItems',
         'packages' => 'setPackages'
     ];
 
@@ -122,7 +118,6 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
         'currency' => 'getCurrency',
         'ship_to' => 'getShipTo',
         'ship_from' => 'getShipFrom',
-        'items' => 'getItems',
         'packages' => 'getPackages'
     ];
 
@@ -189,7 +184,6 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
         $this->container['ship_from'] = isset($data['ship_from']) ? $data['ship_from'] : null;
-        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['packages'] = isset($data['packages']) ? $data['packages'] : null;
     }
 
@@ -208,8 +202,8 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
         if ($this->container['ship_to'] === null) {
             $invalidProperties[] = "'ship_to' can't be null";
         }
-        if ($this->container['items'] === null) {
-            $invalidProperties[] = "'items' can't be null";
+        if ($this->container['packages'] === null) {
+            $invalidProperties[] = "'packages' can't be null";
         }
         return $invalidProperties;
     }
@@ -299,33 +293,9 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets items
-     *
-     * @return \DigitalRiver\ApiSdk\Model\ProductItemRequest[]
-     */
-    public function getItems()
-    {
-        return $this->container['items'];
-    }
-
-    /**
-     * Sets items
-     *
-     * @param \DigitalRiver\ApiSdk\Model\ProductItemRequest[] $items items
-     *
-     * @return $this
-     */
-    public function setItems($items)
-    {
-        $this->container['items'] = $items;
-
-        return $this;
-    }
-
-    /**
      * Gets packages
      *
-     * @return \DigitalRiver\ApiSdk\Model\PackageRequest[]|null
+     * @return \DigitalRiver\ApiSdk\Model\ShippingQuotePackages[]
      */
     public function getPackages()
     {
@@ -335,7 +305,7 @@ class ShippingQuoteRequest implements ModelInterface, ArrayAccess
     /**
      * Sets packages
      *
-     * @param \DigitalRiver\ApiSdk\Model\PackageRequest[]|null $packages packages
+     * @param \DigitalRiver\ApiSdk\Model\ShippingQuotePackages[] $packages packages
      *
      * @return $this
      */

@@ -49,7 +49,8 @@ class LabelResponse implements ModelInterface, ArrayAccess
         'height' => 'int',
         'width' => 'int',
         'format' => 'string',
-        'file' => 'string'
+        'file' => 'string',
+        'file_url' => 'string'
     ];
 
     /**
@@ -61,7 +62,8 @@ class LabelResponse implements ModelInterface, ArrayAccess
         'height' => null,
         'width' => null,
         'format' => null,
-        'file' => null
+        'file' => null,
+        'file_url' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class LabelResponse implements ModelInterface, ArrayAccess
         'height' => 'height',
         'width' => 'width',
         'format' => 'format',
-        'file' => 'file'
+        'file' => 'file',
+        'file_url' => 'fileUrl'
     ];
 
     /**
@@ -106,7 +109,8 @@ class LabelResponse implements ModelInterface, ArrayAccess
         'height' => 'setHeight',
         'width' => 'setWidth',
         'format' => 'setFormat',
-        'file' => 'setFile'
+        'file' => 'setFile',
+        'file_url' => 'setFileUrl'
     ];
 
     /**
@@ -118,7 +122,8 @@ class LabelResponse implements ModelInterface, ArrayAccess
         'height' => 'getHeight',
         'width' => 'getWidth',
         'format' => 'getFormat',
-        'file' => 'getFile'
+        'file' => 'getFile',
+        'file_url' => 'getFileUrl'
     ];
 
     /**
@@ -163,6 +168,9 @@ class LabelResponse implements ModelInterface, ArrayAccess
     }
 
     const FORMAT_PDF = 'PDF';
+    const FORMAT_PNG = 'PNG';
+    const FORMAT_JPG = 'JPG';
+    const FORMAT_ZPL = 'ZPL';
     
 
     
@@ -175,6 +183,9 @@ class LabelResponse implements ModelInterface, ArrayAccess
     {
        $allowable = [
             self::FORMAT_PDF,
+            self::FORMAT_PNG,
+            self::FORMAT_JPG,
+            self::FORMAT_ZPL,
         ];
 
         $allowableAllCase = array_unique(array_merge(array_map('strtolower', $allowable), $allowable));
@@ -201,6 +212,7 @@ class LabelResponse implements ModelInterface, ArrayAccess
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         $this->container['file'] = isset($data['file']) ? $data['file'] : null;
+        $this->container['file_url'] = isset($data['file_url']) ? $data['file_url'] : null;
     }
 
     /**
@@ -337,6 +349,30 @@ class LabelResponse implements ModelInterface, ArrayAccess
     public function setFile($file)
     {
         $this->container['file'] = $file;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_url
+     *
+     * @return string|null
+     */
+    public function getFileUrl()
+    {
+        return $this->container['file_url'];
+    }
+
+    /**
+     * Sets file_url
+     *
+     * @param string|null $file_url The URL of the shipping label file.
+     *
+     * @return $this
+     */
+    public function setFileUrl($file_url)
+    {
+        $this->container['file_url'] = $file_url;
 
         return $this;
     }

@@ -50,7 +50,8 @@ class ShippingMethodQuoteRequest implements ModelInterface, ArrayAccess
         'session_upstream_id' => 'string',
         'currency' => 'string',
         'ship_to' => '\DigitalRiver\ApiSdk\Model\Shipping',
-        'items' => '\DigitalRiver\ApiSdk\Model\ShippingMethodQuoteItemRequest[]'
+        'items' => '\DigitalRiver\ApiSdk\Model\ShippingMethodQuoteItemRequest[]',
+        'shipping_methods' => '\DigitalRiver\ApiSdk\Model\DropInShippingQuote[]'
     ];
 
     /**
@@ -63,7 +64,8 @@ class ShippingMethodQuoteRequest implements ModelInterface, ArrayAccess
         'session_upstream_id' => null,
         'currency' => null,
         'ship_to' => null,
-        'items' => null
+        'items' => null,
+        'shipping_methods' => null
     ];
 
     /**
@@ -97,7 +99,8 @@ class ShippingMethodQuoteRequest implements ModelInterface, ArrayAccess
         'session_upstream_id' => 'sessionUpstreamId',
         'currency' => 'currency',
         'ship_to' => 'shipTo',
-        'items' => 'items'
+        'items' => 'items',
+        'shipping_methods' => 'shippingMethods'
     ];
 
     /**
@@ -110,7 +113,8 @@ class ShippingMethodQuoteRequest implements ModelInterface, ArrayAccess
         'session_upstream_id' => 'setSessionUpstreamId',
         'currency' => 'setCurrency',
         'ship_to' => 'setShipTo',
-        'items' => 'setItems'
+        'items' => 'setItems',
+        'shipping_methods' => 'setShippingMethods'
     ];
 
     /**
@@ -123,7 +127,8 @@ class ShippingMethodQuoteRequest implements ModelInterface, ArrayAccess
         'session_upstream_id' => 'getSessionUpstreamId',
         'currency' => 'getCurrency',
         'ship_to' => 'getShipTo',
-        'items' => 'getItems'
+        'items' => 'getItems',
+        'shipping_methods' => 'getShippingMethods'
     ];
 
     /**
@@ -191,6 +196,7 @@ class ShippingMethodQuoteRequest implements ModelInterface, ArrayAccess
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['shipping_methods'] = isset($data['shipping_methods']) ? $data['shipping_methods'] : null;
     }
 
     /**
@@ -345,6 +351,30 @@ class ShippingMethodQuoteRequest implements ModelInterface, ArrayAccess
     public function setItems($items)
     {
         $this->container['items'] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_methods
+     *
+     * @return \DigitalRiver\ApiSdk\Model\DropInShippingQuote[]|null
+     */
+    public function getShippingMethods()
+    {
+        return $this->container['shipping_methods'];
+    }
+
+    /**
+     * Sets shipping_methods
+     *
+     * @param \DigitalRiver\ApiSdk\Model\DropInShippingQuote[]|null $shipping_methods shipping_methods
+     *
+     * @return $this
+     */
+    public function setShippingMethods($shipping_methods)
+    {
+        $this->container['shipping_methods'] = $shipping_methods;
 
         return $this;
     }

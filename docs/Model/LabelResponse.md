@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **width** | **int** | The label’s width in inches. | [optional] 
 **format** | **string** | The format of the label&#39;s data file. | [optional] 
 **file** | **string** | The shipping label data. | [optional] 
+**file_url** | **string** | The URL of the shipping label file. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

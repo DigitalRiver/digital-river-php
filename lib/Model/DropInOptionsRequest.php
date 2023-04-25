@@ -48,7 +48,7 @@ class DropInOptionsRequest implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'addresses' => '\DigitalRiver\ApiSdk\Model\Shipping[]',
         'shipping_methods' => '\DigitalRiver\ApiSdk\Model\IntegrationShippingMethod[]',
-        'store_credits' => '\DigitalRiver\ApiSdk\Model\IntegrationStoreCredit[]'
+        'store_credits' => '\DigitalRiver\ApiSdk\Model\IntegrationStoreCreditRequest[]'
     ];
 
     /**
@@ -256,7 +256,7 @@ class DropInOptionsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets store_credits
      *
-     * @return \DigitalRiver\ApiSdk\Model\IntegrationStoreCredit[]|null
+     * @return \DigitalRiver\ApiSdk\Model\IntegrationStoreCreditRequest[]|null
      */
     public function getStoreCredits()
     {
@@ -266,7 +266,7 @@ class DropInOptionsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets store_credits
      *
-     * @param \DigitalRiver\ApiSdk\Model\IntegrationStoreCredit[]|null $store_credits store_credits
+     * @param \DigitalRiver\ApiSdk\Model\IntegrationStoreCreditRequest[]|null $store_credits store_credits
      *
      * @return $this
      */
